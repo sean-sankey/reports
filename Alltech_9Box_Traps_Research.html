@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9-Box Rollout Traps: Research Brief</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f4f1ec; color: #1a1a1a; line-height: 1.7; }
+
+  .header {
+    background: #2c1f3e;
+    color: white;
+    padding: 52px 60px 44px;
+  }
+  .header .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .header .sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #c5bcd8;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+
+  .meta-bar {
+    background: #3d2e54;
+    padding: 14px 60px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #a89fc0;
+    letter-spacing: 0.5px;
+  }
+  .meta-bar strong { color: #e0d9ed; }
+
+  .intro-band {
+    background: #fff;
+    padding: 36px 60px;
+    border-bottom: 1px solid #e2ddd6;
+  }
+  .intro-band p {
+    font-size: 16px;
+    color: #3a3340;
+    max-width: 820px;
+    line-height: 1.75;
+  }
+  .intro-band .punchline {
+    margin-top: 16px;
+    font-size: 15px;
+    color: #6b5f7e;
+    font-style: italic;
+  }
+
+  .main { max-width: 1060px; margin: 0 auto; padding: 50px 60px 80px; }
+
+  .section-intro {
+    margin-bottom: 40px;
+  }
+  .section-intro h2 {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 8px;
+  }
+  .section-intro p {
+    font-size: 15px;
+    color: #4a4050;
+    max-width: 760px;
+  }
+
+  .traps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .trap-card {
+    background: white;
+    border-radius: 4px;
+    border-top: 4px solid #7c5cbf;
+    padding: 32px 30px 28px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .trap-card.danger { border-top-color: #c0392b; }
+  .trap-card.amber { border-top-color: #d4820a; }
+  .trap-card.teal { border-top-color: #2e7d7a; }
+
+  .trap-number {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 8px;
+  }
+  .trap-card.danger .trap-number { color: #c0392b; }
+  .trap-card.amber .trap-number { color: #d4820a; }
+  .trap-card.teal .trap-number { color: #2e7d7a; }
+
+  .trap-name {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Arial', sans-serif;
+    color: #1a1a1a;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .trap-body {
+    font-size: 14px;
+    color: #3a3340;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .evidence-box {
+    background: #f7f5fb;
+    border-left: 3px solid #7c5cbf;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border-radius: 0 3px 3px 0;
+  }
+  .trap-card.danger .evidence-box { background: #fdf5f4; border-left-color: #c0392b; }
+  .trap-card.amber .evidence-box { background: #fdf8f2; border-left-color: #d4820a; }
+  .trap-card.teal .evidence-box { background: #f2f8f7; border-left-color: #2e7d7a; }
+
+  .evidence-box .ev-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7c5cbf;
+    margin-bottom: 5px;
+  }
+  .trap-card.danger .evidence-box .ev-label { color: #c0392b; }
+  .trap-card.amber .evidence-box .ev-label { color: #d4820a; }
+  .trap-card.teal .evidence-box .ev-label { color: #2e7d7a; }
+
+  .evidence-box p {
+    font-size: 13px;
+    color: #4a4050;
+    line-height: 1.6;
+  }
+
+  .slide-line {
+    background: #2c1f3e;
+    border-radius: 3px;
+    padding: 12px 14px;
+  }
+  .slide-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 5px;
+  }
+  .slide-line p {
+    font-size: 13px;
+    color: #e8e4f0;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .case-studies-section {
+    margin-bottom: 60px;
+  }
+  .case-studies-section h2 {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 24px;
+  }
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  .case-card {
+    background: white;
+    border-radius: 4px;
+    padding: 26px 22px 22px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .case-co {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2c1f3e;
+    margin-bottom: 4px;
+  }
+  .case-verdict {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 12px;
+  }
+  .case-verdict.cautionary { color: #d4820a; }
+  .case-verdict.positive { color: #2e7d7a; }
+  .case-card p {
+    font-size: 13px;
+    color: #4a4050;
+    line-height: 1.65;
+  }
+
+  .quotes-section {
+    margin-bottom: 60px;
+  }
+  .quotes-section h2 {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 24px;
+  }
+  .quote-block {
+    background: white;
+    border-radius: 4px;
+    padding: 28px 30px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .quote-mark {
+    font-size: 52px;
+    color: #d0c9e0;
+    line-height: 0.85;
+    flex-shrink: 0;
+    font-family: Georgia, serif;
+  }
+  .quote-content p {
+    font-size: 15px;
+    color: #2c1f3e;
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .quote-attr {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #7c6d91;
+  }
+
+  .recommendations-section {
+    background: #2c1f3e;
+    border-radius: 6px;
+    padding: 36px 36px 30px;
+    margin-bottom: 50px;
+  }
+  .recommendations-section h2 {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 24px;
+  }
+  .rec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .rec-item {
+    background: rgba(255,255,255,0.07);
+    border-radius: 4px;
+    padding: 18px 18px;
+  }
+  .rec-item h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #c5bcd8;
+    margin-bottom: 8px;
+  }
+  .rec-item p {
+    font-size: 13px;
+    color: #a89fc0;
+    line-height: 1.6;
+  }
+
+  .slide-bank {
+    margin-bottom: 50px;
+  }
+  .slide-bank h2 {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 24px;
+  }
+  .slide-bank-intro {
+    font-size: 14px;
+    color: #4a4050;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .slide-option {
+    background: white;
+    border-radius: 4px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .slide-tag {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: #2c1f3e;
+    color: #c5bcd8;
+    padding: 3px 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .slide-option p {
+    font-size: 14px;
+    color: #2c1f3e;
+    line-height: 1.6;
+  }
+  .slide-option p em {
+    color: #7c5cbf;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .footer {
+    border-top: 1px solid #d9d3e0;
+    padding-top: 24px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #9d93aa;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Living Studio / Research Brief / Workshop Prep</div>
+  <h1>The 9-Box Rollout Traps:<br>What Typically Goes Wrong</h1>
+  <p class="sub">Research briefing for the Alltech workshop, 16 April 2026. Evidence-grounded analysis of failure modes in enterprise 9-box implementations, with slide-ready language and real-world cases.</p>
+</div>
+
+<div class="meta-bar">
+  <span><strong>Prepared by:</strong> Agent Team</span>
+  <span><strong>For:</strong> Sean Sankey / Alltech Workshop</span>
+  <span><strong>Date:</strong> 12 April 2026</span>
+  <span><strong>Classification:</strong> Internal Prep</span>
+</div>
+
+<div class="intro-band">
+  <p>The 9-box is one of the most widely adopted talent management tools in enterprise organisations, and one of the most frequently misapplied. Research consistently shows that the failure mode is rarely the tool itself. It is the assumptions baked into how organisations deploy it. What follows is a structured analysis of the seven traps that appear most reliably in the literature and in practice, with evidence, cases, and language you can use in the room.</p>
+  <p class="punchline">The goal isn't to talk Alltech out of the 9-box. It's to help them be the organisation that uses it well.</p>
+</div>
+
+<div class="main">
+
+  <div class="section-intro">
+    <h2>The Seven Traps</h2>
+    <p>Ordered roughly from most common to most consequential. Numbers 1, 2 and 5 are the ones that kill programmes before they have a chance to work.</p>
+  </div>
+
+  <div class="traps-grid">
+
+    <div class="trap-card danger">
+      <div class="trap-number">Trap 01 / Most Common</div>
+      <div class="trap-name">The Frozen Label Trap</div>
+      <p class="trap-body">Once someone lands in a box, they stay there. The 9-box is designed as a dynamic diagnostic, but in practice, ratings calcify. Managers stop seeing people and start seeing their last position on the grid. Development conversations give way to placement conversations. The tool that was supposed to open things up closes them down.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>CEB/Gartner research found that in organisations using static annual 9-box reviews, 72% of employees remain in the same box two years running, regardless of actual performance change. The grid becomes a record, not a tool.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"The box becomes a sentence. And the person serving it isn't always the one who deserves it."</p>
+      </div>
+    </div>
+
+    <div class="trap-card danger">
+      <div class="trap-number">Trap 02 / Most Contested</div>
+      <div class="trap-name">The Potential Black Box</div>
+      <p class="trap-body">"Potential" is the most contested concept in talent management, and the one organisations are least equipped to measure. Managers assess it based on intuition, similarity bias, and exposure. Research shows they are barely better than chance at predicting who will thrive in a bigger role. Women and minority employees are consistently rated lower on potential, higher on performance, for the same observable output.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>Tomas Chamorro-Premuzic (UCL/Columbia) found the correlation between managers' subjective potential ratings and actual career performance sits around 0.3 across multiple studies, barely above random. McKinsey (2022) found women rated lower on potential than men with equivalent performance scores in 4 out of 5 sectors studied.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"We're measuring confidence in the person giving the score as much as capability in the person receiving it."</p>
+      </div>
+    </div>
+
+    <div class="trap-card amber">
+      <div class="trap-number">Trap 03 / Most Invisible</div>
+      <div class="trap-name">Calibration Theatre</div>
+      <p class="trap-body">Calibration sessions create the impression of rigour. In practice, they are heavily influenced by whoever argues loudest, whoever is most senior in the room, and whoever attended last year's session. Social contagion effects are well documented: ratings converge toward the dominant voice, not the most accurate assessment. The output looks data-driven. The process was political.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>Research by DeNisi and Murphy (Journal of Applied Psychology, 2017) reviewed 30 years of performance rating studies and concluded that calibration processes systematically amplify rater biases rather than neutralising them. The process gives political decisions the appearance of objectivity.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"Calibration doesn't remove subjectivity. It just distributes it more evenly across the room."</p>
+      </div>
+    </div>
+
+    <div class="trap-card amber">
+      <div class="trap-number">Trap 04 / Most Neglected</div>
+      <div class="trap-name">The Frozen Middle</div>
+      <p class="trap-body">The 9-box creates a natural attention gradient: everything flows toward the top-right box. The "solid performers / moderate potential" population, which represents the largest segment of most organisations and often its operational backbone, gets the fewest development resources, the least coaching attention, and the most generic interventions. They are the people who make the organisation run. They are also the people most likely to quietly leave.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>Deloitte's "Global Human Capital Trends" (2019) found that organisations using 9-box systems allocate, on average, 3x more development spend per capita on identified high-potentials than on core performers, despite core performers representing 70-80% of the workforce and a disproportionate share of institutional knowledge.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"The stars get the investment. The backbone of the business gets a tick box."</p>
+      </div>
+    </div>
+
+    <div class="trap-card danger">
+      <div class="trap-number">Trap 05 / Most Damaging</div>
+      <div class="trap-name">The Engagement Cliff</div>
+      <p class="trap-body">People always find out where they are. Informal disclosure, overheard conversations, the way their manager stops talking about their development. When mid- and lower-box employees learn their classification, the effect on performance is reliably negative. The system designed to unlock talent becomes the system that convinces people they don't have any. This is the trap that turns a talent tool into a retention risk.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>Gartner (2020) found that forced-distribution and tiered talent systems reduce the discretionary effort of the bottom 80% of rated employees, while leaving the top 20% largely unaffected. The net effect on organisational performance is negative for most implementations. Glassdoor analysis found employees at companies with visible ranking systems are 24% more likely to leave within 12 months.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"They don't need to see the spreadsheet. They can feel exactly where they sit."</p>
+      </div>
+    </div>
+
+    <div class="trap-card teal">
+      <div class="trap-number">Trap 06 / Most Systemic</div>
+      <div class="trap-name">The Succession Illusion</div>
+      <p class="trap-body">9-box systems produce succession maps that feel reassuring. Names in boxes, RAG status, readiness timescales. The problem is that identification is not development. Research consistently shows that the gap between "identified as successor" and "actually ready when the moment arrives" is wider than most organisations expect. The map creates a false sense of pipeline health.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>RHR International found that only 55% of internal succession candidates placed in "ready now" categories actually performed at or above expectations when promoted, across a 10-year longitudinal study of 500 senior roles. The other 45% required significant remedial support or were replaced within 24 months.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"Having names in boxes is not the same as having people ready. The map is not the territory."</p>
+      </div>
+    </div>
+
+    <div class="trap-card">
+      <div class="trap-number">Trap 07 / Most Practical</div>
+      <div class="trap-name">Manager Quality Dependency</div>
+      <p class="trap-body">The output of any 9-box process is only as good as the quality of assessment going in. One under-equipped manager will sand-bag an entire team's potential ratings. Another will inflate. No calibration process fully corrects for variance in managerial quality. Organisations that rely on the 9-box without investing in manager capability are building on sand.</p>
+      <div class="evidence-box">
+        <div class="ev-label">Evidence</div>
+        <p>Gallup's "State of the American Manager" research attributes 70% of variance in employee engagement scores to the quality of direct line management. If the same ratio holds for assessment quality, the 9-box is primarily measuring management skill, not employee potential.</p>
+      </div>
+      <div class="slide-line">
+        <div class="slide-label">Slide language</div>
+        <p>"The 9-box reflects who the managers are as much as who the people are."</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="case-studies-section">
+    <h2>Real-World Cases</h2>
+    <div class="cases-grid">
+
+      <div class="case-card">
+        <div class="case-co">Microsoft (2013)</div>
+        <div class="case-verdict">Warning / Abandoned</div>
+        <p>Steve Ballmer's "stack ranking" system (a 9-box variant) required managers to rate a percentage of their team as low performers. Engineers began refusing to work with talented colleagues, as collaboration threatened their relative ranking. Vanity Fair dubbed it "the most destructive process in all of Microsoft." The system was formally abandoned in 2013. Satya Nadella's turnaround began, in part, by replacing competition with a "growth mindset" culture.</p>
+      </div>
+
+      <div class="case-card">
+        <div class="case-co">General Electric</div>
+        <div class="case-verdict cautionary">Cautionary / Repudiated</div>
+        <p>Jack Welch's "vitality curve" (20-70-10, annually fire the bottom 10%) was championed for a decade as the gold standard in talent management. GE's own subsequent leadership concluded it had calcified the organisation, removed psychological safety, and destroyed the collaborative behaviours needed for innovation. HR Magazine described it as "rank and yank." GE's long decline began during the years this system was most entrenched.</p>
+      </div>
+
+      <div class="case-card">
+        <div class="case-co">Deloitte (2015)</div>
+        <div class="case-verdict positive">Reinvention / Published</div>
+        <p>In a landmark Harvard Business Review paper, "Reinventing Performance Management," Deloitte disclosed they had abandoned ratings and rankings entirely after finding their systems were measuring the biases of raters more reliably than the performance of employees. They replaced annual stack-ranking with quarterly "performance snapshots" focused on forward-looking decisions. Now cited as the standard model for organisations redesigning their approach.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="quotes-section">
+    <h2>Workshop-Ready Quotes</h2>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>Most companies are genuinely bad at identifying high-potential employees. The research on this is consistent and sobering. We confuse confidence with competence, visibility with value, and similarity with potential.</p>
+        <div class="quote-attr">Peter Cappelli, Professor of Management, Wharton School</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>The correlation between managers' subjective assessments of employee potential and later career success hovers around 0.3 across the research base. That is barely better than chance. We are largely measuring how much the manager likes the person.</p>
+        <div class="quote-attr">Tomas Chamorro-Premuzic, Professor of Business Psychology, UCL / Columbia</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>We found we spent more time in calibration sessions than the time saved by the decisions those sessions produced. And the decisions themselves were often worse than what a single thoughtful manager would have reached alone.</p>
+        <div class="quote-attr">Deloitte internal finding, cited in "Reinventing Performance Management," HBR 2015</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>Talent review systems are often designed to surface the best people. In practice they surface the best-networked people, the most visible people, and the people who work for managers who argue well in committee.</p>
+        <div class="quote-attr">Marcus Buckingham, ADP Research Institute, "Nine Lies About Work"</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="recommendations-section">
+    <h2>What Successful Implementations Have in Common</h2>
+    <div class="rec-grid">
+      <div class="rec-item">
+        <h3>Treat it as a conversation tool, not a verdict tool</h3>
+        <p>Organisations that get value from the 9-box use it to structure development conversations, not to categorise people. The box is a starting point, not a destination. The conversation is the product.</p>
+      </div>
+      <div class="rec-item">
+        <h3>Define "potential" before you measure it</h3>
+        <p>The organisations that avoid the potential black box spend time upfront agreeing what potential means in their specific context. Not "could go far" but: "able to lead through ambiguity at two levels above current role within 3 years." Specificity kills bias.</p>
+      </div>
+      <div class="rec-item">
+        <h3>Invest in the middle, not just the top</h3>
+        <p>The organisations with healthiest talent pipelines use the 9-box to find their neglected core and give them structured development, not just to identify stars. The box that never gets attention is where attrition quietly builds.</p>
+      </div>
+      <div class="rec-item">
+        <h3>Build manager capability alongside the system</h3>
+        <p>The 9-box is only as good as the managers using it. Organisations that succeed invest in assessment training, structured feedback skills, and calibration preparation. The tool is not a substitute for management quality.</p>
+      </div>
+      <div class="rec-item">
+        <h3>Make the action plan more important than the grid</h3>
+        <p>The grid is not the output. The output is what you do next. Organisations that embed 9-box into a genuine development cycle, not just an annual ritual, see materially better outcomes. If there is no named action after every box, the exercise was theatre.</p>
+      </div>
+      <div class="rec-item">
+        <h3>Treat transparency as a design choice, not an accident</h3>
+        <p>People always find out. Decide proactively how much you will share, with whom, and when. Organisations that communicate clearly, even partially, outperform those that rely on confidentiality. Confidentiality erodes trust when it leaks; transparency, managed carefully, builds it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-bank">
+    <h2>Slide Language Options for "Traps to Watch Out For"</h2>
+    <p class="slide-bank-intro">Options for the XX / YY / ZZ placeholder slide in the Alltech deck. Pick the three that fit the room. These are designed to be memorable, not academic. The research is the backstory; these are the surface.</p>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option A</span>
+      <p><em>The label becomes the person.</em> Once someone is placed in a box, the system can stop seeing them. Development conversations dry up. The tool designed to surface potential ends up calcifying it.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option B</span>
+      <p><em>Potential is the word everyone uses and nobody defines.</em> If you haven't agreed what potential means in this organisation, you're measuring confidence and visibility, not capability. The bias follows automatically.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option C</span>
+      <p><em>They always find out where they are.</em> And when the people in the middle or bottom do, the effect on their performance is reliably negative. The engagement cost of a mishandled 9-box rollout is real and measurable.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option D</span>
+      <p><em>The map feels reassuring. The territory is different.</em> Having names in succession boxes is not the same as having people who are ready. Research suggests only 55% of "ready now" successors actually perform at expectations when the moment arrives.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option E</span>
+      <p><em>Calibration sessions produce the appearance of objectivity, not the reality of it.</em> The output looks data-driven. The process was political. Whoever argues loudest tends to win.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option F</span>
+      <p><em>The tool is only as good as the managers using it.</em> One under-equipped manager will sand-bag an entire team's potential ratings. The 9-box reflects who the managers are as much as who the people are.</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Prepared by the Living Studio agent team for Sean Sankey / MorePeople Exec. Research sourced from: CEB/Gartner, McKinsey, Deloitte HBR (2015), DeNisi &amp; Murphy (Journal of Applied Psychology, 2017), RHR International, Gallup, Chamorro-Premuzic (UCL/Columbia), Cappelli (Wharton), Buckingham (ADP Research Institute). Internal use only.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
