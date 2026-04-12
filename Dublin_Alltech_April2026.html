@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dublin / Alltech — 15-16 April 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #f4f1ec;
+    color: #1a1a1a;
+    line-height: 1.65;
+  }
+
+  /* HEADER */
+  .header {
+    background: #2c1f3e;
+    color: white;
+    padding: 40px 24px 32px;
+  }
+  .header .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .header .sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #c5bcd8;
+    margin-bottom: 20px;
+  }
+  .contact-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #d8d2e8;
+  }
+
+  /* META BAR */
+  .meta-bar {
+    background: #3d2e54;
+    padding: 10px 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .meta-bar span {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #a89fc0;
+    letter-spacing: 0.3px;
+  }
+  .meta-bar strong { color: #e0d9ed; }
+
+  /* SECTION WRAPPER */
+  .section {
+    padding: 28px 24px 0;
+  }
+  .section-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #ddd8cf;
+    padding-bottom: 8px;
+  }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .card-title {
+    background: #f7f5fb;
+    border-bottom: 1px solid #ede8f5;
+    padding: 10px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7c5cbf;
+  }
+
+  /* INFO ROWS */
+  .info-row {
+    display: flex;
+    border-bottom: 1px solid #f4f1ec;
+    padding: 11px 16px;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-key {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #a89fc0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 88px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .info-val {
+    font-size: 14px;
+    color: #2a2030;
+    flex: 1;
+  }
+  .info-val.mono {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 15px;
+    color: #2c1f3e;
+    letter-spacing: 1px;
+  }
+  .info-val.note {
+    font-size: 13px;
+    color: #7c6d91;
+    font-style: italic;
+  }
+
+  /* FLIGHT CARD */
+  .flight-card {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 12px;
+    border-top: 3px solid #7c5cbf;
+    padding: 16px;
+  }
+  .flight-tag {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7c5cbf;
+    margin-bottom: 14px;
+  }
+  .flight-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .flight-point {
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .iata {
+    font-family: 'Arial', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c1f3e;
+    line-height: 1;
+  }
+  .airport-name {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    color: #a89fc0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .flight-time {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3d2e54;
+    margin-top: 4px;
+  }
+  .flight-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, #7c5cbf, #c5bcd8, #7c5cbf);
+    margin: 0 12px;
+    position: relative;
+  }
+  .flight-line::after {
+    content: '▶';
+    position: absolute;
+    right: -6px;
+    top: -8px;
+    font-size: 10px;
+    color: #7c5cbf;
+  }
+  .flight-meta {
+    display: flex;
+    gap: 12px;
+    border-top: 1px solid #f4f1ec;
+    padding-top: 12px;
+    flex-wrap: wrap;
+  }
+  .flight-meta-item { flex: 1; min-width: 100px; }
+  .fmi-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    color: #a89fc0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .fmi-value {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c1f3e;
+    letter-spacing: 1.5px;
+  }
+  .fmi-value.plain {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #3a3340;
+    letter-spacing: 0;
+  }
+
+  /* TIMELINE */
+  .timeline { margin-bottom: 12px; }
+  .tl-day {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .tl-day-header {
+    background: #2c1f3e;
+    color: white;
+    padding: 8px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .tl-item {
+    display: flex;
+    gap: 12px;
+    padding: 9px 16px;
+    border-bottom: 1px solid #f4f1ec;
+    align-items: flex-start;
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-time {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #7c5cbf;
+    min-width: 52px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .tl-text {
+    font-size: 14px;
+    color: #2a2030;
+  }
+
+  /* OUTFITS */
+  .outfit-card {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .outfit-header {
+    background: #f7f5fb;
+    border-bottom: 1px solid #ede8f5;
+    border-left: 4px solid #7c5cbf;
+    padding: 10px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #3d2e54;
+  }
+  .outfit-worn {
+    background: #2c1f3e;
+    color: #c5bcd8;
+    padding: 8px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+  .outfit-worn strong {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 3px;
+  }
+  .outfit-item {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #2a2030;
+    border-bottom: 1px solid #f4f1ec;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .outfit-item:last-of-type { border-bottom: none; }
+  .outfit-item::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #a89fc0;
+    flex-shrink: 0;
+  }
+  .outfit-note {
+    background: #faf8f2;
+    border-top: 1px solid #ede8f5;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #7c6d91;
+    font-style: italic;
+  }
+
+  /* PACK LISTS */
+  .pack-group {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .pack-group-title {
+    background: #f7f5fb;
+    border-bottom: 1px solid #ede8f5;
+    padding: 8px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7c5cbf;
+  }
+  .pack-item {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #2a2030;
+    border-bottom: 1px solid #f4f1ec;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .pack-item:last-child { border-bottom: none; }
+  .pack-item::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c5bcd8;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .pack-sub {
+    font-size: 12px;
+    color: #a89fc0;
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .check-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f4f1ec;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #2a2030;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item.done {
+    color: #a89fc0;
+    text-decoration: line-through;
+    text-decoration-color: #c5bcd8;
+  }
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    border: 2px solid #c5bcd8;
+  }
+  .check-box.checked {
+    background: #7c5cbf;
+    border-color: #7c5cbf;
+  }
+  .check-box.checked::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 8px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+
+  /* CONTACTS */
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f4f1ec;
+    background: white;
+  }
+  .contact-item:last-child { border-bottom: none; }
+  .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #2c1f3e;
+    color: #c5bcd8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .contact-name {
+    font-size: 15px;
+    color: #1a1a1a;
+    font-weight: 400;
+  }
+  .contact-role {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #a89fc0;
+    margin-top: 1px;
+  }
+  .contacts-card {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px 24px 48px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #b5aec4;
+    letter-spacing: 0.5px;
+  }
+
+  @media (min-width: 600px) {
+    .header { padding: 52px 48px 40px; }
+    .header h1 { font-size: 36px; }
+    .section { padding: 36px 48px 0; }
+    .meta-bar { padding: 12px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="label">Travel Brief &middot; Alltech Dublin</div>
+  <h1>Dublin / Alltech</h1>
+  <div class="sub">15-16 April 2026 &middot; Via MorePeople relationship</div>
+  <div class="contact-pills">
+    <div class="pill">Orla McAleer</div>
+    <div class="pill">Robert Walker</div>
+    <div class="pill">Joanne Mart</div>
+  </div>
+</div>
+<div class="meta-bar">
+  <span><strong>Alltech</strong> offices, Dublin</span>
+  <span><strong>Dunboyne</strong> Castle Hotel &amp; Spa</span>
+  <span>Updated <strong>12 April 2026</strong></span>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-label">Day by Day</div>
+  <div class="timeline">
+
+    <div class="tl-day">
+      <div class="tl-day-header">Tuesday 14 April &mdash; Night Before</div>
+      <div class="tl-item"><span class="tl-time">15:00+</span><span class="tl-text">Check in &mdash; Novotel Newcastle Airport</span></div>
+      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Early night ahead of 08:10 flight</span></div>
+    </div>
+
+    <div class="tl-day">
+      <div class="tl-day-header">Wednesday 15 April &mdash; Travel Day</div>
+      <div class="tl-item"><span class="tl-time">06:00</span><span class="tl-text">Parking from (Short Stay 2, NCL)</span></div>
+      <div class="tl-item"><span class="tl-time">08:10</span><span class="tl-text">FR 21 departs Newcastle</span></div>
+      <div class="tl-item"><span class="tl-time">09:15</span><span class="tl-text">Arrives Dublin</span></div>
+      <div class="tl-item"><span class="tl-time">Day</span><span class="tl-text">Dublin &mdash; meetings / distillery option</span></div>
+      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Check in Dunboyne Castle &middot; dinner</span></div>
+    </div>
+
+    <div class="tl-day">
+      <div class="tl-day-header">Thursday 16 April &mdash; Alltech Day</div>
+      <div class="tl-item"><span class="tl-time">09:00</span><span class="tl-text">Full working day at Alltech</span></div>
+      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Check out Dunboyne Castle</span></div>
+      <div class="tl-item"><span class="tl-time">20:55</span><span class="tl-text">FR 20 departs Dublin</span></div>
+      <div class="tl-item"><span class="tl-time">22:05</span><span class="tl-text">Arrives Newcastle</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LOGISTICS -->
+<div class="section">
+  <div class="section-label">Logistics</div>
+
+  <!-- Parking -->
+  <div class="card">
+    <div class="card-title">Car Parking &mdash; Newcastle Airport</div>
+    <div class="info-row"><div class="info-key">Car park</div><div class="info-val">Short Stay 2, NCL<br><span style="font-size:12px;color:#a89fc0;font-family:Arial,sans-serif;">Woolsington, Newcastle-upon-Tyne NE13 8BZ</span></div></div>
+    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">KQBHJK</div></div>
+    <div class="info-row"><div class="info-key">Reg</div><div class="info-val mono">MA68BWO</div></div>
+    <div class="info-row"><div class="info-key">Period</div><div class="info-val">Wed 15 Apr 06:00 &rarr; Thu 16 Apr 23:00</div></div>
+    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">&pound;67.68 &middot; Late Return Cover included</div></div>
+    <div class="info-row"><div class="info-key">Note</div><div class="info-val note">No need to print. Show on mobile. Take a ticket at barrier on entry &mdash; keep it safe for exit.</div></div>
+  </div>
+
+  <!-- Novotel -->
+  <div class="card">
+    <div class="card-title">Novotel Newcastle Airport &mdash; Tue Night</div>
+    <div class="info-row"><div class="info-key">Address</div><div class="info-val">Ponteland Road Kenton, Newcastle NE3 3HZ</div></div>
+    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Tue 14 April, from 15:00</div></div>
+    <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Wed 15 April, by 12:00</div></div>
+    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">QGWLGNJF</div></div>
+    <div class="info-row"><div class="info-key">Room</div><div class="info-val">Standard Queen Room &middot; &pound;66.60 paid (non-refundable)</div></div>
+    <div class="info-row"><div class="info-key">Phone</div><div class="info-val"><a href="tel:+441912140303" style="color:#7c5cbf;text-decoration:none;">+44 191 214 0303</a></div></div>
+  </div>
+
+  <!-- Outbound flight -->
+  <div class="flight-card">
+    <div class="flight-tag">Outbound &middot; Wednesday 15 April &middot; Ryanair FR 21</div>
+    <div class="flight-row">
+      <div class="flight-point">
+        <div class="iata">NCL</div>
+        <div class="airport-name">Newcastle</div>
+        <div class="flight-time">08:10 BST</div>
+      </div>
+      <div class="flight-line"></div>
+      <div class="flight-point">
+        <div class="iata">DUB</div>
+        <div class="airport-name">Dublin</div>
+        <div class="flight-time">09:15 IST</div>
+      </div>
+    </div>
+    <div class="flight-meta">
+      <div class="flight-meta-item">
+        <div class="fmi-label">Booking Ref</div>
+        <div class="fmi-value">T8FW2R</div>
+      </div>
+      <div class="flight-meta-item">
+        <div class="fmi-label">Boarding</div>
+        <div class="fmi-value plain">Digital only &mdash; Ryanair app</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dublin hotel -->
+  <div class="card">
+    <div class="card-title">Dunboyne Castle Hotel &amp; Spa</div>
+    <div class="info-row"><div class="info-key">Location</div><div class="info-val">Dunboyne, Co. Meath &middot; ~25 mins from DUB airport</div></div>
+    <div class="info-row"><div class="info-key">Stay</div><div class="info-val">Wed 15 April (1 night) &middot; Check-out Thu 16</div></div>
+    <div class="info-row"><div class="info-key">Booked</div><div class="info-val"><span style="font-family:'Courier New',monospace;font-size:13px;">Hotels.com #72072864971394</span></div></div>
+    <div class="info-row"><div class="info-key">Spa</div><div class="info-val note">Thermal Suite available. Book: +353 1 681 6534. &euro;25pp without treatment.</div></div>
+  </div>
+
+  <!-- Return flight -->
+  <div class="flight-card">
+    <div class="flight-tag">Return &middot; Thursday 16 April &middot; Ryanair FR 20</div>
+    <div class="flight-row">
+      <div class="flight-point">
+        <div class="iata">DUB</div>
+        <div class="airport-name">Dublin</div>
+        <div class="flight-time">20:55 IST</div>
+      </div>
+      <div class="flight-line"></div>
+      <div class="flight-point">
+        <div class="iata">NCL</div>
+        <div class="airport-name">Newcastle</div>
+        <div class="flight-time">22:05 BST</div>
+      </div>
+    </div>
+    <div class="flight-meta">
+      <div class="flight-meta-item">
+        <div class="fmi-label">Booking Ref</div>
+        <div class="fmi-value">T8FW2R</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACTS -->
+<div class="section">
+  <div class="section-label">Contacts</div>
+  <div class="contacts-card">
+    <div class="contact-item"><div class="avatar">OM</div><div><div class="contact-name">Orla McAleer</div><div class="contact-role">Alltech</div></div></div>
+    <div class="contact-item"><div class="avatar">RW</div><div><div class="contact-name">Robert Walker</div><div class="contact-role">Alltech</div></div></div>
+    <div class="contact-item"><div class="avatar">JM</div><div><div class="contact-name">Joanne Mart</div><div class="contact-role">Alltech</div></div></div>
+  </div>
+</div>
+
+<!-- OUTFITS -->
+<div class="section">
+  <div class="section-label">Outfits</div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Wednesday 15 April &mdash; Travel Day</div>
+    <div class="outfit-worn">
+      <strong>Worn on travel day</strong>
+      Boots &middot; Jeans &middot; Peregrine knit &middot; Olive field jacket &middot; Breitling Avenger
+    </div>
+    <div class="outfit-item">Black leather boots (BLKBRD)</div>
+    <div class="outfit-item">Indigo selvedge jeans (Asket)</div>
+    <div class="outfit-item">Cobalt or grey Peregrine Intercity knit</div>
+    <div class="outfit-item">Olive Green Field Jacket (Asket)</div>
+    <div class="outfit-item">Breitling Avenger</div>
+    <div class="outfit-note">Footwear option: brown dress sneakers packed as swap if the day gets lighter (distillery / hotel evening). Evening: White OCBD for dinner. Shorts for Dunboyne spa.</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Thursday 16 April &mdash; Meeting Day</div>
+    <div class="outfit-item">Grey flannels (Michelsberg)</div>
+    <div class="outfit-item">Black/white Bengal stripe Oxford (Apposta)</div>
+    <div class="outfit-item">Grey John Smedley Kane knit <span style="color:#a89fc0;font-family:Arial,sans-serif;font-size:12px;">(optional)</span></div>
+    <div class="outfit-item">Olive Green Field Jacket (Asket)</div>
+    <div class="outfit-item">Black leather boots (BLKBRD)</div>
+    <div class="outfit-note">More structured register. Flannels and Apposta shirt shift it up from travel day without overdoing it.</div>
+  </div>
+
+</div>
+
+<!-- PACKING -->
+<div class="section">
+  <div class="section-label">What&rsquo;s Packed</div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">ZDX (Cabin Bag) &mdash; Clothing</div>
+    <div class="pack-item">Grey flannels (Michelsberg) <span class="pack-sub">&mdash; Thu</span></div>
+    <div class="pack-item">Brown dress sneakers</div>
+    <div class="pack-item">White OCBD <span class="pack-sub">&mdash; Wed dinner</span></div>
+    <div class="pack-item">Apposta Bengal stripe shirt <span class="pack-sub">&mdash; Thu</span></div>
+    <div class="pack-item">Grey Kane knit <span class="pack-sub">&mdash; Thu if cold</span></div>
+    <div class="pack-item">Peregrine Intercity knit</div>
+    <div class="pack-item">2x boxers &middot; 2x socks (1 dress, 1 casual)</div>
+    <div class="pack-item">Sleepwear (t-shirt + shorts)</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">ZDX &mdash; Toiletries (Green Alpaka Kit)</div>
+    <div class="pack-item">Toothbrush + toothpaste</div>
+    <div class="pack-item">Deodorant</div>
+    <div class="pack-item">Travel fragrance</div>
+    <div class="pack-item">Razor &middot; Soap &middot; Moisturiser &middot; Hair products</div>
+    <div class="pack-item">Inhaler</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">ZDX &mdash; Other</div>
+    <div class="pack-item">Client gifts, 2x books</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Tumi Briefcase &mdash; Core Kit</div>
+    <div class="pack-item">MacBook + charger</div>
+    <div class="pack-item">iPad</div>
+    <div class="pack-item">Leather planner + pen</div>
+    <div class="pack-item">Phone charger</div>
+    <div class="pack-item">Workshop prep / printed materials</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Tech Pouch (Wandrd)</div>
+    <div class="pack-item">AirPods / headphones</div>
+    <div class="pack-item">Cables &middot; Power bank</div>
+    <div class="pack-item">No adapter needed &mdash; Ireland uses UK 3-pin</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Health Pouch (Orange Alpaka)</div>
+    <div class="pack-item">Supplements &mdash; check</div>
+    <div class="pack-item">Gout pills &mdash; check</div>
+    <div class="pack-item">Plasters &mdash; check</div>
+    <div class="pack-item">Pain pills &mdash; check</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Workshop Pouch (Orange Wandrd)</div>
+    <div class="pack-item">Sharpies, post-its, markers</div>
+  </div>
+
+</div>
+
+<!-- CHECKLIST -->
+<div class="section">
+  <div class="section-label">Pre-Travel Checklist</div>
+  <div class="checklist">
+    <div class="check-item"><div class="check-box"></div>Ryanair app: boarding passes downloaded for FR 21 and FR 20</div>
+    <div class="check-item"><div class="check-box"></div>Hotels.com: confirmation screenshot saved to phone</div>
+    <div class="check-item done"><div class="check-box checked"></div>Pre-trip call with Orla and Robert Walker &mdash; done Fri 11 April</div>
+    <div class="check-item"><div class="check-box"></div>Send Orla final email with plan (Mon 13 April)</div>
+    <div class="check-item"><div class="check-box"></div>Check weather forecast for Dublin 15-16 April</div>
+  </div>
+</div>
+
+<div class="footer">
+  Dublin / Alltech &middot; April 2026<br>Updated 12 April 2026
+</div>
+
+</body>
+</html>
