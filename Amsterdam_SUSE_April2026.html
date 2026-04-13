@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amsterdam / SUSE - Travel Plan - 27-28 April 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: #f4f1ec;
+    color: #1a1a1a;
+    line-height: 1.65;
+  }
+
+  .header {
+    background: #2c1f3e;
+    color: white;
+    padding: 40px 24px 32px;
+  }
+  .header .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 10px;
+  }
+  .header h1 { font-size: 28px; font-weight: 400; line-height: 1.2; margin-bottom: 6px; }
+  .header .sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #c5bcd8; margin-bottom: 20px; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #d8d2e8;
+  }
+
+  .meta-bar {
+    background: #3d2e54;
+    padding: 10px 24px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .meta-bar-left { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .meta-bar span { font-family: 'Arial', sans-serif; font-size: 11px; color: #a89fc0; }
+  .meta-bar strong { color: #e0d9ed; }
+  .progress-badge {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    background: rgba(124,92,191,0.25);
+    border: 1px solid rgba(124,92,191,0.4);
+    border-radius: 12px;
+    padding: 3px 11px;
+    color: #c5bcd8;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .section { padding: 28px 24px 0; }
+  .section-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #ddd8cf;
+    padding-bottom: 8px;
+  }
+
+  .card { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 12px; overflow: hidden; }
+  .card-title {
+    background: #f7f5fb;
+    border-bottom: 1px solid #ede8f5;
+    padding: 10px 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #7c5cbf;
+  }
+
+  .info-row { display: flex; border-bottom: 1px solid #f4f1ec; padding: 11px 16px; gap: 12px; align-items: flex-start; }
+  .info-row:last-child { border-bottom: none; }
+  .info-key { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; min-width: 88px; flex-shrink: 0; padding-top: 2px; }
+  .info-val { font-size: 14px; color: #2a2030; flex: 1; }
+  .info-val.mono { font-family: 'Courier New', monospace; font-weight: 700; font-size: 15px; color: #2c1f3e; letter-spacing: 1px; }
+  .info-val.note { font-size: 13px; color: #7c6d91; font-style: italic; }
+
+  .flight-card { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 12px; border-top: 3px solid #7c5cbf; padding: 16px; }
+  .flight-tag { font-family: 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 14px; }
+  .flight-row { display: flex; align-items: center; margin-bottom: 14px; }
+  .flight-point { text-align: center; flex-shrink: 0; }
+  .iata { font-family: 'Arial', sans-serif; font-size: 26px; font-weight: 700; color: #2c1f3e; line-height: 1; }
+  .airport-name { font-family: 'Arial', sans-serif; font-size: 10px; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+  .flight-time { font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; color: #3d2e54; margin-top: 4px; }
+  .flight-line { flex: 1; height: 1px; background: linear-gradient(to right, #7c5cbf, #c5bcd8, #7c5cbf); margin: 0 12px; position: relative; }
+  .flight-line::after { content: '\25B6'; position: absolute; right: -6px; top: -8px; font-size: 10px; color: #7c5cbf; }
+  .flight-meta { display: flex; gap: 12px; border-top: 1px solid #f4f1ec; padding-top: 12px; flex-wrap: wrap; }
+  .flight-meta-item { flex: 1; min-width: 100px; }
+  .fmi-label { font-family: 'Arial', sans-serif; font-size: 10px; color: #a89fc0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; }
+  .fmi-value { font-family: 'Courier New', monospace; font-size: 16px; font-weight: 700; color: #2c1f3e; letter-spacing: 1.5px; }
+  .fmi-value.plain { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 400; color: #3a3340; letter-spacing: 0; }
+
+  .timeline { margin-bottom: 12px; }
+  .tl-day { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 8px; overflow: hidden; }
+  .tl-day-header { background: #2c1f3e; color: white; padding: 8px 16px; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .tl-item { display: flex; gap: 12px; padding: 9px 16px; border-bottom: 1px solid #f4f1ec; align-items: flex-start; }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-time { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; color: #7c5cbf; min-width: 52px; flex-shrink: 0; padding-top: 1px; }
+  .tl-text { font-size: 14px; color: #2a2030; }
+
+  .outfit-card { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 12px; overflow: hidden; }
+  .outfit-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; border-left: 4px solid #7c5cbf; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #3d2e54; }
+  .outfit-worn { background: #2c1f3e; color: #c5bcd8; padding: 8px 16px; font-family: 'Arial', sans-serif; font-size: 11px; }
+  .outfit-worn strong { display: block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #a89fc0; margin-bottom: 3px; }
+  .outfit-item { padding: 8px 16px; font-size: 14px; color: #2a2030; border-bottom: 1px solid #f4f1ec; display: flex; align-items: center; gap: 8px; }
+  .outfit-item:last-of-type { border-bottom: none; }
+  .outfit-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #a89fc0; flex-shrink: 0; }
+  .outfit-note { background: #faf8f2; border-top: 1px solid #ede8f5; padding: 10px 16px; font-size: 13px; color: #7c6d91; font-style: italic; }
+
+  .pack-group { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 8px; overflow: hidden; }
+  .pack-group-title { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 8px 16px; font-family: 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .pack-item {
+    padding: 9px 16px;
+    font-size: 14px;
+    color: #2a2030;
+    border-bottom: 1px solid #f4f1ec;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.1s;
+  }
+  .pack-item:last-child { border-bottom: none; }
+  .pack-item:active { background: #faf8f2; }
+  .pack-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #c5bcd8;
+    flex-shrink: 0;
+    margin-top: 3px;
+    position: relative;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .pack-item.checked .pack-circle { background: #7c5cbf; border-color: #7c5cbf; }
+  .pack-item.checked .pack-circle::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    width: 5px;
+    height: 8px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+  .pack-label { flex: 1; transition: color 0.15s; }
+  .pack-item.checked .pack-label { color: #b5aec4; text-decoration: line-through; text-decoration-color: #c5bcd8; }
+  .pack-sub { font-size: 12px; color: #a89fc0; font-family: 'Arial', sans-serif; }
+  .pack-item.checked .pack-sub { color: #c5bcd8; }
+  .pack-info { padding: 9px 16px 9px 44px; font-size: 13px; color: #7c6d91; font-style: italic; font-family: 'Arial', sans-serif; border-bottom: 1px solid #f4f1ec; }
+  .pack-info:last-child { border-bottom: none; }
+
+  .checklist { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; margin-bottom: 12px; }
+  .check-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f4f1ec;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #2a2030;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.1s;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:active { background: #faf8f2; }
+  .check-item.checked { color: #a89fc0; text-decoration: line-through; text-decoration-color: #c5bcd8; }
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+    border: 2px solid #c5bcd8;
+    position: relative;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .check-item.checked .check-box { background: #7c5cbf; border-color: #7c5cbf; }
+  .check-item.checked .check-box::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 8px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .tbc-banner {
+    background: #fdf8ee;
+    border: 1px solid #e8dfc0;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #8a7640;
+    margin-bottom: 12px;
+  }
+
+  .reset-row { text-align: right; padding: 4px 0 12px; }
+  .reset-btn { font-family: 'Arial', sans-serif; font-size: 11px; color: #a89fc0; background: none; border: none; cursor: pointer; padding: 4px 2px; }
+  .reset-btn:hover { color: #7c5cbf; }
+
+  .footer { text-align: center; padding: 32px 24px 48px; font-family: 'Arial', sans-serif; font-size: 11px; color: #b5aec4; letter-spacing: 0.5px; }
+
+  @media (min-width: 600px) {
+    .header { padding: 52px 48px 40px; }
+    .header h1 { font-size: 36px; }
+    .section { padding: 36px 48px 0; }
+    .meta-bar { padding: 12px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="label">Travel Plan &middot; SUSE Amsterdam</div>
+  <h1>Amsterdam / SUSE</h1>
+  <div class="sub">27-28 April 2026 &middot; Difficult Conversations session</div>
+  <div class="contact-pills">
+    <div class="pill">Sarah (machineandfolk.com)</div>
+    <div class="pill">SUSE Amsterdam office</div>
+  </div>
+</div>
+
+<div class="meta-bar">
+  <div class="meta-bar-left">
+    <span><strong>Novotel</strong> Amsterdam Schiphol</span>
+    <span><strong>KLM</strong> MME &harr; AMS</span>
+    <span>Updated <strong>13 April 2026</strong></span>
+  </div>
+  <div class="progress-badge" id="progress-badge">Loading...</div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-label">Day by Day</div>
+  <div class="timeline">
+
+    <div class="tl-day">
+      <div class="tl-day-header">Monday 27 April - Travel Day</div>
+      <div class="tl-item"><span class="tl-time">03:30</span><span class="tl-text">Park at Teesside Airport (ANPR - no ticket needed, ref WSP141501)</span></div>
+      <div class="tl-item"><span class="tl-time">06:00</span><span class="tl-text">KL0962 departs MME</span></div>
+      <div class="tl-item"><span class="tl-time">08:20</span><span class="tl-text">Arrives Amsterdam Schiphol (AMS)</span></div>
+      <div class="tl-item"><span class="tl-time">10:00+</span><span class="tl-text">Early check-in at Novotel (paid)</span></div>
+      <div class="tl-item"><span class="tl-time">Day</span><span class="tl-text">Nap - shower - prep</span></div>
+      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Dinner with Sarah + drinks with clients</span></div>
+    </div>
+
+    <div class="tl-day">
+      <div class="tl-day-header">Tuesday 28 April - SUSE Delivery Day</div>
+      <div class="tl-item"><span class="tl-time">TBC</span><span class="tl-text">SUSE Difficult Conversations session (venue approx. 3 stops from Schiphol, opposite Novotel)</span></div>
+      <div class="tl-item"><span class="tl-time">21:20</span><span class="tl-text">KL0967 departs AMS</span></div>
+      <div class="tl-item"><span class="tl-time">21:30</span><span class="tl-text">Arrives MME (BST)</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LOGISTICS -->
+<div class="section">
+  <div class="section-label">Logistics</div>
+
+  <div class="card">
+    <div class="card-title">Car Parking - Teesside International Airport</div>
+    <div class="info-row"><div class="info-key">Car park</div><div class="info-val">On-Site Car Park, Teesside International Airport<br><span style="font-size:12px;color:#a89fc0;font-family:Arial,sans-serif;">Directly opposite terminal - no shuttle needed</span></div></div>
+    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">WSP141501</div></div>
+    <div class="info-row"><div class="info-key">Entry</div><div class="info-val">Mon 27 April at 03:30</div></div>
+    <div class="info-row"><div class="info-key">Exit</div><div class="info-val">Tue 28 April at 22:30</div></div>
+    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">&pound;20.00 inc VAT (fully paid)</div></div>
+    <div class="info-row"><div class="info-key">Note</div><div class="info-val note">Number plate registered - barrier raises automatically on entry and exit. No ticket or printout needed.</div></div>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-tag">Outbound &middot; Monday 27 April &middot; KL0962</div>
+    <div class="flight-row">
+      <div class="flight-point">
+        <div class="iata">MME</div>
+        <div class="airport-name">Teesside</div>
+        <div class="flight-time">06:00 BST</div>
+      </div>
+      <div class="flight-line"></div>
+      <div class="flight-point">
+        <div class="iata">AMS</div>
+        <div class="airport-name">Schiphol</div>
+        <div class="flight-time">08:20 CET</div>
+      </div>
+    </div>
+    <div class="flight-meta">
+      <div class="flight-meta-item"><div class="fmi-label">Booking Code</div><div class="fmi-value">XJIFDB</div></div>
+      <div class="flight-meta-item"><div class="fmi-label">Seat</div><div class="fmi-value">20D</div></div>
+      <div class="flight-meta-item"><div class="fmi-label">Paid</div><div class="fmi-value plain">GBP 487.14 both flights</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Novotel Amsterdam Schiphol Airport</div>
+    <div class="info-row"><div class="info-key">Address</div><div class="info-val">Taurusavenue 12, 2132 LS Hoofddorp, Netherlands</div></div>
+    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Mon 27 April, early from 10:00 (paid)</div></div>
+    <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Tue 28 April, by 12:00</div></div>
+    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">QGRDJJCT</div></div>
+    <div class="info-row"><div class="info-key">Room</div><div class="info-val">Standard room, 1 double bed - Advance Saver, breakfast included</div></div>
+    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">EUR 199.64 fully paid (non-refundable)</div></div>
+    <div class="info-row"><div class="info-key">Phone</div><div class="info-val"><a href="tel:+31207219180" style="color:#7c5cbf;text-decoration:none;">+31 20 721 9180</a></div></div>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-tag">Return &middot; Tuesday 28 April &middot; KL0967</div>
+    <div class="flight-row">
+      <div class="flight-point">
+        <div class="iata">AMS</div>
+        <div class="airport-name">Schiphol</div>
+        <div class="flight-time">21:20 CET</div>
+      </div>
+      <div class="flight-line"></div>
+      <div class="flight-point">
+        <div class="iata">MME</div>
+        <div class="airport-name">Teesside</div>
+        <div class="flight-time">21:30 BST</div>
+      </div>
+    </div>
+    <div class="flight-meta">
+      <div class="flight-meta-item"><div class="fmi-label">Booking Code</div><div class="fmi-value">XJIFDB</div></div>
+      <div class="flight-meta-item"><div class="fmi-label">Seat</div><div class="fmi-value">19D</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OUTFITS -->
+<div class="section">
+  <div class="section-label">Outfits</div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Monday - Travel Day (Flight + Arrival)</div>
+    <div class="outfit-worn">
+      <strong>Worn on travel day</strong>
+      Brown dress sneakers - Jeans - Peregrine knit - Olive field jacket - Breitling Avenger
+    </div>
+    <div class="outfit-item">Brown dress sneakers (no boots this trip)</div>
+    <div class="outfit-item">Indigo selvedge jeans (Asket)</div>
+    <div class="outfit-item">Cobalt or grey Peregrine Intercity knit</div>
+    <div class="outfit-item">Olive Green Field Jacket (Asket)</div>
+    <div class="outfit-item">Breitling Avenger</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Monday Evening - Dinner with Sarah + Client Drinks</div>
+    <div class="outfit-note" style="border-top:none;border-bottom:1px solid #ede8f5;">Plan: arrive, nap, shower, then change before dinner.</div>
+    <div class="outfit-item">Brown dress sneakers</div>
+    <div class="outfit-item">Jeans (fresh pair or carry-through)</div>
+    <div class="outfit-item">Second knit / crew neck (deliberate swap from travel knit)</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Tuesday - SUSE Delivery Day</div>
+    <div class="outfit-item">Brown dress sneakers</div>
+    <div class="outfit-item">Gabardines (Michelsberg)</div>
+    <div class="outfit-item">White Paul Smiths shirt</div>
+    <div class="outfit-item">Black t-shirt (base layer)</div>
+    <div class="outfit-item">Black Icon quarter zip</div>
+  </div>
+
+</div>
+
+<!-- PACKING -->
+<div class="section">
+  <div class="section-label">What's Packed</div>
+
+  <div class="tbc-banner">Some items below are still TBC - tap to check off as you pack.</div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Tumi Briefcase - Core Kit (standard)</div>
+    <div class="pack-item" data-key="tumi-mac" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">MacBook + charger</div></div>
+    <div class="pack-item" data-key="tumi-ipad" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">iPad</div></div>
+    <div class="pack-item" data-key="tumi-planner" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Leather planner + pen</div></div>
+    <div class="pack-item" data-key="tumi-phone" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Phone charger</div></div>
+    <div class="pack-item" data-key="tumi-prep" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Session prep / printed materials for flight</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Tech Pouch (Wandrd) - standard</div>
+    <div class="pack-item" data-key="tech-airpods" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">AirPods / headphones</div></div>
+    <div class="pack-item" data-key="tech-cables" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Cables - Power bank</div></div>
+    <div class="pack-item" data-key="tech-adapter" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Type C/F adapter <span class="pack-sub">- needed for Netherlands</span></div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Health Pouch (Orange Alpaka) - standard</div>
+    <div class="pack-item" data-key="hlth-supplements" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Supplements - check</div></div>
+    <div class="pack-item" data-key="hlth-gout" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Gout pills - check</div></div>
+    <div class="pack-item" data-key="hlth-plasters" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Plasters - check</div></div>
+    <div class="pack-item" data-key="hlth-pain" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Pain pills - check</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">ZDX (Cabin Bag) - Toiletries (Green Alpaka Kit)</div>
+    <div class="pack-item" data-key="tlt-toothbrush" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Toothbrush + toothpaste</div></div>
+    <div class="pack-item" data-key="tlt-deo" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Deodorant</div></div>
+    <div class="pack-item" data-key="tlt-fragrance" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Travel fragrance</div></div>
+    <div class="pack-item" data-key="tlt-razor" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Razor - Soap - Moisturiser - Hair products</div></div>
+    <div class="pack-item" data-key="tlt-inhaler" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Inhaler</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Grey Tripp Medium (Checked) - Clothing</div>
+    <div class="pack-item" data-key="chk-gabardines" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Gabardines (Michelsberg) <span class="pack-sub">- Tue</span></div></div>
+    <div class="pack-item" data-key="chk-paulsmith" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">White Paul Smiths shirt <span class="pack-sub">- Tue</span></div></div>
+    <div class="pack-item" data-key="chk-icon" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Black Icon quarter zip <span class="pack-sub">- Tue</span></div></div>
+    <div class="pack-item" data-key="chk-blacktee" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Black t-shirt (base layer)</div></div>
+    <div class="pack-item" data-key="chk-knit1" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Knit / crew neck no. 1 <span class="pack-sub">- travel</span></div></div>
+    <div class="pack-item" data-key="chk-knit2" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Knit / crew neck no. 2 <span class="pack-sub">- Mon evening swap</span></div></div>
+    <div class="pack-item" data-key="chk-underwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">2x boxers - 2x socks</div></div>
+    <div class="pack-item" data-key="chk-sleepwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Sleepwear (t-shirt + shorts)</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-title">Grey Tripp Medium (Checked) - Workshop Materials</div>
+    <div class="pack-item" data-key="wsh-camera" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Camera Kit</div></div>
+    <div class="pack-item" data-key="wsh-handouts" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Printed handouts (full set)</div></div>
+    <div class="pack-item" data-key="wsh-workbooks" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Workbooks</div></div>
+    <div class="pack-item" data-key="wsh-postits" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Post-its</div></div>
+    <div class="pack-item" data-key="wsh-sharpies" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Orange Wandrd Pouch (Sharpies, markers)</div></div>
+  </div>
+
+  <div class="reset-row">
+    <button class="reset-btn" onclick="resetPacking()">Reset packing</button>
+  </div>
+
+</div>
+
+<!-- CHECKLIST -->
+<div class="section">
+  <div class="section-label">Pre-Travel Checklist</div>
+  <div class="checklist">
+    <div class="check-item" data-key="chk-flights" onclick="toggleItem(this)"><div class="check-box"></div>KLM flights confirmed - KL0962 (06:00 MME-AMS) and KL0967 (21:20 AMS-MME), code XJIFDB</div>
+    <div class="check-item" data-key="chk-parking" onclick="toggleItem(this)"><div class="check-box"></div>Airport parking booked - Teesside On-Site, ref WSP141501, entry 03:30 Mon 27 Apr</div>
+    <div class="check-item" data-key="chk-venue" onclick="toggleItem(this)"><div class="check-box"></div>Confirm SUSE Amsterdam office exact address and session start/end times</div>
+    <div class="check-item" data-key="chk-sarah" onclick="toggleItem(this)"><div class="check-box"></div>Confirm arrangements with Sarah - meeting point and timings</div>
+    <div class="check-item" data-key="chk-weather" onclick="toggleItem(this)"><div class="check-box"></div>Check weather forecast for Amsterdam 27-28 April</div>
+    <div class="check-item" data-key="chk-boarding" onclick="toggleItem(this)"><div class="check-box"></div>KLM app: boarding passes downloaded for KL0962 and KL0967</div>
+  </div>
+  <div class="reset-row">
+    <button class="reset-btn" onclick="resetChecklist()">Reset checklist</button>
+  </div>
+</div>
+
+<div class="footer">
+  Amsterdam / SUSE - April 2026<br>Updated 13 April 2026
+</div>
+
+<script>
+  var STORE = 'amsterdam_apr26_';
+
+  // Pre-tick confirmed items on first load
+  if (!localStorage.getItem('__amsterdam_apr26_init')) {
+    localStorage.setItem(STORE + 'chk-flights', '1');
+    localStorage.setItem(STORE + 'chk-parking', '1');
+    localStorage.setItem('__amsterdam_apr26_init', '1');
+  }
+
+  function toggleItem(el) {
+    var isChecked = el.classList.toggle('checked');
+    var key = STORE + el.dataset.key;
+    if (isChecked) {
+      localStorage.setItem(key, '1');
+    } else {
+      localStorage.removeItem(key);
+    }
+    updateProgress();
+  }
+
+  function restore() {
+    document.querySelectorAll('[data-key]').forEach(function(el) {
+      if (localStorage.getItem(STORE + el.dataset.key)) {
+        el.classList.add('checked');
+      }
+    });
+    updateProgress();
+  }
+
+  function updateProgress() {
+    var packItems = document.querySelectorAll('.pack-item[data-key]');
+    var checkItems = document.querySelectorAll('.check-item[data-key]');
+    var packDone = document.querySelectorAll('.pack-item[data-key].checked').length;
+    var checkDone = document.querySelectorAll('.check-item[data-key].checked').length;
+    var badge = document.getElementById('progress-badge');
+    if (badge) {
+      badge.textContent = 'Packed ' + packDone + '/' + packItems.length + ' - Checklist ' + checkDone + '/' + checkItems.length;
+    }
+  }
+
+  function resetPacking() {
+    document.querySelectorAll('.pack-item[data-key]').forEach(function(el) {
+      el.classList.remove('checked');
+      localStorage.removeItem(STORE + el.dataset.key);
+    });
+    updateProgress();
+  }
+
+  function resetChecklist() {
+    document.querySelectorAll('.check-item[data-key]').forEach(function(el) {
+      el.classList.remove('checked');
+      localStorage.removeItem(STORE + el.dataset.key);
+    });
+    // Restore pre-confirmed items
+    ['chk-flights', 'chk-parking'].forEach(function(key) {
+      var el = document.querySelector('[data-key="' + key + '"]');
+      if (el) {
+        el.classList.add('checked');
+        localStorage.setItem(STORE + key, '1');
+      }
+    });
+    updateProgress();
+  }
+
+  window.addEventListener('DOMContentLoaded', restore);
+</script>
+
+</body>
+</html>
