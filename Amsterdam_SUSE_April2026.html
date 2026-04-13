@@ -6,387 +6,136 @@
 <title>Amsterdam / SUSE - Travel Plan - 27-28 April 2026</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f4f1ec; color: #1a1a1a; line-height: 1.65; font-size: 16px; }
 
-  body {
-    font-family: 'Georgia', serif;
-    background: #f4f1ec;
-    color: #1a1a1a;
-    line-height: 1.65;
-  }
-
-  /* ── HEADER ── */
-  .header {
-    background: #2c1f3e;
-    color: white;
-    padding: 40px 24px 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .header-bg {
-    position: absolute;
-    inset: 0;
-    opacity: 0.06;
-    background-image: repeating-linear-gradient(
-      -45deg,
-      #fff 0px, #fff 1px,
-      transparent 1px, transparent 12px
-    );
-  }
+  .header { background: #2c1f3e; color: white; padding: 40px 24px 0; position: relative; overflow: hidden; }
+  .header-bg { position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(-45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px); }
   .header-content { position: relative; z-index: 1; }
-  .header .label {
-    font-family: 'Arial', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #a89fc0;
-    margin-bottom: 10px;
-  }
-  .header h1 { font-size: 32px; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
-  .header .sub { font-family: 'Arial', sans-serif; font-size: 13px; color: #c5bcd8; margin-bottom: 20px; }
+  .header .label { font-family: 'Arial', sans-serif; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: #a89fc0; margin-bottom: 10px; }
+  .header h1 { font-size: 34px; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
+  .header .sub { font-family: 'Arial', sans-serif; font-size: 15px; color: #c5bcd8; margin-bottom: 20px; }
   .contact-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-  .pill {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    color: #d8d2e8;
-  }
+  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 5px 14px; font-family: 'Arial', sans-serif; font-size: 14px; color: #d8d2e8; }
 
-  /* ── STATS STRIP ── */
-  .stats-strip {
-    background: white;
-    display: flex;
-    border-top: 3px solid #7c5cbf;
-  }
-  .stat {
-    flex: 1;
-    text-align: center;
-    padding: 14px 8px;
-    border-right: 1px solid #f0ecf8;
-  }
+  .stats-strip { background: white; display: flex; border-top: 3px solid #7c5cbf; }
+  .stat { flex: 1; text-align: center; padding: 14px 8px; border-right: 1px solid #f0ecf8; }
   .stat:last-child { border-right: none; }
-  .stat-n {
-    font-family: 'Arial', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: #2c1f3e;
-    line-height: 1;
-    margin-bottom: 3px;
-  }
-  .stat-l {
-    font-family: 'Arial', sans-serif;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #a89fc0;
-  }
+  .stat-n { font-family: 'Arial', sans-serif; font-size: 22px; font-weight: 800; color: #2c1f3e; line-height: 1; margin-bottom: 3px; }
+  .stat-l { font-family: 'Arial', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: #a89fc0; }
 
-  /* ── META BAR ── */
-  .meta-bar {
-    background: #3d2e54;
-    padding: 10px 24px;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
+  .meta-bar { background: #3d2e54; padding: 10px 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
   .meta-bar-left { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-  .meta-bar span { font-family: 'Arial', sans-serif; font-size: 11px; color: #a89fc0; }
+  .meta-bar span { font-family: 'Arial', sans-serif; font-size: 13px; color: #a89fc0; }
   .meta-bar strong { color: #e0d9ed; }
-  .progress-badge {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    background: rgba(124,92,191,0.25);
-    border: 1px solid rgba(124,92,191,0.4);
-    border-radius: 12px;
-    padding: 3px 11px;
-    color: #c5bcd8;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
+  .progress-badge { font-family: 'Arial', sans-serif; font-size: 13px; background: rgba(124,92,191,0.25); border: 1px solid rgba(124,92,191,0.4); border-radius: 12px; padding: 4px 12px; color: #c5bcd8; white-space: nowrap; flex-shrink: 0; }
 
-  /* ── QUICK REFS ── */
-  .quick-refs {
-    background: #2c1f3e;
-    padding: 14px 24px;
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-  .qr-item {
-    flex: 1;
-    min-width: 120px;
-    padding: 8px 16px 8px 0;
-    border-right: 1px solid rgba(255,255,255,0.1);
-    margin-right: 16px;
-  }
+  .quick-refs { background: #2c1f3e; padding: 14px 24px; display: flex; gap: 0; flex-wrap: wrap; }
+  .qr-item { flex: 1; min-width: 110px; padding: 8px 16px 8px 0; border-right: 1px solid rgba(255,255,255,0.1); margin-right: 16px; }
   .qr-item:last-child { border-right: none; margin-right: 0; }
-  .qr-label {
-    font-family: 'Arial', sans-serif;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #7c5cbf;
-    display: block;
-    margin-bottom: 3px;
-  }
-  .qr-code {
-    font-family: 'Courier New', monospace;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 1.5px;
-  }
+  .qr-label { font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; display: block; margin-bottom: 4px; }
+  .qr-code { font-family: 'Courier New', monospace; font-size: 18px; font-weight: 700; color: white; letter-spacing: 1.5px; }
 
-  /* ── SECTION ── */
   .section { padding: 32px 24px 0; }
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid #e8e2f0;
-  }
-  .section-icon {
-    width: 32px;
-    height: 32px;
-    background: #2c1f3e;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .section-icon svg { width: 17px; height: 17px; }
-  .section-title {
-    font-family: 'Arial', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: #2c1f3e;
-    letter-spacing: -0.3px;
-  }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #e8e2f0; }
+  .section-icon { width: 34px; height: 34px; background: #2c1f3e; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-icon svg { width: 18px; height: 18px; }
+  .section-title { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: 800; color: #2c1f3e; letter-spacing: -0.3px; }
 
-  /* ── CARD ── */
   .card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; overflow: hidden; }
-  .card-title {
-    background: #f7f5fb;
-    border-bottom: 1px solid #ede8f5;
-    padding: 10px 16px;
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #7c5cbf;
-  }
-  .info-row { display: flex; border-bottom: 1px solid #f4f1ec; padding: 11px 16px; gap: 12px; align-items: flex-start; }
+  .card-title { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .info-row { display: flex; border-bottom: 1px solid #f4f1ec; padding: 12px 16px; gap: 12px; align-items: flex-start; }
   .info-row:last-child { border-bottom: none; }
-  .info-key { font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; min-width: 88px; flex-shrink: 0; padding-top: 2px; }
-  .info-val { font-size: 14px; color: #2a2030; flex: 1; }
-  .info-val.mono { font-family: 'Courier New', monospace; font-weight: 700; font-size: 15px; color: #2c1f3e; letter-spacing: 1px; }
-  .info-val.note { font-size: 13px; color: #7c6d91; font-style: italic; }
+  .info-key { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; min-width: 88px; flex-shrink: 0; padding-top: 2px; }
+  .info-val { font-size: 16px; color: #2a2030; flex: 1; }
+  .info-val.mono { font-family: 'Courier New', monospace; font-weight: 700; font-size: 17px; color: #2c1f3e; letter-spacing: 1px; }
+  .info-val.note { font-size: 15px; color: #7c6d91; font-style: italic; }
 
-  /* ── FLIGHT CARD ── */
   .flight-card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; border-top: 3px solid #7c5cbf; padding: 16px; }
-  .flight-tag { font-family: 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 16px; }
+  .flight-tag { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 16px; }
   .flight-row { display: flex; align-items: center; margin-bottom: 14px; }
   .flight-point { text-align: center; flex-shrink: 0; }
-  .iata { font-family: 'Arial', sans-serif; font-size: 30px; font-weight: 800; color: #2c1f3e; line-height: 1; }
-  .airport-name { font-family: 'Arial', sans-serif; font-size: 10px; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
-  .flight-time { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: 700; color: #3d2e54; margin-top: 4px; }
+  .iata { font-family: 'Arial', sans-serif; font-size: 32px; font-weight: 800; color: #2c1f3e; line-height: 1; }
+  .airport-name { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+  .flight-time { font-family: 'Arial', sans-serif; font-size: 17px; font-weight: 700; color: #3d2e54; margin-top: 4px; }
   .flight-line { flex: 1; height: 1px; background: linear-gradient(to right, #7c5cbf, #c5bcd8, #7c5cbf); margin: 0 14px; position: relative; }
   .flight-line::after { content: '\25B6'; position: absolute; right: -7px; top: -9px; font-size: 11px; color: #7c5cbf; }
   .flight-meta { display: flex; gap: 12px; border-top: 1px solid #f4f1ec; padding-top: 12px; flex-wrap: wrap; }
   .flight-meta-item { flex: 1; min-width: 90px; }
-  .fmi-label { font-family: 'Arial', sans-serif; font-size: 10px; color: #a89fc0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; }
-  .fmi-value { font-family: 'Courier New', monospace; font-size: 17px; font-weight: 700; color: #2c1f3e; letter-spacing: 1.5px; }
-  .fmi-value.plain { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 400; color: #3a3340; letter-spacing: 0; }
+  .fmi-label { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; }
+  .fmi-value { font-family: 'Courier New', monospace; font-size: 19px; font-weight: 700; color: #2c1f3e; letter-spacing: 1.5px; }
+  .fmi-value.plain { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: 400; color: #3a3340; letter-spacing: 0; }
 
-  /* ── TIMELINE ── */
   .timeline { margin-bottom: 12px; }
   .tl-day { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 10px; overflow: hidden; }
-  .tl-day-header { background: #2c1f3e; color: white; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .tl-day-header { background: #2c1f3e; color: white; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
   .tl-day-dot { width: 8px; height: 8px; border-radius: 50%; background: #7c5cbf; flex-shrink: 0; }
-  .tl-item { display: flex; gap: 0; border-bottom: 1px solid #f4f1ec; align-items: stretch; }
+  .tl-item { display: flex; border-bottom: 1px solid #f4f1ec; align-items: stretch; }
   .tl-item:last-child { border-bottom: none; }
-  .tl-time-col {
-    width: 64px;
-    flex-shrink: 0;
-    padding: 10px 12px;
-    background: #faf8fd;
-    border-right: 1px solid #f0ecf8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .tl-time {
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    color: #7c5cbf;
-    text-align: center;
-  }
-  .tl-body { padding: 10px 14px; display: flex; align-items: center; gap: 10px; flex: 1; }
-  .tl-text { font-size: 14px; color: #2a2030; }
-  .tl-tag {
-    font-family: 'Arial', sans-serif;
-    font-size: 10px;
-    padding: 2px 7px;
-    border-radius: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-  }
+  .tl-time-col { width: 68px; flex-shrink: 0; padding: 11px 12px; background: #faf8fd; border-right: 1px solid #f0ecf8; display: flex; align-items: center; justify-content: center; }
+  .tl-time { font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 800; color: #7c5cbf; text-align: center; }
+  .tl-body { padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex: 1; }
+  .tl-text { font-size: 16px; color: #2a2030; flex: 1; }
+  .tl-tag { font-family: 'Arial', sans-serif; font-size: 12px; padding: 2px 8px; border-radius: 10px; font-weight: 700; letter-spacing: 0.5px; flex-shrink: 0; }
   .tl-tag.flight { background: #ede8f5; color: #7c5cbf; }
   .tl-tag.hotel { background: #e8f5ef; color: #2d7a55; }
   .tl-tag.eve { background: #fdf0e8; color: #c07030; }
   .tl-tag.work { background: #e8eef5; color: #2d5078; }
 
-  /* ── OUTFITS ── */
   .outfit-card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; overflow: hidden; }
-  .outfit-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; border-left: 4px solid #7c5cbf; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #3d2e54; }
-  .outfit-worn { background: #2c1f3e; color: #c5bcd8; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 12px; }
-  .outfit-worn strong { display: block; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 3px; }
+  .outfit-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; border-left: 4px solid #7c5cbf; padding: 11px 16px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #3d2e54; }
+  .outfit-worn { background: #2c1f3e; color: #c5bcd8; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 14px; }
+  .outfit-worn strong { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 3px; }
   .outfit-items { padding: 4px 0; }
-  .outfit-item { padding: 7px 16px; font-size: 14px; color: #2a2030; border-bottom: 1px solid #f8f6fb; display: flex; align-items: center; gap: 10px; }
+  .outfit-item { padding: 8px 16px; font-size: 16px; color: #2a2030; border-bottom: 1px solid #f8f6fb; display: flex; align-items: center; gap: 10px; }
   .outfit-item:last-child { border-bottom: none; }
-  .swatch { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.12); }
-  .outfit-note { background: #faf8f2; border-top: 1px solid #ede8f5; padding: 10px 16px; font-size: 13px; color: #7c6d91; font-style: italic; }
+  .swatch { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.12); }
+  .outfit-note { background: #faf8f2; border-top: 1px solid #ede8f5; padding: 11px 16px; font-size: 15px; color: #7c6d91; font-style: italic; }
 
-  /* ── PACK GROUPS ── */
   .pack-group { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 10px; overflow: hidden; }
-  .pack-group-header {
-    background: #f7f5fb;
-    border-bottom: 1px solid #ede8f5;
-    padding: 9px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .pack-bag-icon {
-    width: 26px;
-    height: 26px;
-    background: #2c1f3e;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .pack-bag-icon svg { width: 14px; height: 14px; }
-  .pack-group-title {
-    font-family: 'Arial', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #7c5cbf;
-  }
-  .pack-item {
-    padding: 9px 16px;
-    font-size: 14px;
-    color: #2a2030;
-    border-bottom: 1px solid #f4f1ec;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: background 0.1s;
-  }
+  .pack-group-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+  .pack-bag-icon { width: 28px; height: 28px; background: #2c1f3e; border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pack-bag-icon svg { width: 15px; height: 15px; }
+  .pack-group-title { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .pack-item { padding: 10px 16px; font-size: 16px; color: #2a2030; border-bottom: 1px solid #f4f1ec; display: flex; gap: 10px; align-items: flex-start; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.1s; }
   .pack-item:last-child { border-bottom: none; }
   .pack-item:active { background: #faf8f2; }
-  .pack-circle {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 2px solid #c5bcd8;
-    flex-shrink: 0;
-    margin-top: 3px;
-    position: relative;
-    transition: background 0.15s, border-color 0.15s;
-  }
+  .pack-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #c5bcd8; flex-shrink: 0; margin-top: 2px; position: relative; transition: background 0.15s, border-color 0.15s; }
   .pack-item.checked .pack-circle { background: #7c5cbf; border-color: #7c5cbf; }
-  .pack-item.checked .pack-circle::after {
-    content: '';
-    position: absolute;
-    left: 3px; top: 1px;
-    width: 5px; height: 8px;
-    border: 2px solid white;
-    border-top: none; border-left: none;
-    transform: rotate(45deg);
-  }
+  .pack-item.checked .pack-circle::after { content: ''; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
   .pack-label { flex: 1; transition: color 0.15s; }
   .pack-item.checked .pack-label { color: #b5aec4; text-decoration: line-through; text-decoration-color: #c5bcd8; }
-  .pack-sub { font-size: 12px; color: #a89fc0; font-family: 'Arial', sans-serif; }
+  .pack-sub { font-size: 14px; color: #a89fc0; font-family: 'Arial', sans-serif; }
   .pack-item.checked .pack-sub { color: #c5bcd8; }
-  .pack-info { padding: 9px 16px 9px 44px; font-size: 13px; color: #7c6d91; font-style: italic; font-family: 'Arial', sans-serif; border-bottom: 1px solid #f4f1ec; }
+  .pack-info { padding: 10px 16px 10px 46px; font-size: 15px; color: #7c6d91; font-style: italic; font-family: 'Arial', sans-serif; border-bottom: 1px solid #f4f1ec; }
   .pack-info:last-child { border-bottom: none; }
 
-  /* ── CHECKLIST ── */
   .checklist { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 12px; }
-  .check-item {
-    display: flex;
-    gap: 12px;
-    padding: 13px 16px;
-    border-bottom: 1px solid #f4f1ec;
-    align-items: flex-start;
-    font-size: 14px;
-    color: #2a2030;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: background 0.1s;
-  }
+  .check-item { display: flex; gap: 14px; padding: 14px 16px; border-bottom: 1px solid #f4f1ec; align-items: flex-start; font-size: 16px; color: #2a2030; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.1s; }
   .check-item:last-child { border-bottom: none; }
   .check-item:active { background: #faf8f2; }
   .check-item.checked { color: #a89fc0; text-decoration: line-through; text-decoration-color: #c5bcd8; }
-  .check-box {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 0px;
-    border: 2px solid #c5bcd8;
-    position: relative;
-    transition: background 0.15s, border-color 0.15s;
-  }
+  .check-box { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 2px solid #c5bcd8; position: relative; transition: background 0.15s, border-color 0.15s; }
   .check-item.checked .check-box { background: #7c5cbf; border-color: #7c5cbf; }
-  .check-item.checked .check-box::after {
-    content: '';
-    position: absolute;
-    left: 4px; top: 2px;
-    width: 6px; height: 9px;
-    border: 2px solid white;
-    border-top: none; border-left: none;
-    transform: rotate(45deg);
-  }
+  .check-item.checked .check-box::after { content: ''; position: absolute; left: 4px; top: 2px; width: 6px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
 
-  /* ── RESET ── */
   .reset-row { text-align: right; padding: 4px 0 14px; }
-  .reset-btn { font-family: 'Arial', sans-serif; font-size: 11px; color: #a89fc0; background: none; border: none; cursor: pointer; padding: 4px 2px; }
+  .reset-btn { font-family: 'Arial', sans-serif; font-size: 13px; color: #a89fc0; background: none; border: none; cursor: pointer; padding: 4px 2px; }
   .reset-btn:hover { color: #7c5cbf; }
 
-  /* ── FOOTER ── */
-  .footer { text-align: center; padding: 36px 24px 52px; font-family: 'Arial', sans-serif; font-size: 11px; color: #b5aec4; letter-spacing: 0.5px; }
+  .footer { text-align: center; padding: 36px 24px 52px; font-family: 'Arial', sans-serif; font-size: 13px; color: #b5aec4; letter-spacing: 0.5px; }
 
   @media (min-width: 600px) {
     .header { padding: 52px 48px 0; }
-    .header h1 { font-size: 42px; }
+    .header h1 { font-size: 44px; }
     .section { padding: 40px 48px 0; }
     .meta-bar { padding: 12px 48px; }
     .quick-refs { padding: 14px 48px; }
-    .stat-n { font-size: 24px; }
+    .stat-n { font-size: 26px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-bg"></div>
   <div class="header-content">
@@ -401,7 +150,6 @@
   </div>
 </div>
 
-<!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stat"><div class="stat-n">2</div><div class="stat-l">Days</div></div>
   <div class="stat"><div class="stat-n">2</div><div class="stat-l">Flights</div></div>
@@ -410,7 +158,6 @@
   <div class="stat"><div class="stat-n">03:30</div><div class="stat-l">Kick-off</div></div>
 </div>
 
-<!-- META BAR -->
 <div class="meta-bar">
   <div class="meta-bar-left">
     <span><strong>Novotel</strong> Amsterdam Schiphol</span>
@@ -420,110 +167,54 @@
   <div class="progress-badge" id="progress-badge">Loading...</div>
 </div>
 
-<!-- QUICK REFS -->
 <div class="quick-refs">
   <div class="qr-item"><span class="qr-label">Parking</span><span class="qr-code">WSP141501</span></div>
   <div class="qr-item"><span class="qr-label">Flight code</span><span class="qr-code">XJIFDB</span></div>
   <div class="qr-item"><span class="qr-label">Hotel ref</span><span class="qr-code">QGRDJJCT</span></div>
 </div>
 
-<!-- DAY BY DAY -->
 <div class="section">
   <div class="section-label">
-    <div class="section-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/>
-        <line x1="3" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/>
-        <line x1="8" y1="2" x2="8" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <line x1="16" y1="2" x2="16" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <rect x="7" y="13" width="3" height="3" rx="0.5" fill="white"/>
-        <rect x="14" y="13" width="3" height="3" rx="0.5" fill="white"/>
-      </svg>
-    </div>
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/><rect x="7" y="13" width="3" height="3" rx="0.5" fill="white"/><rect x="14" y="13" width="3" height="3" rx="0.5" fill="white"/></svg></div>
     <span class="section-title">Day by Day</span>
   </div>
   <div class="timeline">
-
     <div class="tl-day">
       <div class="tl-day-header"><div class="tl-day-dot"></div>Monday 27 April - Travel Day</div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">03:30</div></div>
-        <div class="tl-body"><span class="tl-text">Park at Teesside Airport (ANPR - no ticket, ref WSP141501)</span><span class="tl-tag flight">Car</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">06:00</div></div>
-        <div class="tl-body"><span class="tl-text">KL0962 departs MME</span><span class="tl-tag flight">Flight</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">08:20</div></div>
-        <div class="tl-body"><span class="tl-text">Arrives Amsterdam Schiphol (AMS)</span><span class="tl-tag flight">Flight</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">10:00</div></div>
-        <div class="tl-body"><span class="tl-text">Early check-in at Novotel (paid in advance)</span><span class="tl-tag hotel">Hotel</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">Aft</div></div>
-        <div class="tl-body"><span class="tl-text">Nap - shower - change - prep</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">Eve</div></div>
-        <div class="tl-body"><span class="tl-text">Dinner with Sarah + drinks with clients</span><span class="tl-tag eve">Social</span></div>
-      </div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">03:30</div></div><div class="tl-body"><span class="tl-text">Park at Teesside Airport (ANPR - no ticket, ref WSP141501)</span><span class="tl-tag flight">Car</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">06:00</div></div><div class="tl-body"><span class="tl-text">KL0962 departs MME</span><span class="tl-tag flight">Flight</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">08:20</div></div><div class="tl-body"><span class="tl-text">Arrives Amsterdam Schiphol (AMS)</span><span class="tl-tag flight">Flight</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">10:00</div></div><div class="tl-body"><span class="tl-text">Early check-in at Novotel (paid in advance)</span><span class="tl-tag hotel">Hotel</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Aft</div></div><div class="tl-body"><span class="tl-text">Nap - shower - change - prep</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Eve</div></div><div class="tl-body"><span class="tl-text">Dinner with Sarah + drinks with clients</span><span class="tl-tag eve">Social</span></div></div>
     </div>
-
     <div class="tl-day">
       <div class="tl-day-header"><div class="tl-day-dot"></div>Tuesday 28 April - Delivery Day</div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">TBC</div></div>
-        <div class="tl-body"><span class="tl-text">SUSE Difficult Conversations session (SUSE office, approx. 3 stops from Schiphol)</span><span class="tl-tag work">Session</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">21:20</div></div>
-        <div class="tl-body"><span class="tl-text">KL0967 departs AMS</span><span class="tl-tag flight">Flight</span></div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time-col"><div class="tl-time">21:30</div></div>
-        <div class="tl-body"><span class="tl-text">Arrives MME (BST)</span><span class="tl-tag flight">Flight</span></div>
-      </div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">TBC</div></div><div class="tl-body"><span class="tl-text">SUSE Difficult Conversations session (SUSE office, approx. 3 stops from Schiphol)</span><span class="tl-tag work">Session</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">21:20</div></div><div class="tl-body"><span class="tl-text">KL0967 departs AMS</span><span class="tl-tag flight">Flight</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">21:30</div></div><div class="tl-body"><span class="tl-text">Arrives MME (BST)</span><span class="tl-tag flight">Flight</span></div></div>
     </div>
-
   </div>
 </div>
 
-<!-- LOGISTICS -->
 <div class="section">
   <div class="section-label">
-    <div class="section-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="white"/>
-      </svg>
-    </div>
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="white"/></svg></div>
     <span class="section-title">Logistics</span>
   </div>
-
   <div class="card">
     <div class="card-title">Car Parking - Teesside International Airport</div>
-    <div class="info-row"><div class="info-key">Car park</div><div class="info-val">On-Site Car Park &middot; directly opposite terminal<br><span style="font-size:12px;color:#a89fc0;font-family:Arial,sans-serif;">No shuttle. No ticket. ANPR entry and exit.</span></div></div>
+    <div class="info-row"><div class="info-key">Car park</div><div class="info-val">On-Site Car Park &middot; directly opposite terminal<br><span style="font-size:14px;color:#a89fc0;font-family:Arial,sans-serif;">No shuttle. No ticket. ANPR entry and exit.</span></div></div>
     <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">WSP141501</div></div>
     <div class="info-row"><div class="info-key">Window</div><div class="info-val">Mon 27 Apr 03:30 &rarr; Tue 28 Apr 22:30</div></div>
     <div class="info-row"><div class="info-key">Paid</div><div class="info-val">&pound;20.00 inc VAT (fully paid)</div></div>
   </div>
-
   <div class="flight-card">
     <div class="flight-tag">Outbound &middot; Monday 27 April &middot; KL0962</div>
     <div class="flight-row">
-      <div class="flight-point">
-        <div class="iata">MME</div>
-        <div class="airport-name">Teesside</div>
-        <div class="flight-time">06:00 BST</div>
-      </div>
+      <div class="flight-point"><div class="iata">MME</div><div class="airport-name">Teesside</div><div class="flight-time">06:00 BST</div></div>
       <div class="flight-line"></div>
-      <div class="flight-point">
-        <div class="iata">AMS</div>
-        <div class="airport-name">Schiphol</div>
-        <div class="flight-time">08:20 CET</div>
-      </div>
+      <div class="flight-point"><div class="iata">AMS</div><div class="airport-name">Schiphol</div><div class="flight-time">08:20 CET</div></div>
     </div>
     <div class="flight-meta">
       <div class="flight-meta-item"><div class="fmi-label">Booking Code</div><div class="fmi-value">XJIFDB</div></div>
@@ -531,66 +222,45 @@
       <div class="flight-meta-item"><div class="fmi-label">Total paid</div><div class="fmi-value plain">GBP 487.14 both flights</div></div>
     </div>
   </div>
-
   <div class="card">
     <div class="card-title">Novotel Amsterdam Schiphol Airport</div>
     <div class="info-row"><div class="info-key">Address</div><div class="info-val">Taurusavenue 12, 2132 LS Hoofddorp, Netherlands</div></div>
-    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Mon 27 April &mdash; early from 10:00 (paid)</div></div>
+    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Mon 27 April - early from 10:00 (paid)</div></div>
     <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Tue 28 April, by 12:00</div></div>
     <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">QGRDJJCT</div></div>
-    <div class="info-row"><div class="info-key">Rate</div><div class="info-val">Advance Saver &middot; breakfast included &middot; EUR 199.64 paid</div></div>
+    <div class="info-row"><div class="info-key">Rate</div><div class="info-val">Advance Saver - breakfast included - EUR 199.64 paid</div></div>
     <div class="info-row"><div class="info-key">Phone</div><div class="info-val"><a href="tel:+31207219180" style="color:#7c5cbf;text-decoration:none;">+31 20 721 9180</a></div></div>
   </div>
-
   <div class="flight-card">
     <div class="flight-tag">Return &middot; Tuesday 28 April &middot; KL0967</div>
     <div class="flight-row">
-      <div class="flight-point">
-        <div class="iata">AMS</div>
-        <div class="airport-name">Schiphol</div>
-        <div class="flight-time">21:20 CET</div>
-      </div>
+      <div class="flight-point"><div class="iata">AMS</div><div class="airport-name">Schiphol</div><div class="flight-time">21:20 CET</div></div>
       <div class="flight-line"></div>
-      <div class="flight-point">
-        <div class="iata">MME</div>
-        <div class="airport-name">Teesside</div>
-        <div class="flight-time">21:30 BST</div>
-      </div>
+      <div class="flight-point"><div class="iata">MME</div><div class="airport-name">Teesside</div><div class="flight-time">21:30 BST</div></div>
     </div>
     <div class="flight-meta">
       <div class="flight-meta-item"><div class="fmi-label">Booking Code</div><div class="fmi-value">XJIFDB</div></div>
       <div class="flight-meta-item"><div class="fmi-label">Seat</div><div class="fmi-value">19D</div></div>
     </div>
   </div>
-
 </div>
 
-<!-- OUTFITS -->
 <div class="section">
   <div class="section-label">
-    <div class="section-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 015 9.42L3.77 8.57A1 1 0 014 7h1.5l2.5-3h8l2.5 3H20a1 1 0 01.38 1.57z" stroke="white" stroke-width="1.8" fill="none"/>
-      </svg>
-    </div>
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 015 9.42L3.77 8.57A1 1 0 014 7h1.5l2.5-3h8l2.5 3H20a1 1 0 01.38 1.57z" stroke="white" stroke-width="1.8" fill="none"/></svg></div>
     <span class="section-title">Outfits</span>
   </div>
-
   <div class="outfit-card">
     <div class="outfit-header">Monday - Travel Day</div>
-    <div class="outfit-worn">
-      <strong>Worn on travel day</strong>
-      Brown sneakers &middot; Indigo jeans &middot; Peregrine knit &middot; Olive jacket &middot; Avenger
-    </div>
+    <div class="outfit-worn"><strong>Worn on travel day</strong>Brown dress sneakers &middot; Indigo jeans &middot; Peregrine knit &middot; Olive jacket &middot; Avenger</div>
     <div class="outfit-items">
       <div class="outfit-item"><span class="swatch" style="background:#7B5B3A;"></span>Brown dress sneakers</div>
       <div class="outfit-item"><span class="swatch" style="background:#2d3572;"></span>Indigo selvedge jeans (Asket)</div>
       <div class="outfit-item"><span class="swatch" style="background:#3a6bc4;"></span>Cobalt or grey Peregrine Intercity knit</div>
       <div class="outfit-item"><span class="swatch" style="background:#5a6e3a;"></span>Olive Green Field Jacket (Asket)</div>
-      <div class="outfit-item"><span class="swatch" style="background:#b0b0b0;border-color:rgba(0,0,0,0.2);"></span>Breitling Avenger</div>
+      <div class="outfit-item"><span class="swatch" style="background:#b0b0b0;"></span>Breitling Avenger</div>
     </div>
   </div>
-
   <div class="outfit-card">
     <div class="outfit-header">Monday Evening - Dinner + Drinks</div>
     <div class="outfit-note" style="border-top:none;border-bottom:1px solid #ede8f5;padding-top:10px;">Arrive, nap, shower, then change before dinner.</div>
@@ -600,7 +270,6 @@
       <div class="outfit-item"><span class="swatch" style="background:#4a4a4a;"></span>Second knit / crew neck (deliberate swap)</div>
     </div>
   </div>
-
   <div class="outfit-card">
     <div class="outfit-header">Tuesday - SUSE Delivery Day</div>
     <div class="outfit-items">
@@ -611,30 +280,16 @@
       <div class="outfit-item"><span class="swatch" style="background:#1a1a1a;"></span>Black Icon quarter zip</div>
     </div>
   </div>
-
 </div>
 
-<!-- PACKING -->
 <div class="section">
   <div class="section-label">
-    <div class="section-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="8" width="20" height="14" rx="2" stroke="white" stroke-width="2"/>
-        <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="2"/>
-        <line x1="2" y1="13" x2="22" y2="13" stroke="white" stroke-width="1.5" stroke-dasharray="2 2"/>
-      </svg>
-    </div>
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="14" rx="2" stroke="white" stroke-width="2"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="2"/><line x1="2" y1="13" x2="22" y2="13" stroke="white" stroke-width="1.5" stroke-dasharray="2 2"/></svg></div>
     <span class="section-title">What's Packed</span>
   </div>
 
-  <!-- Tumi -->
   <div class="pack-group">
-    <div class="pack-group-header">
-      <div class="pack-bag-icon">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2" stroke="white" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="1.5"/></svg>
-      </div>
-      <div class="pack-group-title">Tumi Briefcase - Core Kit (standard)</div>
-    </div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2" stroke="white" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="1.5"/></svg></div><div class="pack-group-title">Tumi Briefcase - Core Kit (standard)</div></div>
     <div class="pack-item" data-key="tumi-mac" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">MacBook + charger</div></div>
     <div class="pack-item" data-key="tumi-ipad" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">iPad</div></div>
     <div class="pack-item" data-key="tumi-planner" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Leather planner + pen</div></div>
@@ -642,41 +297,23 @@
     <div class="pack-item" data-key="tumi-prep" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Session prep / printed materials for flight</div></div>
   </div>
 
-  <!-- Wandrd Tech -->
   <div class="pack-group">
-    <div class="pack-group-header">
-      <div class="pack-bag-icon">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="14" rx="2" stroke="white" stroke-width="1.8"/><path d="M9 5V3h6v2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" stroke="white" stroke-width="1.5"/></svg>
-      </div>
-      <div class="pack-group-title">Wandrd Tech Pouch (standard)</div>
-    </div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="14" rx="2" stroke="white" stroke-width="1.8"/><path d="M9 5V3h6v2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" stroke="white" stroke-width="1.5"/></svg></div><div class="pack-group-title">Wandrd Tech Pouch (standard)</div></div>
     <div class="pack-item" data-key="tech-airpods" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">AirPods / headphones</div></div>
     <div class="pack-item" data-key="tech-cables" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Cables - Power bank</div></div>
     <div class="pack-item" data-key="tech-adapter" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Type C/F adapter <span class="pack-sub">- needed for Netherlands</span></div></div>
   </div>
 
-  <!-- Orange Alpaka Health -->
   <div class="pack-group">
-    <div class="pack-group-header">
-      <div class="pack-bag-icon">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L8 6H4l2 3-1 4 4-2 3 3 3-3 4 2-1-4 2-3h-4z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="pack-group-title">Orange Alpaka - Health Pouch (standard)</div>
-    </div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L8 6H4l2 3-1 4 4-2 3 3 3-3 4 2-1-4 2-3h-4z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="pack-group-title">Orange Alpaka - Health Pouch (standard)</div></div>
     <div class="pack-item" data-key="hlth-supplements" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Supplements - check</div></div>
     <div class="pack-item" data-key="hlth-gout" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Gout pills - check</div></div>
     <div class="pack-item" data-key="hlth-plasters" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Plasters - check</div></div>
     <div class="pack-item" data-key="hlth-pain" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Pain pills - check</div></div>
   </div>
 
-  <!-- ZDX -->
   <div class="pack-group">
-    <div class="pack-group-header">
-      <div class="pack-bag-icon">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M7 7V5a1 1 0 011-1h8a1 1 0 011 1v2" stroke="white" stroke-width="1.8"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.5"/></svg>
-      </div>
-      <div class="pack-group-title">ZDX Cabin Bag - Toiletries (Green Alpaka)</div>
-    </div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M7 7V5a1 1 0 011-1h8a1 1 0 011 1v2" stroke="white" stroke-width="1.8"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.5"/></svg></div><div class="pack-group-title">ZDX Cabin Bag - Toiletries (Green Alpaka)</div></div>
     <div class="pack-item" data-key="tlt-toothbrush" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Toothbrush + toothpaste</div></div>
     <div class="pack-item" data-key="tlt-deo" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Deodorant</div></div>
     <div class="pack-item" data-key="tlt-fragrance" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Travel fragrance</div></div>
@@ -684,14 +321,8 @@
     <div class="pack-item" data-key="tlt-inhaler" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Inhaler</div></div>
   </div>
 
-  <!-- Tripp Clothing -->
   <div class="pack-group">
-    <div class="pack-group-header">
-      <div class="pack-bag-icon">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="16" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="14" r="2" fill="white"/><line x1="6" y1="6" x2="6" y2="22" stroke="white" stroke-width="1"/></svg>
-      </div>
-      <div class="pack-group-title">Grey Tripp Medium (Checked) - Clothing</div>
-    </div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="16" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="14" r="2" fill="white"/></svg></div><div class="pack-group-title">Grey Tripp Medium (Checked) - Clothing</div></div>
     <div class="pack-item" data-key="chk-gabardines" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Gabardines (Michelsberg) <span class="pack-sub">- Tue</span></div></div>
     <div class="pack-item" data-key="chk-paulsmith-shirt" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">White Paul Smiths shirt <span class="pack-sub">- Tue</span></div></div>
     <div class="pack-item" data-key="chk-icon" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Black Icon quarter zip <span class="pack-sub">- Tue</span></div></div>
@@ -702,14 +333,8 @@
     <div class="pack-item" data-key="chk-sleepwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Sleepwear (t-shirt + shorts)</div></div>
   </div>
 
-  <!-- Tripp Workshop -->
   <div class="pack-group">
-    <div class="pack-group-header">
-      <div class="pack-bag-icon">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      </div>
-      <div class="pack-group-title">Grey Tripp Medium (Checked) - Workshop</div>
-    </div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="pack-group-title">Grey Tripp Medium (Checked) - Workshop</div></div>
     <div class="pack-item" data-key="wsh-camera" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Camera Kit</div></div>
     <div class="pack-item" data-key="wsh-handouts" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Printed handouts (full set)</div></div>
     <div class="pack-item" data-key="wsh-workbooks" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Workbooks</div></div>
@@ -717,23 +342,12 @@
     <div class="pack-item" data-key="wsh-sharpies" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Orange Wandrd Pouch (Sharpies, markers)</div></div>
   </div>
 
-  <div class="reset-row">
-    <button class="reset-btn" onclick="resetPacking()">Reset packing</button>
-  </div>
-
+  <div class="reset-row"><button class="reset-btn" onclick="resetPacking()">Reset packing</button></div>
 </div>
 
-<!-- CHECKLIST -->
 <div class="section">
   <div class="section-label">
-    <div class="section-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="2" width="16" height="20" rx="2" stroke="white" stroke-width="2"/>
-        <polyline points="9,12 11,14.5 15,10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="8" y1="7" x2="16" y2="7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="8" y1="17" x2="13" y2="17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </div>
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" stroke="white" stroke-width="2"/><polyline points="9,12 11,14.5 15,10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="7" x2="16" y2="7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="17" x2="13" y2="17" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <span class="section-title">Pre-Travel Checklist</span>
   </div>
   <div class="checklist">
@@ -744,14 +358,10 @@
     <div class="check-item" data-key="chk-weather" onclick="toggleItem(this)"><div class="check-box"></div>Check weather forecast for Amsterdam 27-28 April</div>
     <div class="check-item" data-key="chk-boarding" onclick="toggleItem(this)"><div class="check-box"></div>KLM app: boarding passes downloaded for KL0962 and KL0967</div>
   </div>
-  <div class="reset-row">
-    <button class="reset-btn" onclick="resetChecklist()">Reset checklist</button>
-  </div>
+  <div class="reset-row"><button class="reset-btn" onclick="resetChecklist()">Reset checklist</button></div>
 </div>
 
-<div class="footer">
-  Amsterdam / SUSE - April 2026<br>Updated 13 April 2026
-</div>
+<div class="footer">Amsterdam / SUSE - April 2026<br>Updated 13 April 2026</div>
 
 <script>
   var STORE = 'amsterdam_apr26_';
@@ -761,9 +371,9 @@
     localStorage.setItem('__amsterdam_apr26_init', '1');
   }
   function toggleItem(el) {
-    var isChecked = el.classList.toggle('checked');
-    if (isChecked) { localStorage.setItem(STORE + el.dataset.key, '1'); }
-    else { localStorage.removeItem(STORE + el.dataset.key); }
+    var on = el.classList.toggle('checked');
+    if (on) localStorage.setItem(STORE + el.dataset.key, '1');
+    else localStorage.removeItem(STORE + el.dataset.key);
     updateProgress();
   }
   function restore() {
@@ -781,17 +391,11 @@
     if (b) b.textContent = 'Packed ' + pD + '/' + pT + ' - Checklist ' + cD + '/' + cT;
   }
   function resetPacking() {
-    document.querySelectorAll('.pack-item[data-key]').forEach(function(el) {
-      el.classList.remove('checked');
-      localStorage.removeItem(STORE + el.dataset.key);
-    });
+    document.querySelectorAll('.pack-item[data-key]').forEach(function(el) { el.classList.remove('checked'); localStorage.removeItem(STORE + el.dataset.key); });
     updateProgress();
   }
   function resetChecklist() {
-    document.querySelectorAll('.check-item[data-key]').forEach(function(el) {
-      el.classList.remove('checked');
-      localStorage.removeItem(STORE + el.dataset.key);
-    });
+    document.querySelectorAll('.check-item[data-key]').forEach(function(el) { el.classList.remove('checked'); localStorage.removeItem(STORE + el.dataset.key); });
     ['chk-flights','chk-parking'].forEach(function(k) {
       var el = document.querySelector('[data-key="' + k + '"]');
       if (el) { el.classList.add('checked'); localStorage.setItem(STORE + k, '1'); }
@@ -800,6 +404,5 @@
   }
   window.addEventListener('DOMContentLoaded', restore);
 </script>
-
 </body>
 </html>
