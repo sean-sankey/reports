@@ -6,376 +6,205 @@
 <title>Dublin / Alltech - Travel Plan - 15-16 April 2026</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f4f1ec; color: #1a1a1a; line-height: 1.65; font-size: 16px; }
 
-  body {
-    font-family: 'Georgia', serif;
-    background: #f4f1ec;
-    color: #1a1a1a;
-    line-height: 1.65;
-  }
+  .header { background: #2c1f3e; color: white; padding: 40px 24px 0; position: relative; overflow: hidden; }
+  .header-bg { position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(-45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px); }
+  .header-content { position: relative; z-index: 1; }
+  .header .label { font-family: 'Arial', sans-serif; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: #a89fc0; margin-bottom: 10px; }
+  .header h1 { font-size: 34px; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
+  .header .sub { font-family: 'Arial', sans-serif; font-size: 15px; color: #c5bcd8; margin-bottom: 20px; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 5px 14px; font-family: 'Arial', sans-serif; font-size: 14px; color: #d8d2e8; }
 
-  /* HEADER */
-  .header {
-    background: #2c1f3e;
-    color: white;
-    padding: 40px 24px 32px;
-  }
-  .header .label {
-    font-family: 'Arial', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #a89fc0;
-    margin-bottom: 10px;
-  }
-  .header h1 {
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-  .header .sub {
-    font-family: 'Arial', sans-serif;
-    font-size: 13px;
-    color: #c5bcd8;
-    margin-bottom: 20px;
-  }
-  .contact-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-  .pill {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-family: 'Arial', sans-serif;
-    font-size: 12px;
-    color: #d8d2e8;
-  }
+  .stats-strip { background: white; display: flex; border-top: 3px solid #7c5cbf; }
+  .stat { flex: 1; text-align: center; padding: 14px 8px; border-right: 1px solid #f0ecf8; }
+  .stat:last-child { border-right: none; }
+  .stat-n { font-family: 'Arial', sans-serif; font-size: 22px; font-weight: 800; color: #2c1f3e; line-height: 1; margin-bottom: 3px; }
+  .stat-l { font-family: 'Arial', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: #a89fc0; }
 
-  /* META BAR */
-  .meta-bar {
-    background: #3d2e54;
-    padding: 10px 24px;
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
+  .meta-bar { background: #3d2e54; padding: 10px 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
   .meta-bar-left { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
-  .meta-bar span {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    color: #a89fc0;
-    letter-spacing: 0.3px;
-  }
+  .meta-bar span { font-family: 'Arial', sans-serif; font-size: 13px; color: #a89fc0; }
   .meta-bar strong { color: #e0d9ed; }
-  .progress-badge {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    background: rgba(124,92,191,0.25);
-    border: 1px solid rgba(124,92,191,0.4);
-    border-radius: 12px;
-    padding: 3px 11px;
-    color: #c5bcd8;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
+  .progress-badge { font-family: 'Arial', sans-serif; font-size: 13px; background: rgba(124,92,191,0.25); border: 1px solid rgba(124,92,191,0.4); border-radius: 12px; padding: 4px 12px; color: #c5bcd8; white-space: nowrap; flex-shrink: 0; }
 
-  /* SECTION */
-  .section { padding: 28px 24px 0; }
-  .section-label {
-    font-family: 'Arial', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: #7c6d91;
-    margin-bottom: 14px;
-    border-bottom: 1px solid #ddd8cf;
-    padding-bottom: 8px;
-  }
+  .quick-refs { background: #2c1f3e; padding: 14px 24px; display: flex; gap: 0; flex-wrap: wrap; }
+  .qr-item { flex: 1; min-width: 110px; padding: 8px 16px 8px 0; border-right: 1px solid rgba(255,255,255,0.1); margin-right: 16px; }
+  .qr-item:last-child { border-right: none; margin-right: 0; }
+  .qr-label { font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; display: block; margin-bottom: 4px; }
+  .qr-code { font-family: 'Courier New', monospace; font-size: 18px; font-weight: 700; color: white; letter-spacing: 1.5px; }
 
-  /* CARD */
-  .card {
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-  .card-title {
-    background: #f7f5fb;
-    border-bottom: 1px solid #ede8f5;
-    padding: 10px 16px;
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #7c5cbf;
-  }
+  .section { padding: 32px 24px 0; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #e8e2f0; }
+  .section-icon { width: 34px; height: 34px; background: #2c1f3e; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-icon svg { width: 18px; height: 18px; }
+  .section-title { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: 800; color: #2c1f3e; letter-spacing: -0.3px; }
 
-  /* INFO ROWS */
-  .info-row {
-    display: flex;
-    border-bottom: 1px solid #f4f1ec;
-    padding: 11px 16px;
-    gap: 12px;
-    align-items: flex-start;
-  }
+  .card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; overflow: hidden; }
+  .card-title { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .info-row { display: flex; border-bottom: 1px solid #f4f1ec; padding: 12px 16px; gap: 12px; align-items: flex-start; }
   .info-row:last-child { border-bottom: none; }
-  .info-key {
-    font-family: 'Arial', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: #a89fc0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    min-width: 88px;
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
-  .info-val { font-size: 14px; color: #2a2030; flex: 1; }
-  .info-val.mono {
-    font-family: 'Courier New', monospace;
-    font-weight: 700;
-    font-size: 15px;
-    color: #2c1f3e;
-    letter-spacing: 1px;
-  }
-  .info-val.note { font-size: 13px; color: #7c6d91; font-style: italic; }
+  .info-key { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; min-width: 88px; flex-shrink: 0; padding-top: 2px; }
+  .info-val { font-size: 16px; color: #2a2030; flex: 1; }
+  .info-val.mono { font-family: 'Courier New', monospace; font-weight: 700; font-size: 17px; color: #2c1f3e; letter-spacing: 1px; }
+  .info-val.note { font-size: 15px; color: #7c6d91; font-style: italic; }
 
-  /* FLIGHT CARD */
-  .flight-card {
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    margin-bottom: 12px;
-    border-top: 3px solid #7c5cbf;
-    padding: 16px;
-  }
-  .flight-tag {
-    font-family: 'Arial', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #7c5cbf;
-    margin-bottom: 14px;
-  }
+  .flight-card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; border-top: 3px solid #7c5cbf; padding: 16px; }
+  .flight-tag { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 16px; }
   .flight-row { display: flex; align-items: center; margin-bottom: 14px; }
   .flight-point { text-align: center; flex-shrink: 0; }
-  .iata { font-family: 'Arial', sans-serif; font-size: 26px; font-weight: 700; color: #2c1f3e; line-height: 1; }
-  .airport-name { font-family: 'Arial', sans-serif; font-size: 10px; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-  .flight-time { font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; color: #3d2e54; margin-top: 4px; }
-  .flight-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, #7c5cbf, #c5bcd8, #7c5cbf);
-    margin: 0 12px;
-    position: relative;
-  }
-  .flight-line::after {
-    content: '\25B6';
-    position: absolute;
-    right: -6px;
-    top: -8px;
-    font-size: 10px;
-    color: #7c5cbf;
-  }
+  .iata { font-family: 'Arial', sans-serif; font-size: 32px; font-weight: 800; color: #2c1f3e; line-height: 1; }
+  .airport-name { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+  .flight-time { font-family: 'Arial', sans-serif; font-size: 17px; font-weight: 700; color: #3d2e54; margin-top: 4px; }
+  .flight-line { flex: 1; height: 1px; background: linear-gradient(to right, #7c5cbf, #c5bcd8, #7c5cbf); margin: 0 14px; position: relative; }
+  .flight-line::after { content: '\25B6'; position: absolute; right: -7px; top: -9px; font-size: 11px; color: #7c5cbf; }
   .flight-meta { display: flex; gap: 12px; border-top: 1px solid #f4f1ec; padding-top: 12px; flex-wrap: wrap; }
-  .flight-meta-item { flex: 1; min-width: 100px; }
-  .fmi-label { font-family: 'Arial', sans-serif; font-size: 10px; color: #a89fc0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; }
-  .fmi-value { font-family: 'Courier New', monospace; font-size: 16px; font-weight: 700; color: #2c1f3e; letter-spacing: 1.5px; }
-  .fmi-value.plain { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 400; color: #3a3340; letter-spacing: 0; }
+  .flight-meta-item { flex: 1; min-width: 90px; }
+  .fmi-label { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; }
+  .fmi-value { font-family: 'Courier New', monospace; font-size: 19px; font-weight: 700; color: #2c1f3e; letter-spacing: 1.5px; }
+  .fmi-value.plain { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: 400; color: #3a3340; letter-spacing: 0; }
 
-  /* TIMELINE */
   .timeline { margin-bottom: 12px; }
-  .tl-day { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 8px; overflow: hidden; }
-  .tl-day-header { background: #2c1f3e; color: white; padding: 8px 16px; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
-  .tl-item { display: flex; gap: 12px; padding: 9px 16px; border-bottom: 1px solid #f4f1ec; align-items: flex-start; }
+  .tl-day { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 10px; overflow: hidden; }
+  .tl-day-header { background: #2c1f3e; color: white; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .tl-day-dot { width: 8px; height: 8px; border-radius: 50%; background: #7c5cbf; flex-shrink: 0; }
+  .tl-item { display: flex; border-bottom: 1px solid #f4f1ec; align-items: stretch; }
   .tl-item:last-child { border-bottom: none; }
-  .tl-time { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; color: #7c5cbf; min-width: 52px; flex-shrink: 0; padding-top: 1px; }
-  .tl-text { font-size: 14px; color: #2a2030; }
+  .tl-time-col { width: 68px; flex-shrink: 0; padding: 11px 12px; background: #faf8fd; border-right: 1px solid #f0ecf8; display: flex; align-items: center; justify-content: center; }
+  .tl-time { font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 800; color: #7c5cbf; text-align: center; }
+  .tl-body { padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex: 1; }
+  .tl-text { font-size: 16px; color: #2a2030; flex: 1; }
+  .tl-tag { font-family: 'Arial', sans-serif; font-size: 12px; padding: 2px 8px; border-radius: 10px; font-weight: 700; letter-spacing: 0.5px; flex-shrink: 0; }
+  .tl-tag.flight { background: #ede8f5; color: #7c5cbf; }
+  .tl-tag.hotel { background: #e8f5ef; color: #2d7a55; }
+  .tl-tag.eve { background: #fdf0e8; color: #c07030; }
+  .tl-tag.work { background: #e8eef5; color: #2d5078; }
+  .tl-tag.spa { background: #e8f5f5; color: #2d7a7a; }
 
-  /* OUTFITS */
-  .outfit-card { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 12px; overflow: hidden; }
-  .outfit-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; border-left: 4px solid #7c5cbf; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #3d2e54; }
-  .outfit-worn { background: #2c1f3e; color: #c5bcd8; padding: 8px 16px; font-family: 'Arial', sans-serif; font-size: 11px; }
-  .outfit-worn strong { display: block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #a89fc0; margin-bottom: 3px; }
-  .outfit-item { padding: 8px 16px; font-size: 14px; color: #2a2030; border-bottom: 1px solid #f4f1ec; display: flex; align-items: center; gap: 8px; }
-  .outfit-item:last-of-type { border-bottom: none; }
-  .outfit-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #a89fc0; flex-shrink: 0; }
-  .outfit-note { background: #faf8f2; border-top: 1px solid #ede8f5; padding: 10px 16px; font-size: 13px; color: #7c6d91; font-style: italic; }
+  .outfit-card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; overflow: hidden; }
+  .outfit-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; border-left: 4px solid #7c5cbf; padding: 11px 16px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #3d2e54; }
+  .outfit-worn { background: #2c1f3e; color: #c5bcd8; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 14px; }
+  .outfit-worn strong { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 3px; }
+  .outfit-items { padding: 4px 0; }
+  .outfit-item { padding: 8px 16px; font-size: 16px; color: #2a2030; border-bottom: 1px solid #f8f6fb; display: flex; align-items: center; gap: 10px; }
+  .outfit-item:last-child { border-bottom: none; }
+  .swatch { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.12); }
+  .outfit-note { background: #faf8f2; border-top: 1px solid #ede8f5; padding: 11px 16px; font-size: 15px; color: #7c6d91; font-style: italic; }
 
-  /* PACK ITEMS - INTERACTIVE */
-  .pack-group { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 8px; overflow: hidden; }
-  .pack-group-title { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 8px 16px; font-family: 'Arial', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
-  .pack-item {
-    padding: 9px 16px;
-    font-size: 14px;
-    color: #2a2030;
-    border-bottom: 1px solid #f4f1ec;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: background 0.1s;
-  }
+  .pack-group { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 10px; overflow: hidden; }
+  .pack-group-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+  .pack-bag-icon { width: 28px; height: 28px; background: #2c1f3e; border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pack-bag-icon svg { width: 15px; height: 15px; }
+  .pack-group-title { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .pack-item { padding: 10px 16px; font-size: 16px; color: #2a2030; border-bottom: 1px solid #f4f1ec; display: flex; gap: 10px; align-items: flex-start; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.1s; }
   .pack-item:last-child { border-bottom: none; }
   .pack-item:active { background: #faf8f2; }
-  .pack-circle {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 2px solid #c5bcd8;
-    flex-shrink: 0;
-    margin-top: 3px;
-    position: relative;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .pack-item.checked .pack-circle {
-    background: #7c5cbf;
-    border-color: #7c5cbf;
-  }
-  .pack-item.checked .pack-circle::after {
-    content: '';
-    position: absolute;
-    left: 3px;
-    top: 1px;
-    width: 5px;
-    height: 8px;
-    border: 2px solid white;
-    border-top: none;
-    border-left: none;
-    transform: rotate(45deg);
-  }
+  .pack-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #c5bcd8; flex-shrink: 0; margin-top: 2px; position: relative; transition: background 0.15s, border-color 0.15s; }
+  .pack-item.checked .pack-circle { background: #7c5cbf; border-color: #7c5cbf; }
+  .pack-item.checked .pack-circle::after { content: ''; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
   .pack-label { flex: 1; transition: color 0.15s; }
   .pack-item.checked .pack-label { color: #b5aec4; text-decoration: line-through; text-decoration-color: #c5bcd8; }
-  .pack-sub { font-size: 12px; color: #a89fc0; font-family: 'Arial', sans-serif; }
+  .pack-sub { font-size: 14px; color: #a89fc0; font-family: 'Arial', sans-serif; }
   .pack-item.checked .pack-sub { color: #c5bcd8; }
-  .pack-info { padding: 9px 16px 9px 44px; font-size: 13px; color: #7c6d91; font-style: italic; font-family: 'Arial', sans-serif; border-bottom: 1px solid #f4f1ec; }
+  .pack-info { padding: 10px 16px 10px 46px; font-size: 15px; color: #7c6d91; font-style: italic; font-family: 'Arial', sans-serif; border-bottom: 1px solid #f4f1ec; }
   .pack-info:last-child { border-bottom: none; }
 
-  /* CHECKLIST - INTERACTIVE */
-  .checklist { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; margin-bottom: 12px; }
-  .check-item {
-    display: flex;
-    gap: 12px;
-    padding: 12px 16px;
-    border-bottom: 1px solid #f4f1ec;
-    align-items: flex-start;
-    font-size: 14px;
-    color: #2a2030;
-    cursor: pointer;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: background 0.1s;
-  }
+  .checklist { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 12px; }
+  .check-item { display: flex; gap: 14px; padding: 14px 16px; border-bottom: 1px solid #f4f1ec; align-items: flex-start; font-size: 16px; color: #2a2030; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.1s; }
   .check-item:last-child { border-bottom: none; }
   .check-item:active { background: #faf8f2; }
   .check-item.checked { color: #a89fc0; text-decoration: line-through; text-decoration-color: #c5bcd8; }
-  .check-box {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 1px;
-    border: 2px solid #c5bcd8;
-    position: relative;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .check-item.checked .check-box {
-    background: #7c5cbf;
-    border-color: #7c5cbf;
-  }
-  .check-item.checked .check-box::after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 1px;
-    width: 5px;
-    height: 8px;
-    border: 2px solid white;
-    border-top: none;
-    border-left: none;
-    transform: rotate(45deg);
-  }
+  .check-box { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 2px solid #c5bcd8; position: relative; transition: background 0.15s, border-color 0.15s; }
+  .check-item.checked .check-box { background: #7c5cbf; border-color: #7c5cbf; }
+  .check-item.checked .check-box::after { content: ''; position: absolute; left: 4px; top: 2px; width: 6px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
 
-  /* CONTACTS */
-  .contacts-card { background: white; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; margin-bottom: 12px; }
-  .contact-item { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-bottom: 1px solid #f4f1ec; background: white; }
-  .contact-item:last-child { border-bottom: none; }
-  .avatar { width: 38px; height: 38px; border-radius: 50%; background: #2c1f3e; color: #c5bcd8; display: flex; align-items: center; justify-content: center; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; flex-shrink: 0; }
-  .contact-name { font-size: 15px; color: #1a1a1a; }
-  .contact-role { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; margin-top: 1px; }
-
-  /* RESET ROW */
-  .reset-row { text-align: right; padding: 4px 0 12px; }
-  .reset-btn { font-family: 'Arial', sans-serif; font-size: 11px; color: #a89fc0; background: none; border: none; cursor: pointer; padding: 4px 2px; letter-spacing: 0.3px; }
+  .reset-row { text-align: right; padding: 4px 0 14px; }
+  .reset-btn { font-family: 'Arial', sans-serif; font-size: 13px; color: #a89fc0; background: none; border: none; cursor: pointer; padding: 4px 2px; }
   .reset-btn:hover { color: #7c5cbf; }
 
-  /* FOOTER */
-  .footer { text-align: center; padding: 32px 24px 48px; font-family: 'Arial', sans-serif; font-size: 11px; color: #b5aec4; letter-spacing: 0.5px; }
+  .footer { text-align: center; padding: 36px 24px 52px; font-family: 'Arial', sans-serif; font-size: 13px; color: #b5aec4; letter-spacing: 0.5px; }
 
   @media (min-width: 600px) {
-    .header { padding: 52px 48px 40px; }
-    .header h1 { font-size: 36px; }
-    .section { padding: 36px 48px 0; }
+    .header { padding: 52px 48px 0; }
+    .header h1 { font-size: 44px; }
+    .section { padding: 40px 48px 0; }
     .meta-bar { padding: 12px 48px; }
+    .quick-refs { padding: 14px 48px; }
+    .stat-n { font-size: 26px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
-  <div class="label">Travel Plan &middot; Alltech Dublin</div>
-  <h1>Dublin / Alltech</h1>
-  <div class="sub">15-16 April 2026 &middot; Via MorePeople relationship</div>
-  <div class="contact-pills">
-    <div class="pill">Orla McAleer</div>
-    <div class="pill">Robert Walker</div>
-    <div class="pill">Joanne Mart</div>
+  <div class="header-bg"></div>
+  <div class="header-content">
+    <div class="label">Travel Plan &middot; Alltech Dublin</div>
+    <h1>Dublin</h1>
+    <div class="sub">15-16 April 2026 &middot; Via Dunboyne Castle Hotel &amp; Spa</div>
+    <div class="contact-pills">
+      <div class="pill">Orla McAleer</div>
+      <div class="pill">Robert Walker</div>
+      <div class="pill">Joanne Mart</div>
+      <div class="pill">Ryanair T8FW2R</div>
+    </div>
   </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Days</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Flights</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Hotels</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Bags</div></div>
+  <div class="stat"><div class="stat-n">08:10</div><div class="stat-l">Kick-off</div></div>
 </div>
 
 <div class="meta-bar">
   <div class="meta-bar-left">
-    <span><strong>Alltech</strong> offices, Dublin</span>
-    <span><strong>Dunboyne</strong> Castle Hotel &amp; Spa</span>
-    <span>Updated <strong>12 April 2026</strong></span>
+    <span><strong>Novotel NCL</strong> night before</span>
+    <span><strong>Ryanair</strong> NCL &harr; DUB</span>
+    <span>Updated <strong>13 April 2026</strong></span>
   </div>
   <div class="progress-badge" id="progress-badge">Loading...</div>
 </div>
 
-<!-- TIMELINE -->
+<div class="quick-refs">
+  <div class="qr-item"><span class="qr-label">Parking</span><span class="qr-code">KQBHJK</span></div>
+  <div class="qr-item"><span class="qr-label">Flights</span><span class="qr-code">T8FW2R</span></div>
+  <div class="qr-item"><span class="qr-label">NCL Hotel</span><span class="qr-code">QGWLGNJF</span></div>
+  <div class="qr-item"><span class="qr-label">Dublin Hotel</span><span class="qr-code">Dunboyne</span></div>
+</div>
+
+<!-- DAY BY DAY -->
 <div class="section">
-  <div class="section-label">Day by Day</div>
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/><rect x="7" y="13" width="3" height="3" rx="0.5" fill="white"/><rect x="14" y="13" width="3" height="3" rx="0.5" fill="white"/></svg></div>
+    <span class="section-title">Day by Day</span>
+  </div>
   <div class="timeline">
 
     <div class="tl-day">
-      <div class="tl-day-header">Tuesday 14 April - Night Before</div>
-      <div class="tl-item"><span class="tl-time">15:00+</span><span class="tl-text">Check in - Novotel Newcastle Airport</span></div>
-      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Early night ahead of 08:10 flight</span></div>
+      <div class="tl-day-header"><div class="tl-day-dot"></div>Tuesday 14 April - Night Before</div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">15:00</div></div><div class="tl-body"><span class="tl-text">Check in to Novotel Newcastle Airport (ref QGWLGNJF)</span><span class="tl-tag hotel">Hotel</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Eve</div></div><div class="tl-body"><span class="tl-text">Easy dinner, early night - 08:10 flight tomorrow</span><span class="tl-tag eve">Social</span></div></div>
     </div>
 
     <div class="tl-day">
-      <div class="tl-day-header">Wednesday 15 April - Travel Day</div>
-      <div class="tl-item"><span class="tl-time">06:00</span><span class="tl-text">Parking from (Short Stay 2, NCL)</span></div>
-      <div class="tl-item"><span class="tl-time">08:10</span><span class="tl-text">FR 21 departs Newcastle</span></div>
-      <div class="tl-item"><span class="tl-time">09:15</span><span class="tl-text">Arrives Dublin</span></div>
-      <div class="tl-item"><span class="tl-time">Day</span><span class="tl-text">Dublin - meetings / distillery option</span></div>
-      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Check in Dunboyne Castle - dinner</span></div>
+      <div class="tl-day-header"><div class="tl-day-dot"></div>Wednesday 15 April - Travel Day</div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">06:00</div></div><div class="tl-body"><span class="tl-text">Park at Newcastle Short Stay 2 (take ticket at barrier, ref KQBHJK)</span><span class="tl-tag flight">Car</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">08:10</div></div><div class="tl-body"><span class="tl-text">FR 21 departs Newcastle (NCL) - digital boarding only via Ryanair app</span><span class="tl-tag flight">Flight</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">09:15</div></div><div class="tl-body"><span class="tl-text">Arrives Dublin (DUB) - IST</span><span class="tl-tag flight">Flight</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Aft</div></div><div class="tl-body"><span class="tl-text">Arrive Dunboyne Castle, check in - Dublin meetings / client prep</span><span class="tl-tag hotel">Hotel</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Eve</div></div><div class="tl-body"><span class="tl-text">Dinner - spa (thermal suite available - sauna, hot tub, hydrotherapy)</span><span class="tl-tag spa">Spa</span></div></div>
     </div>
 
     <div class="tl-day">
-      <div class="tl-day-header">Thursday 16 April - Alltech Day</div>
-      <div class="tl-item"><span class="tl-time">09:00</span><span class="tl-text">Full working day at Alltech</span></div>
-      <div class="tl-item"><span class="tl-time">Eve</span><span class="tl-text">Check out Dunboyne Castle</span></div>
-      <div class="tl-item"><span class="tl-time">20:55</span><span class="tl-text">FR 20 departs Dublin</span></div>
-      <div class="tl-item"><span class="tl-time">22:05</span><span class="tl-text">Arrives Newcastle</span></div>
+      <div class="tl-day-header"><div class="tl-day-dot"></div>Thursday 16 April - Alltech Day</div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">09:00</div></div><div class="tl-body"><span class="tl-text">Full day at Alltech - sessions with Orla, Robert, Joanne</span><span class="tl-tag work">Alltech</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">18:00</div></div><div class="tl-body"><span class="tl-text">Alltech day wraps - travel to Dublin Airport</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">20:55</div></div><div class="tl-body"><span class="tl-text">FR 20 departs Dublin (DUB)</span><span class="tl-tag flight">Flight</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">22:05</div></div><div class="tl-body"><span class="tl-text">Arrives Newcastle (NCL) - BST</span><span class="tl-tag flight">Flight</span></div></div>
     </div>
 
   </div>
@@ -383,137 +212,135 @@
 
 <!-- LOGISTICS -->
 <div class="section">
-  <div class="section-label">Logistics</div>
-
-  <div class="card">
-    <div class="card-title">Car Parking - Newcastle Airport</div>
-    <div class="info-row"><div class="info-key">Car park</div><div class="info-val">Short Stay 2, NCL<br><span style="font-size:12px;color:#a89fc0;font-family:Arial,sans-serif;">Woolsington, Newcastle-upon-Tyne NE13 8BZ</span></div></div>
-    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">KQBHJK</div></div>
-    <div class="info-row"><div class="info-key">Reg</div><div class="info-val mono">MA68BWO</div></div>
-    <div class="info-row"><div class="info-key">Period</div><div class="info-val">Wed 15 Apr 06:00 &rarr; Thu 16 Apr 23:00</div></div>
-    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">&pound;67.68 - Late Return Cover included</div></div>
-    <div class="info-row"><div class="info-key">Note</div><div class="info-val note">No need to print. Show on mobile. Take a ticket at barrier on entry - keep it safe for exit.</div></div>
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="white"/></svg></div>
+    <span class="section-title">Logistics</span>
   </div>
 
   <div class="card">
-    <div class="card-title">Novotel Newcastle Airport - Tue Night</div>
-    <div class="info-row"><div class="info-key">Address</div><div class="info-val">Ponteland Road Kenton, Newcastle NE3 3HZ</div></div>
-    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Tue 14 April, from 15:00</div></div>
-    <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Wed 15 April, by 12:00</div></div>
+    <div class="card-title">Night Before - Novotel Newcastle Airport</div>
+    <div class="info-row"><div class="info-key">Address</div><div class="info-val">Ponteland Road Kenton, Newcastle upon Tyne NE3 3HZ</div></div>
+    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Tue 14 April from 15:00</div></div>
+    <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Wed 15 April, by 12:00 (ahead of 08:10 flight)</div></div>
     <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">QGWLGNJF</div></div>
-    <div class="info-row"><div class="info-key">Room</div><div class="info-val">Standard Queen Room - &pound;66.60 paid (non-refundable)</div></div>
+    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">GBP 66.60 (fully paid, non-refundable)</div></div>
     <div class="info-row"><div class="info-key">Phone</div><div class="info-val"><a href="tel:+441912140303" style="color:#7c5cbf;text-decoration:none;">+44 191 214 0303</a></div></div>
   </div>
 
+  <div class="card">
+    <div class="card-title">Car Parking - Newcastle Airport Short Stay 2</div>
+    <div class="info-row"><div class="info-key">Location</div><div class="info-val">Short Stay 2, Newcastle Airport, Woolsington NE13 8BZ<br><span style="font-size:14px;color:#a89fc0;font-family:Arial,sans-serif;">Take a ticket at entry barrier. Keep ticket safe for exit.</span></div></div>
+    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">KQBHJK</div></div>
+    <div class="info-row"><div class="info-key">Reg</div><div class="info-val mono">MA68BWO</div></div>
+    <div class="info-row"><div class="info-key">Window</div><div class="info-val">Wed 15 Apr 06:00 &rarr; Thu 16 Apr 23:00 (Late Return Cover included)</div></div>
+    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">&pound;67.68 (fully paid)</div></div>
+    <div class="info-row"><div class="info-key">Note</div><div class="info-val note">No need to print - show confirmation on mobile</div></div>
+  </div>
+
   <div class="flight-card">
-    <div class="flight-tag">Outbound &middot; Wednesday 15 April &middot; Ryanair FR 21</div>
+    <div class="flight-tag">Outbound &middot; Wednesday 15 April &middot; FR 21</div>
     <div class="flight-row">
-      <div class="flight-point">
-        <div class="iata">NCL</div>
-        <div class="airport-name">Newcastle</div>
-        <div class="flight-time">08:10 BST</div>
-      </div>
+      <div class="flight-point"><div class="iata">NCL</div><div class="airport-name">Newcastle</div><div class="flight-time">08:10 BST</div></div>
       <div class="flight-line"></div>
-      <div class="flight-point">
-        <div class="iata">DUB</div>
-        <div class="airport-name">Dublin</div>
-        <div class="flight-time">09:15 IST</div>
-      </div>
+      <div class="flight-point"><div class="iata">DUB</div><div class="airport-name">Dublin</div><div class="flight-time">09:15 IST</div></div>
     </div>
     <div class="flight-meta">
-      <div class="flight-meta-item"><div class="fmi-label">Booking Ref</div><div class="fmi-value">T8FW2R</div></div>
+      <div class="flight-meta-item"><div class="fmi-label">Booking Code</div><div class="fmi-value">T8FW2R</div></div>
       <div class="flight-meta-item"><div class="fmi-label">Boarding</div><div class="fmi-value plain">Digital only - Ryanair app</div></div>
     </div>
   </div>
 
   <div class="card">
-    <div class="card-title">Dunboyne Castle Hotel &amp; Spa</div>
-    <div class="info-row"><div class="info-key">Location</div><div class="info-val">Dunboyne, Co. Meath - approx. 25 mins from DUB airport</div></div>
-    <div class="info-row"><div class="info-key">Stay</div><div class="info-val">Wed 15 April (1 night) - Check-out Thu 16</div></div>
-    <div class="info-row"><div class="info-key">Booked</div><div class="info-val"><span style="font-family:'Courier New',monospace;font-size:13px;">Hotels.com #72072864971394</span></div></div>
-    <div class="info-row"><div class="info-key">Spa</div><div class="info-val note">Thermal Suite available. Book: +353 1 681 6534. &euro;25pp without treatment.</div></div>
+    <div class="card-title">Dublin Hotel - Dunboyne Castle Hotel &amp; Spa</div>
+    <div class="info-row"><div class="info-key">Location</div><div class="info-val">Dunboyne, Co. Meath<br><span style="font-size:14px;color:#a89fc0;font-family:Arial,sans-serif;">Approx 25 mins from Dublin city / airport</span></div></div>
+    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Wed 15 April</div></div>
+    <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Thu 16 April (1 night)</div></div>
+    <div class="info-row"><div class="info-key">Booked via</div><div class="info-val mono" style="font-size:14px;">Hotels.com #72072864971394</div></div>
+    <div class="info-row"><div class="info-key">Spa</div><div class="info-val note">Thermal Suite available - sauna, infrared sauna, salt room, hydrotherapy pool, hot tub. Book via spa: +353 1 681 6534. &euro;25pp without treatment.</div></div>
   </div>
 
   <div class="flight-card">
-    <div class="flight-tag">Return &middot; Thursday 16 April &middot; Ryanair FR 20</div>
+    <div class="flight-tag">Return &middot; Thursday 16 April &middot; FR 20</div>
     <div class="flight-row">
-      <div class="flight-point">
-        <div class="iata">DUB</div>
-        <div class="airport-name">Dublin</div>
-        <div class="flight-time">20:55 IST</div>
-      </div>
+      <div class="flight-point"><div class="iata">DUB</div><div class="airport-name">Dublin</div><div class="flight-time">20:55 IST</div></div>
       <div class="flight-line"></div>
-      <div class="flight-point">
-        <div class="iata">NCL</div>
-        <div class="airport-name">Newcastle</div>
-        <div class="flight-time">22:05 BST</div>
-      </div>
+      <div class="flight-point"><div class="iata">NCL</div><div class="airport-name">Newcastle</div><div class="flight-time">22:05 BST</div></div>
     </div>
     <div class="flight-meta">
-      <div class="flight-meta-item"><div class="fmi-label">Booking Ref</div><div class="fmi-value">T8FW2R</div></div>
+      <div class="flight-meta-item"><div class="fmi-label">Booking Code</div><div class="fmi-value">T8FW2R</div></div>
+      <div class="flight-meta-item"><div class="fmi-label">Boarding</div><div class="fmi-value plain">Digital only - Ryanair app</div></div>
     </div>
   </div>
 
-</div>
-
-<!-- CONTACTS -->
-<div class="section">
-  <div class="section-label">Contacts</div>
-  <div class="contacts-card">
-    <div class="contact-item"><div class="avatar">OM</div><div><div class="contact-name">Orla McAleer</div><div class="contact-role">Alltech</div></div></div>
-    <div class="contact-item"><div class="avatar">RW</div><div><div class="contact-name">Robert Walker</div><div class="contact-role">Alltech</div></div></div>
-    <div class="contact-item"><div class="avatar">JM</div><div><div class="contact-name">Joanne Mart</div><div class="contact-role">Alltech</div></div></div>
-  </div>
 </div>
 
 <!-- OUTFITS -->
 <div class="section">
-  <div class="section-label">Outfits</div>
-
-  <div class="outfit-card">
-    <div class="outfit-header">Wednesday 15 April - Travel Day</div>
-    <div class="outfit-worn">
-      <strong>Worn on travel day</strong>
-      Boots - Jeans - Peregrine knit - Olive field jacket - Breitling Avenger
-    </div>
-    <div class="outfit-item">Black leather boots (BLKBRD)</div>
-    <div class="outfit-item">Indigo selvedge jeans (Asket)</div>
-    <div class="outfit-item">Cobalt or grey Peregrine Intercity knit</div>
-    <div class="outfit-item">Olive Green Field Jacket (Asket)</div>
-    <div class="outfit-item">Breitling Avenger</div>
-    <div class="outfit-note">Footwear option: brown dress sneakers packed as swap if the day gets lighter (distillery / hotel evening). Evening: White OCBD for dinner. Shorts for Dunboyne spa.</div>
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 015 9.42L3.77 8.57A1 1 0 014 7h1.5l2.5-3h8l2.5 3H20a1 1 0 01.38 1.57z" stroke="white" stroke-width="1.8" fill="none"/></svg></div>
+    <span class="section-title">Outfits</span>
   </div>
 
   <div class="outfit-card">
-    <div class="outfit-header">Thursday 16 April - Meeting Day</div>
-    <div class="outfit-item">Grey flannels (Michelsberg)</div>
-    <div class="outfit-item">Black/white Bengal stripe Oxford (Apposta)</div>
-    <div class="outfit-item">Grey John Smedley Kane knit <span style="color:#a89fc0;font-family:Arial,sans-serif;font-size:12px;">(optional)</span></div>
-    <div class="outfit-item">Olive Green Field Jacket (Asket)</div>
-    <div class="outfit-item">Black leather boots (BLKBRD)</div>
-    <div class="outfit-note">More structured register. Flannels and Apposta shirt shift it up from travel day without overdoing it.</div>
+    <div class="outfit-header">Wednesday - Travel Day</div>
+    <div class="outfit-worn"><strong>Worn on travel day</strong>BLKBRD boots &middot; Indigo jeans &middot; Peregrine knit &middot; Olive jacket &middot; Avenger</div>
+    <div class="outfit-items">
+      <div class="outfit-item"><span class="swatch" style="background:#1a1a1a;"></span>Black leather boots (BLKBRD)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#2d3572;"></span>Indigo selvedge jeans (Asket)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#3a6bc4;"></span>Cobalt or grey Peregrine Intercity knit</div>
+      <div class="outfit-item"><span class="swatch" style="background:#5a6e3a;"></span>Olive Green Field Jacket (Asket)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#b0b0b0;"></span>Breitling Avenger</div>
+    </div>
+    <div class="outfit-note">Brown dress sneakers packed as a swap if the day gets lighter after landing. White OCBD packed for dinner. Shorts packed for spa visit at Dunboyne.</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Thursday - Alltech Day</div>
+    <div class="outfit-items">
+      <div class="outfit-item"><span class="swatch" style="background:#1a1a1a;"></span>Black leather boots (BLKBRD)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#8a8a8a;"></span>Grey flannels (Michelsberg)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#f0f0f0;border-color:rgba(0,0,0,0.2);"></span>Bengal stripe Oxford shirt (Apposta)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#c0c0c0;"></span>Grey John Smedley Kane crew neck (optional - if cold)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#5a6e3a;"></span>Olive Green Field Jacket (Asket)</div>
+    </div>
+    <div class="outfit-note">Flannels and Apposta shirt shift the register up from travel day without overdoing it. Structured and purposeful in the room.</div>
   </div>
 
 </div>
 
-<!-- PACKING -->
+<!-- WHAT'S PACKED -->
 <div class="section">
-  <div class="section-label">What's Packed</div>
-
-  <div class="pack-group">
-    <div class="pack-group-title">ZDX (Cabin Bag) - Clothing</div>
-    <div class="pack-item" data-key="zdx-flannels" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Grey flannels (Michelsberg) <span class="pack-sub">- Thu</span></div></div>
-    <div class="pack-item" data-key="zdx-sneakers" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Brown dress sneakers</div></div>
-    <div class="pack-item" data-key="zdx-ocbd" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">White OCBD <span class="pack-sub">- Wed dinner</span></div></div>
-    <div class="pack-item" data-key="zdx-stripe" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Apposta Bengal stripe shirt <span class="pack-sub">- Thu</span></div></div>
-    <div class="pack-item" data-key="zdx-kane" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Grey Kane knit <span class="pack-sub">- Thu if cold</span></div></div>
-    <div class="pack-item" data-key="zdx-peregrine" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Peregrine Intercity knit</div></div>
-    <div class="pack-item" data-key="zdx-underwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">2x boxers - 2x socks (1 dress, 1 casual)</div></div>
-    <div class="pack-item" data-key="zdx-sleepwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Sleepwear (t-shirt + shorts)</div></div>
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="14" rx="2" stroke="white" stroke-width="2"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="2"/><line x1="2" y1="13" x2="22" y2="13" stroke="white" stroke-width="1.5" stroke-dasharray="2 2"/></svg></div>
+    <span class="section-title">What's Packed</span>
   </div>
 
   <div class="pack-group">
-    <div class="pack-group-title">ZDX - Toiletries (Green Alpaka Kit)</div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2" stroke="white" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="white" stroke-width="1.5"/></svg></div><div class="pack-group-title">Tumi Briefcase - Core Kit (standard)</div></div>
+    <div class="pack-item" data-key="tumi-mac" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">MacBook + charger</div></div>
+    <div class="pack-item" data-key="tumi-ipad" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">iPad</div></div>
+    <div class="pack-item" data-key="tumi-planner" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Leather planner + pen</div></div>
+    <div class="pack-item" data-key="tumi-phone" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Phone charger</div></div>
+    <div class="pack-item" data-key="tumi-prep" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Workshop prep / printed materials</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="14" rx="2" stroke="white" stroke-width="1.8"/><path d="M9 5V3h6v2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" stroke="white" stroke-width="1.5"/></svg></div><div class="pack-group-title">Wandrd Tech Pouch (standard)</div></div>
+    <div class="pack-item" data-key="tech-airpods" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">AirPods / headphones</div></div>
+    <div class="pack-item" data-key="tech-cables" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Cables - Power bank</div></div>
+    <div class="pack-info">No adapter needed - Ireland uses UK 3-pin plug</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L8 6H4l2 3-1 4 4-2 3 3 3-3 4 2-1-4 2-3h-4z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="pack-group-title">Orange Alpaka - Health Pouch (standard)</div></div>
+    <div class="pack-item" data-key="hlth-supplements" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Supplements - check</div></div>
+    <div class="pack-item" data-key="hlth-gout" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Gout pills - check</div></div>
+    <div class="pack-item" data-key="hlth-plasters" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Plasters - check</div></div>
+    <div class="pack-item" data-key="hlth-pain" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Pain pills - check</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M7 7V5a1 1 0 011-1h8a1 1 0 011 1v2" stroke="white" stroke-width="1.8"/><line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.5"/></svg></div><div class="pack-group-title">ZDX Cabin Bag - Toiletries (Green Alpaka)</div></div>
     <div class="pack-item" data-key="tlt-toothbrush" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Toothbrush + toothpaste</div></div>
     <div class="pack-item" data-key="tlt-deo" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Deodorant</div></div>
     <div class="pack-item" data-key="tlt-fragrance" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Travel fragrance</div></div>
@@ -522,128 +349,85 @@
   </div>
 
   <div class="pack-group">
-    <div class="pack-group-title">ZDX - Other</div>
-    <div class="pack-item" data-key="zdx-gifts" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Client gifts, 2x books</div></div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="16" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="14" r="2" fill="white"/></svg></div><div class="pack-group-title">ZDX Cabin Bag - Clothing</div></div>
+    <div class="pack-item" data-key="zdx-flannels" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Grey flannels (Michelsberg) <span class="pack-sub">- Thu</span></div></div>
+    <div class="pack-item" data-key="zdx-apposta" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Apposta Bengal Stripe shirt <span class="pack-sub">- Thu</span></div></div>
+    <div class="pack-item" data-key="zdx-kane" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Grey John Smedley Kane knit <span class="pack-sub">- Thu, if cold</span></div></div>
+    <div class="pack-item" data-key="zdx-ocbd" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">White OCBD <span class="pack-sub">- Wed dinner</span></div></div>
+    <div class="pack-item" data-key="zdx-sneakers" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Brown dress sneakers <span class="pack-sub">- packed as swap / evening option</span></div></div>
+    <div class="pack-item" data-key="zdx-knit" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Midweight knit (Peregrine Intercity)</div></div>
+    <div class="pack-item" data-key="zdx-underwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">2x boxers - 2x socks (1 dress, 1 casual)</div></div>
+    <div class="pack-item" data-key="zdx-sleepwear" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Sleepwear (t-shirt + shorts)</div></div>
+    <div class="pack-item" data-key="zdx-spa" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Swim shorts <span class="pack-sub">- for Dunboyne spa</span></div></div>
   </div>
 
   <div class="pack-group">
-    <div class="pack-group-title">Tumi Briefcase - Core Kit</div>
-    <div class="pack-item" data-key="tumi-mac" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">MacBook + charger</div></div>
-    <div class="pack-item" data-key="tumi-ipad" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">iPad</div></div>
-    <div class="pack-item" data-key="tumi-planner" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Leather planner + pen</div></div>
-    <div class="pack-item" data-key="tumi-phone" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Phone charger</div></div>
-    <div class="pack-item" data-key="tumi-workshop" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Workshop prep / printed materials</div></div>
+    <div class="pack-group-header"><div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 17l10 5 10-5" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 12l10 5 10-5" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="pack-group-title">Extras</div></div>
+    <div class="pack-item" data-key="ext-gifts" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Client gifts - 2x books</div></div>
+    <div class="pack-item" data-key="ext-workshop" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Orange Wandrd Pouch (Sharpies, post-its, markers)</div></div>
   </div>
 
-  <div class="pack-group">
-    <div class="pack-group-title">Tech Pouch (Wandrd)</div>
-    <div class="pack-item" data-key="tech-airpods" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">AirPods / headphones</div></div>
-    <div class="pack-item" data-key="tech-cables" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Cables - Power bank</div></div>
-    <div class="pack-info">No adapter needed - Ireland uses UK 3-pin</div>
-  </div>
-
-  <div class="pack-group">
-    <div class="pack-group-title">Health Pouch (Orange Alpaka)</div>
-    <div class="pack-item" data-key="hlth-supplements" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Supplements - check</div></div>
-    <div class="pack-item" data-key="hlth-gout" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Gout pills - check</div></div>
-    <div class="pack-item" data-key="hlth-plasters" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Plasters - check</div></div>
-    <div class="pack-item" data-key="hlth-pain" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Pain pills - check</div></div>
-  </div>
-
-  <div class="pack-group">
-    <div class="pack-group-title">Workshop Pouch (Orange Wandrd)</div>
-    <div class="pack-item" data-key="wshp-sharpies" onclick="toggleItem(this)"><div class="pack-circle"></div><div class="pack-label">Sharpies, post-its, markers</div></div>
-  </div>
-
-  <div class="reset-row">
-    <button class="reset-btn" onclick="resetPacking()">Reset packing</button>
-  </div>
-
+  <div class="reset-row"><button class="reset-btn" onclick="resetPacking()">Reset packing</button></div>
 </div>
 
-<!-- CHECKLIST -->
+<!-- PRE-TRAVEL CHECKLIST -->
 <div class="section">
-  <div class="section-label">Pre-Travel Checklist</div>
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="2" stroke="white" stroke-width="2"/><polyline points="9,12 11,14.5 15,10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="7" x2="16" y2="7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="17" x2="13" y2="17" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <span class="section-title">Pre-Travel Checklist</span>
+  </div>
   <div class="checklist">
+    <div class="check-item" data-key="chk-orla-call" onclick="toggleItem(this)"><div class="check-box"></div>Pre-trip call with Orla and Robert Walker - done Friday 11 April</div>
     <div class="check-item" data-key="chk-boarding" onclick="toggleItem(this)"><div class="check-box"></div>Ryanair app: boarding passes downloaded for FR 21 and FR 20</div>
-    <div class="check-item" data-key="chk-hotels" onclick="toggleItem(this)"><div class="check-box"></div>Hotels.com: confirmation screenshot saved to phone</div>
-    <div class="check-item" data-key="chk-orla-call" onclick="toggleItem(this)"><div class="check-box"></div>Pre-trip call with Orla and Robert Walker - done Fri 11 April</div>
-    <div class="check-item" data-key="chk-orla-email" onclick="toggleItem(this)"><div class="check-box"></div>Send Orla final email with plan (Mon 13 April)</div>
-    <div class="check-item" data-key="chk-weather" onclick="toggleItem(this)"><div class="check-box"></div>Check weather forecast for Dublin 15-16 April</div>
+    <div class="check-item" data-key="chk-hotels" onclick="toggleItem(this)"><div class="check-box"></div>Hotels.com booking: confirmation screenshot saved to phone</div>
+    <div class="check-item" data-key="chk-orla-email" onclick="toggleItem(this)"><div class="check-box"></div>Send Orla final email with plan (Monday 13 April)</div>
+    <div class="check-item" data-key="chk-transport" onclick="toggleItem(this)"><div class="check-box"></div>Transport from Dublin Airport to Dunboyne Castle sorted</div>
+    <div class="check-item" data-key="chk-weather" onclick="toggleItem(this)"><div class="check-box"></div>Check weather forecast for Dublin 15-16 April (jacket decision)</div>
   </div>
-  <div class="reset-row">
-    <button class="reset-btn" onclick="resetChecklist()">Reset checklist</button>
-  </div>
+  <div class="reset-row"><button class="reset-btn" onclick="resetChecklist()">Reset checklist</button></div>
 </div>
 
-<div class="footer">
-  Dublin / Alltech - April 2026<br>Updated 12 April 2026
-</div>
+<div class="footer">Dublin / Alltech - April 2026<br>Updated 13 April 2026</div>
 
 <script>
   var STORE = 'dublin_apr26_';
-
-  // Pre-tick the Orla call on first load (it's already done)
   if (!localStorage.getItem('__dublin_apr26_init')) {
     localStorage.setItem(STORE + 'chk-orla-call', '1');
     localStorage.setItem('__dublin_apr26_init', '1');
   }
-
   function toggleItem(el) {
-    var isChecked = el.classList.toggle('checked');
-    var key = STORE + el.dataset.key;
-    if (isChecked) {
-      localStorage.setItem(key, '1');
-    } else {
-      localStorage.removeItem(key);
-    }
+    var on = el.classList.toggle('checked');
+    if (on) localStorage.setItem(STORE + el.dataset.key, '1');
+    else localStorage.removeItem(STORE + el.dataset.key);
     updateProgress();
   }
-
   function restore() {
     document.querySelectorAll('[data-key]').forEach(function(el) {
-      if (localStorage.getItem(STORE + el.dataset.key)) {
-        el.classList.add('checked');
-      }
+      if (localStorage.getItem(STORE + el.dataset.key)) el.classList.add('checked');
     });
     updateProgress();
   }
-
   function updateProgress() {
-    var packItems = document.querySelectorAll('.pack-item[data-key]');
-    var checkItems = document.querySelectorAll('.check-item[data-key]');
-    var packDone = document.querySelectorAll('.pack-item[data-key].checked').length;
-    var checkDone = document.querySelectorAll('.check-item[data-key].checked').length;
-    var badge = document.getElementById('progress-badge');
-    if (badge) {
-      badge.textContent = 'Packed ' + packDone + '/' + packItems.length + ' - Checklist ' + checkDone + '/' + checkItems.length;
-    }
+    var pD = document.querySelectorAll('.pack-item[data-key].checked').length;
+    var pT = document.querySelectorAll('.pack-item[data-key]').length;
+    var cD = document.querySelectorAll('.check-item[data-key].checked').length;
+    var cT = document.querySelectorAll('.check-item[data-key]').length;
+    var b = document.getElementById('progress-badge');
+    if (b) b.textContent = 'Packed ' + pD + '/' + pT + ' - Checklist ' + cD + '/' + cT;
   }
-
   function resetPacking() {
-    document.querySelectorAll('.pack-item[data-key]').forEach(function(el) {
-      el.classList.remove('checked');
-      localStorage.removeItem(STORE + el.dataset.key);
-    });
+    document.querySelectorAll('.pack-item[data-key]').forEach(function(el) { el.classList.remove('checked'); localStorage.removeItem(STORE + el.dataset.key); });
     updateProgress();
   }
-
   function resetChecklist() {
-    document.querySelectorAll('.check-item[data-key]').forEach(function(el) {
-      el.classList.remove('checked');
-      localStorage.removeItem(STORE + el.dataset.key);
+    document.querySelectorAll('.check-item[data-key]').forEach(function(el) { el.classList.remove('checked'); localStorage.removeItem(STORE + el.dataset.key); });
+    ['chk-orla-call'].forEach(function(k) {
+      var el = document.querySelector('[data-key="' + k + '"]');
+      if (el) { el.classList.add('checked'); localStorage.setItem(STORE + k, '1'); }
     });
-    // Restore the pre-done Orla call
-    var orla = document.querySelector('[data-key="chk-orla-call"]');
-    if (orla) {
-      orla.classList.add('checked');
-      localStorage.setItem(STORE + 'chk-orla-call', '1');
-    }
     updateProgress();
   }
-
-  window.addEventListener('DOMContentLoaded', restore);
+  restore();
 </script>
-
 </body>
 </html>
