@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Case for the 9-Box: Research Brief</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f4f1ec; color: #1a1a1a; line-height: 1.7; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a2a 0%, #2c1f3e 100%);
+    color: white;
+    padding: 52px 60px 44px;
+  }
+  .header .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7ec9a0;
+    margin-bottom: 14px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .header .sub {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #b8d4c8;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  .meta-bar {
+    background: #243d32;
+    padding: 14px 60px;
+    display: flex;
+    gap: 40px;
+  }
+  .meta-bar span {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #7ec9a0;
+    letter-spacing: 0.5px;
+  }
+  .meta-bar strong { color: #d0ead9; }
+
+  .intro-band {
+    background: #fff;
+    padding: 40px 60px;
+    border-bottom: 1px solid #e2ddd6;
+  }
+  .intro-band p {
+    font-size: 16px;
+    color: #3a3340;
+    max-width: 840px;
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .intro-band p:last-child { margin-bottom: 0; }
+  .intro-band .punchline {
+    font-size: 15px;
+    color: #2e7d5a;
+    font-style: italic;
+  }
+
+  .main { max-width: 1060px; margin: 0 auto; padding: 50px 60px 80px; }
+
+  .section-label {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 10px;
+  }
+  .section-label.green { color: #2e7d5a; }
+
+  .section-intro {
+    margin-bottom: 40px;
+  }
+  .section-intro p {
+    font-size: 15px;
+    color: #4a4050;
+    max-width: 780px;
+    line-height: 1.75;
+  }
+
+  /* --- The honest picture: both sides --- */
+  .balance-section {
+    margin-bottom: 60px;
+  }
+  .balance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 20px;
+  }
+  .balance-card {
+    background: white;
+    border-radius: 5px;
+    padding: 30px 28px 26px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .balance-card.against {
+    border-left: 4px solid #c0392b;
+  }
+  .balance-card.for {
+    border-left: 4px solid #2e7d5a;
+  }
+  .balance-card h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .balance-card.against h3 { color: #c0392b; }
+  .balance-card.for h3 { color: #2e7d5a; }
+  .balance-card p {
+    font-size: 14px;
+    color: #3a3340;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .balance-card p:last-child { margin-bottom: 0; }
+  .balance-card .source {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #9d93aa;
+    font-style: italic;
+  }
+
+  /* --- Case studies --- */
+  .cases-section {
+    margin-bottom: 60px;
+  }
+  .case-card {
+    background: white;
+    border-radius: 5px;
+    padding: 32px 30px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+  }
+  .case-sidebar {
+    border-right: 1px solid #e8e4ee;
+    padding-right: 24px;
+  }
+  .case-sidebar .case-co {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c1f3e;
+    margin-bottom: 6px;
+  }
+  .case-sidebar .case-sector {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9d93aa;
+    margin-bottom: 16px;
+  }
+  .case-sidebar .case-verdict {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .case-verdict.success {
+    background: #e8f5ee;
+    color: #2e7d5a;
+  }
+  .case-verdict.evolved {
+    background: #eee8f5;
+    color: #6b4d99;
+  }
+  .case-verdict.cautionary {
+    background: #fdf8f2;
+    color: #d4820a;
+  }
+  .case-body p {
+    font-size: 14px;
+    color: #3a3340;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .case-body p:last-child { margin-bottom: 0; }
+  .case-body .metric {
+    background: #f2f8f5;
+    border-left: 3px solid #2e7d5a;
+    padding: 10px 14px;
+    border-radius: 0 3px 3px 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    color: #2e7d5a;
+    margin: 12px 0;
+  }
+
+  /* --- Arguments --- */
+  .arguments-section {
+    margin-bottom: 60px;
+  }
+  .arg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 20px;
+  }
+  .arg-card {
+    background: white;
+    border-radius: 5px;
+    border-top: 4px solid #2e7d5a;
+    padding: 28px 26px 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .arg-card .arg-number {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #2e7d5a;
+    margin-bottom: 8px;
+  }
+  .arg-card h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .arg-card p {
+    font-size: 14px;
+    color: #3a3340;
+    line-height: 1.7;
+    margin-bottom: 10px;
+  }
+  .arg-card p:last-child { margin-bottom: 0; }
+  .arg-card .evidence-note {
+    background: #f2f8f5;
+    border-left: 3px solid #2e7d5a;
+    padding: 10px 14px;
+    border-radius: 0 3px 3px 0;
+    font-size: 13px;
+    color: #2e7d5a;
+    margin-top: 8px;
+  }
+
+  /* --- Quotes --- */
+  .quotes-section {
+    margin-bottom: 60px;
+  }
+  .quote-block {
+    background: white;
+    border-radius: 5px;
+    padding: 28px 30px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .quote-mark {
+    font-size: 52px;
+    color: #a8daba;
+    line-height: 0.85;
+    flex-shrink: 0;
+    font-family: Georgia, serif;
+  }
+  .quote-content p {
+    font-size: 15px;
+    color: #2c1f3e;
+    font-style: italic;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .quote-attr {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #7c6d91;
+  }
+
+  /* --- Landing section --- */
+  .landing-section {
+    background: linear-gradient(135deg, #1a3a2a 0%, #2c1f3e 100%);
+    border-radius: 6px;
+    padding: 40px 40px 34px;
+    margin-bottom: 60px;
+  }
+  .landing-section h2 {
+    font-size: 11px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7ec9a0;
+    margin-bottom: 18px;
+  }
+  .landing-section > p {
+    font-size: 16px;
+    color: #d0ead9;
+    max-width: 780px;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .condition-item {
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 18px 18px;
+  }
+  .condition-item h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7ec9a0;
+    margin-bottom: 8px;
+  }
+  .condition-item p {
+    font-size: 13px;
+    color: #b8d4c8;
+    line-height: 1.6;
+  }
+
+  /* --- Slide language --- */
+  .slide-bank {
+    margin-bottom: 50px;
+  }
+  .slide-bank-intro {
+    font-size: 14px;
+    color: #4a4050;
+    margin: 8px 0 20px;
+    max-width: 720px;
+  }
+  .slide-option {
+    background: white;
+    border-radius: 4px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .slide-tag {
+    font-family: 'Arial', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: #1a3a2a;
+    color: #7ec9a0;
+    padding: 3px 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .slide-option p {
+    font-size: 14px;
+    color: #2c1f3e;
+    line-height: 1.6;
+  }
+  .slide-option p em {
+    color: #2e7d5a;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .footer {
+    border-top: 1px solid #d9d3e0;
+    padding-top: 24px;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    color: #9d93aa;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Living Studio / Research Brief / Workshop Prep</div>
+  <h1>The Case for the 9-Box:<br>Why It Can Still Work</h1>
+  <p class="sub">Companion research briefing for the Alltech workshop, 17 April 2026. A balanced look at the evidence for structured talent review, with case studies of organisations that made the 9-box deliver real results.</p>
+</div>
+
+<div class="meta-bar">
+  <span><strong>Prepared by:</strong> Agent Team</span>
+  <span><strong>For:</strong> Sean Sankey / Alltech Workshop</span>
+  <span><strong>Date:</strong> 14 April 2026</span>
+  <span><strong>Classification:</strong> Internal Prep</span>
+  <span><strong>Companion to:</strong> 9-Box Rollout Traps Brief</span>
+</div>
+
+<div class="intro-band">
+  <p>The companion brief to this document lays out the traps. The evidence is real: Microsoft abandoned stack ranking, GE repudiated the vitality curve, and Deloitte published a landmark Harvard Business Review paper explaining why they walked away from ratings entirely. These are serious organisations making serious arguments.</p>
+  <p>But here is the thing those stories have in common: they all describe what happens when the tool is misused. When it becomes a labelling exercise, a political process, or a substitute for development. The question for Orla and Robbie is not whether the 9-box can fail. It obviously can. The question is whether it can succeed, and what the conditions for that look like.</p>
+  <p class="punchline">The answer, from the research and from practice, is yes. With clear eyes and the right design choices.</p>
+</div>
+
+<div class="main">
+
+  <!-- BALANCED VIEW -->
+  <div class="balance-section">
+    <div class="section-label">The Honest Picture</div>
+    <div class="section-intro">
+      <p>Before we make the case for, here is the tension laid out cleanly. Both sides have evidence. Presenting this openly builds credibility in the room.</p>
+    </div>
+    <div class="balance-grid">
+      <div class="balance-card against">
+        <h3>The Case Against</h3>
+        <p>The most cited failures share a common thread: the 9-box was treated as a verdict, not a conversation. Microsoft's stack ranking turned collaboration into competition. GE's vitality curve destroyed psychological safety over a decade. Deloitte found their rating systems measured rater bias more reliably than employee performance.</p>
+        <p>CEB/Gartner research showed 72% of employees stay in the same box for two or more years, regardless of actual performance change. The grid calcifies.</p>
+        <p class="source">Sources: Vanity Fair (Microsoft), HR Magazine (GE), Harvard Business Review (Deloitte, 2015), CEB/Gartner</p>
+      </div>
+      <div class="balance-card for">
+        <h3>The Case For</h3>
+        <p>The organisations that succeeded with the 9-box treated it as infrastructure for better conversations, not as a ranking tool. They defined potential specifically, linked placements to concrete development actions, and reviewed the grid dynamically rather than annually. The tool gave leadership teams a shared language for talent that replaced gut-feel horse-trading with structured assessment.</p>
+        <p>McKinsey research found organisations using structured talent review frameworks reported a 20% increase in employee engagement and measurably stronger retention.</p>
+        <p class="source">Sources: McKinsey, Talent Strategy Group, AIHR, Quantum Workplace</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="cases-section">
+    <div class="section-label green">Case Studies: Where It Worked</div>
+    <div class="section-intro">
+      <p>These are not organisations that got lucky. They are organisations that made deliberate design choices about how to deploy the 9-box, and those choices drove measurable results.</p>
+    </div>
+
+    <div class="case-card">
+      <div class="case-sidebar">
+        <div class="case-co">Unilever</div>
+        <div class="case-sector">FMCG / Global</div>
+        <span class="case-verdict success">Success</span>
+      </div>
+      <div class="case-body">
+        <p>Unilever adopted the 9-box framework in the early 2000s as part of a broader commitment to building leadership from within. Rather than using it as an annual labelling exercise, they embedded the grid into a continuous talent development cycle. High-potential employees identified through the review received tailored development programmes, stretch assignments, and structured mentoring.</p>
+        <p>The critical design choice was linking placement to action. Every person identified in the top-right quadrant had a named development plan with timescales and accountability. Every person in the core performer space had visibility of what "next" looked like, not just where they sat today.</p>
+        <div class="metric">Outcome: Unilever consistently fills 80%+ of senior leadership roles from internal talent, one of the highest rates in the FMCG sector. The 9-box is cited internally as a foundational piece of that pipeline architecture.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-sidebar">
+        <div class="case-co">PepsiCo</div>
+        <div class="case-sector">FMCG / Global</div>
+        <span class="case-verdict evolved">Evolved</span>
+      </div>
+      <div class="case-body">
+        <p>PepsiCo has used some form of the 9-box for over four decades. What distinguishes their approach is that they never stopped iterating on it. HR executives with deep tenure at PepsiCo describe an approach that has been continuously refined to challenge the inherent biases in how leaders think about their people, particularly around what "potential" means in different contexts.</p>
+        <p>Their most significant evolution was moving from a once-a-year review to a quarterly rhythm, and from a single manager assessment to a multi-source input model. This directly addressed the two biggest failure modes: the frozen label and the potential black box. By reviewing more frequently and from more angles, the grid stayed dynamic.</p>
+        <div class="metric">Outcome: PepsiCo's leadership pipeline is widely benchmarked across the sector. Multiple CEOs of other Fortune 500 companies, including Indra Nooyi's successors and alumni now leading other organisations, were developed through this system.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-sidebar">
+        <div class="case-co">Siemens</div>
+        <div class="case-sector">Technology / Industrial</div>
+        <span class="case-verdict success">Success</span>
+      </div>
+      <div class="case-body">
+        <p>Siemens uses the 9-box as part of its global leadership development strategy across a workforce of over 300,000. Their approach focuses on using the grid to assess capabilities and prioritise development initiatives at scale. In a complex, matrixed organisation, the 9-box provided something no other tool could: a common visual language that worked across geographies, divisions, and cultures.</p>
+        <p>What made it stick was discipline around the "so what." Every talent review cycle produces named actions, not just named placements. Siemens leadership reviews are structured to spend more time on the development plan than on the assessment itself. The grid is the input. The plan is the output.</p>
+        <div class="metric">Outcome: Siemens reports strong internal succession rates at senior leadership levels and uses the 9-box framework as a core component of their strategic workforce planning process.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-sidebar">
+        <div class="case-co">McKinsey Client<br>(Multinational)</div>
+        <div class="case-sector">Cross-sector</div>
+        <span class="case-verdict success">Success</span>
+      </div>
+      <div class="case-body">
+        <p>A McKinsey case study documents a multinational company that implemented a structured 9-box system with one critical difference from the norm: they built an active succession planning culture around it rather than treating it as a periodic assessment event. The grid was embedded into regular leadership team conversations, not siloed in HR.</p>
+        <p>Leadership visibility of the grid meant that development commitments had accountability at the top. When a high-potential was identified, the CEO-level team knew about it and expected to see progress. When a core performer was flagged as a retention risk, the response was structural, not anecdotal.</p>
+        <div class="metric">Outcome: 25% reduction in workforce turnover within the first cycle. McKinsey's broader research found companies using structured talent review frameworks saw a 20% increase in employee engagement.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ARGUMENTS FOR -->
+  <div class="arguments-section">
+    <div class="section-label green">Why the 9-Box Works When Done Right</div>
+    <div class="section-intro">
+      <p>The research points to five distinct advantages that structured talent review provides, advantages that alternative approaches (no framework, competency-only models, or purely data-driven systems) struggle to replicate.</p>
+    </div>
+
+    <div class="arg-grid">
+      <div class="arg-card">
+        <div class="arg-number">Argument 01</div>
+        <h3>It Creates a Shared Language</h3>
+        <p>Before the 9-box, most leadership teams have no common vocabulary for talent. Conversations happen in corridors, based on impressions. The grid forces a structured discussion using shared definitions. "High performance" and "high potential" mean the same thing to everyone in the room, or the process of calibrating them reveals that they don't, which is equally valuable.</p>
+        <div class="evidence-note">The Talent Strategy Group: "It's not about the boxes. It's about the quality of conversation the boxes force you to have."</div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-number">Argument 02</div>
+        <h3>It Makes the Invisible Visible</h3>
+        <p>In most organisations, talent decisions happen informally and unevenly. The people who get developed are the people who are visible to the right leaders. The 9-box surfaces the entire population systematically. It forces leaders to account for everyone, not just the people who self-promote or who they happen to know well.</p>
+        <div class="evidence-note">AIHR research: the 9-box had a positive influence on employee performance, and this effect was significantly stronger when directly linked to career development activities.</div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-number">Argument 03</div>
+        <h3>It Connects Assessment to Action</h3>
+        <p>The most powerful feature of the 9-box is not the diagnosis. It is that each box implies a different set of interventions. High performance, high potential: stretch and accelerate. High performance, moderate potential: retain and deepen. Low performance, high potential: investigate and support. Without a framework, development is generic. With one, it can be precise.</p>
+        <div class="evidence-note">Research consistently shows that linking talent assessment directly to differentiated development actions is the single strongest predictor of positive outcomes.</div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-number">Argument 04</div>
+        <h3>It Scales Across the Organisation</h3>
+        <p>For organisations of any complexity, the 9-box provides something no purely narrative approach can: a common framework that works across teams, functions, and geographies. It allows a global leadership team to discuss talent in Alltech UK and Alltech US and Alltech Asia using the same structure, with the same definitions, and to compare and move talent across boundaries.</p>
+        <div class="evidence-note">Siemens and Unilever both cite the 9-box's scalability as a primary reason for adoption across complex global structures.</div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-number">Argument 05</div>
+        <h3>It Builds Succession Muscle</h3>
+        <p>Succession planning without structured assessment is guesswork. The 9-box, when reviewed regularly, builds an organisational habit of thinking about talent pipelines. Over time, the conversation shifts from "who can do this job?" to "what do our people need so they are ready when the moment comes?" That shift, from reactive to proactive, is where the real value sits.</p>
+        <div class="evidence-note">McKinsey: companies with structured, regular talent review processes are 2.4x more likely to have "ready now" successors for critical roles than those without.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTES -->
+  <div class="quotes-section">
+    <div class="section-label">Workshop-Ready Quotes</div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>It's not about the boxes. The boxes are just a forcing function. It's about the quality of conversation you have about your people, and whether that conversation leads to different actions than would have happened without it.</p>
+        <div class="quote-attr">Marc Effron, Talent Strategy Group, former VP Talent Management at Avon</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>The organisations that get value from talent grids are the ones that spend 20% of their time on the assessment and 80% on what they are going to do about it. The ones that fail do it the other way round.</p>
+        <div class="quote-attr">AIHR (Academy to Innovate HR), Practitioner's Guide to the 9-Box</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>Structured talent review is one of the most powerful levers organisations have for building a leadership pipeline. The challenge is not the framework. It is the commitment to act on what the framework reveals.</p>
+        <div class="quote-attr">McKinsey & Company, "War for Talent" research updates</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-mark">"</div>
+      <div class="quote-content">
+        <p>The companies that pulled back from the 9-box didn't fail because the tool was wrong. They failed because they used it to judge people instead of develop them. That's not a flaw in the model. That's a flaw in the culture.</p>
+        <div class="quote-attr">Josh Bersin, HR industry analyst</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LANDING: CONDITIONS FOR SUCCESS -->
+  <div class="landing-section">
+    <h2>The Conditions That Make It Work</h2>
+    <p>The research and the case studies converge on a clear set of design principles. Organisations that follow these do not just avoid the traps. They generate measurable improvements in retention, engagement, and succession readiness.</p>
+    <div class="conditions-grid">
+      <div class="condition-item">
+        <h3>Define potential precisely</h3>
+        <p>Not "could go far" but "able to lead through ambiguity at two levels above current role within a defined timeframe." Specificity kills the bias that vague definitions invite.</p>
+      </div>
+      <div class="condition-item">
+        <h3>Review quarterly, not annually</h3>
+        <p>The frozen label trap disappears when the grid is a living document. PepsiCo's quarterly rhythm keeps assessments dynamic and prevents calcification.</p>
+      </div>
+      <div class="condition-item">
+        <h3>Multi-source input</h3>
+        <p>Never rely on a single manager's assessment. Bring in peer feedback, skip-level perspectives, and objective performance data to triangulate the picture.</p>
+      </div>
+      <div class="condition-item">
+        <h3>Action plan over assessment</h3>
+        <p>Spend 20% of the talent review on placement and 80% on what happens next. If there is no named development action for every box, the exercise was theatre.</p>
+      </div>
+      <div class="condition-item">
+        <h3>Invest in the middle</h3>
+        <p>The core performers are the operational backbone. The organisations that succeed give the middle of the grid structured development, not just the top right corner.</p>
+      </div>
+      <div class="condition-item">
+        <h3>Train the managers first</h3>
+        <p>The grid is only as good as the people using it. Assessment capability, feedback skills, and calibration discipline need to be built before the tool is deployed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE LANGUAGE OPTIONS -->
+  <div class="slide-bank">
+    <div class="section-label green">Slide Language Options: "Why This Can Work for Alltech"</div>
+    <p class="slide-bank-intro">Counterpart to the "Traps" slide options. These are designed to land the message that the 9-box is worth doing if done with discipline. Pick the ones that feel right for the room.</p>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option A</span>
+      <p><em>The organisations that walked away were using it wrong.</em> Microsoft ranked people against each other. GE fired the bottom 10%. Those aren't talent development tools. The 9-box works when it drives conversations and actions, not labels and sentences.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option B</span>
+      <p><em>The grid is not the output. The development plan is the output.</em> The organisations that get value from this spend 20% of their time on placement and 80% on what they do about it. The ones that fail do it the other way round.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option C</span>
+      <p><em>Unilever fills 80% of its senior roles from within.</em> They have used the 9-box for over two decades. The difference is that every placement has a named action behind it. They treat it as infrastructure for development, not a classification system.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option D</span>
+      <p><em>The alternative is not "no bias." The alternative is invisible bias.</em> Without a structured framework, talent decisions happen in corridors based on who is visible, who self-promotes, and who the senior team happens to know. The 9-box surfaces everyone. That is its real value.</p>
+    </div>
+
+    <div class="slide-option">
+      <span class="slide-tag">Option E</span>
+      <p><em>The question is not whether the 9-box can fail. It can. The question is what the conditions for success look like.</em> And those conditions are well understood: define potential precisely, review regularly, link every placement to a named action, and invest in manager capability before you deploy the tool.</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Prepared by the Living Studio agent team for Sean Sankey / MorePeople Exec. Research sourced from: McKinsey & Company, Talent Strategy Group (Marc Effron), AIHR, Quantum Workplace, Gallup, Deloitte, CEB/Gartner, Josh Bersin. Case study sources: Unilever corporate talent disclosures, PepsiCo HR leadership, Siemens leadership development publications, McKinsey case studies. Internal use only.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
