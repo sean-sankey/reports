@@ -79,16 +79,13 @@
     font-size: 12px;
     color: #4a4050;
   }
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+  .legend-icon {
+    font-size: 18px;
     flex-shrink: 0;
+    line-height: 1;
+    width: 22px;
+    text-align: center;
   }
-  .dot-direct { background: #2e7d5a; }
-  .dot-paywall { background: #d4820a; }
-  .dot-secondary { background: #7c6d91; }
-  .dot-book { background: #2e5a7d; }
 
   .main { max-width: 940px; margin: 0 auto; padding: 44px 60px 80px; }
 
@@ -125,17 +122,14 @@
     gap: 14px;
   }
 
-  .access-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+  .access-icon {
+    font-size: 20px;
     flex-shrink: 0;
-    margin-top: 6px;
+    margin-top: 2px;
+    width: 24px;
+    text-align: center;
+    line-height: 1;
   }
-  .access-direct { background: #2e7d5a; }
-  .access-paywall { background: #d4820a; }
-  .access-secondary { background: #7c6d91; }
-  .access-book { background: #2e5a7d; }
 
   .source-detail {
     flex: 1;
@@ -197,10 +191,10 @@
 </div>
 
 <div class="legend">
-  <div class="legend-item"><span class="legend-dot dot-direct"></span> Direct access: full content, free to read</div>
-  <div class="legend-item"><span class="legend-dot dot-paywall"></span> Paywalled or proprietary: landing page accessible, full report requires subscription</div>
-  <div class="legend-item"><span class="legend-dot dot-secondary"></span> Secondary source: cites or summarises original research</div>
-  <div class="legend-item"><span class="legend-dot dot-book"></span> Published book: available for purchase</div>
+  <div class="legend-item"><span class="legend-icon" style="color: #1a7d42;">&#10003;</span> Direct access: full content, free to read</div>
+  <div class="legend-item"><span class="legend-icon" style="color: #f57c00;">&#9888;</span> Paywalled or proprietary: landing page accessible, full report requires subscription</div>
+  <div class="legend-item"><span class="legend-icon" style="color: #1e88e5;">&#8635;</span> Secondary source: cites or summarises original research</div>
+  <div class="legend-item"><span class="legend-icon" style="color: #66bb6a;">&#9734;</span> Published book: available for purchase</div>
 </div>
 
 <div class="main">
@@ -213,7 +207,7 @@
     <ul class="source-list">
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://hbr.org/2015/04/reinventing-performance-management" target="_blank">Deloitte: "Reinventing Performance Management" (HBR, April 2015)</a>
           <div class="desc">Marcus Buckingham &amp; Ashley Goodall. Landmark paper disclosing Deloitte abandoned ratings after finding systems measured rater bias more reliably than employee performance. Replaced annual reviews with quarterly "performance snapshots."</div>
@@ -222,7 +216,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://pubmed.ncbi.nlm.nih.gov/28125265/" target="_blank">DeNisi &amp; Murphy: "Performance Appraisal and Performance Management: 100 Years of Progress?"</a>
           <div class="desc">Journal of Applied Psychology, 102(3), 421-433, 2017. 30-year review of performance rating research. Concludes calibration processes can amplify rather than neutralise rater biases.</div>
@@ -231,7 +225,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://news.gallup.com/businessjournal/182792/managers-account-variance-employee-engagement.aspx" target="_blank">Gallup: "Managers Account for 70% of Variance in Employee Engagement"</a>
           <div class="desc">From the "State of the American Manager" report. Based on data from 27 million employees and 2.5 million work units. Establishes that manager quality is the primary driver of engagement variation.</div>
@@ -240,7 +234,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://womenintheworkplace.com/2022" target="_blank">McKinsey &amp; LeanIn.Org: Women in the Workplace 2022</a>
           <div class="desc">Study of 333 companies and 40,000+ employees. Documents gender bias in how potential and performance are rated, with particular impact on women of colour's advancement.</div>
@@ -249,7 +243,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://athena.ecs.csus.edu/~buckley/CSc191/Vanity_Fair_Microsofts_Lost_Decade_Aug_2012.pdf" target="_blank">Vanity Fair: "Microsoft's Lost Decade" (August 2012)</a>
           <div class="desc">Kurt Eichenwald's investigation into Microsoft's stack ranking system, describing it as "the most destructive process in all of Microsoft." Documented how engineers refused to collaborate with talented colleagues for fear of relative ranking.</div>
@@ -258,7 +252,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-paywall"></span>
+        <span class="access-icon" style="color: #f57c00;">&#9888;</span>
         <div class="source-detail">
           <a href="https://www2.deloitte.com/us/en/insights/focus/human-capital-trends/2019.html" target="_blank">Deloitte: Global Human Capital Trends (2019)</a>
           <div class="desc">Cited for findings on disproportionate development spend on high-potentials versus core performers. Survey of nearly 10,000 respondents across 119 countries.</div>
@@ -267,7 +261,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-paywall"></span>
+        <span class="access-icon" style="color: #f57c00;">&#9888;</span>
         <div class="source-detail">
           <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-18-gartner-hr-research-finds-orgs-current-talent-management-efforts-inhibit-optimal-employee-and-org-performance" target="_blank">CEB/Gartner: Talent Management Research</a>
           <div class="desc">Cited for findings that employees tend to remain in the same 9-box position across review cycles, and that tiered talent systems can reduce discretionary effort in lower-rated populations. These findings are from Gartner's proprietary HR research.</div>
@@ -276,7 +270,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-paywall"></span>
+        <span class="access-icon" style="color: #f57c00;">&#9888;</span>
         <div class="source-detail">
           <a href="https://www.rhrinternational.com/thought-leadership/research-studies" target="_blank">RHR International: Succession Readiness Research</a>
           <div class="desc">Cited for longitudinal research on the gap between "ready now" succession designations and actual performance when promoted to senior roles.</div>
@@ -285,7 +279,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-book"></span>
+        <span class="access-icon" style="color: #66bb6a;">&#9734;</span>
         <div class="source-detail">
           <a href="https://www.amazon.co.uk/Talent-Delusion-Psychology-Debunking-Science/dp/0349412480" target="_blank">Tomas Chamorro-Premuzic: "The Talent Delusion" (2017)</a>
           <div class="desc">Professor of Business Psychology, UCL &amp; Columbia. Research on the weak correlation between managers' subjective potential assessments and actual career outcomes. Argues organisations confuse confidence with competence in talent identification.</div>
@@ -294,7 +288,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-book"></span>
+        <span class="access-icon" style="color: #66bb6a;">&#9734;</span>
         <div class="source-detail">
           <a href="https://www.amazon.co.uk/Nine-Lies-About-Work-Freethinking/dp/1625278411" target="_blank">Marcus Buckingham &amp; Ashley Goodall: "Nine Lies About Work" (2019)</a>
           <div class="desc">ADP Research Institute. Argues talent review systems surface the best-networked and most visible people, not necessarily the most talented. Critiques the assumption that feedback is uniformly valuable.</div>
@@ -303,7 +297,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://mgmt.wharton.upenn.edu/profile/cappelli/" target="_blank">Peter Cappelli: Faculty profile, Wharton School</a>
           <div class="desc">George W. Taylor Professor of Management &amp; Director of Wharton's Center for Human Resources. Research on high-potential identification failures. His work with Keller (2014) argues there is little reason to believe subjective potential assessments produce valid information.</div>
@@ -322,7 +316,7 @@
     <ul class="source-list">
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://talentstrategygroup.com/its-not-about-the-boxes-the-9-box-grid-and-what-really-matters/" target="_blank">Marc Effron / Talent Strategy Group: "It's Not About the Boxes"</a>
           <div class="desc">Former VP Talent Management at Avon. Comprehensive argument that the grid is a forcing function for quality talent conversations, not a classification tool. Addresses common objections and makes the case for structured review.</div>
@@ -331,7 +325,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://www.aihr.com/blog/9-box-grid/" target="_blank">AIHR: "9-Box Grid: A Practitioner's Guide"</a>
           <div class="desc">Academy to Innovate HR. Research finding the 9-box had a positive influence on employee performance, with the effect growing significantly stronger when directly linked to career development activities.</div>
@@ -340,7 +334,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://www.quantumworkplace.com/future-of-work/what-is-the-9-box-grid" target="_blank">Quantum Workplace: "A Smarter Approach to Evaluating Performance &amp; Potential"</a>
           <div class="desc">Evidence for the 9-box as a tool to move from gut-instinct talent decisions to structured, consistent, data-informed assessment.</div>
@@ -349,7 +343,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-secondary"></span>
+        <span class="access-icon" style="color: #1e88e5;">&#8635;</span>
         <div class="source-detail">
           <a href="https://impactgrouphr.com/blog/mckinsey-9-box-talent-matrix/" target="_blank">Impact Group HR: "McKinsey 9-Box Talent Matrix: Pros and Cons"</a>
           <div class="desc">Secondary source citing a McKinsey case study of a multinational company that reduced workforce turnover by 25% through structured talent review. Also cites McKinsey data on 20% engagement improvement.</div>
@@ -358,7 +352,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://www.myhrfuture.com/digital-hr-leaders-podcast/2021/3/2/how-unilever-has-created-a-culture-of-internal-talent-mobility" target="_blank">myHRfuture: "How Unilever Has Created a Culture of Internal Talent Mobility"</a>
           <div class="desc">Podcast and article on Unilever's Flex Experiences platform (65,000 global employees), promote-from-within culture, and pandemic workforce redeployment of 3,000+ people.</div>
@@ -367,7 +361,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://fuel50.com/2024/10/what-is-internal-mobility/" target="_blank">Fuel50: "Internal Mobility: What Is It And Why Organizations Need It?"</a>
           <div class="desc">Cited for the P&amp;G statistic: 80% of executive roles filled through internal promotions. Also covers Unilever's internal mobility infrastructure.</div>
@@ -376,7 +370,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://joshbersin.com/tag/9-box-grid/" target="_blank">Josh Bersin: 9-Box Grid Analysis</a>
           <div class="desc">HR industry analyst. Argues that companies which abandoned the 9-box failed because they used it to judge people instead of develop them. Critiques the assumption that "potential" means "ability to be promoted."</div>
@@ -385,7 +379,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://www.cultureamp.com/blog/9-box-grid-for-succession-planning" target="_blank">Culture Amp: "Pros and Cons of Using a 9-Box Grid for Succession Planning"</a>
           <div class="desc">Balanced practitioner analysis of when the 9-box adds value for succession planning and when alternative approaches may serve better.</div>
@@ -394,7 +388,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://hrcurator.com/2024/10/08/humpty-dumpty-and-the-9-box-five-steps-to-putting-it-back-together-again-using-the-science-of-leadership-potential/" target="_blank">HR Curator: "Humpty Dumpty and the 9-Box"</a>
           <div class="desc">Five evidence-based steps to rebuilding the 9-box using the science of leadership potential. Practical implementation guidance for organisations wanting to modernise rather than abandon the tool.</div>
@@ -403,7 +397,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-direct"></span>
+        <span class="access-icon" style="color: #1a7d42;">&#10003;</span>
         <div class="source-detail">
           <a href="https://www.gallup.com/workplace/236570/employees-lot-managers.aspx" target="_blank">Gallup: "Employees Want a Lot More From Their Managers"</a>
           <div class="desc">Research on continuous feedback and engagement. Companies engaging in continuous feedback have 14.9% lower turnover rates than those relying on periodic reviews.</div>
@@ -412,7 +406,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-paywall"></span>
+        <span class="access-icon" style="color: #f57c00;">&#9888;</span>
         <div class="source-detail">
           <a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-war-for-talent" target="_blank">McKinsey: "The War for Talent" Research</a>
           <div class="desc">Foundational McKinsey research on structured talent review. Broader findings on the link between talent management discipline and organisational performance.</div>
@@ -421,7 +415,7 @@
       </li>
 
       <li>
-        <span class="access-dot access-secondary"></span>
+        <span class="access-icon" style="color: #1e88e5;">&#8635;</span>
         <div class="source-detail">
           <a href="https://www.sigmaassessmentsystems.com/internal-promotions-signal-stability-in-ceo-transitions-at-procter-gamble-and-novo-nordisk/" target="_blank">SIGMA Assessment Systems: Internal Promotions at P&amp;G and Novo Nordisk</a>
           <div class="desc">Analysis of how structured internal promotion practices at P&amp;G signal organisational stability and strong succession pipeline health.</div>
@@ -433,7 +427,7 @@
   </div>
 
   <div class="footer">
-    <p>Source index compiled and individually verified 14 April 2026. Green dots indicate freely accessible content you can read in full. Amber dots indicate proprietary or paywalled research where the landing page is accessible but full data requires a subscription. Purple dots indicate secondary sources that cite or summarise original research. Blue dots indicate published books available for purchase. All findings in the research briefs were cross-referenced across multiple sources before inclusion.</p>
+    <p>Source index compiled and individually verified 14 April 2026. &#10003; = freely accessible content you can read in full. &#9888; = proprietary or paywalled research where the landing page is accessible but full data requires a subscription. &#8635; = secondary sources that cite or summarise original research. &#9734; = published books available for purchase. All findings in the research briefs were cross-referenced across multiple sources before inclusion.</p>
   </div>
 
 </div>
