@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>London &amp; Disneyland Paris — The Sankeys — May 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;font-size:16px;background:#f4f1ec;color:#2c1f3e;line-height:1.5}
+
+/* HEADER */
+.header{background:#2c1f3e;position:relative;overflow:hidden;padding:40px 24px 0}
+.header-bg{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,#fff 0,#fff 1px,transparent 1px,transparent 12px);opacity:.06;pointer-events:none}
+.header-content{position:relative;z-index:1;padding-bottom:28px}
+.header .label{font-family:Arial,sans-serif;font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:2px;color:#a89fc0;margin-bottom:8px}
+.header h1{font-family:Arial,sans-serif;font-size:36px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:6px}
+.header .sub{font-family:Georgia,serif;font-size:15px;font-style:italic;color:#c4b8d8;margin-bottom:18px}
+.contact-pills{display:flex;flex-wrap:wrap;gap:8px}
+.contact-pill{background:rgba(124,92,191,.3);border:1px solid rgba(124,92,191,.5);border-radius:20px;padding:4px 12px;font-family:Arial,sans-serif;font-size:12px;color:#e0d8f0;white-space:nowrap}
+
+/* STATS STRIP */
+.stats{background:#fff;border-top:3px solid #7c5cbf;display:flex;flex-wrap:wrap}
+.stat{flex:1;min-width:80px;padding:14px 8px;text-align:center;border-right:1px solid #ede8f5}
+.stat:last-child{border-right:none}
+.stat-n{font-family:Arial,sans-serif;font-size:22px;font-weight:800;color:#2c1f3e;display:block;line-height:1}
+.stat-l{font-family:Arial,sans-serif;font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:1px;color:#a89fc0;display:block;margin-top:3px}
+
+/* META BAR */
+.meta{background:#3d2e54;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.meta-items{display:flex;flex-wrap:wrap;gap:12px 20px}
+.meta-item{font-family:Arial,sans-serif;font-size:12px;color:#c4b8d8}
+.meta-item strong{color:#fff}
+.progress-badge{background:#7c5cbf;color:#fff;font-family:Arial,sans-serif;font-size:11px;font-weight:700;padding:4px 10px;border-radius:12px;white-space:nowrap;cursor:default}
+
+/* QUICK REFS */
+.quick-refs{background:#2c1f3e;padding:14px 24px;display:flex;flex-wrap:wrap;gap:0}
+.qr-item{flex:1;min-width:120px;padding:4px 16px 4px 0;border-right:1px solid rgba(255,255,255,.1)}
+.qr-item:last-child{border-right:none;padding-right:0}
+.qr-label{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#7c5cbf;display:block;margin-bottom:2px}
+.qr-code{font-family:'Courier New',monospace;font-size:18px;font-weight:700;color:#fff;display:block}
+
+/* SECTIONS */
+.section{padding:28px 24px 0}
+.section-label{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:2px solid #e8e2f0;margin-bottom:20px}
+.section-icon{width:34px;height:34px;background:#2c1f3e;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-title{font-family:Arial,sans-serif;font-size:24px;font-weight:800;color:#2c1f3e}
+
+/* TIMELINE */
+.tl-day{background:#fff;border-radius:8px;margin-bottom:16px;overflow:hidden;box-shadow:0 1px 4px rgba(44,31,62,.08)}
+.tl-day-header{background:#2c1f3e;padding:10px 16px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px}
+.tl-item{display:flex;border-bottom:1px solid #ede8f5}
+.tl-item:last-child{border-bottom:none}
+.tl-time-col{width:78px;flex-shrink:0;background:#faf8fd;padding:12px 8px;text-align:center;font-family:Arial,sans-serif;font-size:14px;font-weight:800;color:#7c5cbf;border-right:1px solid #ede8f5}
+.tl-body{padding:11px 14px;flex:1}
+.tl-text{font-size:16px;color:#2c1f3e}
+.tl-tag{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.tl-tag.travel{background:#ede8f5;color:#7c5cbf}
+.tl-tag.hotel{background:#e8f5ef;color:#2d7a55}
+.tl-tag.disney{background:#ffe8f0;color:#c0306a}
+.tl-tag.family{background:#fff5e0;color:#a06600}
+.tl-tag.eve{background:#fdf0e8;color:#c07030}
+.tl-tag.tbc{background:#f0e8e8;color:#8a5050}
+
+/* HOTEL CARD */
+.hotel-card{background:#fff;border-radius:8px;margin-bottom:16px;border-top:3px solid #2d7a55;box-shadow:0 1px 4px rgba(44,31,62,.08);overflow:hidden}
+.hotel-tag{font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2d7a55;padding:12px 16px 6px}
+.hotel-name{font-family:Arial,sans-serif;font-size:18px;font-weight:800;color:#2c1f3e;padding:0 16px 4px}
+.hotel-addr{font-family:Georgia,serif;font-size:15px;font-style:italic;color:#a89fc0;padding:0 16px 12px}
+.hotel-info{border-top:1px solid #ede8f5;padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px 24px}
+.info-pair{display:flex;flex-direction:column}
+.info-key{font-family:Arial,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#a89fc0}
+.info-val{font-size:16px;color:#2c1f3e}
+.info-val.mono{font-family:'Courier New',monospace;font-size:17px;font-weight:700}
+.hotel-note{font-family:Georgia,serif;font-size:15px;font-style:italic;color:#a89fc0;padding:4px 16px 12px}
+
+/* TRAVEL CARD (purple top border for transit) */
+.travel-card{background:#fff;border-radius:8px;margin-bottom:16px;border-top:3px solid #7c5cbf;box-shadow:0 1px 4px rgba(44,31,62,.08);overflow:hidden}
+.travel-tag{font-family:Arial,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#7c5cbf;padding:12px 16px 6px}
+.travel-name{font-family:Arial,sans-serif;font-size:18px;font-weight:800;color:#2c1f3e;padding:0 16px 4px}
+.travel-route{font-family:Georgia,serif;font-size:15px;color:#5a5a5a;padding:0 16px 10px}
+
+/* TBC PLACEHOLDER */
+.tbc-card{background:#fff;border-radius:8px;margin-bottom:16px;border-left:4px solid #c08030;box-shadow:0 1px 4px rgba(44,31,62,.08);padding:14px 16px}
+.tbc-card .tbc-title{font-family:Arial,sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#c08030;margin-bottom:6px}
+.tbc-card .tbc-body{font-family:Georgia,serif;font-size:15px;font-style:italic;color:#5a5a5a}
+
+/* PACK GROUPS */
+.pack-group{background:#fff;border-radius:8px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(44,31,62,.08)}
+.pack-group-header{background:#f7f5fb;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #ede8f5}
+.pack-group-title{font-family:Arial,sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2c1f3e}
+.pack-items{padding:8px 0}
+.pack-item{display:flex;align-items:flex-start;gap:12px;padding:8px 16px;cursor:pointer;transition:background .15s}
+.pack-item:hover{background:#faf8fd}
+.pack-item.checked{opacity:.55}
+.pack-item.checked .pack-label{text-decoration:line-through}
+.pack-circle{width:20px;height:20px;border-radius:50%;border:2px solid #7c5cbf;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.pack-item.checked .pack-circle{background:#7c5cbf;border-color:#7c5cbf}
+.pack-item.checked .pack-circle::after{content:'\2713';color:#fff;font-size:11px;font-weight:700}
+.pack-label{font-size:16px;color:#2c1f3e;line-height:1.4}
+.pack-sub{font-family:Arial,sans-serif;font-size:14px;color:#a89fc0;display:block}
+
+/* CHECKLIST */
+.check-group{background:#fff;border-radius:8px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(44,31,62,.08)}
+.check-group-header{background:#f7f5fb;padding:10px 16px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2c1f3e;border-bottom:1px solid #ede8f5}
+.check-item{display:flex;align-items:flex-start;gap:12px;padding:9px 16px;cursor:pointer;transition:background .15s;border-bottom:1px solid #ede8f5}
+.check-item:last-child{border-bottom:none}
+.check-item:hover{background:#faf8fd}
+.check-item.checked{opacity:.55}
+.check-item.checked .check-label{text-decoration:line-through}
+.check-box{width:20px;height:20px;border-radius:4px;border:2px solid #7c5cbf;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.check-item.checked .check-box{background:#7c5cbf;border-color:#7c5cbf}
+.check-item.checked .check-box::after{content:'\2713';color:#fff;font-size:11px;font-weight:700}
+.check-label{font-size:16px;color:#2c1f3e;line-height:1.4}
+.check-note{font-family:Georgia,serif;font-size:15px;font-style:italic;color:#a89fc0;display:block;margin-top:2px}
+
+/* RESET / FOOTER */
+.reset-bar{padding:16px 24px;display:flex;gap:10px;flex-wrap:wrap}
+.reset-btn{background:#fff;border:1px solid #7c5cbf;color:#7c5cbf;font-family:Arial,sans-serif;font-size:13px;font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;transition:all .15s}
+.reset-btn:hover{background:#7c5cbf;color:#fff}
+.footer{background:#2c1f3e;padding:20px 24px;text-align:center;font-family:Arial,sans-serif;font-size:11px;color:#6a5a8a;text-transform:uppercase;letter-spacing:1px}
+.spacer{height:24px}
+
+@media(min-width:600px){
+  .header{padding:52px 48px 0}
+  .header h1{font-size:44px}
+  .section{padding:40px 48px 0}
+  .meta,.quick-refs{padding-left:48px;padding-right:48px}
+  .stats .stat-n{font-size:26px}
+  .reset-bar{padding:16px 48px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-bg"></div>
+  <div class="header-content">
+    <div class="label">Family Travel Plan</div>
+    <h1>London &amp; Disneyland Paris</h1>
+    <div class="sub">17&ndash;24 May 2026 &nbsp;&middot;&nbsp; The Sankeys: Sean, Helen, Phoebe, Jemima</div>
+    <div class="contact-pills">
+      <span class="contact-pill">London Sun&ndash;Tue</span>
+      <span class="contact-pill">Disney Tue PM&ndash;Fri PM</span>
+      <span class="contact-pill">London Fri night</span>
+      <span class="contact-pill">Home Sat</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats">
+  <div class="stat"><span class="stat-n">7</span><span class="stat-l">Nights</span></div>
+  <div class="stat"><span class="stat-n">3</span><span class="stat-l">London Nights</span></div>
+  <div class="stat"><span class="stat-n">3</span><span class="stat-l">Disney Nights</span></div>
+  <div class="stat"><span class="stat-n">4</span><span class="stat-l">Sankeys</span></div>
+  <div class="stat"><span class="stat-n">10:59</span><span class="stat-l">Sun Train</span></div>
+</div>
+
+<!-- META BAR -->
+<div class="meta">
+  <div class="meta-items">
+    <div class="meta-item"><strong>Sun 17</strong> &mdash; Train down + see Irfan, Tabs &amp; Liyana</div>
+    <div class="meta-item"><strong>Mon 18 / Tue 19 AM</strong> &mdash; London family days</div>
+    <div class="meta-item"><strong>Tue 19 PM &rarr; Fri 22 PM</strong> &mdash; Disneyland Paris</div>
+    <div class="meta-item"><strong>Fri night / Sat 23</strong> &mdash; London &rarr; home</div>
+  </div>
+  <div class="progress-badge" id="progress-badge">Packed 0/0 &middot; Checklist 0/0</div>
+</div>
+
+<!-- QUICK REFS -->
+<div class="quick-refs">
+  <div class="qr-item">
+    <span class="qr-label">London Hotel</span>
+    <span class="qr-code">Premier Inn St Pancras</span>
+  </div>
+  <div class="qr-item">
+    <span class="qr-label">Disney Hotel</span>
+    <span class="qr-code">Hotel Cheyenne</span>
+  </div>
+  <div class="qr-item">
+    <span class="qr-label">Sun Train</span>
+    <span class="qr-code">10:59 KX</span>
+  </div>
+  <div class="qr-item">
+    <span class="qr-label">Eurostar Out</span>
+    <span class="qr-code">10:31 STP</span>
+  </div>
+</div>
+
+<!-- DAY BY DAY -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+    <div class="section-title">Day by Day</div>
+  </div>
+
+  <!-- SUN 17 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Sunday 17 May &mdash; Travel down + family</div>
+    <div class="tl-item"><div class="tl-time-col">10:59</div><div class="tl-body"><div class="tl-text">Train Darlington &rarr; London King&rsquo;s Cross. Arr 13:33.</div><span class="tl-tag travel">Train</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">~14:00</div><div class="tl-body"><div class="tl-text">Premier Inn London St Pancras &mdash; early check-in already paid for from 11:00, so room ready when you arrive.</div><span class="tl-tag hotel">Check-in</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">14:00</div><div class="tl-body"><div class="tl-text">Irfan, Tabs &amp; Liyana</div><span class="tl-tag family">Family</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">Eve</div><div class="tl-body"><div class="tl-text">Settle into London &mdash; dinner near hotel, early night for the girls</div><span class="tl-tag eve">Eve</span></div></div>
+  </div>
+
+  <!-- MON 18 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Monday 18 May &mdash; London family day</div>
+    <div class="tl-item"><div class="tl-time-col">All day</div><div class="tl-body"><div class="tl-text">London family day &mdash; Helen&rsquo;s plans (museums / parks / food spots to be added).</div><span class="tl-tag tbc">Helen to fill</span></div></div>
+  </div>
+
+  <!-- TUE 19 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Tuesday 19 May &mdash; London &rarr; Disneyland Paris</div>
+    <div class="tl-item"><div class="tl-time-col">~09:00</div><div class="tl-body"><div class="tl-text">Check out Premier Inn St Pancras. Walk over to St Pancras International (next door).</div><span class="tl-tag hotel">Checkout</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">10:31</div><div class="tl-body"><div class="tl-text">Eurostar from St Pancras &rarr; Marne-la-Vall&eacute;e Chessy (Disneyland Paris station). Plan to be at security 60-90 mins before departure.</div><span class="tl-tag travel">Eurostar</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">~14:00</div><div class="tl-body"><div class="tl-text">Arrive Disneyland Paris. Transfer to Hotel Cheyenne, check in.</div><span class="tl-tag hotel">Hotel Cheyenne</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">PM</div><div class="tl-body"><div class="tl-text">First taste of Disney &mdash; resort or park (girls&rsquo; first sight of the castle is the moment).</div><span class="tl-tag disney">Disney</span></div></div>
+  </div>
+
+  <!-- WED 20 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Wednesday 20 May &mdash; Full Disney Day 1</div>
+    <div class="tl-item"><div class="tl-time-col">All day</div><div class="tl-body"><div class="tl-text">Park day per Helen&rsquo;s planned zone order &mdash; to be transcribed in here.</div><span class="tl-tag disney">Disney</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">Lunch</div><div class="tl-body"><div class="tl-text">Restaurant TBC.</div><span class="tl-tag tbc">Helen to fill</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">Dinner</div><div class="tl-body"><div class="tl-text">Restaurant TBC.</div><span class="tl-tag tbc">Helen to fill</span></div></div>
+  </div>
+
+  <!-- THU 21 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Thursday 21 May &mdash; Full Disney Day 2 (Princess Breakfast)</div>
+    <div class="tl-item"><div class="tl-time-col">AM</div><div class="tl-body"><div class="tl-text"><strong>Meet the Princess breakfast at Regal View</strong> (Adventure World, near Frozen). Time TBC.</div><span class="tl-tag disney">Booked</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">Day</div><div class="tl-body"><div class="tl-text">Helen&rsquo;s planned Day 2 zones.</div><span class="tl-tag disney">Disney</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">Dinner</div><div class="tl-body"><div class="tl-text">Restaurant TBC.</div><span class="tl-tag tbc">Helen to fill</span></div></div>
+  </div>
+
+  <!-- FRI 22 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Friday 22 May &mdash; Disney AM &rarr; back to London</div>
+    <div class="tl-item"><div class="tl-time-col">AM</div><div class="tl-body"><div class="tl-text">Last Disney morning &mdash; final must-do experiences with the girls before checkout.</div><span class="tl-tag disney">Disney</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">~13:00</div><div class="tl-body"><div class="tl-text">Check out Hotel Cheyenne. Transfer to Marne-la-Vall&eacute;e Chessy station.</div><span class="tl-tag hotel">Checkout</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">15:02</div><div class="tl-body"><div class="tl-text">Eurostar Marne-la-Vall&eacute;e &rarr; St Pancras International.</div><span class="tl-tag travel">Eurostar</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">~16:30</div><div class="tl-body"><div class="tl-text">Arrive St Pancras. Walk over to Premier Inn London St Pancras (check-in from 15:00).</div><span class="tl-tag hotel">Check-in</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">Eve</div><div class="tl-body"><div class="tl-text">Dinner in London &mdash; somewhere nice to mark the end of the trip. TBC.</div><span class="tl-tag tbc">Helen to fill</span></div></div>
+  </div>
+
+  <!-- SAT 23 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Saturday 23 May &mdash; London &rarr; home</div>
+    <div class="tl-item"><div class="tl-time-col">~10:00</div><div class="tl-body"><div class="tl-text">Check out Premier Inn St Pancras. Short walk to King&rsquo;s Cross.</div><span class="tl-tag hotel">Checkout</span></div></div>
+    <div class="tl-item"><div class="tl-time-col">11:03</div><div class="tl-body"><div class="tl-text">Train King&rsquo;s Cross &rarr; home (Darlington).</div><span class="tl-tag travel">Train</span></div></div>
+  </div>
+
+  <!-- SUN 24 MAY -->
+  <div class="tl-day">
+    <div class="tl-day-header">Sunday 24 May &mdash; Home day</div>
+    <div class="tl-item"><div class="tl-time-col">All day</div><div class="tl-body"><div class="tl-text">Recover, unpack, slow Sunday at home. Don&rsquo;t fill it.</div><span class="tl-tag eve">Rest</span></div></div>
+  </div>
+</div>
+
+<!-- LOGISTICS -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <div class="section-title">Logistics &amp; Bookings</div>
+  </div>
+
+  <!-- LONDON HOTEL -->
+  <div class="hotel-card">
+    <div class="hotel-tag">London Hotel &mdash; Sun, Mon, Fri nights</div>
+    <div class="hotel-name">Premier Inn London St Pancras</div>
+    <div class="hotel-addr">NW1 2RA &middot; next door to St Pancras International &amp; King&rsquo;s Cross</div>
+    <div class="hotel-info">
+      <div class="info-pair"><span class="info-key">Sun 17 check-in</span><span class="info-val">11:00 (early, paid)</span></div>
+      <div class="info-pair"><span class="info-key">Tue 19 checkout</span><span class="info-val">~10:00</span></div>
+      <div class="info-pair"><span class="info-key">Fri 22 check-in</span><span class="info-val">15:00</span></div>
+      <div class="info-pair"><span class="info-key">Sat 23 checkout</span><span class="info-val">~10:00</span></div>
+      <div class="info-pair"><span class="info-key">Booking ref</span><span class="info-val mono">TBC</span></div>
+    </div>
+    <div class="hotel-note">Same hotel both London stays &mdash; familiar territory at the start and end of the trip.</div>
+  </div>
+
+  <!-- DISNEY HOTEL -->
+  <div class="hotel-card" style="border-top-color:#c0306a">
+    <div class="hotel-tag" style="color:#c0306a">Disney Hotel &mdash; Tue, Wed, Thu nights</div>
+    <div class="hotel-name">Hotel Cheyenne</div>
+    <div class="hotel-addr">Disneyland Paris resort hotel &middot; Wild West theme &middot; the girls will love it</div>
+    <div class="hotel-info">
+      <div class="info-pair"><span class="info-key">Tue 19 check-in</span><span class="info-val">PM (post-Eurostar)</span></div>
+      <div class="info-pair"><span class="info-key">Fri 22 checkout</span><span class="info-val">~13:00</span></div>
+      <div class="info-pair"><span class="info-key">Booking ref</span><span class="info-val mono">TBC</span></div>
+      <div class="info-pair"><span class="info-key">Park access</span><span class="info-val">TBC (Disney tickets)</span></div>
+    </div>
+  </div>
+
+  <!-- TRAINS -->
+  <div class="travel-card">
+    <div class="travel-tag">Trains &mdash; Sun out, Sat home</div>
+    <div class="travel-name">Sun 17: Darlington 10:59 &rarr; King&rsquo;s Cross 13:33</div>
+    <div class="travel-route">Sat 23: King&rsquo;s Cross 11:03 &rarr; home</div>
+    <div class="hotel-info">
+      <div class="info-pair"><span class="info-key">Booking ref</span><span class="info-val mono">TBC</span></div>
+      <div class="info-pair"><span class="info-key">Seats</span><span class="info-val">TBC</span></div>
+    </div>
+  </div>
+
+  <!-- EUROSTAR -->
+  <div class="travel-card">
+    <div class="travel-tag">Eurostar &mdash; Tue out, Fri home</div>
+    <div class="travel-name">Tue 19: St Pancras 10:31 &rarr; Marne-la-Vall&eacute;e Chessy</div>
+    <div class="travel-route">Fri 22: Marne-la-Vall&eacute;e 15:02 &rarr; St Pancras</div>
+    <div class="hotel-info">
+      <div class="info-pair"><span class="info-key">Booking ref</span><span class="info-val mono">TBC</span></div>
+      <div class="info-pair"><span class="info-key">Seats</span><span class="info-val">TBC</span></div>
+      <div class="info-pair"><span class="info-key">Check-in</span><span class="info-val">60-90 mins before</span></div>
+    </div>
+  </div>
+
+  <div class="tbc-card">
+    <div class="tbc-title">Disney park tickets &amp; reservations</div>
+    <div class="tbc-body">Park tickets (which parks, which days), Premier Access if any, princess breakfast booking ref + time, dinner reservations.</div>
+  </div>
+</div>
+
+<!-- WHAT TO PACK -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="2" y1="13" x2="22" y2="13" stroke-dasharray="2 2"/></svg></div>
+    <div class="section-title">What to Pack</div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-group-title">Sean</div></div>
+    <div class="pack-items">
+      <div class="pack-item" onclick="toggleItem(this)" data-key="sean-day-outfits"><div class="pack-circle"></div><div><div class="pack-label">5x day outfits, layerable for May Paris weather</div><span class="pack-sub">15-22&deg;C average mid-May, light rain possible</span></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="sean-eve-outfit"><div class="pack-circle"></div><div><div class="pack-label">1x evening outfit for nicer dinners</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="sean-shoes-walking"><div class="pack-circle"></div><div><div class="pack-label">Walking shoes &mdash; broken in</div><span class="pack-sub">Disney days = 15-25k steps</span></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="sean-shoes-rest"><div class="pack-circle"></div><div><div class="pack-label">Backup pair</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="sean-rain"><div class="pack-circle"></div><div><div class="pack-label">Light packable rain jacket</div></div></div>
+    </div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-group-title">Helen</div></div>
+    <div class="pack-items">
+      <div class="pack-item"><div class="pack-circle" style="border-color:#a89fc0"></div><div><div class="pack-label">Helen packs her own</div></div></div>
+    </div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-group-title">Phoebe</div></div>
+    <div class="pack-items">
+      <div class="pack-item" onclick="toggleItem(this)" data-key="phoebe-clothes"><div class="pack-circle"></div><div><div class="pack-label">Outfits per day + 1 spare</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="phoebe-shoes"><div class="pack-circle"></div><div><div class="pack-label">Walking shoes + backup</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="phoebe-rain"><div class="pack-circle"></div><div><div class="pack-label">Rain jacket</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="phoebe-snuggle"><div class="pack-circle"></div><div><div class="pack-label">Comfort items / favourite toy / book</div></div></div>
+    </div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-group-title">Jemima</div></div>
+    <div class="pack-items">
+      <div class="pack-item" onclick="toggleItem(this)" data-key="jemima-clothes"><div class="pack-circle"></div><div><div class="pack-label">Outfits per day + 1 spare</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="jemima-shoes"><div class="pack-circle"></div><div><div class="pack-label">Walking shoes + backup</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="jemima-rain"><div class="pack-circle"></div><div><div class="pack-label">Rain jacket</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="jemima-snuggle"><div class="pack-circle"></div><div><div class="pack-label">Comfort items / favourite toy / book</div></div></div>
+    </div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header"><div class="pack-group-title">Family kit</div></div>
+    <div class="pack-items">
+      <div class="pack-item" onclick="toggleItem(this)" data-key="family-passports"><div class="pack-circle"></div><div><div class="pack-label">All four passports</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="family-meds"><div class="pack-circle"></div><div><div class="pack-label">Family medical kit &mdash; paracetamol, ibuprofen, plasters, antihistamines, Calpol</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="family-chargers"><div class="pack-circle"></div><div><div class="pack-label">Chargers, EU adapters, power bank</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="family-camera"><div class="pack-circle"></div><div><div class="pack-label">Camera / phone storage cleared</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="family-snacks"><div class="pack-circle"></div><div><div class="pack-label">Travel-day snacks for the girls</div></div></div>
+      <div class="pack-item" onclick="toggleItem(this)" data-key="family-water"><div class="pack-circle"></div><div><div class="pack-label">Refillable water bottles x4</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRE-TRAVEL CHECKLIST -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></div>
+    <div class="section-title">Pre-Travel Checklist</div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-header">Clear Sean&rsquo;s Headspace</div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-business"><div class="check-box"></div><div><div class="check-label">Map all business commitments week of 11&ndash;15 May to enable full presence on the trip</div><span class="check-note">The &ldquo;twin approach&rdquo; &mdash; everything closed adequately so the trip is unencumbered</span></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-payroll"><div class="check-box"></div><div><div class="check-label">Reschedule &ldquo;Schedule Payroll / HMRC&rdquo; recurring slot from Wed 20 May</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-handover"><div class="check-box"></div><div><div class="check-label">Brief the studio on what runs autonomously vs what waits until 24 May</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-ooo"><div class="check-box"></div><div><div class="check-label">Set OOO on Gmail + Outlook for 17&ndash;24 May</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-monfeb"><div class="check-box"></div><div><div class="check-label">Monday 18 May business holdover &mdash; nothing in the diary, nothing to chase</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-header">Family logistics &mdash; the week before</div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-bookings"><div class="check-box"></div><div><div class="check-label">All booking refs in one place &mdash; Premier Inn, Hotel Cheyenne, Eurostar, trains, Disney</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-rest-bookings"><div class="check-box"></div><div><div class="check-label">Confirm any restaurant reservations and Disney park bookings</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-cash"><div class="check-box"></div><div><div class="check-label">Card / cash sorted for France (no FX-fee card if possible)</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-data"><div class="check-box"></div><div><div class="check-label">Phone roaming or France-friendly data plan</div></div></div>
+  </div>
+
+  <div class="check-group">
+    <div class="check-group-header">Day before / morning of (16&ndash;17 May)</div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-bags"><div class="check-box"></div><div><div class="check-label">All four cases packed</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-paperwork"><div class="check-box"></div><div><div class="check-label">Passports, booking confirmations, train tickets &mdash; all in hand luggage</div></div></div>
+    <div class="check-item" onclick="toggleItem(this)" data-key="chk-house"><div class="check-box"></div><div><div class="check-label">House lock-up &mdash; heating, water, lights, post, milk, neighbour</div></div></div>
+  </div>
+</div>
+
+<div class="reset-bar">
+  <button class="reset-btn" onclick="resetPacking()">Reset packing</button>
+  <button class="reset-btn" onclick="resetChecklist()">Reset checklist</button>
+</div>
+
+<div class="footer">London &amp; Disneyland Paris &middot; The Sankeys &middot; May 2026</div>
+
+<script>
+var STORE = 'londondisney_may26_';
+function toggleItem(el){
+  var key = el.getAttribute('data-key');
+  if(!key) return;
+  if(el.classList.contains('checked')){
+    el.classList.remove('checked');
+    localStorage.removeItem(STORE + key);
+  } else {
+    el.classList.add('checked');
+    localStorage.setItem(STORE + key, '1');
+  }
+  updateProgress();
+}
+function loadState(){
+  document.querySelectorAll('[data-key]').forEach(function(el){
+    var key = el.getAttribute('data-key');
+    if(localStorage.getItem(STORE + key) === '1'){
+      el.classList.add('checked');
+    }
+  });
+  updateProgress();
+}
+function updateProgress(){
+  var packTotal = document.querySelectorAll('.pack-item[data-key]').length;
+  var packDone = document.querySelectorAll('.pack-item.checked').length;
+  var chkTotal = document.querySelectorAll('.check-item[data-key]').length;
+  var chkDone = document.querySelectorAll('.check-item.checked').length;
+  document.getElementById('progress-badge').textContent = 'Packed ' + packDone + '/' + packTotal + ' · Checklist ' + chkDone + '/' + chkTotal;
+}
+function resetPacking(){
+  document.querySelectorAll('.pack-item').forEach(function(el){
+    el.classList.remove('checked');
+    var key = el.getAttribute('data-key');
+    if(key) localStorage.removeItem(STORE + key);
+  });
+  updateProgress();
+}
+function resetChecklist(){
+  document.querySelectorAll('.check-item').forEach(function(el){
+    el.classList.remove('checked');
+    var key = el.getAttribute('data-key');
+    if(key) localStorage.removeItem(STORE + key);
+  });
+  updateProgress();
+}
+loadState();
+</script>
+
+</body>
+</html>
