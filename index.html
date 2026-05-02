@@ -95,10 +95,27 @@
     border-radius: 3px;
     margin-top: 6px;
   }
-  .tag-research { background: #eee8f5; color: #6b4d99; }
-  .tag-commercial { background: #fdf8f2; color: #d4820a; }
-  .tag-travel { background: #e8f0f5; color: #2e5a7d; }
-  .tag-tech { background: #e8f5ee; color: #2e7d5a; }
+  .tag-studio    { background: #e8f5ee; color: #2e7d5a; }
+  .tag-research  { background: #eee8f5; color: #6b4d99; }
+  .tag-commercial{ background: #fdf8f2; color: #d4820a; }
+  .tag-travel    { background: #e8f0f5; color: #2e5a7d; }
+  .tag-tech      { background: #e0f0e8; color: #357a52; }
+  .tag-gap       { background: #f5e8e8; color: #7d2e2e; }
+  .tag-personal  { background: #f0edf5; color: #5a4d7d; }
+  .tag-report    { background: #eee8f5; color: #6b4d99; }
+
+  .loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: #a89fc0;
+    font-size: 14px;
+  }
+  .error {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7d2e2e;
+    font-size: 14px;
+  }
 
   .footer {
     text-align: center;
@@ -126,67 +143,137 @@
   <p class="sub">Published reports and briefing documents. Tap any link to open.</p>
 </div>
 
-<div class="main">
-
-  <div class="group">
-    <div class="group-label">The Studio</div>
-
-    <a class="report-link" href="Living_Studio_Team.html">
-      <div class="report-title">The Living Studio: Meet the Team</div>
-      <div class="report-desc">Agent portraits and org structure for Sean's Living Studio.</div>
-      <span class="report-tag tag-tech">Studio</span>
-    </a>
-  </div>
-
-  <div class="group">
-    <div class="group-label">Alltech - Workshop Prep</div>
-
-    <a class="report-link" href="Alltech_9Box_Traps_Research.html">
-      <div class="report-title">9-Box Rollout Traps: What Typically Goes Wrong</div>
-      <div class="report-desc">Seven evidence-grounded failure modes in enterprise 9-box implementations, with case studies and slide-ready language.</div>
-      <span class="report-tag tag-research">Research</span>
-    </a>
-
-    <a class="report-link" href="Alltech_9Box_Case_For.html">
-      <div class="report-title">The Case for the 9-Box: Why It Can Still Work</div>
-      <div class="report-desc">Balanced companion brief with case studies of Unilever, PepsiCo, Siemens and others. Conditions for success and slide language.</div>
-      <span class="report-tag tag-research">Research</span>
-    </a>
-
-    <a class="report-link" href="Alltech_9Box_Research_Sources.html">
-      <div class="report-title">9-Box Research: Sources &amp; References</div>
-      <div class="report-desc">Clickable index of all research sources used across both the Traps and Case For briefing documents.</div>
-      <span class="report-tag tag-research">Sources</span>
-    </a>
-
-    <a class="report-link" href="Alltech_CJ_Dublin_Commercial_Brief.html">
-      <div class="report-title">Alltech Dublin: Commercial Brief</div>
-      <div class="report-desc">Commercial briefing for the Alltech Dublin engagement.</div>
-      <span class="report-tag tag-commercial">Commercial</span>
-    </a>
-  </div>
-
-  <div class="group">
-    <div class="group-label">Travel</div>
-
-    <a class="report-link" href="Dublin_Alltech_April2026.html">
-      <div class="report-title">Dublin: Alltech, April 2026</div>
-      <div class="report-desc">Travel plan and logistics for the Alltech Dublin trip.</div>
-      <span class="report-tag tag-travel">Travel</span>
-    </a>
-
-    <a class="report-link" href="Amsterdam_SUSE_April2026.html">
-      <div class="report-title">Amsterdam: SUSE, April 2026</div>
-      <div class="report-desc">Travel plan and logistics for the SUSE Amsterdam trip.</div>
-      <span class="report-tag tag-travel">Travel</span>
-    </a>
-  </div>
-
+<div class="main" id="content">
+  <div class="loading">Loading reports...</div>
 </div>
 
-<div class="footer">
-  Living Studio / MuchClearer &middot; Last updated May 2026
+<div class="footer" id="footer">
+  Living Studio / MuchClearer
 </div>
+
+<script>
+(function() {
+  const REPO = 'sean-sankey/reports';
+  const API  = `https://api.github.com/repos/${REPO}/contents/`;
+
+  // Files to hide from the index (non-report assets)
+  const HIDDEN = new Set([
+    'index.html', 'CNAME', 'README.md', '.gitignore', '.nojekyll',
+    'SEAN.png', 'LEO.png', 'CJ.png', 'SAM.png', 'JOSH.png',
+    'DEBBIE.png', 'FITZ.png', 'MARGARET.png', 'JOEY.png',
+    'BABISH.png', 'VINICK.png', 'CHANDLER.png'
+  ]);
+
+  // Classification rules: pattern -> { group, tag, tagClass, sort }
+  // First match wins. Sort controls order within group (lower = higher).
+  const RULES = [
+    { match: /Living_Studio_Team/i,       group: 'The Studio',              tag: 'Studio',     tagClass: 'tag-studio',     sort: 0 },
+    { match: /Gap_Analysis/i,             group: 'Operations',              tag: 'Gap Analysis',tagClass: 'tag-gap',       sort: 0 },
+    { match: /Tech_/i,                    group: 'Tech',                    tag: 'Tech',       tagClass: 'tag-tech',       sort: 0 },
+    { match: /Alltech.*Research|Alltech.*Traps|Alltech.*Case/i, group: 'Alltech', tag: 'Research', tagClass: 'tag-research', sort: 0 },
+    { match: /Alltech.*Commercial|Alltech.*CJ/i, group: 'Alltech',         tag: 'Commercial', tagClass: 'tag-commercial', sort: 10 },
+    { match: /Alltech/i,                  group: 'Alltech',                 tag: 'Report',     tagClass: 'tag-report',     sort: 20 },
+    { match: /SUSE/i,                     group: 'SUSE',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /Dublin|Amsterdam|London|Travel|Packing/i, group: 'Travel',    tag: 'Travel',     tagClass: 'tag-travel',     sort: 0 },
+    { match: /Disney|Family|BBBB/i,       group: 'Personal',                tag: 'Personal',   tagClass: 'tag-personal',   sort: 0 },
+    { match: /HPCA|PCN|Springwood/i,      group: 'HPCA',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /MorePeople/i,               group: 'MorePeople',              tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+  ];
+
+  // Group display order (groups not listed here appear at the end)
+  const GROUP_ORDER = [
+    'The Studio', 'Operations', 'Alltech', 'SUSE', 'HPCA', 'MorePeople', 'Travel', 'Personal', 'Tech'
+  ];
+
+  function classify(filename) {
+    for (const rule of RULES) {
+      if (rule.match.test(filename)) return rule;
+    }
+    return { group: 'Other', tag: 'Report', tagClass: 'tag-report', sort: 0 };
+  }
+
+  function prettifyName(filename) {
+    return filename
+      .replace(/\.html$/i, '')
+      .replace(/_/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  async function loadReports() {
+    const container = document.getElementById('content');
+    try {
+      const resp = await fetch(API);
+      if (!resp.ok) throw new Error(`GitHub API: ${resp.status}`);
+      const files = await resp.json();
+
+      // Filter to visible HTML files only
+      const htmlFiles = files.filter(f =>
+        f.name.endsWith('.html') && !HIDDEN.has(f.name)
+      );
+
+      if (htmlFiles.length === 0) {
+        container.innerHTML = '<div class="loading">No reports published yet.</div>';
+        return;
+      }
+
+      // Group files
+      const groups = {};
+      for (const file of htmlFiles) {
+        const rule = classify(file.name);
+        if (!groups[rule.group]) groups[rule.group] = [];
+        groups[rule.group].push({
+          name: file.name,
+          title: prettifyName(file.name),
+          tag: rule.tag,
+          tagClass: rule.tagClass,
+          sort: rule.sort,
+          url: file.name
+        });
+      }
+
+      // Sort within groups
+      for (const g of Object.values(groups)) {
+        g.sort((a, b) => a.sort - b.sort || a.title.localeCompare(b.title));
+      }
+
+      // Sort groups by defined order
+      const sortedGroups = Object.keys(groups).sort((a, b) => {
+        const ia = GROUP_ORDER.indexOf(a);
+        const ib = GROUP_ORDER.indexOf(b);
+        const sa = ia === -1 ? 999 : ia;
+        const sb = ib === -1 ? 999 : ib;
+        return sa - sb;
+      });
+
+      // Render
+      let html = '';
+      for (const groupName of sortedGroups) {
+        const items = groups[groupName];
+        html += `<div class="group">`;
+        html += `<div class="group-label">${groupName}</div>`;
+        for (const item of items) {
+          html += `
+            <a class="report-link" href="${item.url}">
+              <div class="report-title">${item.title}</div>
+              <span class="report-tag ${item.tagClass}">${item.tag}</span>
+            </a>`;
+        }
+        html += `</div>`;
+      }
+
+      container.innerHTML = html;
+      document.getElementById('footer').innerHTML =
+        `Living Studio / MuchClearer &middot; ${htmlFiles.length} reports &middot; Auto-updated from GitHub`;
+
+    } catch (err) {
+      container.innerHTML = `<div class="error">Could not load reports: ${err.message}<br><small>Try refreshing, or check <a href="https://github.com/${REPO}" style="color:#6b4d99">the repo</a> directly.</small></div>`;
+    }
+  }
+
+  loadReports();
+})();
+</script>
 
 </body>
 </html>
