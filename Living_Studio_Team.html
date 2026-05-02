@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Living Studio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1c1a18;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(60,55,48,0.5) 0%, transparent 70%),
+      linear-gradient(180deg, #242220 0%, #1c1a18 30%, #141210 100%);
+    background-attachment: fixed;
+    color: #fff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 100px 40px 20px;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-size: 3.6rem;
+    letter-spacing: 0.08em;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .header .divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    margin: 24px auto;
+  }
+
+  .header .subtitle {
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── CEO Section ── */
+  .ceo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 40px 40px;
+  }
+
+  .ceo-card {
+    text-align: center;
+  }
+
+  .ceo-card .portrait {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%);
+    margin-bottom: 28px;
+    border: 2px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  }
+
+  .ceo-card .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+
+  .ceo-card .role {
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── Connector line ── */
+  .connector {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(255,255,255,0.03));
+    margin: 0 auto;
+  }
+
+  .connector-short {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+    margin: 0 auto;
+  }
+
+  /* ── COO Section ── */
+  .coo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px 40px;
+  }
+
+  .coo-card {
+    text-align: center;
+  }
+
+  .coo-card .portrait {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%);
+    margin-bottom: 24px;
+    border: 2px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+  }
+
+  .coo-card .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .coo-card .role {
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 14px;
+  }
+
+  .coo-card .bio {
+    font-weight: 300;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── Section Labels ── */
+  .section-label {
+    text-align: center;
+    padding: 60px 40px 36px;
+  }
+
+  .section-label h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  .section-label .line {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    margin: 18px auto 0;
+  }
+
+  /* ── Agent Grid ── */
+  .agent-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 60px 70px;
+  }
+
+  .agent-card {
+    text-align: center;
+    position: relative;
+    width: 260px;
+  }
+
+  .agent-card .portrait-wrap {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .agent-card:hover .portrait-wrap {
+    border-color: rgba(255,255,255,0.18);
+    box-shadow: 0 10px 50px rgba(0,0,0,0.35);
+  }
+
+  .agent-card .portrait-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%);
+    transition: transform 0.5s ease;
+  }
+
+  .agent-card:hover .portrait-wrap img {
+    transform: scale(1.05);
+  }
+
+  .agent-card .name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    margin-bottom: 5px;
+  }
+
+  .agent-card .role {
+    font-weight: 300;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 12px;
+  }
+
+  .agent-card .desc {
+    font-weight: 300;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.4);
+    max-width: 260px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .agent-card:hover .desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 70px 40px 90px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 50px;
+  }
+
+  .footer p {
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .header h1 { font-size: 2.4rem; }
+    .ceo-card .portrait { width: 240px; height: 240px; }
+    .coo-card .portrait { width: 200px; height: 200px; }
+    .agent-card { width: 220px; }
+    .agent-card .portrait-wrap { width: 220px; height: 220px; }
+    .agent-grid { gap: 40px 30px; padding: 24px 30px 60px; }
+  }
+
+  @media (max-width: 480px) {
+    .header { padding: 60px 24px 16px; }
+    .header h1 { font-size: 1.8rem; }
+    .ceo-card .portrait { width: 200px; height: 200px; }
+    .coo-card .portrait { width: 180px; height: 180px; }
+    .agent-card { width: 200px; }
+    .agent-card .portrait-wrap { width: 200px; height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>The Living Studio</h1>
+    <div class="divider"></div>
+    <p class="subtitle">MuchClearer</p>
+  </div>
+
+  <!-- CEO -->
+  <div class="ceo-section">
+    <div class="ceo-card">
+      <img class="portrait" src="SEAN.png" alt="Sean Sankey">
+      <div class="name">Sean Sankey</div>
+      <div class="role">Founder & CEO</div>
+    </div>
+  </div>
+
+  <div class="connector"></div>
+
+  <!-- COO -->
+  <div class="coo-section">
+    <div class="coo-card">
+      <img class="portrait" src="LEO.png" alt="Leo">
+      <div class="name">Leo</div>
+      <div class="role">Chief Operating Officer</div>
+      <div class="bio">Orchestration, governance, and the bridge between strategy and execution</div>
+    </div>
+  </div>
+
+  <div class="connector-short"></div>
+
+  <!-- Commercial & Communications -->
+  <div class="section-label">
+    <h2>Commercial & Communications</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="agent-grid">
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="CJ.png" alt="CJ"></div>
+      <div class="name">CJ</div>
+      <div class="role">Business Development</div>
+      <div class="desc">Pipeline intelligence, deal architecture, pricing strategy, commercial growth</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="SAM.png" alt="Sam"></div>
+      <div class="name">Sam</div>
+      <div class="role">Content & Communications</div>
+      <div class="desc">Brand voice, proposals, marketing, training materials, delivery build partner</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="JOSH.png" alt="Josh"></div>
+      <div class="name">Josh</div>
+      <div class="role">Head of Operations</div>
+      <div class="desc">Landscape intelligence, weekly handover, Reassurance Field, GT prep</div>
+    </div>
+  </div>
+
+  <!-- Operations & Infrastructure -->
+  <div class="section-label">
+    <h2>Operations & Infrastructure</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="agent-grid">
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="DEBBIE.png" alt="Debbie"></div>
+      <div class="name">Debbie</div>
+      <div class="role">Executive Assistant</div>
+      <div class="desc">Calendar, email, scheduling, follow-ups, travel planning, daily operations</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="FITZ.png" alt="Fitz"></div>
+      <div class="name">Fitz</div>
+      <div class="role">Chief Technology Officer</div>
+      <div class="desc">Tech strategy, stack assessment, AI landscape, tool recommendations</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="MARGARET.png" alt="Margaret"></div>
+      <div class="name">Margaret</div>
+      <div class="role">Automation Specialist</div>
+      <div class="desc">Integration scripts, workflow engineering, API builds, scheduled pipelines</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="JOEY.png" alt="Joey"></div>
+      <div class="name">Joey</div>
+      <div class="role">Intelligence</div>
+      <div class="desc">Knowledge Library stewardship, vocabulary, source ingestion, retrieval routing</div>
+    </div>
+  </div>
+
+  <!-- Advisory -->
+  <div class="section-label">
+    <h2>Advisory</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="agent-grid">
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="BABISH.png" alt="Babish"></div>
+      <div class="name">Babish</div>
+      <div class="role">Legal Advisor</div>
+      <div class="desc">Contract review, property investment, loan agreements, risk assessment</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="VINICK.png" alt="Vinick"></div>
+      <div class="name">Vinick</div>
+      <div class="role">Master Coach</div>
+      <div class="desc">Coaching supervision, reflective practice, Sean's development as a coach</div>
+    </div>
+    <div class="agent-card">
+      <div class="portrait-wrap"><img src="CHANDLER.png" alt="Chandler"></div>
+      <div class="name">Chandler</div>
+      <div class="role">Pastor</div>
+      <div class="desc">Sermon structure, delivery, theological framing, pastoral counsel</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>The Living Studio &middot; MuchClearer &middot; 2026</p>
+  </div>
+
+</body>
+</html>
