@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MorePeople Exec Pipeline | May 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+  :root {
+    --plum: #6B3A5D;
+    --plum-deep: #4E2A44;
+    --plum-light: #8A5478;
+    --sage: #7B8B6F;
+    --sage-dark: #5A6A50;
+    --charcoal: #2A2A2A;
+    --gold: #C5A55A;
+    --warm-white: #F8F6F3;
+    --warm-white-alt: #F0EDE8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: var(--plum-deep);
+    padding: 32px 40px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sage) 33%, var(--plum) 33% 66%, var(--gold) 66%);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: #fff;
+    font-weight: normal;
+    margin-bottom: 4px;
+  }
+
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--plum-light);
+    letter-spacing: 0.5px;
+  }
+
+  .header .date {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-align: right;
+  }
+
+  .stats-strip {
+    display: flex;
+    gap: 0;
+    margin: 0;
+    background: var(--charcoal);
+    padding: 16px 40px;
+  }
+
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 12px;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: var(--gold);
+    font-weight: normal;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .content {
+    padding: 32px 40px;
+    max-width: 1000px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--sage-dark);
+    margin-bottom: 12px;
+    margin-top: 36px;
+    font-weight: 600;
+  }
+
+  .section-label:first-child { margin-top: 0; }
+
+  .pipeline-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .opp-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    border-left: 4px solid var(--sage);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  .opp-card.won { border-left-color: var(--sage-dark); }
+  .opp-card.hot { border-left-color: var(--gold); }
+  .opp-card.active { border-left-color: var(--sage); }
+  .opp-card.waiting { border-left-color: var(--plum-light); }
+  .opp-card.early { border-left-color: #ccc; }
+  .opp-card.dormant { border-left-color: #ddd; opacity: 0.7; }
+
+  .opp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .opp-name {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: var(--charcoal);
+  }
+
+  .opp-value {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .status-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .badge-active { background: rgba(123,139,111,0.15); color: var(--sage-dark); }
+  .badge-proposal { background: rgba(197,165,90,0.15); color: #8B7030; }
+  .badge-waiting { background: rgba(107,58,93,0.12); color: var(--plum); }
+  .badge-early { background: rgba(0,0,0,0.06); color: #888; }
+  .badge-dormant { background: rgba(0,0,0,0.04); color: #aaa; }
+  .badge-won { background: rgba(123,139,111,0.25); color: var(--sage-dark); }
+
+  .opp-detail {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .opp-detail strong {
+    color: var(--charcoal);
+    font-weight: 600;
+  }
+
+  .next-action {
+    font-size: 12px;
+    color: var(--plum);
+    font-weight: 500;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #f0ede8;
+  }
+
+  .sub-fronts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .sub-front {
+    background: var(--warm-white-alt);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+
+  .sub-front-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+
+  .sub-front-detail {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  .sub-front-value {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .dream-section {
+    margin-top: 40px;
+    padding: 28px 28px 24px;
+    background: var(--plum-deep);
+    border-radius: 8px;
+    color: #fff;
+  }
+
+  .dream-section .section-label {
+    color: var(--gold);
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  .dream-subtitle {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: #fff;
+    margin-bottom: 16px;
+    font-weight: normal;
+  }
+
+  .dream-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .dream-list li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .dream-list li:last-child { border-bottom: none; }
+
+  .dream-list .num {
+    color: var(--gold);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  .footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #e0dbd5;
+    font-size: 11px;
+    color: #999;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer .rate-note {
+    color: #777;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>MorePeople Exec Pipeline</h1>
+      <div class="subtitle">LANDSCAPE OVERVIEW FOR ANDREW FITZMAURICE</div>
+    </div>
+    <div class="date">5 May 2026</div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-number">8</div>
+    <div class="stat-label">Opportunities</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">£32,750</div>
+    <div class="stat-label">Won</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">~£75k</div>
+    <div class="stat-label">Pipeline Value</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Proposals Out</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">3</div>
+    <div class="stat-label">Meetings This Week</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- WON / LIVE -->
+  <div class="section-label">Won / Live</div>
+  <div class="pipeline-section">
+
+    <div class="opp-card won">
+      <div class="opp-header">
+        <div class="opp-name">Alltech</div>
+        <div class="opp-value">£13,250 confirmed + £17,400 pending</div>
+      </div>
+      <span class="status-badge badge-won">WON - 3 FRONTS ACTIVE</span>
+      <div class="opp-detail">10-day PO live (3.5 billed, 6.5 remaining). Succession tiger team formed. Weekly cadence running. Land-and-expand in full motion.</div>
+
+      <div class="sub-fronts">
+        <div class="sub-front">
+          <div class="sub-front-title">Succession & Talent</div>
+          <div class="sub-front-detail">Tiger team: Orla (CPO), Scott (US), Yvonne (NL), Joanne (UK). Onboarding call Fri 9 May. Dublin half-day 4 June.</div>
+          <div class="sub-front-value">£13,250 (PO confirmed)</div>
+        </div>
+        <div class="sub-front">
+          <div class="sub-front-title">Presentations: Joanne</div>
+          <div class="sub-front-detail">Proposal sent 22 Apr. Meeting Joanne in person at UK office Tue 6 May. Expects to proceed.</div>
+          <div class="sub-front-value">£3,950 - £8,700</div>
+        </div>
+        <div class="sub-front">
+          <div class="sub-front-title">Presentations: Dunboyne</div>
+          <div class="sub-front-detail">Same scope, Orla's team. Proposal sent alongside Joanne's. Separate commercial stream.</div>
+          <div class="sub-front-value">£3,950 - £8,700</div>
+        </div>
+      </div>
+
+      <div class="next-action">This week: Joanne meeting Tue 6 May. Tiger team onboarding Fri 9 May. Scope extension brief when 10 days near completion.</div>
+    </div>
+
+    <div class="opp-card won" style="opacity: 0.7;">
+      <div class="opp-header">
+        <div class="opp-name">Organic Herd</div>
+      </div>
+      <span class="status-badge badge-won">DELIVERED</span>
+      <div class="opp-detail">Accelerated Alignment. Completed. Reference engagement for the channel. We'll look to reignite in Q3.</div>
+    </div>
+
+  </div>
+
+  <!-- PROPOSAL SENT -->
+  <div class="section-label">Proposal Sent / Awaiting Decision</div>
+  <div class="pipeline-section">
+
+    <div class="opp-card waiting">
+      <div class="opp-header">
+        <div class="opp-name">TH Clements</div>
+        <div class="opp-value">~£30,000</div>
+      </div>
+      <span class="status-badge badge-active">WARM RE-ENTRY</span>
+      <div class="opp-detail">Andrew Fulcher emailed unprompted (27 April) requesting new May dates for exploratory chat. Had been dormant. He re-initiated contact. Significant potential, but tough / slow sell.</div>
+      <div class="next-action">Sean to reply with May date options and re-engage. Positive signal: they came to us.</div>
+    </div>
+
+    <div class="opp-card waiting">
+      <div class="opp-header">
+        <div class="opp-name">Hunter Stoves</div>
+        <div class="opp-value">~£15,000</div>
+      </div>
+      <span class="status-badge badge-waiting">AWAITING INTERNAL</span>
+      <div class="opp-detail"><strong>Succession & governance.</strong> Intro call completed 14 April. Two 50% owners, no shareholders agreement, 30-year business. Three execs (Sarah, Reese, Joe) aware of the issue. Sean offered either Exec Coaching or Accelerated Alignment.</div>
+      <div class="next-action">Ball in their court. Sarah and Reese to brief Joe, then come back. Do not push. Relationship sale.</div>
+    </div>
+
+    <div class="opp-card waiting">
+      <div class="opp-header">
+        <div class="opp-name">Beadamoss</div>
+        <div class="opp-value">~£8,000</div>
+      </div>
+      <span class="status-badge badge-proposal">PROPOSAL SENT</span>
+      <div class="opp-detail"><strong>Leadership transition consultancy.</strong> Tim (MD) is Sean's contact. Neal (owner, stepping back) and Barbara (owner, different role) need to see the document. 18-month engagement shape. "One conversation, no commitment" close.</div>
+      <div class="next-action">Tim to share doc with Neal and Barbara, then set up in-person four-way (Sean, Tim, Neal, Barbara).</div>
+    </div>
+
+    <div class="opp-card waiting">
+      <div class="opp-header">
+        <div class="opp-name">Freshroots</div>
+        <div class="opp-value">£7,250</div>
+      </div>
+      <span class="status-badge badge-proposal">PROPOSAL SENT</span>
+      <div class="opp-detail"><strong>"Supported High Stakes Exposure" framework.</strong> Ian Shakespeare. Four international growers, Waitrose delivery context. Proposal sent 20 April.</div>
+      <div class="next-action">Awaiting response. Now 15 days since send. Follow-up due.</div>
+    </div>
+
+  </div>
+
+  <!-- MEETINGS / CONVERSATIONS -->
+  <div class="section-label">Meetings Booked / In Conversation</div>
+  <div class="pipeline-section">
+
+    <div class="opp-card active">
+      <div class="opp-header">
+        <div class="opp-name">Roythornes</div>
+        <div class="opp-value">TBC</div>
+      </div>
+      <span class="status-badge badge-active">MEETING BOOKED</span>
+      <div class="opp-detail">Coffee meeting booked <strong>tomorrow, 6 May</strong> at their office. First face-to-face. Scope and opportunity to be established.</div>
+      <div class="next-action">Sean attending in person. Assessment after the meeting.</div>
+    </div>
+
+    <div class="opp-card early">
+      <div class="opp-header">
+        <div class="opp-name">Brett Sumner</div>
+        <div class="opp-value">TBC</div>
+      </div>
+      <span class="status-badge badge-active">MEETING BOOKED</span>
+      <div class="opp-detail">Introduced by <strong>Guy Moreton</strong> (MorePeople Chair) via LinkedIn. Meeting booked <strong>Thursday 8 May</strong>.</div>
+      <div class="next-action">Sean meeting Brett Thu 8 May. Assessment after the conversation.</div>
+    </div>
+
+  </div>
+
+  <!-- DORMANT -->
+  <div class="section-label">Dormant / Low Activity</div>
+  <div class="pipeline-section">
+
+    <div class="opp-card dormant">
+      <div class="opp-header">
+        <div class="opp-name">Wyevale</div>
+        <div class="opp-value">TBC</div>
+      </div>
+      <span class="status-badge badge-dormant">DORMANT</span>
+      <div class="opp-detail">Tim Wyevale on secondary chase list from Q1 2026. No recent activity or response. Named contact but no current momentum.</div>
+      <div class="next-action">Low priority. Re-engage if capacity allows or if a natural trigger emerges.</div>
+    </div>
+
+  </div>
+
+  <div class="dream-section">
+    <div class="section-label">Stuff to Dream About</div>
+    <div class="dream-subtitle">Turning Y1 Proof of Concept into Y2 Established Outfit</div>
+    <ul class="dream-list">
+      <li><span class="num">1.</span> Leveraging Mark & Leon (visibility and activity)</li>
+      <li><span class="num">2.</span> Leaders overnight retreat</li>
+      <li><span class="num">3.</span> Annual talent and succession review for Top 10</li>
+      <li><span class="num">4.</span> Post-placement support as standard practice</li>
+      <li><span class="num">5.</span> Customer conference as workshop (ala MP Annual Conf)</li>
+      <li><span class="num">6.</span> Consultants engaged and incentivised</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div class="rate-note">Channel rate: client billed £1,450/day. MorePeople fee £350/day. Sean nets £1,075-£1,100/day.</div>
+    <div>Prepared by CJ Intelligence | Living Studio</div>
+  </div>
+
+</div>
+
+</body>
+</html>
