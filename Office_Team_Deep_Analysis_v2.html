@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Office Team: Deep Profile Analysis v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #00093B;
+  --green:  #B9F9CF;
+  --violet: #5837F6;
+  --grey:   #6B7280;
+  --grey-soft: #F3F4F6;
+  --line:   #E5E7EB;
+  --gc: #22C55E;
+  --st: #3B82F6;
+  --pm: #8B5CF6;
+  --im: #EF4444;
+  --po: #D97706;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Jost', sans-serif;
+  color: var(--navy);
+  background: #FAFAFA;
+  line-height: 1.6;
+}
+.page { max-width: 1100px; margin: 0 auto; background: white; }
+
+.hero {
+  background: var(--navy);
+  color: white;
+  padding: 64px 56px 52px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 280px; height: 280px;
+  background: var(--violet);
+  border-radius: 50%;
+  opacity: 0.18;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: 30%;
+  width: 220px; height: 220px;
+  background: var(--green);
+  border-radius: 50%;
+  opacity: 0.12;
+}
+.hero .eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  color: var(--green);
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  position: relative;
+}
+.hero .meta {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 18px;
+}
+.hero .meta strong { color: white; font-weight: 600; }
+
+.gc { color: var(--gc); font-weight: 700; }
+.st { color: var(--st); font-weight: 700; }
+.pm { color: var(--pm); font-weight: 700; }
+.im { color: var(--im); font-weight: 700; }
+.po { color: var(--po); font-weight: 700; }
+
+main { padding: 56px; }
+
+.chart-section {
+  margin-bottom: 64px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--line);
+}
+.chart-section:last-of-type { border-bottom: none; }
+
+.chart-num {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 6px;
+}
+.chart-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+.chart-subtitle {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--grey);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+.chart-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px 0 28px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.commentary { font-size: 15.5px; color: #1f2937; }
+.commentary p + p { margin-top: 12px; }
+
+.findings {
+  background: var(--navy);
+  color: white;
+  padding: 48px 56px;
+  margin: 0 -56px -56px -56px;
+}
+.findings .label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.findings h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 28px;
+}
+.findings ol {
+  list-style: none;
+  counter-reset: finding;
+}
+.findings li {
+  counter-increment: finding;
+  position: relative;
+  padding-left: 56px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.92);
+}
+.findings li:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.findings li::before {
+  content: counter(finding, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--green);
+}
+.findings li strong { color: white; font-weight: 600; }
+.findings .gc { color: #4ade80; }
+.findings .st { color: #60a5fa; }
+.findings .pm { color: #c084fc; }
+.findings .im { color: #f87171; }
+.findings .po { color: #fbbf24; }
+
+footer {
+  padding: 32px 56px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--grey);
+  background: var(--grey-soft);
+}
+.hero .signature { font-size:30px; color:rgba(255,255,255,0.88); margin-top:18px; position:relative; border-left:3px solid var(--green); padding:10px 16px; font-weight:500; line-height:1.6; }
+.verdict { font-family:'Jost',sans-serif; font-size:14px; font-weight:600; color:var(--violet); margin:6px 0 0 0; padding:8px 14px; background:#F5F3FF; border-left:3px solid var(--violet); border-radius:0 4px 4px 0; line-height:1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="eyebrow">Rijk Zwaan &middot; GCI Team Analysis</div>
+    <h1>Office Team<br>Deep Profile Analysis</h1>
+    <div class="meta">
+      <strong>Members:</strong> Istvan Nemes &middot; Dani Littler &middot; Tim Loft &middot; Gabriella Booth &middot; Claire Devey &middot; Alex Blackall &middot; Jayne Copeland
+      &nbsp;&middot;&nbsp; <strong>Date:</strong> May 2026
+    </div>
+    <div class="signature">Steady but never quiet. The team that gets things done with momentum AND quality at front of mind. But what about initiating change and improvement?</div>
+  </header>
+
+  <main>
+
+    <!-- ── Chart 01: Heatmap ── -->
+    <section class="chart-section">
+      <span class="chart-num">Chart 01 &middot; Individual Heatmap</span>
+      <h2>The whole team in one grid</h2>
+      <p class="verdict">Quality and follow-through are in the DNA of this team. That consistency across seven people is rare and worth owning.</p>
+      <img src="Office_02_Heatmap_v2.png" alt="Individual score heatmap">
+      <div class="commentary">
+        <p>The heat pattern is unambiguous: the right side of the grid runs warm, the left side runs cold. <span class="po">Polisher</span> and <span class="im">Implementer</span> carry the orange and burnt-orange cells; <span class="gc">Game Changer</span> is ice blue almost without exception. Claire and Alex show the starkest contrast in the grid: deep cold on <span class="gc">GC</span>, deep warmth on <span class="po">Polisher</span>.</p>
+        <p>Dani&rsquo;s row is the only one where warmth spreads evenly across the first four columns before dipping on <span class="im">Implementer</span>. Every other row has at least one cold zone on the left. The <span class="st">Strategist</span> column shows the grid&rsquo;s sharpest contrast: two ice-blue cells (Tim and Gabriella, both at 1) sit alongside five warm Active cells, making it simultaneously the team&rsquo;s most loaded and most exposed proclivity.</p>
+      </div>
+    </section>
+
+    <!-- ── Chart 02: Distribution ── -->
+    <section class="chart-section">
+      <span class="chart-num">Chart 02 &middot; Score Distribution</span>
+      <h2>Where the team is aligned and where it is split</h2>
+      <p class="verdict">Polisher alignment is the team's common language. The Implementer split means two very different experiences of pace and delivery sharing the same workspace.</p>
+      <img src="Office_03_Distribution_v2.png" alt="Score distribution strip">
+      <div class="commentary">
+        <p>The standard deviations tell the alignment story. <span class="po">Polisher</span> (sd 1.29) and <span class="pm">Play Maker</span> (sd 1.28) are the most consistent: the team broadly agrees on these two, even if not at the same level. <span class="gc">Game Changer</span> (sd 2.12), <span class="im">Implementer</span> (sd 2.06) and <span class="st">Strategist</span> (sd 2.03) are the polarised columns.</p>
+        <p>The <span class="im">Implementer</span> column is the most extreme split: Istvan, Alex and Jayne cluster at 7 and 8 while Dani and Gabriella sit at 3. This is not an &ldquo;average Implementer team&rdquo; of 5.6. It is two distinct sub-groups sharing a workspace.</p>
+      </div>
+    </section>
+
+    <!-- ── Chart 03: Depth ── -->
+    <section class="chart-section">
+      <span class="chart-num">Chart 03 &middot; Depth Chart</span>
+      <h2>Who owns each energy and how thin the bench gets</h2>
+      <p class="verdict">Seven people who can all finish something properly. That is the team's most consistent and most valuable capability.</p>
+      <img src="Office_04_Depth_v2.png" alt="Depth chart by proclivity">
+      <div class="commentary">
+        <p><span class="po">Polisher</span> is the only proclivity where the entire bench clears the Active threshold. If you need someone to finish, refine, or get something across the line properly, you have seven options. If you need disruption or strategic direction, you have one or two people who can hold it with any real energy, and the bench drops off fast.</p>
+      </div>
+    </section>
+
+    <!-- ── Chart 04: Critical Mass ── -->
+    <section class="chart-section">
+      <span class="chart-num">Chart 04 &middot; Critical Mass</span>
+      <h2>Where does critical mass sit?</h2>
+      <p class="verdict">All about the action. But the thinky bit?</p>
+      <img src="Office_Dominant_v2.png" alt="Critical mass threshold chart">
+      <div class="commentary">
+        <p><span class="po">Polisher</span> is the only proclivity where the team has genuine Dominant energy: four of seven people sit at 7 or above, with no one below Active. Names appear in each column only where that proclivity is the person&rsquo;s highest energy: Tim, Gabriella, Claire and Jayne all lead with Polisher, Istvan and Alex lead with <span class="im">Implementer</span>, and Dani leads with <span class="pm">Play Maker</span>.</p>
+        <p><span class="gc">Game Changer</span> and <span class="st">Strategist</span> register zero people at Dominant, and nobody&rsquo;s highest energy sits there. The team generates and delivers with real conviction. Direction-setting and genuinely new thinking require more deliberate effort.</p>
+      </div>
+    </section>
+
+    <!-- ── Key Findings ── -->
+    <section class="findings">
+      <div class="label">Key Findings</div>
+      <h2>Four things the flat average hides</h2>
+      <ol>
+        <li><strong>Every person on this team agrees that things should be finished properly.</strong> All seven score 5 or above on <span class="po">Polisher</span>, the tightest spread in the dataset (sd 1.29). Whatever else they argue about, that shared instinct is a genuine and rare foundation.</li>
+        <li><strong>The team has real delivery firepower in Istvan, Alex and Jayne.</strong> All three sit at <span class="im">Implementer</span> 7 or 8 and drive real pace. The implication: Dani and Gabriella, both at 3, experience a very different working tempo. The team average of 5.6 describes nobody. Decisions about delivery rhythm and operational tempo will land differently across this split.</li>
+        <li><strong>Tim and Gabriella bring near-identical instincts to different roles.</strong> The same five-proclivity shape, including a <span class="st">Strategist</span> floor of 1, means they carry the same strengths into the team and the same blind spots. That alignment can be a resource; it is also a shared gap.</li>
+        <li><strong>The team generates and delivers with real conviction.</strong> <span class="po">Polisher</span> and <span class="im">Implementer</span> are where energy concentrates. <span class="gc">Game Changer</span> and <span class="st">Strategist</span> sit at the low end for most people, with nobody&rsquo;s highest energy sitting there. On any task that requires a longer arc, new thinking, or anticipating consequences, the answer is people, process or will to make it happen deliberately.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer>
+    Rijk Zwaan GCI Team Analysis &middot; Office Team &middot; MuchClearer &middot; May 2026
+  </footer>
+</div>
+</body>
+</html>
