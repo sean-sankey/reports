@@ -161,7 +161,14 @@
     'index.html', 'CNAME', 'README.md', '.gitignore', '.nojekyll',
     'SEAN.png', 'LEO.png', 'CJ.png', 'SAM.png', 'JOSH.png',
     'DEBBIE.png', 'FITZ.png', 'MARGARET.png', 'JOEY.png',
-    'BABISH.png', 'VINICK.png', 'CHANDLER.png'
+    'BABISH.png', 'VINICK.png', 'CHANDLER.png',
+    // GCI chart images
+    'Leadership_02_Heatmap_v2.png', 'Leadership_03_Distribution_v2.png',
+    'Leadership_04_Depth_v2.png', 'Leadership_CriticalMass_v2.png',
+    'Office_02_Heatmap_v2.png', 'Office_03_Distribution_v2.png',
+    'Office_04_Depth_v2.png', 'Office_Dominant_v2.png',
+    'Office_Ext_02_Heatmap_v2.png', 'Office_Ext_03_Distribution_v2.png',
+    'Office_Ext_04_Depth_v2.png', 'Office_Ext_CriticalMass_v2.png',
   ]);
 
   // Classification rules: pattern -> { group, tag, tagClass, sort }
@@ -178,11 +185,12 @@
     { match: /Disney|Family|BBBB/i,       group: 'Personal',                tag: 'Personal',   tagClass: 'tag-personal',   sort: 0 },
     { match: /HPCA|PCN|Springwood/i,      group: 'HPCA',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
     { match: /MorePeople/i,               group: 'MorePeople',              tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /Leadership_Team_Deep|Office_Team_Deep|Office_Extended_Team/i, group: 'Rijk Zwaan GCI', tag: 'GCI', tagClass: 'tag-research', sort: 0 },
   ];
 
   // Group display order (groups not listed here appear at the end)
   const GROUP_ORDER = [
-    'The Studio', 'Operations', 'Alltech', 'SUSE', 'HPCA', 'MorePeople', 'Travel', 'Personal', 'Tech'
+    'The Studio', 'Operations', 'Rijk Zwaan GCI', 'Alltech', 'SUSE', 'HPCA', 'MorePeople', 'Travel', 'Personal', 'Tech'
   ];
 
   function classify(filename) {
