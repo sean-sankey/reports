@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Office Team (Extended): GCI Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#00093B;--green:#B9F9CF;--violet:#5837F6;--grey:#6B7280;--grey-soft:#F3F4F6;--line:#E5E7EB;--gc:#22C55E;--st:#3B82F6;--pm:#8B5CF6;--im:#EF4444;--po:#D97706;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;color:var(--navy);background:#FAFAFA;line-height:1.6;}
+.page{max-width:1100px;margin:0 auto;background:white;}
+.hero{background:var(--navy);color:white;padding:64px 56px 52px 56px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:var(--violet);border-radius:50%;opacity:0.18;}
+.hero::after{content:'';position:absolute;bottom:-100px;left:30%;width:220px;height:220px;background:var(--green);border-radius:50%;opacity:0.12;}
+.hero .eyebrow{font-weight:500;text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--green);margin-bottom:16px;position:relative;}
+.hero h1{font-family:'Poppins',sans-serif;font-weight:700;font-size:44px;line-height:1.15;margin-bottom:16px;position:relative;}
+.hero .context-note{font-size:14px;color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.08);border-left:3px solid var(--green);padding:10px 16px;margin-bottom:20px;position:relative;max-width:700px;}
+.hero .meta{margin-top:20px;font-size:13px;color:rgba(255,255,255,0.65);position:relative;border-top:1px solid rgba(255,255,255,0.18);padding-top:18px;}
+.hero .meta strong{color:white;font-weight:600;}
+.gc{color:var(--gc);font-weight:700;}.st{color:var(--st);font-weight:700;}.pm{color:var(--pm);font-weight:700;}.im{color:var(--im);font-weight:700;}.po{color:var(--po);font-weight:700;}
+main{padding:56px;}
+.chart-section{margin-bottom:64px;padding-bottom:48px;border-bottom:1px solid var(--line);}
+.chart-section:last-of-type{border-bottom:none;}
+.chart-num{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);margin-bottom:6px;}
+.chart-section h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:26px;color:var(--navy);margin-bottom:4px;line-height:1.25;}
+.chart-section img{width:100%;height:auto;display:block;margin:24px 0 28px 0;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+.commentary{font-size:15.5px;color:#1f2937;}.commentary p+p{margin-top:12px;}
+.findings{background:var(--navy);color:white;padding:48px 56px;margin:0 -56px -56px -56px;}
+.findings .label{font-weight:500;text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--green);margin-bottom:12px;}
+.findings h2{font-family:'Poppins',sans-serif;font-weight:700;font-size:28px;margin-bottom:28px;}
+.findings ol{list-style:none;counter-reset:finding;}
+.findings li{counter-increment:finding;position:relative;padding-left:56px;padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.15);font-size:15.5px;line-height:1.55;color:rgba(255,255,255,0.92);}
+.findings li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.findings li::before{content:counter(finding,decimal-leading-zero);position:absolute;left:0;top:-2px;font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;color:var(--green);}
+.findings li strong{color:white;font-weight:600;}
+.findings .gc{color:#4ade80;}.findings .st{color:#60a5fa;}.findings .pm{color:#c084fc;}.findings .im{color:#f87171;}.findings .po{color:#fbbf24;}
+footer{padding:32px 56px;text-align:center;font-size:12px;color:var(--grey);background:var(--grey-soft);}
+.hero .signature{font-size:30px;color:rgba(255,255,255,0.88);margin-top:18px;position:relative;border-left:3px solid var(--green);padding:10px 16px;font-weight:500;line-height:1.6;}
+.verdict{font-family:'Jost',sans-serif;font-size:14px;font-weight:600;color:var(--violet);margin:6px 0 0 0;padding:8px 14px;background:#F5F3FF;border-left:3px solid var(--violet);border-radius:0 4px 4px 0;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">Rijk Zwaan &middot; GCI Team Analysis</div>
+    <h1>Office Team<br>Extended Session View</h1>
+    <div class="context-note">This view includes Josephine Dunbar and Dave Booth.</div>
+    <div class="meta">
+      <strong>Core team:</strong> Istvan Nemes &middot; Dani Littler &middot; Tim Loft &middot; Gabriella Booth &middot; Claire Devey &middot; Alex Blackall &middot; Jayne Copeland<br>
+      <strong>Also present:</strong> Josephine Dunbar &middot; Dave Booth &nbsp;&middot;&nbsp; <strong>Date:</strong> May 2026
+    </div>
+  </header>
+  <main>
+
+    <section class="chart-section">
+      <span class="chart-num">Chart 01 &middot; Individual Heatmap</span>
+      <h2>The whole room in one grid</h2>
+      <p class="verdict">Balance is restored!</p>
+      <img src="Office_Ext_02_Heatmap_v2.png" alt="Individual score heatmap">
+    </section>
+
+    <section class="chart-section">
+      <span class="chart-num">Chart 02 &middot; Score Distribution</span>
+      <h2>Where the room is aligned and where it splits</h2>
+      <p class="verdict">Polisher still holds the room together. The Game Changer gap in the core team is now visible by contrast with who just joined it.</p>
+      <img src="Office_Ext_03_Distribution_v2.png" alt="Score distribution">
+      <div class="commentary">
+        <p>With nine people, the <span class="gc">Game Changer</span> column now spans from 1 to 8 &ndash; the full range is represented. Josephine (8) and Dave (7) sit at the top of GC, stretching the average up from 3.7 to 4.8. The <span class="im">Implementer</span> split remains the most extreme: three people at 7 or 8, three at 3 &ndash; the average of 5.7 still describes nobody.</p>
+        <p><span class="po">Polisher</span> remains the most consistent column across all nine, with every person scoring between 4 and 9. It is the one energy where the whole room is genuinely in the same territory.</p>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <span class="chart-num">Chart 03 &middot; Depth Chart</span>
+      <h2>Who owns each energy and how thin the bench gets</h2>
+      <p class="verdict">Two of the three strongest Game Changer and Play Maker scores come from outside the core team. The session is the opportunity to use them.</p>
+      <img src="Office_Ext_04_Depth_v2.png" alt="Depth chart">
+      <div class="commentary">
+        <p>Josephine tops the <span class="gc">Game Changer</span> ranking at 8, with Dave second at 7 &ndash; both from outside the core team. Strip them out and the bench drops immediately to 6. The <span class="pm">Play Maker</span> column follows the same pattern: Dave leads at 7, again from outside. <span class="po">Polisher</span> is the only column where the full bench, core team and extended members alike, clears the Active threshold without exception.</p>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <span class="chart-num">Chart 04 &middot; Critical Mass</span>
+      <h2>Where does critical mass sit?</h2>
+      <p class="verdict">For the first time in this project, someone leads with Game Changer. Two people, in fact. Make that count.</p>
+      <img src="Office_Ext_CriticalMass_v2.png" alt="Critical mass chart">
+      <div class="commentary">
+        <p>Names appear in each column only where that proclivity is the person&rsquo;s highest energy. Josephine and Dave both lead with <span class="gc">Game Changer</span>, bringing the room&rsquo;s only Dominant GC presence. Istvan and Alex lead with <span class="im">Implementer</span>; Dani leads with <span class="pm">Play Maker</span>; Tim, Gabriella, Claire and Jayne all lead with <span class="po">Polisher</span>. That is four people whose natural first instinct is quality and completion &ndash; a genuine team strength.</p>
+        <p>Within the core seven, <span class="gc">Game Changer</span> and <span class="st">Strategist</span> remain nobody&rsquo;s primary energy. Josephine and Dave in the room change the conversation; when they leave, that structural picture returns.</p>
+      </div>
+    </section>
+
+  </main>
+  <footer>Rijk Zwaan GCI Team Analysis &middot; Office Team (Extended) &middot; MuchClearer &middot; May 2026</footer>
+</div>
+</body>
+</html>
