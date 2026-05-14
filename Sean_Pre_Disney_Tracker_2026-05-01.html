@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pre-Disney Run-In Tracker v3 | 1 May 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #F4F2EE;
+    color: #1a1a1a;
+    padding: 32px 24px;
+  }
+  .header { margin-bottom: 28px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #111; letter-spacing: -0.3px; }
+  .header p { font-size: 13px; color: #777; margin-top: 4px; }
+  .countdown {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .section { margin-bottom: 36px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-left: 2px;
+  }
+  .section-label.reentry { color: #6366F1; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  thead th {
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  thead th:first-child { border-radius: 10px 0 0 0; }
+  thead th:last-child  { border-radius: 0 10px 0 0; }
+  table.reentry thead th { background: #4F46E5; }
+
+  tbody tr { border-bottom: 1px solid #F0EEE8; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #FAFAF7; }
+
+  td { padding: 12px 14px; font-size: 13px; vertical-align: top; }
+
+  .project-name { font-weight: 600; color: #111; font-size: 13px; white-space: nowrap; }
+  .project-sub  { font-size: 11px; color: #999; margin-top: 2px; font-weight: 400; }
+
+  .conf { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .dot-high { background: #22C55E; }
+  .dot-med  { background: #F59E0B; }
+  .dot-low  { background: #EF4444; }
+  .conf-label { font-size: 12px; font-weight: 600; }
+  .high { color: #16A34A; }
+  .med  { color: #D97706; }
+  .low  { color: #DC2626; }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 6px; }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+  }
+  .step:hover .cb { border-color: #999; }
+
+  /* Checkbox circle */
+  .cb {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid #ccc;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    background: #fff;
+  }
+  .cb svg { display: none; width: 8px; height: 8px; }
+
+  /* Done state */
+  .step.done .cb {
+    background: #22C55E;
+    border-color: #22C55E;
+  }
+  .step.done .cb svg { display: block; }
+  .step.done .step-body {
+    text-decoration: line-through;
+    color: #bbb;
+  }
+  .step.done .pill { opacity: 0.4; }
+
+  .step-body { flex: 1; }
+
+  .pill  { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 20px; flex-shrink: 0; margin-top: 1px; }
+  .req { background: #FEE2E2; color: #B91C1C; }
+  .sug { background: #E5E7EB; color: #6B7280; }
+
+  .none { font-size: 12px; color: #bbb; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Pre-Disney Run-In Tracker</h1>
+  <p>All active threads to close, brief, or hold before departure 17 May 2026. Back at desk: Tuesday 27 May.</p>
+  <span class="countdown">16 days to Disney</span>
+</div>
+
+<!-- DELIVERY -->
+<div class="section">
+  <div class="section-label">Delivery</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%">Project</th>
+        <th style="width:9%">Confidence</th>
+        <th style="width:36%">Next: Sean</th>
+        <th style="width:37%">Next: Studio</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>
+          <div class="project-name">LV McDermott Deck</div>
+          <div class="project-sub">Henry Rios / Katie Smallwood</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-high"></div><span class="conf-label high">High</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Rebuild Henry's pitch deck using new LV brand template Katie sent. Planned Saturday 3 May.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Create 6x decks for Henry.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Create and deliver Friday training session for team.</span></div>
+          </div>
+        </td>
+        <td><span class="none">No action needed</span></td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Alltech / Orla &amp; Robbie</div>
+          <div class="project-sub">Joanne Mart + Succession Planning</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Send succession email to team today with next steps (tiger team: Orla, Scott, Yvonne, Joanne).</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Get plan in place for June trip to Dublin (4 June half-day).</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill sug">sug</span><span class="step-body">Joanne + Matthew Smith: meeting booked June at Stamford. Proposal already sent.</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">CJ: help Sean build v1 of project plan.</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">HPCA</div>
+          <div class="project-sub">Active delivery</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Calls today: Ben, Nikki, Louise. With Louise: land June workshop date.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill sug">sug</span><span class="step-body">Alan: away this week. Pick up from 27 May.</span></div>
+          </div>
+        </td>
+        <td><span class="none">Watching brief</span></td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Chanel Sparks</div>
+          <div class="project-sub">SOW 0561 / Phase 3 Jun-Jul</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Build intro slides tonight. Fri 15 May sponsor call with Ruxandra Duhamet.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill sug">sug</span><span class="step-body">Dates with Amr (programme lead): in progress. Lock down June/July sessions.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Talk to James about the video plan.</span></div>
+          </div>
+        </td>
+        <td><span class="none">No action pre-Disney</span></td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Rijk Zwaan</div>
+          <div class="project-sub">12-13 May / Kelly, Jayne, Shaun + full team</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step done" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">12 May: senior team session (Kelly, Jayne, Shaun). Delivered. Send follow-up outputs to Kelly, Shaun, and Jayne.</span></div>
+            <div class="step done" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">13 May: full office training day (10 people). Delivered. Send GCI inputs to Jayne and Gabriela.</span></div>
+          </div>
+        </td>
+        <td><span class="none">Done</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- BIZ DEV -->
+<div class="section">
+  <div class="section-label">Biz Dev</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%">Thread</th>
+        <th style="width:9%">Confidence</th>
+        <th style="width:36%">Next: Sean</th>
+        <th style="width:37%">Next: Studio</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>
+          <div class="project-name">FOX / Emma</div>
+          <div class="project-sub">David Crawford referral</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Hold call with Emma on Fri 8th May.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Update and send PDFs to Emma.</span></div>
+          </div>
+        </td>
+        <td><span class="none">No action needed</span></td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Russ Bailey / Promise FM</div>
+          <div class="project-sub">Knight Frank referral (Adam Gilbert)</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Hold call with Russ on Mon 11th May.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Send Russ GCI gift link so he can complete assessment before coaching begins.</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Debbie: draft GCI gift link invite email to Russ.</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">TH Clements</div>
+          <div class="project-sub">Andrew Fulcher / May dates</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Awaiting Andrew's reply to May dates offer. Nudge from MP Outlook if no reply by 5 May.</span></div>
+          </div>
+        </td>
+        <td><span class="none">Watching brief</span></td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Maxximise / Lynsey</div>
+          <div class="project-sub">Meeting 7 May</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Attend meeting 7 May.</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">CJ: commercial brief on Maxximise opportunity ahead of 7 May.</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">SUSE</div>
+          <div class="project-sub">Jayne Anthony / Ulli Kirschner</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Send Jochen + Laura Amsterdam DC session follow-up. Draft already in Gmail.</span></div>
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill sug">sug</span><span class="step-body">Revised proposal at £70k. Waiting on Lisa steer via Jayne — was due end of week, not arrived.</span></div>
+          </div>
+        </td>
+        <td><span class="none">Watching brief</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- TRIP PREP -->
+<div class="section">
+  <div class="section-label">Trip Prep</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:18%">Item</th>
+        <th style="width:9%">Status</th>
+        <th style="width:36%">Next: Sean</th>
+        <th style="width:37%">Next: Studio</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>
+          <div class="project-name">OOO Setup</div>
+          <div class="project-sub">Gmail + MP Outlook</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-low"></div><span class="conf-label low">Not done</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Approve and activate OOO drafts (Gmail + Outlook) before 17 May.</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Debbie: draft OOO for both inboxes (17-24 May).</span></div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Payroll</div>
+          <div class="project-sub">Normally 20 May</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-low"></div><span class="conf-label low">Not done</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Confirm payroll can move to 15 May. Approve the calendar shift.</span></div>
+          </div>
+        </td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Debbie: move payroll slot in calendar from 20 May to 15 May.</span></div>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- RE-ENTRY -->
+<div class="section">
+  <div class="section-label reentry">Sean's Re-Entry — From 27 May</div>
+  <table class="reentry">
+    <thead>
+      <tr>
+        <th style="width:18%">Project</th>
+        <th style="width:9%">Priority</th>
+        <th style="width:36%">First Move: Sean</th>
+        <th style="width:37%">Studio will have ready</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>
+          <div class="project-name">Chanel Sparks</div>
+          <div class="project-sub">Phase 3 / Jun-Jul</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-high"></div><span class="conf-label high">High</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill req">req</span><span class="step-body">Plan 10-11 June kick-off workshops.</span></div>
+          </div>
+        </td>
+        <td><span class="none">Session design skeleton ready</span></td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="project-name">Studio Architecture</div>
+          <div class="project-sub">Josh intel consolidation</div>
+        </td>
+        <td><div class="conf"><div class="dot dot-med"></div><span class="conf-label med">Med</span></div></td>
+        <td>
+          <div class="steps">
+            <div class="step" onclick="toggle(this)"><div class="cb"><svg viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="pill sug">sug</span><span class="step-body">Commission Josh architecture review: make domain agents single source of truth, Josh synthesises from them at runtime.</span></div>
+          </div>
+        </td>
+        <td><span class="none">In Team Backlog — ~90 min session</span></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div style="font-size:11px; color:#bbb; margin-top: 8px; padding-left: 2px;">
+  v4 — Updated 14 May 2026 by Leo / MuchClearer Living Studio
+</div>
+
+<script>
+  const STORAGE_KEY = 'disney-tracker-v3';
+
+  function getState() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function stepId(el) {
+    // Use the text content of the step-body as a stable key
+    return el.querySelector('.step-body').textContent.trim().slice(0, 60);
+  }
+
+  function toggle(el) {
+    el.classList.toggle('done');
+    const state = getState();
+    state[stepId(el)] = el.classList.contains('done');
+    saveState(state);
+  }
+
+  // Restore state on load
+  document.addEventListener('DOMContentLoaded', function() {
+    const state = getState();
+    document.querySelectorAll('.step').forEach(function(el) {
+      if (state[stepId(el)]) {
+        el.classList.add('done');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
