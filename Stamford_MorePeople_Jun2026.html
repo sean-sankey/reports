@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stamford / MorePeople - Travel Plan - 9-10 June 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f4f1ec; color: #1a1a1a; line-height: 1.65; font-size: 16px; }
+
+  .header { background: #2c1f3e; color: white; padding: 40px 24px 0; position: relative; overflow: hidden; }
+  .header-bg { position: absolute; inset: 0; opacity: 0.06; background-image: repeating-linear-gradient(-45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px); }
+  .header-content { position: relative; z-index: 1; }
+  .header .label { font-family: 'Arial', sans-serif; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: #a89fc0; margin-bottom: 10px; }
+  .header h1 { font-size: 34px; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
+  .header .sub { font-family: 'Arial', sans-serif; font-size: 15px; color: #c5bcd8; margin-bottom: 20px; }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  .pill { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 5px 14px; font-family: 'Arial', sans-serif; font-size: 14px; color: #d8d2e8; }
+
+  .stats-strip { background: white; display: flex; border-top: 3px solid #7c5cbf; }
+  .stat { flex: 1; text-align: center; padding: 14px 8px; border-right: 1px solid #f0ecf8; }
+  .stat:last-child { border-right: none; }
+  .stat-n { font-family: 'Arial', sans-serif; font-size: 22px; font-weight: 800; color: #2c1f3e; line-height: 1; margin-bottom: 3px; }
+  .stat-l { font-family: 'Arial', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: #a89fc0; }
+
+  .meta-bar { background: #3d2e54; padding: 10px 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  .meta-bar-left { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .meta-bar span { font-family: 'Arial', sans-serif; font-size: 13px; color: #a89fc0; }
+  .meta-bar strong { color: #e0d9ed; }
+  .progress-badge { font-family: 'Arial', sans-serif; font-size: 13px; background: rgba(124,92,191,0.25); border: 1px solid rgba(124,92,191,0.4); border-radius: 12px; padding: 4px 12px; color: #c5bcd8; white-space: nowrap; flex-shrink: 0; }
+
+  .quick-refs { background: #2c1f3e; padding: 14px 24px; display: flex; gap: 0; flex-wrap: wrap; }
+  .qr-item { flex: 1; min-width: 110px; padding: 8px 16px 8px 0; border-right: 1px solid rgba(255,255,255,0.1); margin-right: 16px; }
+  .qr-item:last-child { border-right: none; margin-right: 0; }
+  .qr-label { font-family: 'Arial', sans-serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; display: block; margin-bottom: 4px; }
+  .qr-code { font-family: 'Courier New', monospace; font-size: 18px; font-weight: 700; color: white; letter-spacing: 1px; }
+
+  .section { padding: 32px 24px 0; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #e8e2f0; }
+  .section-icon { width: 34px; height: 34px; background: #2c1f3e; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-icon svg { width: 18px; height: 18px; }
+  .section-title { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: 800; color: #2c1f3e; letter-spacing: -0.3px; }
+
+  .card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; overflow: hidden; }
+  .card-title { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .info-row { display: flex; border-bottom: 1px solid #f4f1ec; padding: 12px 16px; gap: 12px; align-items: flex-start; }
+  .info-row:last-child { border-bottom: none; }
+  .info-key { font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; color: #a89fc0; text-transform: uppercase; letter-spacing: 0.5px; min-width: 88px; flex-shrink: 0; padding-top: 2px; }
+  .info-val { font-size: 16px; color: #2a2030; flex: 1; }
+  .info-val.mono { font-family: 'Courier New', monospace; font-weight: 700; font-size: 16px; color: #2c1f3e; letter-spacing: 0.5px; }
+  .info-val.note { font-size: 15px; color: #7c6d91; font-style: italic; }
+
+  .drive-card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; border-top: 3px solid #7c5cbf; padding: 16px; }
+  .drive-tag { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 16px; }
+  .drive-row { display: flex; align-items: center; margin-bottom: 14px; }
+  .drive-point { text-align: center; flex-shrink: 0; }
+  .drive-city { font-family: 'Arial', sans-serif; font-size: 26px; font-weight: 800; color: #2c1f3e; line-height: 1; }
+  .drive-sub { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; margin-top: 3px; }
+  .drive-line { flex: 1; height: 1px; background: linear-gradient(to right, #7c5cbf, #c5bcd8, #7c5cbf); margin: 0 14px; position: relative; top: -8px; }
+  .drive-line::after { content: '\25B6'; position: absolute; right: -7px; top: -5px; font-size: 11px; color: #7c5cbf; }
+  .drive-meta { display: flex; gap: 12px; border-top: 1px solid #f4f1ec; padding-top: 12px; flex-wrap: wrap; }
+  .drive-meta-item { flex: 1; min-width: 80px; }
+  .fmi-label { font-family: 'Arial', sans-serif; font-size: 12px; color: #a89fc0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 3px; }
+  .fmi-value.plain { font-family: 'Arial', sans-serif; font-size: 15px; font-weight: 400; color: #3a3340; }
+
+  .timeline { margin-bottom: 12px; }
+  .tl-day { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 10px; overflow: hidden; }
+  .tl-day-header { background: #2c1f3e; color: white; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+  .tl-day-dot { width: 8px; height: 8px; border-radius: 50%; background: #7c5cbf; flex-shrink: 0; }
+  .tl-item { display: flex; border-bottom: 1px solid #f4f1ec; align-items: stretch; }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-time-col { width: 68px; flex-shrink: 0; padding: 11px 12px; background: #faf8fd; border-right: 1px solid #f0ecf8; display: flex; align-items: center; justify-content: center; }
+  .tl-time { font-family: 'Arial', sans-serif; font-size: 14px; font-weight: 800; color: #7c5cbf; text-align: center; }
+  .tl-body { padding: 11px 14px; display: flex; align-items: center; gap: 10px; flex: 1; }
+  .tl-text { font-size: 16px; color: #2a2030; flex: 1; }
+  .tl-tag { font-family: 'Arial', sans-serif; font-size: 12px; padding: 2px 8px; border-radius: 10px; font-weight: 700; letter-spacing: 0.5px; flex-shrink: 0; }
+  .tl-tag.drive { background: #ede8f5; color: #7c5cbf; }
+  .tl-tag.hotel { background: #e8f5ef; color: #2d7a55; }
+  .tl-tag.eve { background: #fdf0e8; color: #c07030; }
+  .tl-tag.work { background: #e8eef5; color: #2d5078; }
+  .tl-tag.pod { background: #f5e8f0; color: #783060; }
+
+  .outfit-card { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; overflow: hidden; }
+  .outfit-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; border-left: 4px solid #7c5cbf; padding: 11px 16px; font-family: 'Arial', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #3d2e54; }
+  .outfit-worn { background: #2c1f3e; color: #c5bcd8; padding: 10px 16px; font-family: 'Arial', sans-serif; font-size: 14px; }
+  .outfit-worn strong { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; margin-bottom: 3px; }
+  .outfit-items { padding: 4px 0; }
+  .outfit-item { padding: 8px 16px; font-size: 16px; color: #2a2030; border-bottom: 1px solid #f8f6fb; display: flex; align-items: center; gap: 10px; }
+  .outfit-item:last-child { border-bottom: none; }
+  .swatch { width: 15px; height: 15px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.12); }
+  .outfit-note { background: #faf8f2; border-top: 1px solid #ede8f5; padding: 11px 16px; font-size: 15px; color: #7c6d91; font-style: italic; }
+
+  .pack-group { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 10px; overflow: hidden; }
+  .pack-group-header { background: #f7f5fb; border-bottom: 1px solid #ede8f5; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+  .pack-bag-icon { width: 28px; height: 28px; background: #2c1f3e; border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .pack-bag-icon svg { width: 15px; height: 15px; }
+  .pack-group-title { font-family: 'Arial', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7c5cbf; }
+  .pack-item { padding: 10px 16px; font-size: 16px; color: #2a2030; border-bottom: 1px solid #f4f1ec; display: flex; gap: 10px; align-items: flex-start; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.1s; }
+  .pack-item:last-child { border-bottom: none; }
+  .pack-item:active { background: #faf8f2; }
+  .pack-circle { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #c5bcd8; flex-shrink: 0; margin-top: 2px; position: relative; transition: background 0.15s, border-color 0.15s; }
+  .pack-item.checked .pack-circle { background: #7c5cbf; border-color: #7c5cbf; }
+  .pack-item.checked .pack-circle::after { content: ''; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
+  .pack-label { flex: 1; transition: color 0.15s; }
+  .pack-item.checked .pack-label { color: #b5aec4; text-decoration: line-through; text-decoration-color: #c5bcd8; }
+  .pack-sub { font-size: 14px; color: #a89fc0; font-family: 'Arial', sans-serif; }
+  .pack-item.checked .pack-sub { color: #c5bcd8; }
+  .pack-info { padding: 10px 16px 10px 46px; font-size: 15px; color: #7c6d91; font-style: italic; font-family: 'Arial', sans-serif; border-bottom: 1px solid #f4f1ec; }
+  .pack-info:last-child { border-bottom: none; }
+
+  .checklist { background: white; border-radius: 6px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 12px; }
+  .check-item { display: flex; gap: 14px; padding: 14px 16px; border-bottom: 1px solid #f4f1ec; align-items: flex-start; font-size: 16px; color: #2a2030; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.1s; }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:active { background: #faf8f2; }
+  .check-item.checked { color: #a89fc0; text-decoration: line-through; text-decoration-color: #c5bcd8; }
+  .check-box { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 2px solid #c5bcd8; position: relative; transition: background 0.15s, border-color 0.15s; }
+  .check-item.checked .check-box { background: #7c5cbf; border-color: #7c5cbf; }
+  .check-item.checked .check-box::after { content: ''; position: absolute; left: 4px; top: 2px; width: 6px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
+
+  .reset-row { text-align: right; padding: 4px 0 14px; }
+  .reset-btn { font-family: 'Arial', sans-serif; font-size: 13px; color: #a89fc0; background: none; border: none; cursor: pointer; padding: 4px 2px; }
+  .reset-btn:hover { color: #7c5cbf; }
+
+  .footer { text-align: center; padding: 36px 24px 52px; font-family: 'Arial', sans-serif; font-size: 13px; color: #b5aec4; letter-spacing: 0.5px; }
+
+  @media (min-width: 600px) {
+    .header { padding: 52px 48px 0; }
+    .header h1 { font-size: 44px; }
+    .section { padding: 40px 48px 0; }
+    .meta-bar { padding: 12px 48px; }
+    .quick-refs { padding: 14px 48px; }
+    .stat-n { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-bg"></div>
+  <div class="header-content">
+    <div class="label">Travel Plan &middot; MorePeople / Alltech</div>
+    <h1>Stamford</h1>
+    <div class="sub">9-10 June 2026 &middot; Orton Hall Hotel &amp; Spa, Peterborough</div>
+    <div class="contact-pills">
+      <div class="pill">Joanne Mart</div>
+      <div class="pill">Andrew Fitzmaurice</div>
+      <div class="pill">MorePeople Podcast</div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Days</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Meetings</div></div>
+  <div class="stat"><div class="stat-n">1</div><div class="stat-l">Hotel Night</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Bags</div></div>
+  <div class="stat"><div class="stat-n">~4h</div><div class="stat-l">Drive</div></div>
+</div>
+
+<div class="meta-bar">
+  <div class="meta-bar-left">
+    <span><strong>Orton Hall Hotel &amp; Spa</strong> overnight</span>
+    <span><strong>Hotels.com</strong> #72074894030509</span>
+    <span>Updated <strong>1 June 2026</strong></span>
+  </div>
+  <div class="progress-badge" id="progress-badge">Loading...</div>
+</div>
+
+<div class="quick-refs">
+  <div class="qr-item"><span class="qr-label">Hotel</span><span class="qr-code">Orton Hall</span></div>
+  <div class="qr-item"><span class="qr-label">Check-in</span><span class="qr-code">From 15:00</span></div>
+  <div class="qr-item"><span class="qr-label">Check-out</span><span class="qr-code">By 11:00</span></div>
+  <div class="qr-item"><span class="qr-label">Hotel Phone</span><span class="qr-code">01733 391111</span></div>
+</div>
+
+<!-- DAY BY DAY -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/><line x1="3" y1="9" x2="21" y2="9" stroke="white" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="2" x2="16" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/><rect x="7" y="13" width="3" height="3" rx="0.5" fill="white"/><rect x="14" y="13" width="3" height="3" rx="0.5" fill="white"/></svg></div>
+    <span class="section-title">Day by Day</span>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-day">
+      <div class="tl-day-header"><div class="tl-day-dot"></div>Tuesday 9 June - Drive Down + Meetings</div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">~09:30</div></div><div class="tl-body"><span class="tl-text">Depart home. Apposta shirt on hanger in car. Allow ~4h including a stop.</span><span class="tl-tag drive">Drive</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">~13:30</div></div><div class="tl-body"><span class="tl-text">Arrive Stamford area. Change into meeting outfit at services or on arrival.</span><span class="tl-tag drive">Drive</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Aft</div></div><div class="tl-body"><span class="tl-text">Alltech meeting - Joanne Mart (time TBC)</span><span class="tl-tag work">Alltech</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Aft</div></div><div class="tl-body"><span class="tl-text">MorePeople office - Andrew Fitzmaurice</span><span class="tl-tag work">MorePeople</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">~18:00</div></div><div class="tl-body"><span class="tl-text">Check in - Orton Hall Hotel &amp; Spa, Peterborough (ref 72074894030509)</span><span class="tl-tag hotel">Hotel</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Eve</div></div><div class="tl-body"><span class="tl-text">Dinner at Orton Hall restaurant</span><span class="tl-tag eve">Evening</span></div></div>
+    </div>
+
+    <div class="tl-day">
+      <div class="tl-day-header"><div class="tl-day-dot"></div>Wednesday 10 June - Podcast + Drive Home</div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">Morn</div></div><div class="tl-body"><span class="tl-text">Breakfast at Orton Hall. Check out by 11:00.</span><span class="tl-tag hotel">Hotel</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">TBC</div></div><div class="tl-body"><span class="tl-text">MorePeople Podcast recording, Stamford</span><span class="tl-tag pod">Podcast</span></div></div>
+      <div class="tl-item"><div class="tl-time-col"><div class="tl-time">~13:00</div></div><div class="tl-body"><span class="tl-text">Depart Stamford. Drive home (~4h via A1(M) north).</span><span class="tl-tag drive">Drive</span></div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LOGISTICS -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="7" cy="19" r="2" stroke="white" stroke-width="1.8"/><circle cx="17" cy="19" r="2" stroke="white" stroke-width="1.8"/><path d="M3 19H1V6l3-3h12l4 8v8h-2" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6" stroke="white" stroke-width="1.8"/><path d="M16 3v8H1" stroke="white" stroke-width="1.5"/></svg></div>
+    <span class="section-title">Logistics</span>
+  </div>
+
+  <div class="drive-card">
+    <div class="drive-tag">Drive Down &middot; Tuesday 9 June &middot; A1(M) South</div>
+    <div class="drive-row">
+      <div class="drive-point">
+        <div class="drive-city">Home</div>
+        <div class="drive-sub">Depart ~09:30</div>
+      </div>
+      <div class="drive-line"></div>
+      <div class="drive-point">
+        <div class="drive-city">Stamford</div>
+        <div class="drive-sub">Arrive ~13:30</div>
+      </div>
+    </div>
+    <div class="drive-meta">
+      <div class="drive-meta-item"><div class="fmi-label">Route</div><div class="fmi-value plain">A1(M) south to A1</div></div>
+      <div class="drive-meta-item"><div class="fmi-label">Distance</div><div class="fmi-value plain">~215 miles</div></div>
+      <div class="drive-meta-item"><div class="fmi-label">Time</div><div class="fmi-value plain">~4h incl. 1 stop</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Orton Hall Hotel &amp; Spa - Overnight</div>
+    <div class="info-row"><div class="info-key">Address</div><div class="info-val">The Village, Orton Longueville, Peterborough PE2 7DN</div></div>
+    <div class="info-row"><div class="info-key">Check-in</div><div class="info-val">Tue 9 June from 15:00</div></div>
+    <div class="info-row"><div class="info-key">Check-out</div><div class="info-val">Wed 10 June by 11:00</div></div>
+    <div class="info-row"><div class="info-key">Room</div><div class="info-val">Classic Double (1 night)</div></div>
+    <div class="info-row"><div class="info-key">Ref</div><div class="info-val mono">72074894030509</div></div>
+    <div class="info-row"><div class="info-key">Paid</div><div class="info-val">£126.44 (non-refundable, MasterCard &#183;&#183;&#183;&#183;6785)</div></div>
+    <div class="info-row"><div class="info-key">Phone</div><div class="info-val"><a href="tel:01733391111" style="color:#7c5cbf;text-decoration:none;">01733 391111</a></div></div>
+    <div class="info-row"><div class="info-key">Note</div><div class="info-val note">Orton Hall is 8 miles from Stamford. Spa and leisure facilities on site.</div></div>
+  </div>
+
+  <div class="drive-card">
+    <div class="drive-tag">Drive Home &middot; Wednesday 10 June &middot; A1(M) North</div>
+    <div class="drive-row">
+      <div class="drive-point">
+        <div class="drive-city">Stamford</div>
+        <div class="drive-sub">Depart ~13:00</div>
+      </div>
+      <div class="drive-line"></div>
+      <div class="drive-point">
+        <div class="drive-city">Home</div>
+        <div class="drive-sub">Arrive ~17:00</div>
+      </div>
+    </div>
+    <div class="drive-meta">
+      <div class="drive-meta-item"><div class="fmi-label">Route</div><div class="fmi-value plain">A1(M) north</div></div>
+      <div class="drive-meta-item"><div class="fmi-label">Distance</div><div class="fmi-value plain">~215 miles</div></div>
+      <div class="drive-meta-item"><div class="fmi-label">Time</div><div class="fmi-value plain">~4h incl. 1 stop</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OUTFITS -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20.38 8.57l-1.23 1.85a8 8 0 01-.22 7.58H5.07A8 8 0 015 9.42L3.77 8.57A1 1 0 014 7h1.5l2.5-3h8l2.5 3H20a1 1 0 01.38 1.57z" stroke="white" stroke-width="1.8" fill="none"/></svg></div>
+    <span class="section-title">Outfits</span>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Tuesday - Drive Down</div>
+    <div class="outfit-worn"><strong>Worn in the car</strong>BLKBRD boots &middot; Indigo jeans &middot; Mr P Zip Knit &middot; Olive jacket &middot; Avenger</div>
+    <div class="outfit-items">
+      <div class="outfit-item"><span class="swatch" style="background:#1a1a1a;"></span>Black leather boots (BLKBRD)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#2d3572;"></span>Indigo selvedge jeans (Asket)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#4a4a4a;"></span>Mr P Zip Knit</div>
+      <div class="outfit-item"><span class="swatch" style="background:#5a6e3a;"></span>Olive Green Field Jacket (Asket)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#b0b0b0;"></span>Breitling Avenger</div>
+    </div>
+    <div class="outfit-note">Apposta shirt on a hanger in the car - do not fold. Change at a services south of Peterborough or on arrival at Alltech.</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Tuesday - Alltech + MorePeople Meetings</div>
+    <div class="outfit-items">
+      <div class="outfit-item"><span class="swatch" style="background:#1a1a1a;"></span>Black leather boots (BLKBRD)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#8a8a8a;"></span>Grey flannels (Michelsberg)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#f0f0f0;border-color:rgba(0,0,0,0.3);"></span>Apposta black/white shirt</div>
+      <div class="outfit-item"><span class="swatch" style="background:#5a6e3a;"></span>Olive Green Field Jacket (Asket) - as a layer if needed</div>
+      <div class="outfit-item"><span class="swatch" style="background:#b0b0b0;"></span>Breitling Avenger</div>
+    </div>
+    <div class="outfit-note">Flannels and Apposta lift the register from the drive without overdoing it. Structured and purposeful in the room. Change back to jeans for hotel evening.</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">Wednesday - Podcast Day</div>
+    <div class="outfit-items">
+      <div class="outfit-item"><span class="swatch" style="background:#1a1a1a;"></span>Black leather boots (BLKBRD)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#8a8a8a;"></span>Grey flannels (Michelsberg)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#f0f0f0;border-color:rgba(0,0,0,0.3);"></span>Apposta black/white shirt (confirmed repeat)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#c0c0c0;"></span>Grey John Smedley Kane crew neck (optional - if cold)</div>
+      <div class="outfit-item"><span class="swatch" style="background:#b0b0b0;"></span>Breitling Avenger</div>
+    </div>
+    <div class="outfit-note">Grey flannels give a composed look for video recording. Air the shirt well overnight on the hanger. Smedley layer available if the studio is cold.</div>
+  </div>
+
+</div>
+
+<!-- WHAT'S PACKED -->
+<div class="section">
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="14" rx="2" stroke="white" stroke-width="2"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="2"/><line x1="2" y1="13" x2="22" y2="13" stroke="white" stroke-width="1.5" stroke-dasharray="2 2"/></svg></div>
+    <span class="section-title">What's Packed</span>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="1.8"/><line x1="3" y1="12" x2="21" y2="12" stroke="white" stroke-width="1.3"/><path d="M7 5V4a1 1 0 011-1h8a1 1 0 011 1v1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <span class="pack-group-title">Tumi Briefcase - Core Kit</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="tumi-mac"><div class="pack-circle"></div><div><div class="pack-label">MacBook</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="tumi-ipad"><div class="pack-circle"></div><div><div class="pack-label">iPad</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="tumi-planner"><div class="pack-circle"></div><div><div class="pack-label">Leather planner + pen</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="tumi-water"><div class="pack-circle"></div><div><div class="pack-label">Water bottle</div></div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/></svg></div>
+      <span class="pack-group-title">Wandrd Tech Pouch</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="wandrd-phones"><div class="pack-circle"></div><div><div class="pack-label">Headphones</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="wandrd-cables"><div class="pack-circle"></div><div><div class="pack-label">Cables + power bank</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="wandrd-mouse"><div class="pack-circle"></div><div><div class="pack-label">Mouse</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="wandrd-charger"><div class="pack-circle"></div><div><div class="pack-label">MacBook charger</div></div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z" stroke="white" stroke-width="1.6" fill="none"/></svg></div>
+      <span class="pack-group-title">Orange Alpaka - Health Pouch</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="alpha-supps"><div class="pack-circle"></div><div><div class="pack-label">Supplements + creatine + electrolytes</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="alpha-gout"><div class="pack-circle"></div><div><div class="pack-label">Gout pills</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="alpha-pain"><div class="pack-circle"></div><div><div class="pack-label">Plasters + pain pills</div></div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <div class="pack-bag-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="15" rx="2" stroke="white" stroke-width="1.8"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="white" stroke-width="1.5"/><line x1="2" y1="14" x2="22" y2="14" stroke="white" stroke-width="1.3" stroke-dasharray="3 2"/></svg></div>
+      <span class="pack-group-title">ZDX Cabin Bag - Clothing</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-flannels"><div class="pack-circle"></div><div><div class="pack-label">Grey flannels (Michelsberg)</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-smedley"><div class="pack-circle"></div><div><div class="pack-label">Grey John Smedley Kane crew neck</div><div class="pack-sub">Optional podcast/evening layer</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-boxers"><div class="pack-circle"></div><div><div class="pack-label">2x boxers</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-socks"><div class="pack-circle"></div><div><div class="pack-label">2x socks</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-hankies"><div class="pack-circle"></div><div><div class="pack-label">2x handkerchieves</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-patches"><div class="pack-circle"></div><div><div class="pack-label">Sweat patches</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-sleep"><div class="pack-circle"></div><div><div class="pack-label">Sleepwear</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-laundry"><div class="pack-circle"></div><div><div class="pack-label">Laundry bag</div></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="zdx-toiletries"><div class="pack-circle"></div><div><div class="pack-label">Green Alpaka toiletries pouch</div><div class="pack-sub">Toothbrush, deodorant, fragrance, razor, soap, moisturiser, hair products, inhaler</div></div></div>
+    <div class="pack-info">Apposta black/white shirt travels on a hanger in the car. Do not fold.</div>
+  </div>
+
+</div>
+
+<!-- PRE-TRAVEL CHECKLIST -->
+<div class="section" style="padding-bottom: 32px;">
+  <div class="section-label">
+    <div class="section-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="white" stroke-width="2"/><line x1="9" y1="7" x2="15" y2="7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="9" y1="11" x2="15" y2="11" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M9 15l1.5 1.5L14 13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="section-title">Pre-Travel Checklist</span>
+  </div>
+
+  <div class="checklist">
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-alltech-time"><div class="check-box"></div>Confirm Alltech meeting time and address (Joanne Mart)</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-mp-time"><div class="check-box"></div>Confirm MorePeople office visit time with Andrew</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-podcast-time"><div class="check-box"></div>Confirm podcast time and format with MorePeople team</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-hotel-conf"><div class="check-box"></div>Hotel confirmation in email (Hotels.com #72074894030509)</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-route"><div class="check-box"></div>Check A1(M) for roadworks or delays before departing</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-apposta"><div class="check-box"></div>Apposta shirt on hanger ready for car</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-weather"><div class="check-box"></div>Weather check for Peterborough / Stamford area</div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="chk-checkout"><div class="check-box"></div>Plan checkout logistics - podcast may end after 11:00 checkout</div>
+  </div>
+  <div class="reset-row">
+    <button class="reset-btn" onclick="resetPacking()">Reset packing</button>
+    &nbsp;
+    <button class="reset-btn" onclick="resetChecklist()">Reset checklist</button>
+  </div>
+</div>
+
+<div class="footer">Stamford / MorePeople &middot; 9-10 June 2026 &middot; Built by Debbie</div>
+
+<script>
+var STORE = 'stamford_jun26_';
+if (!localStorage.getItem('__stamford_jun26_init')) {
+  localStorage.setItem('__stamford_jun26_init', '1');
+}
+function save(k,v){ try{localStorage.setItem(STORE+k,v);}catch(e){} }
+function load(k){ try{return localStorage.getItem(STORE+k);}catch(e){return null;} }
+
+function toggleItem(el) {
+  var key = el.getAttribute('data-key');
+  el.classList.toggle('checked');
+  save(key, el.classList.contains('checked') ? '1' : '0');
+  updateBadge();
+}
+function toggleCheck(el) {
+  var key = el.getAttribute('data-key');
+  el.classList.toggle('checked');
+  save(key, el.classList.contains('checked') ? '1' : '0');
+  updateBadge();
+}
+function updateBadge() {
+  var pi = document.querySelectorAll('.pack-item').length;
+  var pc = document.querySelectorAll('.pack-item.checked').length;
+  var ci = document.querySelectorAll('.check-item').length;
+  var cc = document.querySelectorAll('.check-item.checked').length;
+  var b = document.getElementById('progress-badge');
+  if(b) b.textContent = 'Packed ' + pc + '/' + pi + ' \xB7 Checklist ' + cc + '/' + ci;
+}
+function resetPacking() {
+  document.querySelectorAll('.pack-item').forEach(function(el){ el.classList.remove('checked'); save(el.getAttribute('data-key'),'0'); });
+  updateBadge();
+}
+function resetChecklist() {
+  document.querySelectorAll('.check-item').forEach(function(el){ el.classList.remove('checked'); save(el.getAttribute('data-key'),'0'); });
+  updateBadge();
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.pack-item, .check-item').forEach(function(el) {
+    if(load(el.getAttribute('data-key')) === '1') el.classList.add('checked');
+  });
+  updateBadge();
+});
+</script>
+</body>
+</html>
