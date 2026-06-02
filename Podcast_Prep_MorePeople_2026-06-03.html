@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast Prep - MorePeople with Andy - 3 June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00093B;
+    --navy-soft: #12194B;
+    --mint: #B9F9CF;
+    --mint-wash: #EAFCF2;
+    --violet: #5837F6;
+    --violet-soft: #EEE9FE;
+    --white: #FFFFFF;
+    --bg: #FAFAFC;
+    --ink: #00093B;
+    --ink-mid: #4A527A;
+    --ink-soft: #8A90AE;
+    --line: #E4E4EE;
+    --gold: #E0B05E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 14.5px; font-weight: 400; line-height: 1.6; }
+
+  .header { background: var(--navy); color: var(--white); padding: 56px 56px 44px; position: relative; overflow: hidden; }
+  .header::after { content: ""; position: absolute; top: 24px; right: 56px; width: 20px; height: 20px;
+    background: linear-gradient(var(--mint), var(--mint)) 0 0/4px 4px no-repeat,
+                linear-gradient(var(--mint), var(--mint)) 8px 4px/4px 4px no-repeat,
+                linear-gradient(var(--mint), var(--mint)) 4px 8px/4px 4px no-repeat,
+                linear-gradient(var(--mint), var(--mint)) 12px 12px/4px 4px no-repeat,
+                linear-gradient(var(--violet), var(--violet)) 16px 16px/4px 4px no-repeat; }
+  .header-eyebrow { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint); margin-bottom: 14px; }
+  .header h1 { font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 600; line-height: 1.1; margin-bottom: 12px; letter-spacing: -0.015em; }
+  .header-sub { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); max-width: 800px; line-height: 1.5; margin-bottom: 28px; }
+  .header-stats { display: flex; gap: 36px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid rgba(185,249,207,0.2); }
+  .stat { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(185,249,207,0.75); font-weight: 500; }
+  .stat span { display: block; font-family: 'Jost', sans-serif; color: var(--white); font-weight: 400; font-size: 13.5px; letter-spacing: 0; text-transform: none; margin-top: 4px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 48px 56px 80px; }
+
+  /* INTRO STRATEGY */
+  .strategy { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--violet); padding: 28px 32px; margin-bottom: 48px; }
+  .strategy h2 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 14px; }
+  .strategy-block h4 { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); font-weight: 600; margin-bottom: 8px; }
+  .strategy-block p { font-size: 13.5px; color: var(--ink); line-height: 1.6; margin-bottom: 8px; }
+  .strategy-block p:last-child { margin-bottom: 0; }
+  .strategy-block strong { color: var(--navy); font-weight: 600; }
+
+  /* TOPIC CARDS */
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .section-head h2 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 600; color: var(--navy); letter-spacing: -0.01em; }
+  .section-head .section-meta { font-size: 13px; color: var(--ink-mid); font-style: italic; }
+
+  .topic { background: var(--white); border: 1px solid var(--line); margin-bottom: 24px; overflow: hidden; }
+  .topic-head { background: var(--navy); color: var(--white); padding: 24px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .topic-num { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.18em; color: var(--mint); font-weight: 600; }
+  .topic-head h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; color: var(--white); letter-spacing: -0.005em; line-height: 1.2; margin-top: 4px; }
+  .topic-pillar { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); background: rgba(185,249,207,0.12); padding: 4px 10px; }
+
+  .topic-body { padding: 30px 36px 32px; }
+
+  .topic-section { margin-bottom: 28px; }
+  .topic-section:last-child { margin-bottom: 0; }
+  .topic-section-label { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); font-weight: 600; margin-bottom: 12px; }
+
+  /* QUESTIONS */
+  .questions { list-style: none; padding: 0; }
+  .questions li { padding: 10px 0 10px 22px; position: relative; font-size: 14.5px; color: var(--ink); line-height: 1.55; border-bottom: 1px dashed var(--line); font-style: italic; }
+  .questions li:last-child { border-bottom: none; }
+  .questions li::before { content: "Q"; position: absolute; left: 0; top: 10px; font-family: 'Poppins', sans-serif; font-size: 10px; color: var(--violet); font-weight: 600; letter-spacing: 0.1em; }
+
+  /* ONE-LINERS */
+  .liners { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .liner { background: var(--mint-wash); border-left: 3px solid var(--mint); padding: 18px 22px; position: relative; }
+  .liner-text { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 500; color: var(--navy); line-height: 1.35; letter-spacing: -0.005em; margin-bottom: 8px; }
+  .liner-note { font-size: 12px; color: var(--ink-mid); font-style: italic; line-height: 1.5; }
+  .liner-note strong { color: var(--violet); font-style: normal; font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; margin-right: 6px; }
+
+  /* EVIDENCE */
+  .evidence { background: var(--violet-soft); border-left: 3px solid var(--violet); padding: 14px 20px; font-size: 13.5px; color: var(--ink); line-height: 1.55; }
+  .evidence-label { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 4px; }
+
+  /* TACTICAL CLOSE */
+  .close { background: var(--violet); color: var(--white); padding: 36px 44px; margin-top: 32px; }
+  .close-eyebrow { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint); font-weight: 600; margin-bottom: 12px; }
+  .close h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 14px; line-height: 1.25; letter-spacing: -0.005em; }
+  .close p { font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.65; max-width: 800px; font-weight: 300; margin-bottom: 10px; }
+  .close-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 22px; }
+  .close-grid-item { background: rgba(255,255,255,0.08); padding: 18px 22px; }
+  .close-grid-item h4 { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mint); font-weight: 600; margin-bottom: 10px; }
+  .close-grid-item p { font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.55; margin-bottom: 0; }
+
+  .footer-note { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-soft); font-style: italic; line-height: 1.55; }
+
+  @media (max-width: 1000px) {
+    .strategy-grid, .close-grid { grid-template-columns: 1fr; }
+    .header, .container { padding-left: 32px; padding-right: 32px; }
+    .header h1 { font-size: 32px; }
+    .topic-body { padding: 24px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">MuchClearer · Podcast Prep · MorePeople</div>
+  <h1>Tomorrow with Andy. The four topics, the questions, the reel-ready lines.</h1>
+  <div class="header-sub">15-minute edit. Agri and food sector audience. Compelling Communication (live Alltech work) and Difficult Conversations at the spine. Four topics chosen to hold their own as reel material if any one of them gets the edit's spotlight.</div>
+  <div class="header-stats">
+    <div class="stat">Host<span>Andy Fitzmaurice, CEO MorePeople</span></div>
+    <div class="stat">Audience<span>Food and fresh produce execs, HR Directors, MDs</span></div>
+    <div class="stat">Edit length<span>~15 minutes final cut</span></div>
+    <div class="stat">Topics<span>4</span></div>
+    <div class="stat">Reel-ready lines<span>12 (3 per topic)</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- STRATEGY -->
+  <div class="strategy">
+    <h2>How to play it</h2>
+    <p>You have more material than you can use. The mistake to avoid is trying to land all four topics evenly. Better to give Andy three clean "soundbite moments" he can edit toward, and let one topic land deeply rather than four superficially.</p>
+    <div class="strategy-grid">
+      <div class="strategy-block">
+        <h4>Lean into</h4>
+        <p><strong>Topic 1 (Difficult Conversations).</strong> Strongest reel territory, and the angle most under-served in agri sector content. It's also the natural way for Andy to draw you out personally, not just as a vendor.</p>
+        <p><strong>Topic 2 (Compelling Communication).</strong> You have the freshest evidence: two deliveries just signed with Alltech. Naming the work is fine. Lean on the framework, not the deal.</p>
+      </div>
+      <div class="strategy-block">
+        <h4>Hold back</h4>
+        <p><strong>Don't pitch MorePeople buyers in language they hear from every vendor.</strong> No "transformational." No "world-class." No "unlock value." Andy's audience can hear those at any other supplier dinner.</p>
+        <p><strong>Don't try to be funny if it doesn't arrive naturally.</strong> Calm, weighty, specific. The yellow hoodie guy energy. Not the consultant trying to win the room.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="section-head">
+    <h2>The four topics</h2>
+    <div class="section-meta">Each with three Andy questions and three reel-ready one-liners (~30 seconds each).</div>
+  </div>
+
+  <!-- TOPIC 1 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 01</div>
+        <h3>Why difficult conversations are the most underrated leadership skill in the food and fresh produce world</h3>
+      </div>
+      <span class="topic-pillar">Pillar A · Difficult Conversations</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          The relationships in this industry outlast the deals. Family businesses, long supplier histories, generational handovers. People manage discomfort by avoiding it. That avoidance is the work. Not because anyone is weak. Because the cost of getting it wrong feels too high.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>Sean, you do a lot of work on difficult conversations. Why is this such a thing for our world right now?</li>
+          <li>What's the moment that made you realise this was the work?</li>
+          <li>What do leaders most often get wrong when a difficult conversation lands in front of them?</li>
+          <li>If a listener wanted to start practising this on Monday morning, where do they start?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"In this industry, the relationships outlast the deals. That's what makes difficult conversations harder, not easier."</div>
+            <div class="liner-note"><strong>Why it works</strong>Names the agri specificity in 16 words. Leads with a truth Andy's audience already feels but hasn't had named for them. Strong opener line.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"Most leaders confuse being polite with being kind. Polite is what stops the conversation. Kind is what moves it."</div>
+            <div class="liner-note"><strong>Why it works</strong>One of your sharpest lines. Reframe earned in 19 words. Reels that flip a familiar word land. Pair with a beat of silence.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"The conversation you're avoiding, your team is watching most closely. They've already drawn conclusions about why you haven't had it."</div>
+            <div class="liner-note"><strong>Why it works</strong>Specific, slightly uncomfortable, lands on the listener personally. The kind of line a senior leader screenshots.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOPIC 2 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 02</div>
+        <h3>The communication skill that agri leaders pitch with every day but have never been trained for</h3>
+      </div>
+      <span class="topic-pillar">Pillar D · Compelling Communication</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          Alltech just commissioned two pieces of work on this in the last few weeks. Senior people inside a global business who pitch to retailers, to boards, to internal sponsors all day long, and were never trained for it. They were trained for technical excellence and have been asked, quietly, to perform commercial excellence too.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>You've just signed two pieces of work with Alltech on what you call Compelling Communication. What's that actually about?</li>
+          <li>Why is this such a gap for senior leaders in our sector specifically?</li>
+          <li>You've got a framework. Substance, Story, Style. Walk us through it.</li>
+          <li>What changes for a leader when they actually get this right?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"Senior agri leaders pitch every day. Most have never been trained for it. They were trained for technical excellence and asked to perform commercial excellence too."</div>
+            <div class="liner-note"><strong>Why it works</strong>Names the audience's lived reality. The pivot from "trained for X" to "asked to perform Y too" is the moment the listener recognises themselves.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"Compelling communication isn't a performance. It's being the most regulated person in the room."</div>
+            <div class="liner-note"><strong>Why it works</strong>Defines the term against what the audience expects (performance, charisma). "Regulated" is the unexpected word that earns the line.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"Substance is what you actually have to say. Story is how you frame it for the people in the room. Style is how you carry it. Most leaders are good at one. You need all three to land."</div>
+            <div class="liner-note"><strong>Why it works</strong>Gives the framework cleanly in 35 seconds. Reusable as a standalone explainer reel. This is the IP. Name it in this exact shape, the rhythm matters.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOPIC 3 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 03</div>
+        <h3>The hardest shift in agri leadership right now. Operator to executive.</h3>
+      </div>
+      <span class="topic-pillar">Pillar B · Operator to Executive</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          A lot of senior agri leaders came up doing the work. Building the business. Running the operation. Then they get promoted into a seat that asks for something completely different. Most of them keep doing what worked before, and that is exactly the bit that fails them.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>You spend a lot of time with senior people moving from operator to executive. What's the hardest part?</li>
+          <li>What's a sign that someone hasn't quite made the transition yet?</li>
+          <li>What gets in the way?</li>
+          <li>Where does this show up in our sector specifically?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"The skills that got you promoted aren't the skills that make you good at the new job. Almost everyone tries to keep doing what worked before. That's the bit that fails them."</div>
+            <div class="liner-note"><strong>Why it works</strong>Three short sentences. The third one lands on the listener. Reusable as a 30-second standalone reel.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"An operator solves the problem. An executive makes sure the right people are solving the right problem. The shift looks small. It changes everything."</div>
+            <div class="liner-note"><strong>Why it works</strong>Crisp distinction in 21 words. The "looks small, changes everything" close is reel rhythm.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"Most senior leaders who can't switch off on holiday aren't dedicated. They're afraid the work is too fragile to survive their absence. That fear is the diagnostic."</div>
+            <div class="liner-note"><strong>Why it works</strong>Reframe of "loyalty / dedication" as fear. Slightly provocative, lands hard on the listener who recognises themselves. Strong closing line for the topic.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOPIC 4 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 04</div>
+        <h3>What's actually changing in agri and food leadership right now</h3>
+      </div>
+      <span class="topic-pillar">Pillar C · Landscape and Pressure</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          A through-line is showing up across the businesses I'm working with this year. Agri leaders are now facing what tech leaders faced ten years ago. More stakeholders. Less time. Fewer places to hide. The job has changed under their feet, and most of them are using leadership instincts from a slower, more predictable era.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>When you look across your client base in our world, what's the through-line you're seeing?</li>
+          <li>What's the conversation that keeps coming up?</li>
+          <li>If you could give one piece of advice to a senior leader in our sector today, what would it be?</li>
+          <li>What gives you optimism?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"Agri leaders are now facing what tech leaders faced ten years ago. More stakeholders. Less time. Fewer places to hide."</div>
+            <div class="liner-note"><strong>Why it works</strong>Drops a benchmark from outside the sector. Lists the pressures in three beats. Listener self-locates inside it immediately.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"The leaders who'll do well in the next five years aren't the ones who know the most. They're the ones who can have the cleanest conversations under the most pressure."</div>
+            <div class="liner-note"><strong>Why it works</strong>Forward-looking line. Connects all four topics back to one principle. This is your closing reel candidate. The line a listener saves.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"If you can name the uncomfortable thing in the room early and well, you're already ahead of most leaders in your industry."</div>
+            <div class="liner-note"><strong>Why it works</strong>Practical close. Names a single skill, makes it competitive, sends the listener off with something to try.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TACTICAL CLOSE -->
+  <div class="close">
+    <div class="close-eyebrow">Last things to remember</div>
+    <h3>The four moves that make the edit work for you.</h3>
+    <p>You can't control which 15 minutes Andy picks. You can control how many obvious soundbite moments you give him to pick from, and how often you anchor in a specific scene.</p>
+    <div class="close-grid">
+      <div class="close-grid-item">
+        <h4>The single line you most want to land</h4>
+        <p>If only one quote makes the final cut, make it: <em>"Most leaders confuse being polite with being kind. Polite is what stops the conversation. Kind is what moves it."</em> Repeat the structure once in a different topic if it doesn't land first time.</p>
+      </div>
+      <div class="close-grid-item">
+        <h4>Use one concrete scene per topic</h4>
+        <p>A specific room, a specific moment, anonymised. Andy will edit toward the bits with imagery. <em>"A CEO opens a tool, expects confirmation, gets a pattern they didn't know was there."</em> That sort of beat. Vivid beats abstract every time.</p>
+      </div>
+      <div class="close-grid-item">
+        <h4>Name Alltech once, lightly</h4>
+        <p>Mention the just-signed work on Compelling Communication as evidence, not as a brag. <em>"Alltech just commissioned two pieces of this work."</em> That's enough. Then move to the framework. The work is the proof, not the headline.</p>
+      </div>
+      <div class="close-grid-item">
+        <h4>Close on the future-looking line</h4>
+        <p>Andy will probably ask a "what's next" or "advice" question near the end. Have the closing reel candidate ready: <em>"The leaders who'll do well in the next five years aren't the ones who know the most. They're the ones who can have the cleanest conversations under the most pressure."</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Sam, 2 June 2026. Prep for MorePeople podcast recording with Andy Fitzmaurice, scheduled for tomorrow. Four topics chosen to balance two product anchors (Compelling Communication and Difficult Conversations) with two broader landscape angles. Twelve reel-ready lines, three per topic, scored for around 30 seconds of speech each. All lines pass the two MC writing tests. Zero em dashes. If Andy steers somewhere unexpected on the day, the four topics overlap enough that you can bridge from any of them into any of the others.
+  </div>
+
+</div>
+
+</body>
+</html>
