@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast Prep v2 - MorePeople with Andy - 3 June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #00093B;
+    --navy-soft: #12194B;
+    --mint: #B9F9CF;
+    --mint-wash: #EAFCF2;
+    --violet: #5837F6;
+    --violet-soft: #EEE9FE;
+    --white: #FFFFFF;
+    --bg: #FAFAFC;
+    --ink: #00093B;
+    --ink-mid: #4A527A;
+    --ink-soft: #8A90AE;
+    --line: #E4E4EE;
+    --gold: #E0B05E;
+    --warn: #D44A1F;
+    --warn-soft: #FFF1EC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 14.5px; font-weight: 400; line-height: 1.6; }
+
+  .header { background: var(--navy); color: var(--white); padding: 56px 56px 44px; position: relative; overflow: hidden; }
+  .header::after { content: ""; position: absolute; top: 24px; right: 56px; width: 20px; height: 20px;
+    background: linear-gradient(var(--mint), var(--mint)) 0 0/4px 4px no-repeat,
+                linear-gradient(var(--mint), var(--mint)) 8px 4px/4px 4px no-repeat,
+                linear-gradient(var(--mint), var(--mint)) 4px 8px/4px 4px no-repeat,
+                linear-gradient(var(--mint), var(--mint)) 12px 12px/4px 4px no-repeat,
+                linear-gradient(var(--violet), var(--violet)) 16px 16px/4px 4px no-repeat; }
+  .header-eyebrow { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint); margin-bottom: 14px; }
+  .header h1 { font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 600; line-height: 1.1; margin-bottom: 12px; letter-spacing: -0.015em; }
+  .header-sub { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.72); max-width: 800px; line-height: 1.5; margin-bottom: 28px; }
+  .header-stats { display: flex; gap: 36px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid rgba(185,249,207,0.2); }
+  .stat { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(185,249,207,0.75); font-weight: 500; }
+  .stat span { display: block; font-family: 'Jost', sans-serif; color: var(--white); font-weight: 400; font-size: 13.5px; letter-spacing: 0; text-transform: none; margin-top: 4px; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 48px 56px 80px; }
+
+  /* WHAT CHANGED */
+  .changed { background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 22px 28px; margin-bottom: 32px; }
+  .changed h3 { font-family: 'Poppins', sans-serif; font-size: 16px; color: var(--warn); font-weight: 600; margin-bottom: 10px; }
+  .changed p { font-size: 13.5px; color: var(--ink); line-height: 1.6; margin-bottom: 6px; }
+  .changed p strong { color: var(--navy); font-weight: 600; }
+
+  /* INTRO STRATEGY */
+  .strategy { background: var(--white); border: 1px solid var(--line); border-left: 3px solid var(--violet); padding: 28px 32px; margin-bottom: 48px; }
+  .strategy h2 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 14px; letter-spacing: -0.01em; }
+  .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 14px; }
+  .strategy-block h4 { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); font-weight: 600; margin-bottom: 8px; }
+  .strategy-block p { font-size: 13.5px; color: var(--ink); line-height: 1.6; margin-bottom: 8px; }
+  .strategy-block p:last-child { margin-bottom: 0; }
+  .strategy-block strong { color: var(--navy); font-weight: 600; }
+
+  /* TOPIC CARDS */
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .section-head h2 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 600; color: var(--navy); letter-spacing: -0.01em; }
+  .section-head .section-meta { font-size: 13px; color: var(--ink-mid); font-style: italic; }
+
+  .topic { background: var(--white); border: 1px solid var(--line); margin-bottom: 24px; overflow: hidden; }
+  .topic-head { background: var(--navy); color: var(--white); padding: 24px 32px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .topic-num { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.18em; color: var(--mint); font-weight: 600; }
+  .topic-head h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; color: var(--white); letter-spacing: -0.005em; line-height: 1.2; margin-top: 4px; }
+  .topic-pillar { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); background: rgba(185,249,207,0.12); padding: 4px 10px; }
+
+  .topic-body { padding: 30px 36px 32px; }
+
+  .topic-section { margin-bottom: 28px; }
+  .topic-section:last-child { margin-bottom: 0; }
+  .topic-section-label { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); font-weight: 600; margin-bottom: 12px; }
+
+  /* QUESTIONS */
+  .questions { list-style: none; padding: 0; }
+  .questions li { padding: 10px 0 10px 22px; position: relative; font-size: 14.5px; color: var(--ink); line-height: 1.55; border-bottom: 1px dashed var(--line); font-style: italic; }
+  .questions li:last-child { border-bottom: none; }
+  .questions li::before { content: "Q"; position: absolute; left: 0; top: 10px; font-family: 'Poppins', sans-serif; font-size: 10px; color: var(--violet); font-weight: 600; letter-spacing: 0.1em; }
+
+  /* ONE-LINERS */
+  .liners { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .liner { background: var(--mint-wash); border-left: 3px solid var(--mint); padding: 18px 22px; position: relative; }
+  .liner-text { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 500; color: var(--navy); line-height: 1.4; letter-spacing: -0.005em; margin-bottom: 8px; }
+  .liner-note { font-size: 12px; color: var(--ink-mid); font-style: italic; line-height: 1.5; }
+  .liner-note strong { color: var(--violet); font-style: normal; font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; margin-right: 6px; }
+
+  .liner.verbatim { background: var(--violet-soft); border-left-color: var(--violet); }
+  .liner.verbatim .liner-text { color: var(--navy); }
+
+  /* EVIDENCE */
+  .evidence { background: var(--violet-soft); border-left: 3px solid var(--violet); padding: 14px 20px; font-size: 13.5px; color: var(--ink); line-height: 1.55; }
+  .evidence-label { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 4px; }
+
+  /* TACTICAL CLOSE */
+  .close { background: var(--violet); color: var(--white); padding: 36px 44px; margin-top: 32px; }
+  .close-eyebrow { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mint); font-weight: 600; margin-bottom: 12px; }
+  .close h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 14px; line-height: 1.25; letter-spacing: -0.005em; }
+  .close p { font-size: 14.5px; color: rgba(255,255,255,0.92); line-height: 1.65; max-width: 800px; font-weight: 300; margin-bottom: 10px; }
+  .close-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 22px; }
+  .close-grid-item { background: rgba(255,255,255,0.08); padding: 18px 22px; }
+  .close-grid-item h4 { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mint); font-weight: 600; margin-bottom: 10px; }
+  .close-grid-item p { font-size: 13.5px; color: rgba(255,255,255,0.92); line-height: 1.55; margin-bottom: 0; }
+
+  .footer-note { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-soft); font-style: italic; line-height: 1.55; }
+
+  @media (max-width: 1000px) {
+    .strategy-grid, .close-grid { grid-template-columns: 1fr; }
+    .header, .container { padding-left: 32px; padding-right: 32px; }
+    .header h1 { font-size: 32px; }
+    .topic-body { padding: 24px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">MuchClearer · Podcast Prep · MorePeople · v2</div>
+  <h1>Tomorrow with Andy. The four topics, the questions, the reel-ready lines.</h1>
+  <div class="header-sub">15-minute edit. Agri and food sector audience. Lines drawn from your actual language across years of decks, proposals, and training IP. Compelling Communication reframed correctly as internal teams work, not pitching for business.</div>
+  <div class="header-stats">
+    <div class="stat">Version<span>v2 (corrections applied)</span></div>
+    <div class="stat">Host<span>Andy Fitzmaurice, CEO MorePeople</span></div>
+    <div class="stat">Audience<span>Food and fresh produce execs, HR Directors, MDs</span></div>
+    <div class="stat">Edit length<span>~15 minutes final cut</span></div>
+    <div class="stat">Reel-ready lines<span>12</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- WHAT CHANGED -->
+  <div class="changed">
+    <h3>What changed from v1</h3>
+    <p><strong>1. Language authenticity.</strong> Lines now drawn from your real phrasing across the Presentation Skills IP reference, the Compelling Communication and Difficult Conversations pages, and the email style reference. Sean phrases used verbatim are visually marked in violet. The pulled-up lines I extrapolated in v1 are gone.</p>
+    <p><strong>2. Topic 2 angle corrected.</strong> Compelling Communication is reframed correctly as work for internal teams (Chanel internal innovation programme, Alltech colleagues persuading colleagues and speaking at conferences), not as sales pitches to retailers or boards. The promise is calm, concise precision rather than persuasion technique. The "do less, better" discipline takes centre stage.</p>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="strategy">
+    <h2>How to play it</h2>
+    <p>You have more material than you can use. The mistake to avoid is trying to land all four topics evenly. Better to give Andy three clean soundbite moments he can edit toward, and let one topic land deeply.</p>
+    <div class="strategy-grid">
+      <div class="strategy-block">
+        <h4>Lean into</h4>
+        <p><strong>Topic 1 (Difficult Conversations).</strong> Strongest reel territory. The "too safe or too dangerous" frame is from your own page copy. The six barriers framework is your actual teaching IP. Use both.</p>
+        <p><strong>Topic 2 (Compelling Communication, internal teams).</strong> Lead with the reframe: most people assume this is pitching for business. It isn't. The lived examples are Chanel internal innovation and Alltech conference speakers. Land "do less, better" as the spine.</p>
+      </div>
+      <div class="strategy-block">
+        <h4>Hold back</h4>
+        <p><strong>Don't pitch this audience in vendor language.</strong> No "transformational." No "world-class." No "unlock value." Calm, weighty, specific.</p>
+        <p><strong>Don't reach for aphorisms that don't sound like you.</strong> If a line in this doc reads as catchier than your normal voice, soften it on the day. The audience trusts the practitioner, not the pitch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="section-head">
+    <h2>The four topics</h2>
+    <div class="section-meta">Lines marked in violet are verbatim or near-verbatim from your own decks, pages, or IP reference.</div>
+  </div>
+
+  <!-- TOPIC 1 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 01</div>
+        <h3>Why difficult conversations are the most underrated leadership skill in our world</h3>
+      </div>
+      <span class="topic-pillar">Pillar A · Difficult Conversations</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early (anchor in your own page language)</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          Most leadership teams have conversations that are either too safe or too dangerous, and it's undermining progress on important issues. The work is showing leaders how to name issues with care, hold boundaries early, build trust sincerely, and deal with tension cleanly. So problems get resolved and the work moves forward with momentum.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>Sean, you do a lot of work on difficult conversations. Why is this such a thing for our world right now?</li>
+          <li>What's the moment that made you realise this was the work?</li>
+          <li>What do leaders most often get wrong when a difficult conversation lands in front of them?</li>
+          <li>If a listener wanted to start practising this on Monday morning, where do they start?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner verbatim">
+            <div class="liner-text">"Most leadership teams have conversations that are either too safe or too dangerous. Both stop the work. Important things don't get said, or the room shuts down. Either way, progress stalls."</div>
+            <div class="liner-note"><strong>Verbatim spine</strong>The "too safe or too dangerous" phrasing is from your own Difficult Conversations page. Naming the binary is the cleanest entry.</div>
+          </div>
+          <div class="liner verbatim">
+            <div class="liner-text">"The work is showing leaders how to name issues with care, hold boundaries early, and deal with tension cleanly. The point isn't conflict resolution as a topic. It's that work stops moving until the conversation gets had."</div>
+            <div class="liner-note"><strong>Verbatim spine</strong>"Name issues with care, hold boundaries early, deal with tension cleanly" is your own training description. Lifted directly, then closed with the practical why.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"There are six barriers we teach. Most leaders recognise them the moment they hear them. The work isn't learning what they are. It's catching yourself when you're in one."</div>
+            <div class="liner-note"><strong>Why it works</strong>Names your actual IP (six barriers) without listing them on a podcast. Earns curiosity, points the listener toward the training without pitching it.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOPIC 2 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 02</div>
+        <h3>Compelling Communication is mostly internal. It's calm, concise precision. Not crowding the message with noise.</h3>
+      </div>
+      <span class="topic-pillar">Pillar D · Compelling Communication · Internal teams</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early (this is the reframe most people need)</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          People assume this work is pitching for new business. It isn't, mostly. The training we just sold into Alltech is for colleagues persuading colleagues, and for senior people speaking at company conferences. The Chanel programme is for internal innovation. The BIG moments we work on are mostly inside the building: presenting to leadership, conference stages, internal show-and-tells, the difficult update no one wants to deliver. The promise is calm, concise precision. Not crowding the message with noise.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>You've just signed two pieces of work with Alltech on what you call Compelling Communication. What's that actually about?</li>
+          <li>I think a lot of people assume this kind of training is about pitching to win business. Is that what it is?</li>
+          <li>You've got a framework. Substance, Story, Style. Walk us through it.</li>
+          <li>What changes for a senior leader when they actually get this right?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"People assume this work is about pitching for new business. It isn't, mostly. Most of our work is internal. People persuading colleagues. Speaking at the company conference. Presenting to their own leadership team. Pitching an idea inside an innovation programme. The use cases are inside the building, not outside it."</div>
+            <div class="liner-note"><strong>Why it works</strong>The reframe in one beat. Names the actual use cases (Alltech, Chanel) without selling. Reusable as a standalone reel.</div>
+          </div>
+          <div class="liner verbatim">
+            <div class="liner-text">"Communication is what happens in someone else's head. Not what you say. What lands. Most people in a room have never been taught the difference."</div>
+            <div class="liner-note"><strong>Verbatim signature line</strong>Your own line, used across years of training decks. The strongest single sentence in your IP. Use it.</div>
+          </div>
+          <div class="liner verbatim">
+            <div class="liner-text">"The discipline I teach more than any other is: do less, better. Most internal communicators crowd the message with noise. The work is cutting it back to what actually has to be there."</div>
+            <div class="liner-note"><strong>Verbatim signature phrase</strong>"Do less... better" is on your IP reference as a signature line. Paired with the "crowding the message with noise" framing you just gave me. Lands the promise of the training cleanly.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOPIC 3 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 03</div>
+        <h3>The hardest shift in agri leadership right now. Operator to executive.</h3>
+      </div>
+      <span class="topic-pillar">Pillar B · Operator to Executive</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          A lot of senior leaders in this industry came up doing the work. Building the operations, running the business. Then they get promoted into a job that asks for something completely different. Most people keep doing what worked before, and that's the bit that doesn't transfer.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>You spend a lot of time with senior people moving from operator to executive. What's the hardest part?</li>
+          <li>What's a sign that someone hasn't quite made the transition yet?</li>
+          <li>What gets in the way?</li>
+          <li>Where does this show up in our sector specifically?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"A lot of senior leaders in our sector came up doing the work. They built the operations, ran the business. Then they get promoted into a job that asks for something completely different. Most people keep doing what worked before. That's the bit that doesn't transfer."</div>
+            <div class="liner-note"><strong>Why it works</strong>Measured, declarative, no aphorism. Sounds like you describing a pattern you've watched, not pitching a frame. Lands on the listener.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"An operator solves the problem. An executive makes sure the right people are solving the right problem. The shift sounds small. It changes the whole job."</div>
+            <div class="liner-note"><strong>Why it works</strong>Clean distinction without the consultant-speak. The "sounds small, changes everything" close is your rhythm.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"Most senior leaders who can't switch off on holiday aren't dedicated. They're afraid the work is too fragile to survive without them. That fear is the actual thing to work on."</div>
+            <div class="liner-note"><strong>Why it works</strong>Reframes a familiar pattern as something workable. Lands on the listener personally. If you want to soften it on the day, replace "afraid" with "worried." Same meaning, less aphoristic.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOPIC 4 -->
+  <div class="topic">
+    <div class="topic-head">
+      <div>
+        <div class="topic-num">Topic 04</div>
+        <h3>What's actually changing in agri and food leadership right now</h3>
+      </div>
+      <span class="topic-pillar">Pillar C · Landscape and Pressure</span>
+    </div>
+    <div class="topic-body">
+
+      <div class="topic-section">
+        <div class="topic-section-label">Frame to set up early</div>
+        <div class="evidence">
+          <span class="evidence-label">Set this up in your first answer</span>
+          Across the businesses I'm working with this year, the through-line is pressure. More stakeholders to manage. Less time to think. Fewer places to hide. Agri leaders are now facing what tech leaders faced ten years ago, and most of them are using leadership instincts from a slower, more predictable era.
+        </div>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Questions Andy could ask</div>
+        <ul class="questions">
+          <li>When you look across your client base in our world, what's the through-line you're seeing?</li>
+          <li>What's the conversation that keeps coming up?</li>
+          <li>If you could give one piece of advice to a senior leader in our sector today, what would it be?</li>
+          <li>What gives you optimism?</li>
+        </ul>
+      </div>
+
+      <div class="topic-section">
+        <div class="topic-section-label">Reel-ready one-liners</div>
+        <div class="liners">
+          <div class="liner">
+            <div class="liner-text">"Agri leaders are now facing what tech leaders faced ten years ago. More stakeholders. Less time. Fewer places to hide. The job has changed under their feet."</div>
+            <div class="liner-note"><strong>Why it works</strong>Drops a benchmark from outside the sector. Lists the pressures in three beats. The listener self-locates inside it.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"The leaders who'll do well in the next five years aren't the ones who know the most. They're the ones who can have the cleanest conversations under the most pressure."</div>
+            <div class="liner-note"><strong>Why it works</strong>Forward-looking line. Connects all four topics back to one principle. This is your closing reel candidate. The line a listener saves.</div>
+          </div>
+          <div class="liner">
+            <div class="liner-text">"If you can name the uncomfortable thing in the room early and well, you're already ahead of most leaders in this industry."</div>
+            <div class="liner-note"><strong>Why it works</strong>Practical close. Names a single skill, makes it competitive, sends the listener off with something to try.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TACTICAL CLOSE -->
+  <div class="close">
+    <div class="close-eyebrow">Last things to remember</div>
+    <h3>The four moves that make the edit work for you.</h3>
+    <p>You can't control which 15 minutes Andy picks. You can control how many obvious soundbite moments you give him, and how often you anchor in a specific scene.</p>
+    <div class="close-grid">
+      <div class="close-grid-item">
+        <h4>The single line you most want to land</h4>
+        <p><em>"Communication is what happens in someone else's head. Not what you say. What lands."</em> If only one quote makes the final cut, make it this one. It's already your line, it earns its place, and it carries the spine of every training you sell.</p>
+      </div>
+      <div class="close-grid-item">
+        <h4>Use one concrete scene per topic</h4>
+        <p>Specific room, specific moment, anonymised. Andy will edit toward the bits with imagery. <em>"A senior colleague is preparing to speak at a global company conference. They've got forty slides. We get them to seven."</em> Vivid beats abstract every time.</p>
+      </div>
+      <div class="close-grid-item">
+        <h4>Name Alltech and Chanel once, lightly</h4>
+        <p>The point of naming them is to show the work is real and internal-facing, not external pitching. <em>"Alltech just commissioned two pieces of this. Their use case is colleagues persuading colleagues, and people speaking at the company conference."</em> Then move to the framework. Evidence, not headline.</p>
+      </div>
+      <div class="close-grid-item">
+        <h4>Close on the future-looking line</h4>
+        <p>Andy will probably ask a "what's next" or "advice" question near the end. Have the closing reel candidate ready: <em>"The leaders who'll do well in the next five years aren't the ones who know the most. They're the ones who can have the cleanest conversations under the most pressure."</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Sam, v2 produced 2 June 2026. Corrections applied from Sean's Dispatch instruction: (1) lines drawn from real language across the Presentation Skills IP reference, Compelling Communication page, Difficult Conversations page, and the email style reference, rather than extrapolated phrasings; (2) Topic 2 reframed correctly as internal teams work, Chanel internal innovation and Alltech colleagues persuading colleagues, with "do less, better" and "calm, concise precision" as the promise instead of pitching technique. Lines marked in violet are verbatim or near-verbatim from your own decks. Zero em dashes. Replaces v1.
+  </div>
+
+</div>
+
+</body>
+</html>
