@@ -20,6 +20,8 @@
     --green-deep: #1f7a4d;
     --green-bg: #E6FBEF;
     --violet-bg: #EEEBFE;
+    --red: #C92A2A;
+    --red-bg: #FDECEC;
     --grey: #9aa0b4;
     --grey-bg: #eef0f4;
     --line: #dfe2ee;
@@ -97,8 +99,8 @@
     border-radius: 20px; padding: 2px 9px; white-space: nowrap; flex-shrink: 0;
     background: var(--grey-bg); color: var(--muted);
   }
-  .due.today { background: var(--violet-bg); color: var(--violet); }
-  .due.over  { background: var(--amber-bg); color: var(--amber); }
+  .due.red   { background: var(--red-bg);   color: var(--red);   }
+  .due.amber { background: var(--amber-bg); color: var(--amber); }
 
   .none { font-size: 17px; color: var(--grey); font-style: italic; padding: 6px 0; }
 
@@ -121,12 +123,12 @@
       <h1>Delivery Command View</h1>
       <div class="sub">Fourteen accounts. What is open against each.</div>
     </div>
-    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 23 September 2026 &middot; v8</div>
+    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 23 September 2026 &middot; v9</div>
   </div>
 
   <div class="section-block">
     <div class="section-heading">
-      <h2>In Delivery</h2><span class="count">6</span><span class="rule"></span>
+      <h2>In Delivery</h2><span class="count">9</span><span class="rule"></span>
     </div>
 
     <div class="card delivery">
@@ -148,14 +150,14 @@
     <div class="card delivery">
       <div class="rail"><h3>HPCA / West Northumberland PCN</h3><div class="n">1 open</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Get the HPCA next steps out</span><span class="due">24 Sep</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Get the HPCA next steps out</span><span class="due amber">24 Sep</span></div>
       </div>
     </div>
 
     <div class="card delivery">
       <div class="rail"><h3>Gosforth &amp; Jesmond Health</h3><div class="n">4 open</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Build the Gosforth deck, Phase 1 is 6 Oct</span><span class="due">24 Sep</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Build the Gosforth deck, Phase 1 is 6 Oct</span><span class="due amber">24 Sep</span></div>
         <div class="action"><span class="who">Babish</span><span class="txt">Fix the three Scope of Work clauses</span><span class="due">25 Sep</span></div>
         <div class="action"><span class="who">CJ</span><span class="txt">Monitor for Sarah Rae's board response</span><span class="due">25 Sep</span></div>
         <div class="action"><span class="who">CJ</span><span class="txt">Settle the liabilities contradiction before 6 Oct</span><span class="due">29 Sep</span></div>
@@ -165,9 +167,9 @@
     <div class="card delivery">
       <div class="rail"><h3>LV Logistics</h3><div class="n">9 open</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Update Lee's slides</span><span class="due today">23 Sep</span></div>
-        <div class="action"><span class="who">Sam</span><span class="txt">Land prepped questions for board panel</span><span class="due">24 Sep</span></div>
-        <div class="action"><span class="who">CJ</span><span class="txt">Scope the Middlesbrough coaching, including Nick's surname</span><span class="due">24 Sep</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Update Lee's slides</span><span class="due red">23 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Land prepped questions for board panel</span><span class="due amber">24 Sep</span></div>
+        <div class="action"><span class="who">CJ</span><span class="txt">Scope the Middlesbrough coaching, including Nick's surname</span><span class="due amber">24 Sep</span></div>
         <div class="action"><span class="who">Sam</span><span class="txt">Build View from the Outside slides (Day 2)</span><span class="due">28 Sep</span></div>
         <div class="action"><span class="who">Sam</span><span class="txt">Iterate pre-mortem slides</span><span class="due">28 Sep</span></div>
         <div class="action"><span class="who">Sam</span><span class="txt">Build pre-mortem session handout</span><span class="due">28 Sep</span></div>
@@ -180,7 +182,30 @@
     <div class="card delivery">
       <div class="rail"><h3>Knight Frank Part 1</h3><div class="n">1 open</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Get the questions for the KF interviews, JT is Friday</span><span class="due">24 Sep</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Get the questions for the KF interviews, JT is Friday</span><span class="due amber">24 Sep</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Rijk Zwaan follow-on</h3><div class="n">1 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">CJ</span><span class="txt">Send the &pound;5,200 proposal to Kelly Northcroft</span><span class="due red">23 Sep</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>SUSE, Difficult Conversations</h3><div class="n">2 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">Leo</span><span class="txt">Create the SUSE client folder, kill the duplicate Bible series</span><span class="due">25 Sep</span></div>
+        <div class="action"><span class="who">CJ</span><span class="txt">Re-open the &pound;2,250 IT workshops with Laura Lynch</span><span class="due">15 Oct</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Chanel, Digital Summit</h3><div class="n">2 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">Sam</span><span class="txt">Draft the catch-up note to Emilie</span><span class="due amber">24 Sep</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Plan the Paris session, PIPOP with Sam</span><span class="due">26 Sep</span></div>
       </div>
     </div>
   </div>
@@ -221,7 +246,7 @@
 
   <div class="section-block">
     <div class="section-heading">
-      <h2>Won, Not Yet Started</h2><span class="count">4</span><span class="rule"></span>
+      <h2>Won, Not Yet Started</h2><span class="count">1</span><span class="rule"></span>
     </div>
 
     <div class="card pending">
@@ -230,34 +255,11 @@
         <div class="none">Nothing open.</div>
       </div>
     </div>
-
-    <div class="card pending">
-      <div class="rail"><h3>Rijk Zwaan follow-on</h3><div class="n">1 open</div></div>
-      <div class="actions">
-        <div class="action"><span class="who">CJ</span><span class="txt">Send the &pound;5,200 proposal to Kelly Northcroft</span><span class="due today">23 Sep</span></div>
-      </div>
-    </div>
-
-    <div class="card pending">
-      <div class="rail"><h3>SUSE, Difficult Conversations</h3><div class="n">2 open</div></div>
-      <div class="actions">
-        <div class="action"><span class="who">Leo</span><span class="txt">Create the SUSE client folder, kill the duplicate Bible series</span><span class="due">25 Sep</span></div>
-        <div class="action"><span class="who">CJ</span><span class="txt">Re-open the &pound;2,250 IT workshops with Laura Lynch</span><span class="due">15 Oct</span></div>
-      </div>
-    </div>
-
-    <div class="card pending">
-      <div class="rail"><h3>Chanel, Digital Summit</h3><div class="n">2 open</div></div>
-      <div class="actions">
-        <div class="action"><span class="who">Sam</span><span class="txt">Draft the catch-up note to Emilie</span><span class="due">24 Sep</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Plan the Paris session, PIPOP with Sam</span><span class="due">26 Sep</span></div>
-      </div>
-    </div>
   </div>
 
   <div class="foot">
     Actions pulled from Todoist, BUSINESS NOW and BUSINESS NEXT. 24 open across 14 accounts.
-    Pipeline and prospect chases sit outside this view by design.
+    Red is overdue or due today, amber is due tomorrow. Pipeline and prospect chases sit outside this view by design.
   </div>
 
 </div>
