@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery Command View</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #00093B;
+    --green: #B9F9CF;
+    --violet: #5837F6;
+    --bg: #F4F6FB;
+    --ink: #1a1a2e;
+    --muted: #5a5f78;
+    --amber: #E8850C;
+    --amber-bg: #FDF2E2;
+    --green-deep: #1f7a4d;
+    --green-bg: #E6FBEF;
+    --violet-bg: #EEEBFE;
+    --grey: #9aa0b4;
+    --grey-bg: #eef0f4;
+    --line: #dfe2ee;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 32px 20px 64px;
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+  .page-header {
+    background: var(--navy); color: #fff; border-radius: 16px;
+    padding: 26px 32px; margin-bottom: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 14px;
+  }
+  .page-header h1 { font-size: 23px; font-weight: 700; letter-spacing: -0.2px; }
+  .page-header .sub { font-size: 13.5px; color: var(--green); font-weight: 400; margin-top: 4px; }
+  .page-header .stamp {
+    font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500;
+    color: #b9c0e0; text-align: right; white-space: nowrap;
+  }
+
+  .section-heading { display: flex; align-items: center; gap: 12px; margin: 4px 0 16px; }
+  .section-heading h2 {
+    font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 1.6px; text-transform: uppercase; color: var(--navy);
+  }
+  .section-heading .count {
+    font-family: 'Poppins', sans-serif; font-size: 11.5px; font-weight: 600;
+    color: var(--violet); background: var(--violet-bg); border-radius: 20px; padding: 1px 11px;
+  }
+  .section-heading .rule { flex: 1; height: 1px; background: var(--line); }
+  .section-block { margin-bottom: 34px; }
+
+  .card {
+    background: #fff; border-radius: 14px; padding: 20px 24px;
+    border-left: 5px solid var(--navy); margin-bottom: 12px;
+    display: flex; gap: 26px; align-items: flex-start;
+  }
+  .card.delivery  { border-left-color: var(--green-deep); }
+  .card.coaching  { border-left-color: var(--violet); }
+  .card.pending   { border-left-color: var(--grey); }
+
+  .rail { width: 230px; flex-shrink: 0; }
+  .rail h3 { font-size: 17px; font-weight: 600; color: var(--navy); line-height: 1.25; }
+  .rail .n { font-family: 'Poppins', sans-serif; font-size: 11.5px; font-weight: 500; color: var(--muted); margin-top: 5px; }
+
+  .actions { flex: 1; min-width: 0; }
+  .action {
+    display: flex; align-items: baseline; gap: 9px;
+    padding: 6px 0; border-bottom: 1px solid #f0f2f7;
+    font-size: 17.5px; line-height: 1.45;
+  }
+  .action:last-child { border-bottom: none; }
+  .action .txt { flex: 1; min-width: 0; }
+
+  .who {
+    font-family: 'Poppins', sans-serif; font-size: 9.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    background: var(--grey-bg); color: var(--muted);
+    border-radius: 5px; padding: 2px 6px; flex-shrink: 0; min-width: 40px; text-align: center;
+  }
+  .who.sean { background: var(--navy); color: #fff; }
+
+  .due {
+    font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 600;
+    border-radius: 20px; padding: 2px 9px; white-space: nowrap; flex-shrink: 0;
+    background: var(--grey-bg); color: var(--muted);
+  }
+  .due.today { background: var(--violet-bg); color: var(--violet); }
+  .due.over  { background: var(--amber-bg); color: var(--amber); }
+
+  .none { font-size: 17px; color: var(--grey); font-style: italic; padding: 6px 0; }
+
+  .foot {
+    margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .card { flex-direction: column; gap: 14px; }
+    .rail { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-header">
+    <div>
+      <h1>Delivery Command View</h1>
+      <div class="sub">Fourteen accounts. What is open against each.</div>
+    </div>
+    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 21 September 2026 &middot; v7</div>
+  </div>
+
+  <!-- ================= DELIVERY ================= -->
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>In Delivery</h2><span class="count">6</span><span class="rule"></span>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Alltech Talent Mapping</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Alltech UK Presentation Training</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>HPCA / West Northumberland PCN</h3><div class="n">1 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">CJ</span><span class="txt">Prepare the succession three-way for Tuesday 16:00</span><span class="due today">21 Sep</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Gosforth &amp; Jesmond Health</h3><div class="n">3 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">Babish</span><span class="txt">Fix the three Scope of Work clauses</span><span class="due">25 Sep</span></div>
+        <div class="action"><span class="who">CJ</span><span class="txt">Monitor for Sarah Rae's board response</span><span class="due">25 Sep</span></div>
+        <div class="action"><span class="who">CJ</span><span class="txt">Settle the liabilities contradiction before 6 Oct</span><span class="due">29 Sep</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>LV Logistics</h3><div class="n">8 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Update Lee's slides</span><span class="due">23 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Land prepped questions for board panel</span><span class="due">24 Sep</span></div>
+        <div class="action"><span class="who">CJ</span><span class="txt">Scope the Middlesbrough coaching, including Nick's surname</span><span class="due">24 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Build View from the Outside slides (Day 2)</span><span class="due">28 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Iterate pre-mortem slides</span><span class="due">28 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Build pre-mortem session handout</span><span class="due">28 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Build Mentimeter bonus polling x2</span><span class="due">28 Sep</span></div>
+        <div class="action"><span class="who">Sam</span><span class="txt">Build WWTBAM quiz</span><span class="due">28 Sep</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Knight Frank Part 1</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+  </div>
+
+  <!-- ================= COACHING ================= -->
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>Coaching Book</h2><span class="count">4</span><span class="rule"></span>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Pete Van Neste</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Russ Bailey</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>James Stedman</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Ian Shakespeare</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+  </div>
+
+  <!-- ================= WON, NOT STARTED ================= -->
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>Won, Not Yet Started</h2><span class="count">4</span><span class="rule"></span>
+    </div>
+
+    <div class="card pending">
+      <div class="rail"><h3>Greenyard / Steve Smith</h3><div class="n">0 open</div></div>
+      <div class="actions"><div class="none">Nothing open.</div></div>
+    </div>
+
+    <div class="card pending">
+      <div class="rail"><h3>Rijk Zwaan follow-on</h3><div class="n">1 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">CJ</span><span class="txt">Send the &pound;5,200 proposal to Kelly Northcroft</span><span class="due">22 Sep</span></div>
+      </div>
+    </div>
+
+    <div class="card pending">
+      <div class="rail"><h3>SUSE, Difficult Conversations</h3><div class="n">2 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">Leo</span><span class="txt">Create the SUSE client folder, kill the duplicate Bible series</span><span class="due">25 Sep</span></div>
+        <div class="action"><span class="who">CJ</span><span class="txt">Re-open the &pound;2,250 IT workshops with Laura Lynch</span><span class="due">15 Oct</span></div>
+      </div>
+    </div>
+
+    <div class="card pending">
+      <div class="rail"><h3>Chanel, Digital Summit</h3><div class="n">1 open</div></div>
+      <div class="actions">
+        <div class="action"><span class="who">Sam</span><span class="txt">Draft the catch-up note to Emilie</span><span class="due">23 Sep</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Actions pulled from Todoist, BUSINESS NOW and BUSINESS NEXT. 15 open across 14 accounts.
+  </div>
+
+</div>
+</body>
+</html>
