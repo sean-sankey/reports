@@ -182,6 +182,8 @@
     { match: /Alltech.*Commercial|Alltech.*CJ/i, group: 'Alltech',         tag: 'Commercial', tagClass: 'tag-commercial', sort: 10 },
     { match: /Alltech/i,                  group: 'Alltech',                 tag: 'Report',     tagClass: 'tag-report',     sort: 20 },
     { match: /SUSE/i,                     group: 'SUSE',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /Chanel.*Keynote|Chanel.*Structures|Keynote_Structures/i, group: 'Chanel', tag: 'Research', tagClass: 'tag-research', sort: 0 },
+    { match: /Chanel|Sparks|Digital_Summit/i, group: 'Chanel',        tag: 'Report',     tagClass: 'tag-report',     sort: 10 },
     { match: /Dublin|Amsterdam|London|Stamford|Paris|Travel|Packing/i, group: 'Travel', tag: 'Travel', tagClass: 'tag-travel', sort: 0 },
     { match: /Disney|Family|BBBB/i,       group: 'Personal',                tag: 'Personal',   tagClass: 'tag-personal',   sort: 0 },
     { match: /HPCA|PCN|Springwood/i,      group: 'HPCA',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
@@ -191,7 +193,7 @@
 
   // Group display order (groups not listed here appear at the end)
   const GROUP_ORDER = [
-    'The Studio', 'Operations', 'Rijk Zwaan GCI', 'Alltech', 'SUSE', 'HPCA', 'MorePeople', 'Travel', 'Personal', 'Tech'
+    'The Studio', 'Operations', 'Chanel', 'Rijk Zwaan GCI', 'Alltech', 'SUSE', 'HPCA', 'MorePeople', 'Travel', 'Personal', 'Tech'
   ];
 
   function classify(filename) {
