@@ -102,6 +102,13 @@
   .due.red   { background: var(--red-bg);   color: var(--red);   }
   .due.amber { background: var(--amber-bg); color: var(--amber); }
 
+  .nextsess {
+    display: inline-block; font-family: 'Poppins', sans-serif; font-size: 10.5px;
+    font-weight: 600; border-radius: 20px; padding: 2px 9px; margin-top: 7px;
+    white-space: nowrap; background: var(--grey-bg); color: var(--muted);
+  }
+  .nextsess.unbooked { background: var(--red-bg); color: var(--red); }
+
   .none { font-size: 17px; color: var(--grey); font-style: italic; padding: 6px 0; }
 
   .foot {
@@ -123,7 +130,7 @@
       <h1>Delivery Dashboard</h1>
       <div class="sub">Fourteen accounts. What is open against each.</div>
     </div>
-    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 10 October 2026, 19:16 &middot; auto</div>
+    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 10 October 2026, 19:21 &middot; auto</div>
   </div>
 
   <div class="section-block">
@@ -140,16 +147,17 @@
     </div>
 
     <div class="card delivery">
-      <div class="rail"><h3>Alltech UK Presentation Training</h3><div class="n">1 open</div></div>
+      <div class="rail"><h3>Alltech UK Presentation Training</h3><div class="n">2 open</div></div>
       <div class="actions">
         <div class="action"><span class="who">Debbie</span><span class="txt">Book The Riverside Rooms, Newark for Mon 23 Nov</span><span class="due">19 Oct</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Alltech presentations: prep the comms and materials</span><span class="due">4 Nov</span></div>
       </div>
     </div>
 
     <div class="card delivery">
-      <div class="rail"><h3>HPCA / West Northumberland PCN</h3><div class="n">0 open</div></div>
+      <div class="rail"><h3>HPCA / West Northumberland PCN</h3><div class="n">1 open</div></div>
       <div class="actions">
-        <div class="none">Nothing open.</div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Iterate doc and send</span><span class="due">12 Oct</span></div>
       </div>
     </div>
 
@@ -161,8 +169,10 @@
     </div>
 
     <div class="card delivery">
-      <div class="rail"><h3>LV Logistics</h3><div class="n">1 open</div></div>
+      <div class="rail"><h3>LV Logistics</h3><div class="n">3 open</div></div>
       <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Ask Lee about international</span><span class="due">13 Oct</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Follow up with Lee and Gary re bonus discussion at board</span><span class="due">13 Oct</span></div>
         <div class="action"><span class="who sean">Sean</span><span class="txt">Follow up with Mark re international support</span><span class="due">13 Oct</span></div>
       </div>
     </div>
@@ -227,42 +237,42 @@
     </div>
 
     <div class="card coaching">
-      <div class="rail"><h3>Pete Van Neste</h3><div class="n">0 open</div></div>
+      <div class="rail"><h3>Pete Van Neste</h3><div class="n">1 open</div><div class="nextsess">NEXT SESSION &middot; 28 Oct</div></div>
       <div class="actions">
-        <div class="none">Nothing open.</div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Pete Van Neste: Reply to Pete's US email</span><span class="due">12 Oct</span></div>
       </div>
     </div>
 
     <div class="card coaching">
-      <div class="rail"><h3>Russ Bailey</h3><div class="n">1 open</div></div>
+      <div class="rail"><h3>Russ Bailey</h3><div class="n">1 open</div><div class="nextsess unbooked">NEXT SESSION &middot; NOT BOOKED</div></div>
       <div class="actions">
         <div class="action"><span class="who sean">Sean</span><span class="txt">Schedule Russ Bailey session 3</span><span class="due">21 Oct</span></div>
       </div>
     </div>
 
     <div class="card coaching">
-      <div class="rail"><h3>James Stedman</h3><div class="n">0 open</div></div>
+      <div class="rail"><h3>James Stedman</h3><div class="n">0 open</div><div class="nextsess">NEXT SESSION &middot; 17 Nov &middot; S2</div></div>
       <div class="actions">
         <div class="none">Nothing open.</div>
       </div>
     </div>
 
     <div class="card coaching">
-      <div class="rail"><h3>Nick Hobson-West</h3><div class="n">1 open</div></div>
+      <div class="rail"><h3>Nick Hobson-West</h3><div class="n">1 open</div><div class="nextsess">NEXT SESSION &middot; 14 Oct &middot; session 1</div></div>
       <div class="actions">
         <div class="action"><span class="who sean">Sean</span><span class="txt">Nick Hobson-West: build the coaching intel file after session 1</span><span class="due">15 Oct</span></div>
       </div>
     </div>
 
     <div class="card coaching">
-      <div class="rail"><h3>Ian Shakespeare</h3><div class="n">1 open</div></div>
+      <div class="rail"><h3>Ian Shakespeare</h3><div class="n">1 open</div><div class="nextsess">NEXT SESSION &middot; 14 Oct &middot; Teams</div></div>
       <div class="actions">
         <div class="action"><span class="who sean">Sean</span><span class="txt">Check prep for Ian</span><span class="due amber">11 Oct</span></div>
       </div>
     </div>
 
     <div class="card coaching">
-      <div class="rail"><h3>Greenyard / Steve Smith</h3><div class="n">4 open</div></div>
+      <div class="rail"><h3>Greenyard / Steve Smith</h3><div class="n">4 open</div><div class="nextsess">NEXT SESSION &middot; 11 Nov &middot; HOLD</div></div>
       <div class="actions">
         <div class="action"><span class="who sean">Sean</span><span class="txt">Catchup with Tom on Greenyard</span><span class="due">12 Oct</span></div>
         <div class="action"><span class="who sean">Sean</span><span class="txt">Follow up with Steve Smith (Greenyard) - post intro-call</span><span class="due">12 Oct</span></div>
@@ -280,7 +290,7 @@
   </div>
 
   <div class="foot">
-    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 41 open across 15 accounts.
+    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 46 open across 15 accounts.
     Red is overdue or due today, amber is due tomorrow. Pipeline and prospect chases sit outside this view by design.
     Built by build_delivery_dashboard.py on 2026-10-10.
   </div>
