@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paris - Chanel Digital Summit - November 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;800&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; font-size: 15px; background: #F7F8FC; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+.content-wrap { max-width: 900px; margin: 0 auto; }
+.header { position: relative; background: #00093B; padding: 40px 24px 0; overflow: hidden; }
+.header-bg { position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 12px); }
+.header-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+.label { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #B9F9CF; margin-bottom: 10px; }
+.header h1 { font-family: 'Jost', sans-serif; font-size: 38px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.header .sub { font-family: 'Poppins', sans-serif; font-size: 14px; color: rgba(255,255,255,0.65); padding-bottom: 24px; margin-top: 4px; }
+.stats-strip { background: #fff; border-top: 3px solid #5837F6; display: flex; flex-wrap: wrap; }
+.stat { flex: 1; min-width: 80px; padding: 14px 12px; text-align: center; border-right: 1px solid #E2E4F0; }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Jost', sans-serif; font-size: 22px; font-weight: 800; color: #00093B; line-height: 1; margin-bottom: 4px; }
+.stat-label { font-family: 'Poppins', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #9099B8; }
+.quick-refs { background: #00093B; padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: center; }
+.qr-item { display: flex; flex-direction: column; gap: 2px; align-items: center; text-align: center; }
+.qr-label { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #B9F9CF; }
+.qr-code { font-family: 'Courier New', monospace; font-size: 15px; font-weight: 700; color: #fff; }
+.progress-badge { font-family: 'Poppins', sans-serif; font-size: 11px; background: rgba(88,55,246,0.25); border: 1px solid #5837F6; border-radius: 12px; padding: 4px 10px; color: #B9F9CF; white-space: nowrap; cursor: pointer; }
+.st-ok  { display: inline-flex; align-items: center; gap: 4px; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; color: #166534; background: #f0fdf4; border: 1px solid #86efac; border-radius: 10px; padding: 2px 9px; flex-shrink: 0; }
+.st-gap { display: inline-flex; align-items: center; gap: 4px; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; color: #991b1b; background: #fef2f2; border: 1px solid #fca5a5; border-radius: 10px; padding: 2px 9px; flex-shrink: 0; }
+.st-ct  { display: inline-flex; align-items: center; gap: 4px; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; color: #92400e; background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 2px 9px; flex-shrink: 0; }
+.outfit-gap { padding: 18px 16px; display: flex; align-items: center; gap: 14px; background: #fef2f2; border-top: 1px solid #fca5a5; }
+.outfit-gap-icon { width: 28px; height: 28px; border-radius: 50%; background: #fca5a5; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; color: #991b1b; }
+.outfit-gap-text { font-family: 'Poppins', sans-serif; font-size: 13px; color: #991b1b; line-height: 1.4; }
+.section { padding: 32px 24px 8px; }
+.section-label { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 2px solid #E2E4F0; margin-bottom: 20px; }
+.section-icon { width: 34px; height: 34px; background: #00093B; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.section-icon svg { width: 18px; height: 18px; }
+.section-title { font-family: 'Jost', sans-serif; font-size: 24px; font-weight: 800; color: #00093B; }
+.weather-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 20px; }
+.weather-header { background: #f7f8fc; padding: 10px 16px; border-bottom: 1px solid #E2E4F0; display: flex; align-items: center; justify-content: space-between; }
+.weather-header-label { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #00093B; }
+.weather-note { font-family: 'Poppins', sans-serif; font-size: 11px; color: #9099B8; font-style: italic; }
+.weather-days { display: flex; flex-wrap: wrap; }
+.weather-day { flex: 1; min-width: 100px; padding: 14px 16px; border-right: 1px solid #E2E4F0; }
+.weather-day:last-child { border-right: none; }
+.wd-date { font-family: 'Poppins', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #9099B8; margin-bottom: 4px; }
+.wd-icon { font-size: 28px; line-height: 1; margin: 4px 0; }
+.wd-temp { font-family: 'Jost', sans-serif; font-size: 20px; font-weight: 800; color: #00093B; line-height: 1; margin-bottom: 4px; }
+.wd-cond { font-family: 'Poppins', sans-serif; font-size: 12px; color: #4A4A6A; }
+.tl-day { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 16px; }
+.tl-day-header { background: #00093B; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+.tl-day-header.ct { background: #78350f; }
+.tl-day-title { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.5px; }
+.tl-day-sub { font-family: 'Poppins', sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); }
+.tl-item { display: flex; border-bottom: 1px solid #F0F1F8; }
+.tl-item:last-child { border-bottom: none; }
+.tl-time-col { width: 68px; flex-shrink: 0; background: #f7f8fc; padding: 12px 6px; text-align: center; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; color: #5837F6; border-right: 1px solid #E2E4F0; display: flex; align-items: center; justify-content: center; }
+.tl-time-col.ct { color: #d97706; }
+.tl-body { padding: 12px 16px; flex: 1; }
+.tl-text { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600; line-height: 1.4; }
+.tl-sub { font-family: 'Poppins', sans-serif; font-size: 12px; color: #4A4A6A; margin-top: 3px; }
+.journey-wrap { position: relative; padding-left: 44px; }
+.journey-line { position: absolute; left: 18px; top: 26px; bottom: 26px; width: 3px; background: #5837F6; border-radius: 2px; }
+.j-stop { position: relative; margin-bottom: 6px; }
+.j-node { position: absolute; left: -34px; top: 14px; width: 22px; height: 22px; border-radius: 50%; background: #5837F6; border: 3px solid #F7F8FC; box-shadow: 0 0 0 2px #5837F6; z-index: 1; }
+.j-stop-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); padding: 12px 16px; }
+.j-place { font-family: 'Jost', sans-serif; font-size: 17px; font-weight: 800; color: #00093B; }
+.j-time { font-family: 'Poppins', sans-serif; font-size: 12px; color: #9099B8; margin-top: 2px; }
+.j-note { font-family: 'Poppins', sans-serif; font-size: 12px; color: #4A4A6A; margin-top: 4px; }
+.j-leg { display: flex; align-items: center; gap: 10px; padding: 10px 0; font-family: 'Poppins', sans-serif; font-size: 12px; color: #4A4A6A; }
+.j-leg-icon { width: 24px; height: 24px; background: #E2E4F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+.j-leg-dur { font-weight: 600; color: #00093B; }
+.ct-banner { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 16px; font-family: 'Poppins', sans-serif; font-size: 13px; color: #78350f; margin-bottom: 20px; line-height: 1.5; }
+.hotel-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 12px; }
+.hotel-header { background: #f7f8fc; padding: 12px 16px; border-bottom: 1px solid #E2E4F0; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.hotel-name { font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 800; color: #00093B; }
+.hotel-type { font-family: 'Poppins', sans-serif; font-size: 11px; color: #5837F6; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
+.hotel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.hotel-cell { padding: 12px 16px; border-right: 1px solid #E2E4F0; border-bottom: 1px solid #E2E4F0; }
+.hotel-cell:last-child { border-right: none; }
+.hc-label { font-family: 'Poppins', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #9099B8; margin-bottom: 3px; }
+.hc-val { font-family: 'Poppins', sans-serif; font-size: 15px; color: #00093B; font-weight: 600; }
+.hotel-note { padding: 10px 16px; background: #fef2f2; border-top: 1px solid #fca5a5; font-family: 'Poppins', sans-serif; font-size: 12px; color: #991b1b; line-height: 1.5; }
+.hotel-note-ok { padding: 10px 16px; background: #f0fdf4; border-top: 1px solid #86efac; font-family: 'Poppins', sans-serif; font-size: 12px; color: #14532d; line-height: 1.5; }
+.outfit-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 16px; }
+.outfit-header { padding: 12px 16px; background: #f7f8fc; border-left: 4px solid #5837F6; border-bottom: 1px solid #E2E4F0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+.outfit-day { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #00093B; }
+.outfit-lbl { font-family: 'Poppins', sans-serif; font-size: 12px; color: #5837F6; font-style: italic; }
+.pack-group { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 14px; }
+.pack-group-header { background: #f7f8fc; border-bottom: 1px solid #E2E4F0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
+.pack-bag-icon { width: 28px; height: 28px; flex-shrink: 0; }
+.pack-group-title { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #00093B; }
+.pack-section-note { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #5837F6; padding: 7px 16px 3px; border-bottom: 1px solid #F0F1F8; background: #fafbff; }
+.pack-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 16px; cursor: pointer; border-bottom: 1px solid #F0F1F8; user-select: none; transition: background 0.1s; }
+.pack-item:last-child { border-bottom: none; }
+.pack-item:hover { background: #faf8fd; }
+.pack-item.checked .pack-label { text-decoration: line-through; color: #9099B8; }
+.pack-item.checked .pack-circle { background: #5837F6; border-color: #5837F6; }
+.pack-item.checked .pack-circle::after { content: ''; width: 6px; height: 10px; border: 2px solid #fff; border-top: none; border-left: none; position: absolute; top: 2px; left: 5px; transform: rotate(42deg); }
+.pack-circle { width: 20px; height: 20px; border: 2px solid #D0D3E8; border-radius: 50%; flex-shrink: 0; margin-top: 1px; position: relative; }
+.pack-label { font-family: 'Poppins', sans-serif; font-size: 14px; line-height: 1.4; flex: 1; }
+.pack-sub { font-family: 'Poppins', sans-serif; font-size: 12px; color: #9099B8; display: block; margin-top: 2px; }
+.cl-cluster-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #5837F6; padding: 8px 16px 4px; margin-bottom: 4px; }
+.cl-cluster-label.ct { color: #d97706; }
+.check-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 16px; cursor: pointer; border-bottom: 1px solid #F0F1F8; user-select: none; background: #fff; transition: background 0.1s; }
+.check-item:last-child { border-bottom: none; border-radius: 0 0 10px 10px; }
+.check-item:hover { background: #faf8fd; }
+.check-item.checked .pack-label { text-decoration: line-through; color: #9099B8; }
+.check-item.checked .pack-circle { background: #2d7a55; border-color: #2d7a55; }
+.check-item.checked .pack-circle::after { content: ''; width: 6px; height: 10px; border: 2px solid #fff; border-top: none; border-left: none; position: absolute; top: 2px; left: 5px; transform: rotate(42deg); }
+.reset-row { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+.reset-btn { font-family: 'Poppins', sans-serif; font-size: 12px; color: #5837F6; background: none; border: 1px solid #C5BCD8; border-radius: 6px; padding: 5px 12px; cursor: pointer; }
+.reset-btn:hover { background: #f7f8fc; }
+footer { text-align: center; padding: 28px 24px; font-family: 'Poppins', sans-serif; font-size: 12px; color: #9099B8; border-top: 1px solid #E2E4F0; }
+.footer-inner { max-width: 640px; margin: 0 auto; }
+@media (min-width: 600px) {
+  .header { padding: 52px 48px 0; }
+  .header h1 { font-size: 44px; }
+  .section { padding: 40px 48px 8px; }
+  .quick-refs { padding: 12px 48px; }
+  .stat-n { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-bg"></div>
+  <div class="header-content">
+    <div class="label">MuchClearer / Living Studio</div>
+    <h1>Paris - Chanel Digital Summit</h1>
+    <p class="sub">Le 28 George V &middot; Rehearsal and event &middot; 2 to 4 November 2026</p>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat"><div class="stat-n">3</div><div class="stat-label">Days</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-label">Nights</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-label">Flights</div></div>
+  <div class="stat"><div class="stat-n">11:15</div><div class="stat-label">Depart</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-label">Cabin bags</div></div>
+</div>
+
+<div class="quick-refs">
+  <div class="qr-item">
+    <span class="qr-label">Air France</span>
+    <span class="qr-code">Y9BMW6</span>
+  </div>
+  <div class="qr-item">
+    <span class="qr-label">Venue</span>
+    <span class="qr-code">75008</span>
+  </div>
+  <div class="qr-item">
+    <span class="qr-label">Hotel</span>
+    <span class="qr-code">75017</span>
+  </div>
+  <div class="qr-item">
+    <div class="progress-badge" onclick="updateBadge()" id="prog-badge">Packed 0/-- &middot; Checklist 0/--</div>
+  </div>
+</div>
+
+<div class="section"><div class="content-wrap">
+  <div class="section-label">
+    <div class="section-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/>
+        <line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/>
+      </svg>
+    </div>
+    <span class="section-title">Day by Day</span>
+  </div>
+
+  <div class="weather-card">
+    <div class="weather-header">
+      <span class="weather-header-label">Weather - historic averages</span>
+      <span class="weather-note">Check forecast closer to departure</span>
+    </div>
+    <div class="weather-days">
+      <div class="weather-day">
+        <div class="wd-date">Mon 2 &middot; Paris</div>
+        <div class="wd-icon">&#127782;</div>
+        <div class="wd-temp">8 to 13</div>
+        <div class="wd-cond">Grey, showers likely</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-date">Tue 3 &middot; Paris</div>
+        <div class="wd-icon">&#9925;</div>
+        <div class="wd-temp">7 to 12</div>
+        <div class="wd-cond">Overcast, light rain</div>
+      </div>
+      <div class="weather-day">
+        <div class="wd-date">Wed 4 &middot; Paris</div>
+        <div class="wd-icon">&#9925;</div>
+        <div class="wd-temp">7 to 12</div>
+        <div class="wd-cond">Cool, cloudy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-day">
+    <div class="tl-day-header">
+      <span class="tl-day-title">Monday 2</span>
+      <span class="tl-day-sub">Travel out &middot; afternoon and evening clear</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">08:30</div>
+      <div class="tl-body">
+        <div class="tl-text">Leave home for Newcastle International</div>
+        <div class="tl-sub">About 1h with the usual uplift. Parking needs booking.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">09:30</div>
+      <div class="tl-body">
+        <div class="tl-text">Park, then straight to security</div>
+        <div class="tl-sub">Cabin only, no bag drop. Passport needed.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">11:15</div>
+      <div class="tl-body">
+        <div class="tl-text">AF1059 Newcastle to Paris CDG</div>
+        <div class="tl-sub">Operated by HOP, Embraer 190, Economy. 1h45 in the air.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">14:00</div>
+      <div class="tl-body">
+        <div class="tl-text">Land Paris CDG, Terminal 2E</div>
+        <div class="tl-sub">Clocks are an hour ahead. No bags to collect.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">14:30</div>
+      <div class="tl-body">
+        <div class="tl-text">CDG to Miss Fuller, 11 Avenue Mac-Mahon, 75017</div>
+        <div class="tl-sub">Taxi is a flat 56 euro to the Right Bank, about 50 min. RER B to Chatelet is 35 min if traffic is bad.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">15:30</div>
+      <div class="tl-body">
+        <div class="tl-text">Check in at Miss Fuller, hang the shirts</div>
+        <div class="tl-sub">Check-in opens 15:00. Superior Double, one room. Itinerary 72080168228323. Hotel direct line +33 1 89 89 28 28. They greet you at the front desk and email check-in instructions in the 24 hours before you arrive.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">17:00</div>
+      <div class="tl-body">
+        <div class="tl-text">Afternoon clear</div>
+        <div class="tl-sub">Nothing in the diary. Walk the venue if you want eyes on the room before Tuesday.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-day">
+    <div class="tl-day-header ct">
+      <span class="tl-day-title">Monday 2 evening &middot; Chanel team</span>
+      <span class="tl-day-sub">&#9888; Contingency - not arranged</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col ct">19:00</div>
+      <div class="tl-body">
+        <div class="tl-text">Drinks or dinner with some of the Chanel team</div>
+        <div class="tl-sub">&#9888; Your idea, nothing proposed to them yet. Needs a message before you fly if you want it to happen.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-day">
+    <div class="tl-day-header">
+      <span class="tl-day-title">Tuesday 3</span>
+      <span class="tl-day-sub">Rehearsal day at the venue</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">TBC</div>
+      <div class="tl-body">
+        <div class="tl-text">Rehearsal, Le 28 George V</div>
+        <div class="tl-sub">&#9888; Call time not confirmed. 27 Avenue George V, 75008. Metro George V on Line 1, 2 min walk.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">TBC</div>
+      <div class="tl-body">
+        <div class="tl-text">Evening free unless the team want you</div>
+        <div class="tl-sub">Nothing held.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-day">
+    <div class="tl-day-header">
+      <span class="tl-day-title">Wednesday 4</span>
+      <span class="tl-day-sub">Event day, then home</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">07:30</div>
+      <div class="tl-body">
+        <div class="tl-text">Breakfast and a last run through</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">08:30</div>
+      <div class="tl-body">
+        <div class="tl-text">Check out of Miss Fuller, bags go with you to the venue</div>
+        <div class="tl-sub">Check-out closes at 12:00, so leaving at 08:30 is comfortable. No coming back for them. Same pattern as the Sparks event day in July. Pay the 14.28 GBP of city tax at the desk, settled in euro.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">TBC</div>
+      <div class="tl-body">
+        <div class="tl-text">Chanel Digital Summit, all day at Le 28 George V</div>
+        <div class="tl-sub">&#9888; Start time not confirmed. July was an 08:30 call at this venue.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">17:00</div>
+      <div class="tl-body">
+        <div class="tl-text">Event ends</div>
+        <div class="tl-sub">Your estimate. Confirm with the team, the whole evening hangs off it.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">17:15</div>
+      <div class="tl-body">
+        <div class="tl-text">Leave for CDG</div>
+        <div class="tl-sub">Taxi about 55 min in evening traffic. Gets you there around 18:30 for a 20:40 flight.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">20:40</div>
+      <div class="tl-body">
+        <div class="tl-text">AF1558 Paris CDG to Newcastle</div>
+        <div class="tl-sub">Terminal 2E. Lands 21:20 UK time.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time-col">21:45</div>
+      <div class="tl-body">
+        <div class="tl-text">Collect the car and drive home</div>
+        <div class="tl-sub">About 1h. Home around 22:45.</div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="section" style="padding-top:16px;"><div class="content-wrap">
+  <div class="section-label">
+    <div class="section-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+    </div>
+    <span class="section-title">Getting There</span>
+  </div>
+
+  <div class="journey-wrap">
+    <div class="journey-line"></div>
+
+    <div class="j-stop">
+      <div class="j-node"></div>
+      <div class="j-stop-card">
+        <div class="j-place">Home, Stockton-on-Tees</div>
+        <div class="j-time">Monday 2 &middot; Depart 08:30</div>
+        <div class="j-note">Passport and plug adapter are the two things that bite on this trip.</div>
+      </div>
+    </div>
+
+    <div class="j-leg">
+      <div class="j-leg-icon">&#128664;</div>
+      <span><span class="j-leg-dur">1h</span> Drive to Newcastle International, park in the pre-booked car park</span>
+    </div>
+
+    <div class="j-stop">
+      <div class="j-node"></div>
+      <div class="j-stop-card">
+        <div class="j-place">Newcastle International</div>
+        <div class="j-time">Monday 2 &middot; Arrive 09:30, depart 11:15</div>
+        <div class="j-note">AF1059. Cabin only, so security then gate.</div>
+      </div>
+    </div>
+
+    <div class="j-leg">
+      <div class="j-leg-icon">&#9992;</div>
+      <span><span class="j-leg-dur">1h 45m</span> AF1059 to Paris Charles de Gaulle, Terminal 2E</span>
+    </div>
+
+    <div class="j-stop">
+      <div class="j-node"></div>
+      <div class="j-stop-card">
+        <div class="j-place">Paris CDG</div>
+        <div class="j-time">Monday 2 &middot; Land 14:00</div>
+        <div class="j-note">Taxi flat rate 56 euro to the Right Bank, or RER B to Chatelet.</div>
+      </div>
+    </div>
+
+    <div class="j-leg">
+      <div class="j-leg-icon">&#128661;</div>
+      <span><span class="j-leg-dur">50m</span> Into Paris, Miss Fuller, 11 Avenue Mac-Mahon, 75017</span>
+    </div>
+
+    <div class="j-stop">
+      <div class="j-node"></div>
+      <div class="j-stop-card">
+        <div class="j-place">Paris, two nights</div>
+        <div class="j-time">Monday 2 to Wednesday 4</div>
+        <div class="j-note">Venue is Le 28 George V, 27 Avenue George V, 75008.</div>
+      </div>
+    </div>
+
+    <div class="j-leg">
+      <div class="j-leg-icon">&#128661;</div>
+      <span><span class="j-leg-dur">55m</span> Venue to CDG on Wednesday evening, allowing for traffic</span>
+    </div>
+
+    <div class="j-stop">
+      <div class="j-node"></div>
+      <div class="j-stop-card">
+        <div class="j-place">Paris CDG</div>
+        <div class="j-time">Wednesday 4 &middot; Depart 20:40</div>
+        <div class="j-note">AF1558 from Terminal 2E.</div>
+      </div>
+    </div>
+
+    <div class="j-leg">
+      <div class="j-leg-icon">&#9992;</div>
+      <span><span class="j-leg-dur">1h 40m</span> AF1558 to Newcastle, lands 21:20</span>
+    </div>
+
+    <div class="j-stop">
+      <div class="j-node"></div>
+      <div class="j-stop-card">
+        <div class="j-place">Home</div>
+        <div class="j-time">Wednesday 4 &middot; About 22:45</div>
+        <div class="j-note">Car is at Newcastle, so no onward booking needed.</div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="section" style="padding-top:16px;"><div class="content-wrap">
+  <div class="section-label">
+    <div class="section-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    </div>
+    <span class="section-title">Hotels</span>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-header">
+      <div>
+        <div class="hotel-name">Miss Fuller</div>
+        <div class="hotel-type">11 Avenue Mac-Mahon, 75017 &middot; two nights &middot; Superior Double</div>
+      </div>
+      <span class="st-ok"><span>&#10003;</span> Booked</span>
+    </div>
+    <div class="hotel-grid">
+      <div class="hotel-cell"><div class="hc-label">Check-in</div><div class="hc-val">Mon 2 Nov, from 15:00</div></div>
+      <div class="hotel-cell"><div class="hc-label">Check-out</div><div class="hc-val">Wed 4 Nov, by 12:00</div></div>
+      <div class="hotel-cell"><div class="hc-label">Itinerary</div><div class="hc-val">72080168228323</div></div>
+      <div class="hotel-cell"><div class="hc-label">Hotel direct</div><div class="hc-val">+33 1 89 89 28 28</div></div>
+      <div class="hotel-cell"><div class="hc-label">Paid</div><div class="hc-val">419.89 GBP</div></div>
+      <div class="hotel-cell"><div class="hc-label">Due at desk</div><div class="hc-val">14.28 GBP</div></div>
+    </div>
+    <div class="hotel-note-ok">&#10003; Booked through Hotels.com on 13 October, the same hotel that worked for this exact venue in July: 5 min from the Arc de Triomphe, two stops on Line 1 from Argentine to George V, or a 12 min walk. The walk matters on Wednesday, when you check out and carry the bags to the event.</div>
+    <div class="hotel-note">&#9888; Two things to action. They want a copy of your passport BEFORE you arrive, so send it rather than wait to be asked. And the rate is non-refundable, so a change or a cancellation loses the 419.89 GBP outright.</div>
+  </div>
+</div></div>
+
+<div class="section" style="padding-top:16px;"><div class="content-wrap">
+  <div class="section-label">
+    <div class="section-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+        <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/>
+      </svg>
+    </div>
+    <span class="section-title">Outfits</span>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">
+      <span class="outfit-day">Monday 2 - travel and evening</span>
+      <span class="st-gap"><span>&#10007;</span> Not decided</span>
+    </div>
+    <div class="outfit-gap">
+      <div class="outfit-gap-icon">?</div>
+      <div class="outfit-gap-text">Worn from the house, so it does not get packed. Needs to carry a possible evening with the Chanel team.</div>
+    </div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">
+      <span class="outfit-day">Tuesday 3 - rehearsal</span>
+      <span class="st-gap"><span>&#10007;</span> Not decided</span>
+    </div>
+    <div class="outfit-gap">
+      <div class="outfit-gap-icon">?</div>
+      <div class="outfit-gap-text">Working day on your feet in the room. Lighter than the event day.</div>
+    </div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">
+      <span class="outfit-day">Wednesday 4 - event day</span>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="outfit-lbl">front of room, all day, then a flight</span>
+        <span class="st-gap"><span>&#10007;</span> Not decided</span>
+      </span>
+    </div>
+    <div class="outfit-gap">
+      <div class="outfit-gap-icon">?</div>
+      <div class="outfit-gap-text">The one that matters. In September you landed on the navy Asket cotton crew with the Michelsberg gabardines, Michelsberg jacket over it.</div>
+    </div>
+  </div>
+</div></div>
+
+<div class="section" style="padding-top:16px; padding-bottom:8px;"><div class="content-wrap">
+  <div class="section-label">
+    <div class="section-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+        <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+      </svg>
+    </div>
+    <span class="section-title">What's Packed</span>
+  </div>
+
+  <div class="ct-banner"><strong>Cabin only.</strong> Air France has booked you one hand bag at 12kg, 55 x 35 x 25, plus one small bag. Nothing in the hold. The ZDX is the hand bag, the Paul Smith Tote is the small bag with the Wandrd pouch inside it. If a full flight means the ZDX gets gate-checked, keep passport, MacBook and medication on you.</div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <svg class="pack-bag-icon" viewBox="0 0 28 28" fill="none">
+        <rect x="3" y="9" width="22" height="15" rx="2" stroke="#00093B" stroke-width="1.5"/>
+        <rect x="8" y="4" width="12" height="5" rx="1" stroke="#00093B" stroke-width="1.5"/>
+        <line x1="3" y1="17" x2="25" y2="17" stroke="#00093B" stroke-width="1.5"/>
+      </svg>
+      <span class="pack-group-title">Paul Smith Olive Tote - Core Kit (small bag, stays with you)</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_passport"><div class="pack-circle"></div><div class="pack-label">Passport<span class="pack-sub">International. Check the expiry now, not on the Sunday.</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_mbp"><div class="pack-circle"></div><div class="pack-label">MacBook</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_ipad"><div class="pack-circle"></div><div class="pack-label">iPad</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_planner"><div class="pack-circle"></div><div class="pack-label">Leather planner + pen</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_water"><div class="pack-circle"></div><div class="pack-label">Water bottle<span class="pack-sub">Empty through security</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_a3"><div class="pack-circle"></div><div class="pack-label">A3 paper + tan leather pen pouch</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_glasses"><div class="pack-circle"></div><div class="pack-label">Spare glasses + case</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_umbrella"><div class="pack-circle"></div><div class="pack-label">Umbrella<span class="pack-sub">Showers likely all three days</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="ps_prints"><div class="pack-circle"></div><div class="pack-label">Workshop prints and room kit<span class="pack-sub">&#9888; Not decided yet</span></div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <svg class="pack-bag-icon" viewBox="0 0 28 28" fill="none">
+        <rect x="3" y="6" width="22" height="17" rx="2" stroke="#00093B" stroke-width="1.5"/>
+        <circle cx="14" cy="15" r="4" stroke="#00093B" stroke-width="1.5"/>
+        <line x1="3" y1="12" x2="25" y2="12" stroke="#00093B" stroke-width="1.5"/>
+      </svg>
+      <span class="pack-group-title">Wandrd Tech Pouch (inside the Tote)</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="w_headphones"><div class="pack-circle"></div><div class="pack-label">Headphones</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="w_cables"><div class="pack-circle"></div><div class="pack-label">Cables + power bank<span class="pack-sub">Power bank must be in the cabin, never gate-checked</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="w_mouse"><div class="pack-circle"></div><div class="pack-label">Mouse</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="w_charger"><div class="pack-circle"></div><div class="pack-label">MacBook charger</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="w_adapter"><div class="pack-circle"></div><div class="pack-label">Plug adapter, Type E/F<span class="pack-sub">France</span></div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <svg class="pack-bag-icon" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="10" stroke="#00093B" stroke-width="1.5"/>
+        <path d="M14 6v16M6 14h16" stroke="#00093B" stroke-width="1.2"/>
+      </svg>
+      <span class="pack-group-title">Orange Alpaka - Health Pouch</span>
+    </div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="o_supp"><div class="pack-circle"></div><div class="pack-label">Supplements<span class="pack-sub">Check supply before packing</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="o_creat"><div class="pack-circle"></div><div class="pack-label">Creatine</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="o_elec"><div class="pack-circle"></div><div class="pack-label">Electrolytes</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="o_gout"><div class="pack-circle"></div><div class="pack-label">Gout pills<span class="pack-sub">Check supply before packing</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="o_plasters"><div class="pack-circle"></div><div class="pack-label">Plasters + pain pills</div></div>
+  </div>
+
+  <div class="pack-group">
+    <div class="pack-group-header">
+      <svg class="pack-bag-icon" viewBox="0 0 28 28" fill="none">
+        <rect x="4" y="6" width="20" height="18" rx="2" stroke="#00093B" stroke-width="1.5"/>
+        <rect x="10" y="3" width="8" height="3" rx="1" stroke="#00093B" stroke-width="1.5"/>
+        <path d="M4 13h20" stroke="#00093B" stroke-width="1.2" stroke-dasharray="3 2"/>
+      </svg>
+      <span class="pack-group-title">ZDX - Clothing (the hand bag, 12kg limit)</span>
+    </div>
+    <div class="pack-section-note">Base items</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_boxers"><div class="pack-circle"></div><div class="pack-label">Underwear x4</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_socks"><div class="pack-circle"></div><div class="pack-label">Socks x4</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_hank"><div class="pack-circle"></div><div class="pack-label">Handkerchieves x2</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_sweat"><div class="pack-circle"></div><div class="pack-label">Sweat patches x2</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_sleep"><div class="pack-circle"></div><div class="pack-label">Sleep clothes</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_laundry"><div class="pack-circle"></div><div class="pack-label">Laundry bag</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_clippers"><div class="pack-circle"></div><div class="pack-label">Beard clippers<span class="pack-sub">Standing rule, every trip, main bag</span></div></div>
+    <div class="pack-section-note">Green Alpaka (toiletries)</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_green"><div class="pack-circle"></div><div class="pack-label">Green Alpaka pouch<span class="pack-sub">Toothbrush, deodorant, razor, fragrance, inhaler. Liquids under 100ml, all in one clear bag for security.</span></div></div>
+    <div class="pack-section-note">Outfits (Apposta MTM shirts always on a hanger, never folded)</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_out_tue"><div class="pack-circle"></div><div class="pack-label">Tuesday rehearsal outfit<span class="pack-sub">&#9888; Not decided yet</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_out_wed"><div class="pack-circle"></div><div class="pack-label">Wednesday event outfit<span class="pack-sub">&#9888; Not decided yet</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_shoes"><div class="pack-circle"></div><div class="pack-label">Second pair of shoes, if the event pair is not worn out<span class="pack-sub">&#9888; Depends on the outfits. Shoe bag.</span></div></div>
+  </div>
+</div></div>
+
+<div class="section" style="padding-top:16px; padding-bottom:32px;"><div class="content-wrap">
+  <div class="section-label">
+    <div class="section-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+        <polyline points="9 11 12 14 22 4"/>
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+      </svg>
+    </div>
+    <span class="section-title">Pre-Travel Checklist</span>
+  </div>
+
+  <div class="cl-cluster-label">Health</div>
+  <div style="background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:12px;">
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_gout"><div class="pack-circle"></div><div class="pack-label">Gout pills, check supply and top up</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_supp"><div class="pack-circle"></div><div class="pack-label">Supplements, check supply</div></div>
+  </div>
+
+  <div class="cl-cluster-label">Delivery</div>
+  <div style="background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:12px;">
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_times"><div class="pack-circle"></div><div class="pack-label">Confirm Tuesday rehearsal call time and Wednesday start and finish</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_venue"><div class="pack-circle"></div><div class="pack-label">Confirm the venue is Le 28 George V, 27 Avenue George V</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_slides"><div class="pack-circle"></div><div class="pack-label">Slides and materials loaded offline on the MacBook</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_roomkit"><div class="pack-circle"></div><div class="pack-label">Decide the room kit: prints, A3, participant planning tool</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_chanelmail"><div class="pack-circle"></div><div class="pack-label">Chanel email working on the phone</div></div>
+  </div>
+
+  <div class="cl-cluster-label">Logistics</div>
+  <div style="background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:12px;">
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_passcopy"><div class="pack-circle"></div><div class="pack-label">Send Miss Fuller a copy of your passport, they want it before arrival</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_parking"><div class="pack-circle"></div><div class="pack-label">Book Newcastle Airport parking, Mon 2 to Wed 4</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_passport"><div class="pack-circle"></div><div class="pack-label">Passport in date</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_checkin"><div class="pack-circle"></div><div class="pack-label">Online check-in, opens 30 hours before each flight</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_weigh"><div class="pack-circle"></div><div class="pack-label">Weigh the ZDX, 12kg is the limit</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_outfits"><div class="pack-circle"></div><div class="pack-label">Decide all three outfits</div></div>
+  </div>
+
+  <div class="cl-cluster-label ct">Monday evening (if you want it)</div>
+  <div style="background:#fffbeb;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.07);overflow:hidden;border:1px solid #fde68a;margin-bottom:8px;">
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_chanel_eve"><div class="pack-circle"></div><div class="pack-label">Message the Chanel team about Monday night</div></div>
+    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_chanel_book"><div class="pack-circle"></div><div class="pack-label">Book somewhere once they come back</div></div>
+  </div>
+
+  <div class="reset-row">
+    <button class="reset-btn" onclick="resetPacking()">Reset packing</button>
+    <button class="reset-btn" onclick="resetChecklist()">Reset checklist</button>
+  </div>
+</div></div>
+
+<footer>
+  <div class="footer-inner">
+    MuchClearer / Living Studio &middot; Paris, Chanel Digital Summit &middot; 2 to 4 November 2026<br>
+    Built 5 October 2026 &middot; Outfits and room kit still to come
+  </div>
+</footer>
+
+<script>
+var STORE = 'paris_nov26_';
+
+(function init() { restoreAll(); updateBadge(); })();
+
+function toggleItem(el) {
+  el.classList.toggle('checked');
+  localStorage.setItem(STORE + el.dataset.key, el.classList.contains('checked') ? '1' : '0');
+  updateBadge();
+}
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  localStorage.setItem(STORE + el.dataset.key, el.classList.contains('checked') ? '1' : '0');
+  updateBadge();
+}
+function restoreAll() {
+  document.querySelectorAll('[data-key]').forEach(function(el) {
+    if (localStorage.getItem(STORE + el.dataset.key) === '1') el.classList.add('checked');
+  });
+}
+function updateBadge() {
+  var packItems = document.querySelectorAll('.pack-item[data-key]');
+  var packDone = document.querySelectorAll('.pack-item.checked').length;
+  var checkItems = document.querySelectorAll('.check-item');
+  var checkDone = document.querySelectorAll('.check-item.checked').length;
+  var allDone = packDone === packItems.length && checkDone === checkItems.length;
+  var badge = document.getElementById('prog-badge');
+  if (badge) {
+    badge.textContent = 'Packed ' + packDone + '/' + packItems.length + ' · Checklist ' + checkDone + '/' + checkItems.length;
+    badge.style.background = allDone ? 'rgba(45,122,85,0.3)' : 'rgba(88,55,246,0.25)';
+    badge.style.borderColor = allDone ? '#2d7a55' : '#5837F6';
+  }
+}
+function resetPacking() {
+  document.querySelectorAll('.pack-item').forEach(function(el) {
+    el.classList.remove('checked');
+    if (el.dataset.key) localStorage.setItem(STORE + el.dataset.key, '0');
+  });
+  updateBadge();
+}
+function resetChecklist() {
+  document.querySelectorAll('.check-item').forEach(function(el) {
+    el.classList.remove('checked');
+    if (el.dataset.key) localStorage.setItem(STORE + el.dataset.key, '0');
+  });
+  updateBadge();
+}
+</script>
+
+</body>
+</html>
