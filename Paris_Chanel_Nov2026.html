@@ -86,6 +86,13 @@ body { font-family: 'Poppins', sans-serif; font-size: 15px; background: #F7F8FC;
 .outfit-header { padding: 12px 16px; background: #f7f8fc; border-left: 4px solid #5837F6; border-bottom: 1px solid #E2E4F0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
 .outfit-day { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #00093B; }
 .outfit-lbl { font-family: 'Poppins', sans-serif; font-size: 12px; color: #5837F6; font-style: italic; }
+.of-row { display: flex; gap: 12px; padding: 9px 16px; border-bottom: 1px solid #E2E4F0; align-items: baseline; }
+.of-row:last-child { border-bottom: none; }
+.of-slot { font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #5837F6; width: 84px; flex-shrink: 0; }
+.of-val { font-family: 'Poppins', sans-serif; font-size: 13.5px; color: #00093B; line-height: 1.4; }
+.of-val span.of-qual { color: #4A4A6A; font-size: 12px; }
+.of-note { padding: 10px 16px; background: #f7f8fc; border-top: 1px solid #E2E4F0; font-family: 'Poppins', sans-serif; font-size: 12px; color: #4A4A6A; line-height: 1.5; }
+.of-name { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 800; color: #5837F6; letter-spacing: 0.3px; }
 .pack-group { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; margin-bottom: 14px; }
 .pack-group-header { background: #f7f8fc; border-bottom: 1px solid #E2E4F0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; }
 .pack-bag-icon { width: 28px; height: 28px; flex-shrink: 0; }
@@ -482,38 +489,83 @@ footer { text-align: center; padding: 28px 24px; font-family: 'Poppins', sans-se
 
   <div class="outfit-card">
     <div class="outfit-header">
-      <span class="outfit-day">Monday 2 - travel and evening</span>
-      <span class="st-gap"><span>&#10007;</span> Not decided</span>
+      <span class="outfit-day">Monday 2 - travel</span>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="of-name">DARK TRANSIT</span>
+        <span class="st-ok"><span>&#10003;</span> Decided</span>
+      </span>
     </div>
-    <div class="outfit-gap">
-      <div class="outfit-gap-icon">?</div>
-      <div class="outfit-gap-text">Worn from the house, so it does not get packed. Needs to carry a possible evening with the Chanel team.</div>
+    <div class="of-row"><div class="of-slot">Shoes</div><div class="of-val">Freds</div></div>
+    <div class="of-row"><div class="of-slot">Trousers</div><div class="of-val">Dark indigo selvedge</div></div>
+    <div class="of-row"><div class="of-slot">Top</div><div class="of-val">Cream Asket heavyweight tee</div></div>
+    <div class="of-row"><div class="of-slot">Outer</div><div class="of-val">Aubin peacoat <span class="of-qual">worn, never packed</span></div></div>
+    <div class="of-row"><div class="of-slot">Watch</div><div class="of-val">IWC <span class="of-qual">on for the whole trip</span></div></div>
+    <div class="of-note">Worn from the house, so none of this goes in the bag. The peacoat stays on you through both airports, which is what keeps it out of the 12kg.</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">
+      <span class="outfit-day">Monday 2 - dinner</span>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="of-name">LUXURY OPERATOR</span>
+        <span class="st-ok"><span>&#10003;</span> Decided</span>
+      </span>
     </div>
+    <div class="of-row"><div class="of-slot">Shoes</div><div class="of-val">Rudigers</div></div>
+    <div class="of-row"><div class="of-slot">Trousers</div><div class="of-val">Espresso Natalinos</div></div>
+    <div class="of-row"><div class="of-slot">Top</div><div class="of-val">Navy mock leno, open collar</div></div>
+    <div class="of-row"><div class="of-slot">Outer</div><div class="of-val">Aubin peacoat <span class="of-qual">outside only</span></div></div>
+    <div class="of-row"><div class="of-slot">Watch</div><div class="of-val">IWC</div></div>
+    <div class="of-note">Carries a possible evening with the Chanel team. First change of the trip, so this is the top of the bag.</div>
   </div>
 
   <div class="outfit-card">
     <div class="outfit-header">
       <span class="outfit-day">Tuesday 3 - rehearsal</span>
-      <span class="st-gap"><span>&#10007;</span> Not decided</span>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="of-name">QUIET TECHNOLOGIST</span>
+        <span class="st-ok"><span>&#10003;</span> Decided</span>
+      </span>
     </div>
-    <div class="outfit-gap">
-      <div class="outfit-gap-icon">?</div>
-      <div class="outfit-gap-text">Working day on your feet in the room. Lighter than the event day.</div>
-    </div>
+    <div class="of-row"><div class="of-slot">Shoes</div><div class="of-val">Rudigers</div></div>
+    <div class="of-row"><div class="of-slot">Trousers</div><div class="of-val">Natalinos</div></div>
+    <div class="of-row"><div class="of-slot">Top</div><div class="of-val">White Asket heavyweight tee</div></div>
+    <div class="of-row"><div class="of-slot">Mid layer</div><div class="of-val">Michelsberg charcoal full-zip</div></div>
+    <div class="of-row"><div class="of-slot">Outer</div><div class="of-val">Aubin peacoat</div></div>
+    <div class="of-row"><div class="of-slot">Watch</div><div class="of-val">IWC</div></div>
+    <div class="of-note">The cleaner read of the two. Working day on your feet in the room. Tuesday evening has no outfit of its own: if you want a change, it comes out of the spares rather than a fourth look.</div>
   </div>
 
   <div class="outfit-card">
     <div class="outfit-header">
       <span class="outfit-day">Wednesday 4 - event day</span>
       <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-        <span class="outfit-lbl">front of room, all day, then a flight</span>
-        <span class="st-gap"><span>&#10007;</span> Not decided</span>
+        <span class="of-name">CONTEMPORARY EXECUTIVE</span>
+        <span class="st-ok"><span>&#10003;</span> Decided</span>
       </span>
     </div>
-    <div class="outfit-gap">
-      <div class="outfit-gap-icon">?</div>
-      <div class="outfit-gap-text">The one that matters. In September you landed on the navy Asket cotton crew with the Michelsberg gabardines, Michelsberg jacket over it.</div>
+    <div class="of-row"><div class="of-slot">Shoes</div><div class="of-val">Freds</div></div>
+    <div class="of-row"><div class="of-slot">Trousers</div><div class="of-val">Bone gabardines</div></div>
+    <div class="of-row"><div class="of-slot">Top</div><div class="of-val">Navy cotton-silk long-sleeve polo</div></div>
+    <div class="of-row"><div class="of-slot">Jacket</div><div class="of-val">Blue-oxblood jacket</div></div>
+    <div class="of-row"><div class="of-slot">Glasses</div><div class="of-val">Clear specs</div></div>
+    <div class="of-row"><div class="of-slot">Watch</div><div class="of-val">IWC</div></div>
+    <div class="of-row"><div class="of-slot">Flight home</div><div class="of-val">Aubin peacoat over the Michelsberg charcoal full-zip</div></div>
+    <div class="of-note">Front of the room all day, then straight to CDG. You land at Newcastle 21:20 in November, which is why the peacoat goes back on over the Michelsberg for the journey.</div>
+  </div>
+
+  <div class="outfit-card">
+    <div class="outfit-header">
+      <span class="outfit-day">Spares</span>
+      <span style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span class="outfit-lbl">backups, not alternates</span>
+        <span class="st-ok"><span>&#10003;</span> Decided</span>
+      </span>
     </div>
+    <div class="of-row"><div class="of-slot">Spare 1</div><div class="of-val">Charcoal Suitsupply long-sleeve</div></div>
+    <div class="of-row"><div class="of-slot">Spare 2</div><div class="of-val">John Smedley Kane</div></div>
+    <div class="of-row"><div class="of-slot">Spare 3</div><div class="of-val">Thomas Pink white royal oxford</div></div>
+    <div class="of-note">True backups, there in case something gets spilled on. They also cover a change on the Tuesday evening if you want one.</div>
   </div>
 </div></div>
 
@@ -601,10 +653,24 @@ footer { text-align: center; padding: 28px 24px; font-family: 'Poppins', sans-se
     <div class="pack-item" onclick="toggleItem(this)" data-key="z_clippers"><div class="pack-circle"></div><div class="pack-label">Beard clippers<span class="pack-sub">Standing rule, every trip, main bag</span></div></div>
     <div class="pack-section-note">Green Alpaka (toiletries)</div>
     <div class="pack-item" onclick="toggleItem(this)" data-key="z_green"><div class="pack-circle"></div><div class="pack-label">Green Alpaka pouch<span class="pack-sub">Toothbrush, deodorant, razor, fragrance, inhaler. Liquids under 100ml, all in one clear bag for security.</span></div></div>
-    <div class="pack-section-note">Outfits (Apposta MTM shirts always on a hanger, never folded)</div>
-    <div class="pack-item" onclick="toggleItem(this)" data-key="z_out_tue"><div class="pack-circle"></div><div class="pack-label">Tuesday rehearsal outfit<span class="pack-sub">&#9888; Not decided yet</span></div></div>
-    <div class="pack-item" onclick="toggleItem(this)" data-key="z_out_wed"><div class="pack-circle"></div><div class="pack-label">Wednesday event outfit<span class="pack-sub">&#9888; Not decided yet</span></div></div>
-    <div class="pack-item" onclick="toggleItem(this)" data-key="z_shoes"><div class="pack-circle"></div><div class="pack-label">Second pair of shoes, if the event pair is not worn out<span class="pack-sub">&#9888; Depends on the outfits. Shoe bag.</span></div></div>
+    <div class="pack-section-note">Shoes</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_shoes"><div class="pack-circle"></div><div class="pack-label">Rudigers<span class="pack-sub">Shoe bag. Freds are on your feet Monday and again Wednesday, so only this pair travels in the bag.</span></div></div>
+    <div class="pack-section-note">Monday dinner, Luxury Operator</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_mon_trs"><div class="pack-circle"></div><div class="pack-label">Espresso Natalinos</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_mon_top"><div class="pack-circle"></div><div class="pack-label">Navy mock leno, open collar<span class="pack-sub">On a hanger, never folded</span></div></div>
+    <div class="pack-section-note">Tuesday rehearsal, Quiet Technologist</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_tue_trs"><div class="pack-circle"></div><div class="pack-label">Natalinos</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_tue_top"><div class="pack-circle"></div><div class="pack-label">White Asket heavyweight tee</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_tue_zip"><div class="pack-circle"></div><div class="pack-label">Michelsberg charcoal full-zip<span class="pack-sub">Also the layer under the peacoat for the flight home</span></div></div>
+    <div class="pack-section-note">Wednesday event, Contemporary Executive</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_wed_trs"><div class="pack-circle"></div><div class="pack-label">Bone gabardines</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_wed_top"><div class="pack-circle"></div><div class="pack-label">Navy cotton-silk long-sleeve polo<span class="pack-sub">On a hanger, never folded</span></div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_wed_jkt"><div class="pack-circle"></div><div class="pack-label">Blue-oxblood jacket</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_wed_spex"><div class="pack-circle"></div><div class="pack-label">Clear specs</div></div>
+    <div class="pack-section-note">Spares (backups, not alternates)</div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_sp_ss"><div class="pack-circle"></div><div class="pack-label">Charcoal Suitsupply long-sleeve</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_sp_smedley"><div class="pack-circle"></div><div class="pack-label">John Smedley Kane</div></div>
+    <div class="pack-item" onclick="toggleItem(this)" data-key="z_sp_pink"><div class="pack-circle"></div><div class="pack-label">Thomas Pink white royal oxford<span class="pack-sub">On a hanger, never folded</span></div></div>
   </div>
 </div></div>
 
@@ -641,7 +707,6 @@ footer { text-align: center; padding: 28px 24px; font-family: 'Poppins', sans-se
     <div class="check-item" onclick="toggleCheck(this)" data-key="ck_passport"><div class="pack-circle"></div><div class="pack-label">Passport in date</div></div>
     <div class="check-item" onclick="toggleCheck(this)" data-key="ck_checkin"><div class="pack-circle"></div><div class="pack-label">Online check-in, opens 30 hours before each flight</div></div>
     <div class="check-item" onclick="toggleCheck(this)" data-key="ck_weigh"><div class="pack-circle"></div><div class="pack-label">Weigh the ZDX, 12kg is the limit</div></div>
-    <div class="check-item" onclick="toggleCheck(this)" data-key="ck_outfits"><div class="pack-circle"></div><div class="pack-label">Decide all three outfits</div></div>
   </div>
 
   <div class="cl-cluster-label ct">Monday evening (if you want it)</div>
@@ -659,7 +724,7 @@ footer { text-align: center; padding: 28px 24px; font-family: 'Poppins', sans-se
 <footer>
   <div class="footer-inner">
     MuchClearer / Living Studio &middot; Paris, Chanel Digital Summit &middot; 2 to 4 November 2026<br>
-    Built 5 October 2026 &middot; Outfits and room kit still to come
+    Built 5 October 2026 &middot; hotel and outfits added 13 October &middot; workshop prints and room kit still to come
   </div>
 </footer>
 
