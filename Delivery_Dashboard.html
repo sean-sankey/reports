@@ -99,7 +99,7 @@
     background: var(--grey-bg); color: var(--muted);
     border-radius: 5px; padding: 2px 6px; flex-shrink: 0; min-width: 40px; text-align: center;
   }
-  .who.sean { background: var(--navy); color: #fff; }
+  .who.sean { background: #e7e9f2; color: #8b90a6; }
 
   .due {
     font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 600;
@@ -117,8 +117,11 @@
   .nextsess.unbooked { background: var(--red-bg); color: var(--red); }
 
   .brk { height: 1px; background: var(--line); margin: 22px 0; }
-  .action.future .txt { color: var(--muted); }
-  .action.future .who { opacity: 0.72; }
+
+  /* Below the breaker. Deliberately low contrast: the eye belongs above the line. */
+  .action.future .txt  { color: #b4b8c8; font-weight: 400; }
+  .action.future .who  { background: #f2f3f7; color: #c2c6d4; }
+  .action.future .due  { background: #f2f3f7; color: #c2c6d4; }
 
   .none { font-size: 17px; color: var(--grey); font-style: italic; padding: 6px 0; }
 
@@ -141,7 +144,7 @@
       <h1>Delivery Dashboard</h1>
       <div class="sub">Fourteen accounts. What is open against each.</div>
     </div>
-    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 14 October 2026, 20:58 &middot; auto</div>
+    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 14 October 2026, 21:03 &middot; auto</div>
   </div>
 
   <div class="section-block">
@@ -228,19 +231,15 @@
     <div class="card delivery">
       <div class="rail"><h3>LV Logistics</h3></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Follow up with Mark re international support</span><span class="due red">12 Oct</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Ask Lee about international</span><span class="due red">13 Oct</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Follow up with Lee and Gary re bonus discussion at board</span><span class="due red">13 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Ask Lee about international</span><span class="due">21 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Follow up with Mark re international support</span><span class="due">21 Oct</span></div>
       </div>
     </div>
 
     <div class="card delivery">
       <div class="rail"><h3>Knight Frank Part 1</h3></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Book JT's second KF session (virtual, mid-October)</span><span class="due red">12 Oct</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Call Anthony on the KF transition (shape, themes, nudge)</span><span class="due red">12 Oct</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Send the KF note to all four on where the project goes next</span><span class="due red">12 Oct</span></div>
-        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Send the KF note to all four on where the project goes next</span><span class="due amber">15 Oct</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Book the KF leadership programme scoping half-day with Siobhan and Polly</span><span class="due">16 Oct</span></div>
       </div>
     </div>
@@ -305,18 +304,15 @@
     <div class="card coaching">
       <div class="rail"><h3>Greenyard / Steve Smith</h3><div class="nextsess">NEXT SESSION &middot; 11 Nov &middot; HOLD</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Catchup with Tom on Greenyard</span><span class="due red">12 Oct</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Follow up with Steve Smith (Greenyard) - post intro-call</span><span class="due red">12 Oct</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Send Steve Smith his GC Index (GCI) invite - Greenyard transition coaching</span><span class="due red">12 Oct</span></div>
-        <div class="brk"></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">[Sean] Confirm the 11 Nov in-person venue for Steve Smith</span><span class="due">17 Oct</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Prep the two Steve Smith Teams sessions (Tue 27 and Fri 30 Oct)</span><span class="due">22 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Send Steve Smith his GC Index (GCI) invite - Greenyard transition coaching</span><span class="due">30 Oct</span></div>
       </div>
     </div>
   </div>
 
   <div class="foot">
-    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 55 open across 15 accounts.
+    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 50 open across 15 accounts.
     Red is overdue or due today, amber is due tomorrow. Pipeline and prospect chases sit outside this view by design.
     Built by build_delivery_dashboard.py on 2026-10-14.
   </div>
