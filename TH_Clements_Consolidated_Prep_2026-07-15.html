@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TH Clements Prep - Wed 15 July 2026 PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #F5F1E8;
+    color: #2A2F1F;
+    line-height: 1.6;
+    padding: 20px 14px 60px;
+    font-size: 16px;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: #1F3A1F; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1F3A1F 0%, #2E5C2E 100%);
+    color: #F5F1E8;
+    padding: 24px 22px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    border-left: 8px solid #C88A2E;
+  }
+  .header .kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; margin-bottom: 8px; font-weight: 500; }
+  .header h1 { color: #F5F1E8; font-size: 22px; font-weight: 700; margin-bottom: 14px; line-height: 1.3; }
+  .header .load-bearing {
+    background: rgba(200, 138, 46, 0.18);
+    border-left: 4px solid #E9B75E;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #F9F3E2;
+    line-height: 1.5;
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 24px; }
+  .section-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7A5F1F;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .num {
+    display: inline-block;
+    background: #1F3A1F;
+    color: #F5F1E8;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  /* CARDS */
+  .card {
+    background: #FFFDF6;
+    border: 1px solid #DDD3B8;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+  }
+  .card h3 { font-size: 15px; color: #1F3A1F; font-weight: 600; margin-bottom: 8px; }
+  .card p { margin-bottom: 8px; font-size: 15px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card .lead { font-family: 'Poppins', sans-serif; font-size: 14px; color: #4A6B3A; font-weight: 500; margin-bottom: 6px; }
+
+  /* THE READ - hero card */
+  .read-card {
+    background: #FFFDF6;
+    border: 2px solid #C88A2E;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .read-card::before {
+    content: "THE READ";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #C88A2E;
+    color: #FFFDF6;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  .read-card p { margin-bottom: 10px; font-size: 15px; }
+  .read-card p:last-child { margin-bottom: 0; }
+  .read-card .callout {
+    background: #F7EBD3;
+    border-left: 3px solid #7A5F1F;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #4A3810;
+    margin-top: 10px;
+  }
+
+  /* GRIDS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  @media (max-width: 640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* PRESSURE CARDS */
+  .pressure-card {
+    background: #FFFDF6;
+    border: 1px solid #DDD3B8;
+    border-radius: 10px;
+    padding: 14px 14px;
+  }
+  .pressure-card .label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .pressure-retail .label { background: #E3D5C0; color: #6B4A1F; }
+  .pressure-sector .label { background: #D5E0C0; color: #4A5F1F; }
+  .pressure-business .label { background: #E5D8DA; color: #6B3A48; }
+  .pressure-card ul { list-style: none; padding: 0; }
+  .pressure-card li {
+    font-size: 14px;
+    padding: 6px 0 6px 14px;
+    position: relative;
+    line-height: 1.5;
+    border-bottom: 1px solid #F0EBD8;
+  }
+  .pressure-card li:last-child { border-bottom: none; }
+  .pressure-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    background: #C88A2E;
+    border-radius: 50%;
+  }
+
+  /* HOOKS BANK - RAG coding */
+  .hook-key {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .hook-key .k { padding: 4px 10px; border-radius: 12px; font-weight: 500; }
+  .k-green { background: #E8F5E9; color: #2E5C2E; border: 1px solid #A8D5A8; }
+  .k-amber { background: #FBE9C7; color: #7A5310; border: 1px solid #E9B75E; }
+  .k-blue { background: #D9E4F0; color: #24456E; border: 1px solid #A8BFD8; }
+
+  .hook-block {
+    border-radius: 10px;
+    padding: 16px 16px;
+    margin-bottom: 12px;
+  }
+  .hook-green { background: #F2FAF3; border-left: 5px solid #4A8A4A; }
+  .hook-amber { background: #FCF4E1; border-left: 5px solid #C88A2E; }
+  .hook-blue { background: #EFF3F9; border-left: 5px solid #4A6B8A; }
+  .hook-block .hb-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hook-green .hb-title { color: #2E5C2E; }
+  .hook-amber .hb-title { color: #7A5310; }
+  .hook-blue .hb-title { color: #24456E; }
+  .hook {
+    background: #FFFDF6;
+    border-radius: 8px;
+    padding: 11px 13px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid #EEE7D0;
+  }
+  .hook:last-child { margin-bottom: 0; }
+  .hook .num {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #C88A2E;
+    margin-right: 6px;
+  }
+
+  /* PRODUCT SHAPES */
+  .product-card {
+    background: #FFFDF6;
+    border: 1px solid #DDD3B8;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+  }
+  .product-card .p-name { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; color: #1F3A1F; margin-bottom: 4px; }
+  .product-card .p-price { color: #7A5310; font-weight: 600; font-family: 'Poppins', sans-serif; font-size: 13px; margin-bottom: 6px; }
+  .product-card .p-desc { font-size: 14px; color: #4A4A2A; }
+  .cj-rec {
+    background: #F7EBD3;
+    border: 1.5px solid #C88A2E;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 8px;
+  }
+  .cj-rec .cj-tag {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #7A5310;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .cj-rec p { font-size: 14px; line-height: 1.5; }
+
+  /* NUMBERED CARDS (questions/closes) */
+  .num-list { }
+  .num-item {
+    background: #FFFDF6;
+    border: 1px solid #DDD3B8;
+    border-radius: 8px;
+    padding: 12px 14px 12px 44px;
+    margin-bottom: 8px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .num-item::before {
+    content: attr(data-num);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    background: #1F3A1F;
+    color: #F5F1E8;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .num-item .q-tag {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #7A5F1F;
+    font-weight: 500;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* WATCH-FOR / RED */
+  .watchfor {
+    background: #F9EEEA;
+    border-left: 5px solid #A83F2E;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+  }
+  .watchfor .w-title { font-family: 'Poppins', sans-serif; font-weight: 600; color: #7A2818; font-size: 13px; margin-bottom: 6px; }
+  .watchfor p { font-size: 14px; color: #4A2818; line-height: 1.5; }
+
+  /* NUMBERS / IF ASKED */
+  .money-card {
+    background: #FFFDF6;
+    border: 1.5px solid #7A5F1F;
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .money-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #E0D5B8;
+    font-size: 14px;
+    align-items: center;
+    gap: 12px;
+  }
+  .money-row:last-child { border-bottom: none; }
+  .money-row .k { font-family: 'Poppins', sans-serif; font-weight: 500; color: #4A3810; }
+  .money-row .v { font-family: 'Poppins', sans-serif; font-weight: 700; color: #1F3A1F; }
+  .say-block { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  @media (max-width: 640px) { .say-block { grid-template-columns: 1fr; } }
+  .say-do, .say-dont {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .say-do { background: #E8F5E9; border-left: 3px solid #4A8A4A; }
+  .say-dont { background: #F9EEEA; border-left: 3px solid #A83F2E; }
+  .say-do .st, .say-dont .st { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 1.5px; display: block; margin-bottom: 4px; }
+  .say-do .st { color: #2E5C2E; }
+  .say-dont .st { color: #7A2818; }
+
+  /* POST-MEETING */
+  .action-card {
+    background: linear-gradient(135deg, #F7EBD3 0%, #EEE0BE 100%);
+    border-left: 5px solid #C88A2E;
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .action-card .a-tag { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #7A5310; margin-bottom: 6px; display: block; }
+  .action-card p { font-size: 14px; line-height: 1.5; color: #4A3810; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #7A6A4A;
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid #D8CFB4;
+    font-family: 'Poppins', sans-serif;
+  }
+  .footer span { color: #1F3A1F; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="kicker">Prep Dossier | CJ + Sam consolidation</div>
+    <h1>TH Clements, Wed 15 July 2026 PM<br>Spalding, Lincolnshire | 90 min</h1>
+    <div class="load-bearing">
+      Tesco has quietly asked about succession. This is a business-continuity conversation, not an L&amp;D one. Everything else follows from that.
+    </div>
+  </div>
+
+  <!-- 1. THE ROOM -->
+  <div class="section">
+    <div class="section-title"><span class="num">1</span> The Room</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="lead">Andrew Fulcher</div>
+        <p>Kept the thread warm since April. Confided the Tesco disclosure to Sean. Wants MC in the room for a reason.</p>
+      </div>
+      <div class="card">
+        <div class="lead">John Moulding, Commercial Director</div>
+        <p>His presence is a <strong>buying signal, not a discovery signal</strong>. A commercial director in a scoping meeting means the business has already decided this is not an HR project.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. THE FRAME -->
+  <div class="section">
+    <div class="section-title"><span class="num">2</span> The Frame</div>
+    <div class="card">
+      <p><strong>Hybrid: discovery-shaped, prepared to price if asked.</strong></p>
+      <p>Every question does two jobs. Scope the population AND surface the story. Do not choose between them.</p>
+    </div>
+  </div>
+
+  <!-- 3. THE READ -->
+  <div class="section">
+    <div class="section-title"><span class="num">3</span> The Read</div>
+    <div class="read-card">
+      <p>A Tesco long-term partnership is a commercial award. In return, Tesco expects open-book costing, continuous improvement, Scope 3 sustainability, and a governance story that stands up to their own board.</p>
+      <p>When Tesco says "too many old people, where's the future coming from," they are naming a <strong>supplier resilience risk</strong>. A category-critical grower whose top layer sits in a small window of five to ten years is a fragile link. It becomes an ESG story their investors read.</p>
+      <p>If unanswered: volume rebalances quietly toward a co-supplier over 18-36 months, partnership terms tighten, category pricing power softens.</p>
+      <div class="callout">This lives at the ownership and executive table. Not HR. Not L&amp;D. The intervention needs credibility with a retailer, not just an HR outcome.</div>
+    </div>
+  </div>
+
+  <!-- 4. PRESSURES GRID -->
+  <div class="section">
+    <div class="section-title"><span class="num">4</span> Pressures That Flow From This</div>
+    <div class="grid-3">
+      <div class="pressure-card pressure-retail">
+        <span class="label">Retail</span>
+        <ul>
+          <li>Aldi and Lidl cost benchmarks flowing through every UK produce supplier</li>
+          <li>Tesco NAM turnover: each new buyer inherits the deal without the trust</li>
+          <li>Sustainability now sits in supplier scorecards, not glossy reports</li>
+        </ul>
+      </div>
+      <div class="pressure-card pressure-sector">
+        <span class="label">Sector</span>
+        <ul>
+          <li>Post-Brexit seasonal labour scarce and pricier, SAWS caps binding in Lincolnshire packhouses</li>
+          <li>Energy costs still elevated post-2022-24 spike</li>
+          <li>Weather volatility stripping predictability out of the planting calendar</li>
+          <li>Consolidation accelerating among specialist growers</li>
+        </ul>
+      </div>
+      <div class="pressure-card pressure-business">
+        <span class="label">Business Model</span>
+        <ul>
+          <li>Structural concentration risk: one or two dominant retail customers</li>
+          <li>Founder generation late fifties / sixties, next generation not there or not sure</li>
+          <li>Ownership and executive control blurred inside the family, governance rarely separates the two</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. HOOKS BANK -->
+  <div class="section">
+    <div class="section-title"><span class="num">5</span> Hooks Bank</div>
+
+    <div class="hook-key">
+      <span class="k k-green">Green: Opening Statements</span>
+      <span class="k k-amber">Amber: Provocative Questions</span>
+      <span class="k k-blue">Blue: Pattern Recognition</span>
+    </div>
+
+    <!-- OPENING -->
+    <div class="hook-block hook-green">
+      <div class="hb-title">Opening Statements (signal understanding early)</div>
+      <div class="hook"><span class="num">01</span> "Tesco don't put you into a long-term partnership because your carrots are cheapest. They do it because they need you to still be there in ten years, and both sides of that deal have to believe it."</div>
+      <div class="hook"><span class="num">02</span> "The businesses I work with in this shape usually have three or four people who effectively are the business, and they are all inside the same fifteen-year window. That is not a leadership problem, that is a continuity problem."</div>
+      <div class="hook"><span class="num">03</span> "The conversations we tend to have start in HR and end at the ownership table, because that is where the answer actually lives."</div>
+      <div class="hook"><span class="num">04</span> "A retailer partnership like the one you have is worth serious money, and it comes with obligations that get inspected. Supplier resilience is one of those obligations now, and it wasn't five years ago."</div>
+      <div class="hook"><span class="num">05</span> "Most fresh produce businesses I know are one or two people leaving in the same year away from a serious problem. What helps is naming those people and getting on the front foot before the market notices."</div>
+    </div>
+
+    <!-- PROVOCATIVE -->
+    <div class="hook-block hook-amber">
+      <div class="hb-title">Provocative Questions (urgency without accusation)</div>
+      <div class="hook"><span class="num">01</span> "If Tesco asked you tomorrow to walk them through your generational plan, what would you actually show them?"</div>
+      <div class="hook"><span class="num">02</span> "Who in this business, if they left in the next 18 months, would give you a real problem? How many of those names are there?"</div>
+      <div class="hook"><span class="num">03</span> "When you and John talk about the next five years, are you talking about the same business? Or do you have slightly different pictures in your heads about who owns it, who runs it, and where the family sits?"</div>
+      <div class="hook"><span class="num">04</span> "How much of what makes TH Clements work sits in people's heads rather than in a system, a document, or a second person who could do it?"</div>
+      <div class="hook"><span class="num">05</span> "If we designed the next 12 months well, what would your NAM at Tesco see that they don't see today?"</div>
+    </div>
+
+    <!-- PATTERN RECOGNITION -->
+    <div class="hook-block hook-blue">
+      <div class="hb-title">Pattern Recognition (the "he gets us" moments)</div>
+      <div class="hook"><span class="num">01</span> "The pattern I see in businesses like this is that ownership and executive control blur across the family, and no one has drawn the line explicitly. Not because it is hidden, but because there has never been a reason to draw it. The retailer pressure is usually the reason."</div>
+      <div class="hook"><span class="num">02</span> "In every family agri-business I've worked with, the founder generation carries eight to twelve years of institutional knowledge that has never been written down. When they step back, that knowledge is what moves the value of the business up or down, and it is what determines whether a Tesco partnership survives the handover."</div>
+      <div class="hook"><span class="num">03</span> "The businesses that navigate this well do three things: they name successors early, they let them do real work in front of the customer inside 18 months, and they build a governance structure that separates ownership decisions from operating decisions. The ones that don't are sold, absorbed, or restructured on someone else's terms."</div>
+      <div class="hook"><span class="num">04</span> "There is almost always a middle layer, five to eight people, who could carry more and aren't being asked to. Retailers see that gap before the business sees it, because retailers are talking to the same three people every quarter."</div>
+      <div class="hook"><span class="num">05</span> "The commercial director sitting in a conversation like this is usually the tell. It means the business has already decided this isn't an HR project. They just haven't quite said it out loud yet."</div>
+    </div>
+  </div>
+
+  <!-- 6. PRODUCT SHAPES -->
+  <div class="section">
+    <div class="section-title"><span class="num">6</span> Product Shapes to Hold</div>
+    <div class="product-card">
+      <div class="p-name">Difficult Conversations OR Collaboration Tools</div>
+      <div class="p-price">£10,000 (packaged, 1-day)</div>
+      <div class="p-desc">If pain is specific and contained: retail conversations, cross-function friction. Unlikely fit here given the Tesco context.</div>
+    </div>
+    <div class="product-card">
+      <div class="p-name">Bespoke Accelerated Alignment</div>
+      <div class="p-price">~£20,000-£25,000 over ~6 months</div>
+      <div class="p-desc">Senior team moving through change: succession, growth, restructure. Organic Herd pattern. This is the shape that fits.</div>
+    </div>
+    <div class="cj-rec">
+      <span class="cj-tag">CJ Recommendation</span>
+      <p>Point toward the Accelerated Alignment shape. The Tesco disclosure gives it urgency and an external clock. Optional add-on: 1-1 advisory for Andrew personally through the transition, ~£3-5k. Don't quote a full programme without seeing the population first.</p>
+    </div>
+  </div>
+
+  <!-- 7. FOUR QUESTIONS -->
+  <div class="section">
+    <div class="section-title"><span class="num">7</span> Four Questions That Scope AND Discover</div>
+    <div class="num-list">
+      <div class="num-item" data-num="1">
+        What does "leadership development" actually mean for you right now?
+        <span class="q-tag">trigger + population</span>
+      </div>
+      <div class="num-item" data-num="2">
+        Who's in scope: leadership team, next-tier, high-potentials?
+        <span class="q-tag">size + spend shape</span>
+      </div>
+      <div class="num-item" data-num="3">
+        What have you tried before, what stuck?
+        <span class="q-tag">prior spend + tolerance for external</span>
+      </div>
+      <div class="num-item" data-num="4">
+        If it worked, what's different in six months?
+        <span class="q-tag">success measure + urgency</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. IF ASKED FOR A NUMBER -->
+  <div class="section">
+    <div class="section-title"><span class="num">8</span> If Asked For a Number</div>
+    <div class="money-card">
+      <div class="money-row">
+        <span class="k">MP channel client bill (per day)</span>
+        <span class="v">£1,450</span>
+      </div>
+      <div class="money-row">
+        <span class="k">Sean nets (per day)</span>
+        <span class="v">£1,075</span>
+      </div>
+      <div class="money-row">
+        <span class="k">Products anchor (Difficult Conversations / Collab Tools)</span>
+        <span class="v">£10,000</span>
+      </div>
+      <div class="money-row">
+        <span class="k">Bespoke Accelerated Alignment (Organic Herd shape)</span>
+        <span class="v">~£20-25k</span>
+      </div>
+      <div class="money-row">
+        <span class="k">Optional 1-1 advisory add-on (Andrew)</span>
+        <span class="v">~£3-5k</span>
+      </div>
+      <div class="say-block">
+        <div class="say-do">
+          <span class="st">Say</span>
+          "The shape of this is usually £20-25k for the core piece over about six months, with an optional advisory element on top. Happy to come back with a proper scope note once we've mapped the territory."
+        </div>
+        <div class="say-dont">
+          <span class="st">Don't</span>
+          Quote a full programme without seeing the population and the ownership picture first. Don't wrap the number. Don't apologise for it.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. THREE POSSIBLE CLOSES -->
+  <div class="section">
+    <div class="section-title"><span class="num">9</span> Three Possible Closes</div>
+    <div class="num-list">
+      <div class="num-item" data-num="1">
+        <strong>Warm and clear.</strong> Agree the shape verbally, one-page scope note by end of week.
+      </div>
+      <div class="num-item" data-num="2">
+        <strong>Needs internal alignment.</strong> Name the open variables, propose a follow-up with whoever else signs off (family? board? MD?).
+      </div>
+      <div class="num-item" data-num="3">
+        <strong>Not ready.</strong> Agree what would need to be true, park with a short note to Andrew, door on the latch.
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. WATCH-FORS -->
+  <div class="section">
+    <div class="section-title"><span class="num">10</span> Watch-Fors</div>
+    <div class="watchfor">
+      <div class="w-title">Kayle lesson: don't reach for frameworks</div>
+      <p>Convert "leadership development" into two or three recent moments where better leadership would have changed the outcome, BEFORE offering any MC tool. Teach less, leave with more to sell.</p>
+    </div>
+    <div class="watchfor">
+      <div class="w-title">Do NOT name Tesco unless they name Tesco first</div>
+      <p>Andrew told Sean in confidence. If Sean names them first, Andrew's position in the room collapses. Wait for them to open the door, then walk through.</p>
+    </div>
+    <div class="watchfor">
+      <div class="w-title">Don't turn this into a leadership training pitch</div>
+      <p>The temptation is to translate "generational renewal" into "we run a great leadership programme." The moment Sean does that, he loses the room.</p>
+    </div>
+  </div>
+
+  <!-- 11. POST-MEETING -->
+  <div class="section">
+    <div class="section-title"><span class="num">11</span> Post-Meeting Move</div>
+    <div class="action-card">
+      <span class="a-tag">Within 24 hours</span>
+      <p>MP top-team stakeholder note to Andrew F, Rich, Guy. One paragraph: what surfaced, what shape it takes, what's next. Same rhythm as the June "FINALLY" note. Sean's standing pattern, expected not commissioned.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Prepared by CJ (BD Specialist) + Sam (Content &amp; Comms)</span><br>
+    Living Studio | 15 July 2026 | Built for iPhone drive-down reading<br>
+    Sources: Prep Card (Sam) + External Research &amp; Hooks (CJ) + CJ Intelligence pipeline entry
+  </div>
+
+</div>
+</body>
+</html>

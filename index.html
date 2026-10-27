@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Living Studio Reports</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #f4f1ec;
+    color: #1a1a1a;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    background: #2c1f3e;
+    color: white;
+    padding: 40px 28px 32px;
+    text-align: center;
+  }
+  .header .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #a89fc0;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .header .sub {
+    font-size: 13px;
+    color: #c5bcd8;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  .group {
+    margin-bottom: 32px;
+  }
+  .group-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7c6d91;
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+
+  .report-link {
+    display: block;
+    background: white;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .report-link:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+  }
+  .report-link:active {
+    transform: translateY(0);
+  }
+  .report-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c1f3e;
+    margin-bottom: 3px;
+  }
+  .report-desc {
+    font-size: 13px;
+    color: #7c6d91;
+    line-height: 1.45;
+  }
+  .report-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-top: 6px;
+  }
+  .tag-studio    { background: #e8f5ee; color: #2e7d5a; }
+  .tag-research  { background: #eee8f5; color: #6b4d99; }
+  .tag-commercial{ background: #fdf8f2; color: #d4820a; }
+  .tag-travel    { background: #e8f0f5; color: #2e5a7d; }
+  .tag-tech      { background: #e0f0e8; color: #357a52; }
+  .tag-gap       { background: #f5e8e8; color: #7d2e2e; }
+  .tag-personal  { background: #f0edf5; color: #5a4d7d; }
+  .tag-report    { background: #eee8f5; color: #6b4d99; }
+
+  .loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: #a89fc0;
+    font-size: 14px;
+  }
+  .error {
+    text-align: center;
+    padding: 40px 20px;
+    color: #7d2e2e;
+    font-size: 14px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #b0a8be;
+    border-top: 1px solid #e2ddd6;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    .header { padding: 32px 20px 24px; }
+    .header h1 { font-size: 24px; }
+    .main { padding: 24px 16px 48px; }
+    .report-link { padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">MuchClearer / Living Studio</div>
+  <h1>Reports</h1>
+  <p class="sub">Published reports and briefing documents. Tap any link to open.</p>
+</div>
+
+<div class="main" id="content">
+  <div class="loading">Loading reports...</div>
+</div>
+
+<div class="footer" id="footer">
+  Living Studio / MuchClearer
+</div>
+
+<script>
+(function() {
+  const REPO = 'sean-sankey/reports';
+  const API  = `https://api.github.com/repos/${REPO}/contents/`;
+
+  // Files to hide from the index (non-report assets)
+  const HIDDEN = new Set([
+    'index.html', 'CNAME', 'README.md', '.gitignore', '.nojekyll',
+    'SEAN.png', 'LEO.png', 'CJ.png', 'SAM.png', 'JOSH.png',
+    'DEBBIE.png', 'FITZ.png', 'MARGARET.png', 'JOEY.png',
+    'BABISH.png', 'VINICK.png', 'CHANDLER.png',
+    // GCI chart images
+    'Leadership_02_Heatmap_v2.png', 'Leadership_03_Distribution_v2.png',
+    'Leadership_04_Depth_v2.png', 'Leadership_CriticalMass_v2.png',
+    'Office_02_Heatmap_v2.png', 'Office_03_Distribution_v2.png',
+    'Office_04_Depth_v2.png', 'Office_Dominant_v2.png',
+    'Office_Ext_02_Heatmap_v2.png', 'Office_Ext_03_Distribution_v2.png',
+    'Office_Ext_04_Depth_v2.png', 'Office_Ext_CriticalMass_v2.png',
+  ]);
+
+  // Classification rules: pattern -> { group, tag, tagClass, sort }
+  // First match wins. Sort controls order within group (lower = higher).
+  const RULES = [
+    { match: /Living_Studio_Team/i,       group: 'The Studio',              tag: 'Studio',     tagClass: 'tag-studio',     sort: 0 },
+    { match: /Gap_Analysis/i,             group: 'Operations',              tag: 'Gap Analysis',tagClass: 'tag-gap',       sort: 0 },
+    { match: /Delivery_Dashboard|Delivery_Command/i, group: 'Operations',      tag: 'Delivery',   tagClass: 'tag-report',     sort: 5 },
+    { match: /Tech_/i,                    group: 'Tech',                    tag: 'Tech',       tagClass: 'tag-tech',       sort: 0 },
+    { match: /Alltech.*Research|Alltech.*Traps|Alltech.*Case/i, group: 'Alltech', tag: 'Research', tagClass: 'tag-research', sort: 0 },
+    { match: /Alltech.*Commercial|Alltech.*CJ/i, group: 'Alltech',         tag: 'Commercial', tagClass: 'tag-commercial', sort: 10 },
+    { match: /Alltech/i,                  group: 'Alltech',                 tag: 'Report',     tagClass: 'tag-report',     sort: 20 },
+    { match: /SUSE/i,                     group: 'SUSE',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /Chanel.*Keynote|Chanel.*Structures|Keynote_Structures/i, group: 'Chanel', tag: 'Research', tagClass: 'tag-research', sort: 0 },
+    { match: /Chanel|Sparks|Digital_Summit/i, group: 'Chanel',        tag: 'Report',     tagClass: 'tag-report',     sort: 10 },
+    { match: /Dublin|Amsterdam|London|Stamford|Paris|Travel|Packing/i, group: 'Travel', tag: 'Travel', tagClass: 'tag-travel', sort: 0 },
+    { match: /Disney|Family|BBBB/i,       group: 'Personal',                tag: 'Personal',   tagClass: 'tag-personal',   sort: 0 },
+    { match: /HPCA|PCN|Springwood/i,      group: 'HPCA',                    tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /MorePeople/i,               group: 'MorePeople',              tag: 'Report',     tagClass: 'tag-report',     sort: 0 },
+    { match: /Leadership_Team_Deep|Office_Team_Deep|Office_Extended_Team/i, group: 'Rijk Zwaan GCI', tag: 'GCI', tagClass: 'tag-research', sort: 0 },
+  ];
+
+  // Group display order (groups not listed here appear at the end)
+  const GROUP_ORDER = [
+    'The Studio', 'Operations', 'Chanel', 'Rijk Zwaan GCI', 'Alltech', 'SUSE', 'HPCA', 'MorePeople', 'Travel', 'Personal', 'Tech'
+  ];
+
+  function classify(filename) {
+    for (const rule of RULES) {
+      if (rule.match.test(filename)) return rule;
+    }
+    return { group: 'Other', tag: 'Report', tagClass: 'tag-report', sort: 0 };
+  }
+
+  function prettifyName(filename) {
+    return filename
+      .replace(/\.html$/i, '')
+      .replace(/_/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  async function loadReports() {
+    const container = document.getElementById('content');
+    try {
+      const resp = await fetch(API);
+      if (!resp.ok) throw new Error(`GitHub API: ${resp.status}`);
+      const files = await resp.json();
+
+      // Filter to visible HTML files only
+      const htmlFiles = files.filter(f =>
+        f.name.endsWith('.html') && !HIDDEN.has(f.name)
+      );
+
+      if (htmlFiles.length === 0) {
+        container.innerHTML = '<div class="loading">No reports published yet.</div>';
+        return;
+      }
+
+      // Group files
+      const groups = {};
+      for (const file of htmlFiles) {
+        const rule = classify(file.name);
+        if (!groups[rule.group]) groups[rule.group] = [];
+        groups[rule.group].push({
+          name: file.name,
+          title: prettifyName(file.name),
+          tag: rule.tag,
+          tagClass: rule.tagClass,
+          sort: rule.sort,
+          url: file.name
+        });
+      }
+
+      // Sort within groups
+      for (const g of Object.values(groups)) {
+        g.sort((a, b) => a.sort - b.sort || a.title.localeCompare(b.title));
+      }
+
+      // Sort groups by defined order
+      const sortedGroups = Object.keys(groups).sort((a, b) => {
+        const ia = GROUP_ORDER.indexOf(a);
+        const ib = GROUP_ORDER.indexOf(b);
+        const sa = ia === -1 ? 999 : ia;
+        const sb = ib === -1 ? 999 : ib;
+        return sa - sb;
+      });
+
+      // Render
+      let html = '';
+      for (const groupName of sortedGroups) {
+        const items = groups[groupName];
+        html += `<div class="group">`;
+        html += `<div class="group-label">${groupName}</div>`;
+        for (const item of items) {
+          html += `
+            <a class="report-link" href="${item.url}">
+              <div class="report-title">${item.title}</div>
+              <span class="report-tag ${item.tagClass}">${item.tag}</span>
+            </a>`;
+        }
+        html += `</div>`;
+      }
+
+      container.innerHTML = html;
+      document.getElementById('footer').innerHTML =
+        `Living Studio / MuchClearer &middot; ${htmlFiles.length} reports &middot; Auto-updated from GitHub`;
+
+    } catch (err) {
+      container.innerHTML = `<div class="error">Could not load reports: ${err.message}<br><small>Try refreshing, or check <a href="https://github.com/${REPO}" style="color:#6b4d99">the repo</a> directly.</small></div>`;
+    }
+  }
+
+  loadReports();
+})();
+</script>
+
+</body>
+</html>

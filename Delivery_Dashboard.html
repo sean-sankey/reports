@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delivery Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #00093B;
+    --green: #B9F9CF;
+    --violet: #5837F6;
+    --bg: #F4F6FB;
+    --ink: #1a1a2e;
+    --muted: #5a5f78;
+    --amber: #E8850C;
+    --amber-bg: #FDF2E2;
+    --green-deep: #1f7a4d;
+    --green-bg: #E6FBEF;
+    --violet-bg: #EEEBFE;
+    --red: #C92A2A;
+    --red-bg: #FDECEC;
+    --grey: #9aa0b4;
+    --grey-bg: #eef0f4;
+    --line: #dfe2ee;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 32px 20px 64px;
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+  .page-header {
+    background: var(--navy); color: #fff; border-radius: 16px;
+    padding: 26px 32px; margin-bottom: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 14px;
+  }
+  .page-header h1 { font-size: 23px; font-weight: 700; letter-spacing: -0.2px; }
+  .page-header .sub { font-size: 13.5px; color: var(--green); font-weight: 400; margin-top: 4px; }
+  .page-header .stamp {
+    font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500;
+    color: #b9c0e0; text-align: right; white-space: nowrap;
+  }
+
+  .section-heading { display: flex; align-items: center; gap: 16px; margin: 4px 0 26px; }
+  .section-heading h2 {
+    font-family: 'Poppins', sans-serif; font-size: 27px; font-weight: 800;
+    letter-spacing: 1.2px; text-transform: uppercase; color: var(--navy); line-height: 1.1;
+  }
+  .section-heading .count {
+    font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700;
+    color: var(--violet); background: var(--violet-bg); border-radius: 20px; padding: 3px 15px;
+  }
+  .section-heading .rule { flex: 1; height: 2px; background: var(--line); }
+  .section-block { margin-bottom: 76px; }
+  .section-block:last-child { margin-bottom: 24px; }
+
+  .card {
+    background: #fff; border-radius: 14px; padding: 20px 24px;
+    border-left: 5px solid var(--navy); margin-bottom: 22px;
+    display: flex; gap: 26px; align-items: flex-start;
+  }
+  .card.delivery  { border-left-color: var(--green-deep); }
+  .card.coaching  { border-left-color: var(--violet); }
+  .card.pending   { border-left-color: var(--grey); }
+  .card.priority  {
+    border-left-color: var(--amber); border-left-width: 9px;
+    padding: 24px 28px; margin-bottom: 26px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+  }
+  .card.priority .rail h3 { font-size: 19px; font-weight: 700; }
+
+  .rail { width: 230px; flex-shrink: 0; }
+  .rail h3 { font-size: 17px; font-weight: 600; color: var(--navy); line-height: 1.25; }
+  .rail .n { font-family: 'Poppins', sans-serif; font-size: 11.5px; font-weight: 500; color: var(--muted); margin-top: 5px; }
+
+  .actions { flex: 1; min-width: 0; }
+  .action {
+    display: flex; align-items: baseline; gap: 9px;
+    padding: 6px 0; border-bottom: 1px solid #f0f2f7;
+    font-size: 17.5px; line-height: 1.45;
+  }
+  .action:last-child { border-bottom: none; }
+  .action .txt { flex: 1; min-width: 0; }
+
+  .who {
+    font-family: 'Poppins', sans-serif; font-size: 9.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    background: var(--grey-bg); color: var(--muted);
+    border-radius: 5px; padding: 2px 6px; flex-shrink: 0; min-width: 40px; text-align: center;
+  }
+  .who.sean { background: #e7e9f2; color: #8b90a6; }
+
+  .due {
+    font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 600;
+    border-radius: 20px; padding: 2px 9px; white-space: nowrap; flex-shrink: 0;
+    background: var(--grey-bg); color: var(--muted);
+  }
+  .due.red   { background: var(--red-bg);   color: var(--red);   }
+  .due.amber { background: var(--amber-bg); color: var(--amber); }
+
+  .nextsess {
+    display: inline-block; font-family: 'Poppins', sans-serif; font-size: 10.5px;
+    font-weight: 600; border-radius: 20px; padding: 2px 9px; margin-top: 7px;
+    white-space: nowrap; background: var(--grey-bg); color: var(--muted);
+  }
+  .nextsess.unbooked { background: var(--red-bg); color: var(--red); }
+
+  .brk { height: 1px; background: var(--line); margin: 22px 0; }
+
+  /* Below the breaker. Deliberately low contrast: the eye belongs above the line. */
+  .action.future { font-size: 15px; }
+  .action.future .txt  { color: #b4b8c8; font-weight: 400; }
+  .action.future .who  { background: #f2f3f7; color: #c2c6d4; }
+  .action.future .due  { background: #f2f3f7; color: #c2c6d4; }
+
+  .none { font-size: 17px; color: var(--grey); font-style: italic; padding: 6px 0; }
+
+  .foot {
+    margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .card { flex-direction: column; gap: 14px; }
+    .rail { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-header">
+    <div>
+      <h1>Delivery Dashboard</h1>
+      <div class="sub">Fourteen accounts. What is open against each.</div>
+    </div>
+    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 27 October 2026, 13:48 &middot; auto</div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>Highest Importance</h2><span class="count">4</span><span class="rule"></span>
+    </div>
+
+    <div class="card priority">
+      <div class="rail"><h3>Chanel, Digital Summit</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Promote new presentations IP with Leo</span><span class="due red">Mon 26 Oct</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Send Emily at Machine and Folk the SOW that matches PO00485567</span><span class="due red">Mon 26 Oct</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Review the Chanel planning tool draft</span><span class="due red">Tue 27 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Message the Chanel CODIR for their questions and hesitations before Session 3</span><span class="due amber">Wed 28 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Chanel / Emilie: send short formal proposal / SOW (£8,750 + travel, MuchClearer direct)</span><span class="due">Thu 29 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Review the Chanel rehearsal observation sheet draft</span><span class="due">Thu 29 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Get MuchClearer set up as a Chanel supplier</span><span class="due">Fri 30 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Check the Chanel £13,000 balance invoice goes to Angelique after the Summit</span><span class="due">Fri 30 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Review the Chanel follow-up survey draft</span><span class="due">Fri 30 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Review the Chanel closing report template draft</span><span class="due">Mon 2 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Send the Chanel follow-up survey to the cohort</span><span class="due">Wed 11 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card priority">
+      <div class="rail"><h3>HPCA / West Northumberland PCN</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Send the edited board paper to Ben and Alan</span><span class="due red">Mon 26 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Build the role-mapping template</span><span class="due">Fri 30 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Cancel your 12 Nov planning invite once Hilary's check-in lands</span><span class="due">Mon 2 Nov</span></div>
+        <div class="action future"><span class="who">Leo</span><span class="txt">Email round to check status of doc</span><span class="due">Tue 3 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: HPCA: Check before-the-door owners ahead of the 12 Nov planning session</span><span class="due">Tue 10 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card priority">
+      <div class="rail"><h3>Gosforth &amp; Jesmond Health</h3></div>
+      <div class="actions">
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Chase Vicky and Sarah for the GJH paper on what the PCN does now</span><span class="due amber">Wed 28 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">GJH: Settle the 30 per cent versus 6 per cent money figure before January</span><span class="due">Sat 28 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card priority">
+      <div class="rail"><h3>Knight Frank Part 1</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - CJ: Update the Knight Frank deal files from the 23 Oct first-contact transcript</span><span class="due red">Tue 27 Oct</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>Regular</h2><span class="count">4</span><span class="rule"></span>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Rijk Zwaan follow-on</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who">Fitz</span><span class="txt">decide whether publish_to_github.py should still publish the Rijk Zwaan team analyses</span><span class="due red">Tue 27 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who">CJ</span><span class="txt">Send the Rijk Zwaan GBP 5,200 proposal to Kelly Northcroft</span><span class="due">Thu 29 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Rijk Zwaan: chase Kelly, Jayne and Shaun for project updates ahead of York</span><span class="due">Thu 29 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Rijk Zwaan: brief Shaun ahead of 13 Nov</span><span class="due">Tue 3 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Rijk Zwaan: build the 13 Nov agenda and materials</span><span class="due">Fri 6 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Alltech Talent Mapping</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who">Leo</span><span class="txt">Chase Orla on Scott coaching sign-off</span><span class="due red">Tue 27 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who">Leo</span><span class="txt">Nudge Orla on Talent Mapping next steps</span><span class="due">Mon 2 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Alltech UK Presentation Training</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - Deb: Book The Riverside Rooms, Newark for Mon 23 Nov</span><span class="due red">Mon 26 Oct</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Chase Joanne for Course #2 delegates</span><span class="due red">Mon 26 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Alltech presentations: prep the comms and materials</span><span class="due">Wed 4 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>LV Logistics</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: Draft the note to Phil, Paul and Chris (LV Newcastle) to set up a coaching day</span><span class="due red">Tue 27 Oct</span></div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Decide which unsent Knight Frank and LV drafts still go</span><span class="due red">Tue 27 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Chase Gary on the LV 2027 planning day date, if not heard</span><span class="due">Fri 30 Oct</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>Coaching Book</h2><span class="count">6</span><span class="rule"></span>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Pete Van Neste</h3><div class="nextsess">NEXT SESSION &middot; Wed 28 Oct</div></div>
+      <div class="actions">
+        <div class="none">Nothing open.</div>
+      </div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Russ Bailey</h3><div class="nextsess unbooked">NEXT SESSION &middot; NOT BOOKED</div></div>
+      <div class="actions">
+        <div class="none">Nothing open.</div>
+      </div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>James Stedman</h3><div class="nextsess">NEXT SESSION &middot; Tue 17 Nov &middot; S2</div></div>
+      <div class="actions">
+        <div class="none">Nothing open.</div>
+      </div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Nick Hobson-West</h3><div class="nextsess">NEXT SESSION &middot; Wed 18 Nov &middot; 10:30, Nick's choice of venue</div></div>
+      <div class="actions">
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: Nick Hobson-West: build the session plan for session 2 (Wed 18 Nov)</span><span class="due">Tue 10 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Prep for Nick Hobson-West session 2 (Wed 18 Nov)</span><span class="due">Wed 11 Nov</span></div>
+      </div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Ian Shakespeare</h3><div class="nextsess">NEXT SESSION &middot; Wed 25 Nov &middot; S3, Teams</div></div>
+      <div class="actions">
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: Ian Shakespeare: build the call plan for session 3 (Teams, Wed 25 Nov, 9:30)</span><span class="due">Fri 20 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Mock up "Ian's toolbox" with Leo, ready for the 16 Dec final session</span><span class="due">Fri 4 Dec</span></div>
+      </div>
+    </div>
+
+    <div class="card coaching">
+      <div class="rail"><h3>Greenyard / Steve Smith</h3><div class="nextsess">NEXT SESSION &middot; Fri 30 Oct &middot; S2, 14:30, Teams</div></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Ask Steve Smith to meet at The George, Stamford for the 11 Nov in-person session</span><span class="due red">Tue 27 Oct</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: Steve Smith: build the session plan for session 2 (Fri 30 Oct, 14:30)</span><span class="due">Thu 29 Oct</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Send Steve Smith his GCI questionnaire (after Teams call 2, ahead of 11 Nov in-person)</span><span class="due">Tue 3 Nov</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 39 open across 14 accounts.
+    Red is overdue or due today, amber is due tomorrow. Pipeline and prospect chases sit outside this view by design.
+    Built by build_delivery_dashboard.py on 2026-10-27.
+  </div>
+
+</div>
+</body>
+</html>
