@@ -136,6 +136,13 @@
     .card { flex-direction: column; gap: 14px; }
     .rail { width: 100%; }
   }
+  .sec-toggle { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .5px;
+    text-transform: uppercase; color: var(--violet); background: #fff; border: 1.5px solid var(--violet);
+    border-radius: 16px; padding: 3px 12px; cursor: pointer; }
+  .sec-toggle:hover { background: var(--violet-bg); }
+  .section-block.collapsed .card { display: none; }
+  .section-block.collapsed .section-heading { margin-bottom: 0; }
+  .section-block.collapsed { margin-bottom: 36px; }
 </style>
 </head>
 <body>
@@ -146,12 +153,12 @@
       <h1>Delivery Dashboard</h1>
       <div class="sub">Fourteen accounts. What is open against each.</div>
     </div>
-    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 11 November 2026, 08:45 &middot; auto</div>
+    <div class="stamp">MuchClearer &middot; Living Studio<br>As at 11 November 2026, 15:54 &middot; auto</div>
   </div>
 
   <div class="section-block">
     <div class="section-heading">
-      <h2>Highest Importance</h2><span class="count">4</span><span class="rule"></span>
+      <h2>Highest Importance</h2><span class="count">4</span><button class="sec-toggle" type="button" onclick="var b=this.closest('.section-block');b.classList.toggle('collapsed');this.textContent=b.classList.contains('collapsed')?'Show':'Hide';">Hide</button><span class="rule"></span>
     </div>
 
     <div class="card priority">
@@ -163,16 +170,14 @@
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Review the Chanel closing report template draft</span><span class="due amber">Thu 12 Nov</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Send each Chanel CODIR member a copy of their own survey responses</span><span class="due amber">Thu 12 Nov</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Write up and send individual feedback to each Chanel CODIR member</span><span class="due amber">Thu 12 Nov</span></div>
-        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: File general versions of the Chanel programme tools in the training library</span><span class="due">Fri 13 Nov</span></div>
       </div>
     </div>
 
     <div class="card priority">
       <div class="rail"><h3>HPCA / West Northumberland PCN</h3></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: HPCA: Check before-the-door owners ahead of the 12 Nov planning session</span><span class="due red">Tue 10 Nov</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Agree the deadline and return route for the role maps</span><span class="due red">Tue 10 Nov</span></div>
-        <div class="action"><span class="who sean">Sean</span><span class="txt">Cancel your 12 Nov planning invite once Hilary's check-in lands</span><span class="due red">Tue 10 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Acknowledge the role maps and chase Hilary, Louise and Natalie</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Run the 12 Nov sign-off from the prep page</span><span class="due amber">Thu 12 Nov</span></div>
         <div class="later">+1 more later</div>
       </div>
     </div>
@@ -193,16 +198,15 @@
         <div class="action"><span class="who sean">Sean</span><span class="txt">Push Knight Frank for more days after the 10 November session</span><span class="due red">Wed 11 Nov</span></div>
         <div class="brk"></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Call Polly one to one before the 27 Nov KF AD design session</span><span class="due amber">Thu 12 Nov</span></div>
-        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Deb: Book travel for the 27 Nov KF AD design session once Siobhan confirms the venue</span><span class="due">Fri 13 Nov</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Ask Siobhan for the directors' card-sort results and AD role wireframe</span><span class="due">Mon 16 Nov</span></div>
-        <div class="later">+2 more later</div>
+        <div class="later">+1 more later</div>
       </div>
     </div>
   </div>
 
   <div class="section-block">
     <div class="section-heading">
-      <h2>Regular</h2><span class="count">4</span><span class="rule"></span>
+      <h2>Regular</h2><span class="count">4</span><button class="sec-toggle" type="button" onclick="var b=this.closest('.section-block');b.classList.toggle('collapsed');this.textContent=b.classList.contains('collapsed')?'Show':'Hide';">Hide</button><span class="rule"></span>
     </div>
 
     <div class="card delivery">
@@ -223,38 +227,33 @@
     <div class="card delivery">
       <div class="rail"><h3>Alltech UK Presentation Training</h3></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - Deb: Book The Riverside Rooms, Newark for Mon 23 Nov</span><span class="due red">Thu 5 Nov</span></div>
+        <div class="none">Nothing open.</div>
       </div>
     </div>
 
     <div class="card delivery">
       <div class="rail"><h3>LV Logistics</h3></div>
       <div class="actions">
-        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: LV session pack to Gary: agenda slides, paper template, worked examples</span><span class="due">Mon 16 Nov</span></div>
-        <div class="later">+2 more later</div>
+        <div class="none">Nothing open.</div>
       </div>
     </div>
   </div>
 
   <div class="section-block">
     <div class="section-heading">
-      <h2>Coaching Book</h2><span class="count">6</span><span class="rule"></span>
+      <h2>Coaching Book</h2><span class="count">6</span><button class="sec-toggle" type="button" onclick="var b=this.closest('.section-block');b.classList.toggle('collapsed');this.textContent=b.classList.contains('collapsed')?'Show':'Hide';">Hide</button><span class="rule"></span>
     </div>
 
     <div class="card coaching">
       <div class="rail"><h3>Pete Van Neste</h3><div class="nextsess">NEXT SESSION &middot; Mon 16 Nov &middot; 9:00</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - Deb: Book dinner for Sean and Pete Van Neste, Tue 1 Dec, 18:30, near Covent Garden</span><span class="due red">Fri 6 Nov</span></div>
         <div class="action"><span class="who sean">Sean</span><span class="txt">Pete Van Neste 28 Oct debrief with Jordan (lessons, toolkit, feedback)</span><span class="due red">Wed 11 Nov</span></div>
-        <div class="brk"></div>
-        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Jordan and Sam: Build Pete Van Neste's slides, his game for the next 12 to 15 months (for 16 Nov)</span><span class="due amber">Thu 12 Nov</span></div>
       </div>
     </div>
 
     <div class="card coaching">
       <div class="rail"><h3>Russ Bailey</h3><div class="nextsess unbooked">NEXT SESSION &middot; NOT BOOKED</div></div>
       <div class="actions">
-        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: Russ Bailey: build the session plan for the final session</span><span class="due amber">Thu 12 Nov</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Prep for Russ Bailey final session</span><span class="due">Fri 13 Nov</span></div>
       </div>
     </div>
@@ -262,16 +261,14 @@
     <div class="card coaching">
       <div class="rail"><h3>James Stedman</h3><div class="nextsess">NEXT SESSION &middot; Tue 17 Nov &middot; S2</div></div>
       <div class="actions">
-        <div class="action"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: James Stedman: build the session plan for session 2 (Tue 17 Nov, 09:00, LV Thornaby)</span><span class="due red">Mon 9 Nov</span></div>
-        <div class="brk"></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Prep for James Stedman session 2 (Tue 17 Nov)</span><span class="due">Fri 13 Nov</span></div>
+        <div class="later">+1 more later</div>
       </div>
     </div>
 
     <div class="card coaching">
       <div class="rail"><h3>Nick Hobson-West</h3><div class="nextsess">NEXT SESSION &middot; Fri 20 Nov &middot; 15:30</div></div>
       <div class="actions">
-        <div class="action future"><span class="who sean">Sean</span><span class="txt">ADMIN - Leo: Nick Hobson-West: build the session plan for session 2 (Wed 18 Nov)</span><span class="due">Mon 16 Nov</span></div>
         <div class="action future"><span class="who sean">Sean</span><span class="txt">Prep for Nick Hobson-West session 2 (Wed 18 Nov)</span><span class="due">Mon 16 Nov</span></div>
       </div>
     </div>
@@ -280,20 +277,54 @@
       <div class="rail"><h3>Ian Shakespeare</h3><div class="nextsess">NEXT SESSION &middot; Wed 25 Nov &middot; S3, 13:30, Teams</div></div>
       <div class="actions">
         <div class="none">Nothing in the next 5 days.</div>
-        <div class="later">+3 more later</div>
+        <div class="later">+2 more later</div>
       </div>
     </div>
 
     <div class="card coaching">
       <div class="rail"><h3>Greenyard / Steve Smith</h3><div class="nextsess">NEXT SESSION &middot; Wed 11 Nov &middot; S3, 9:30, The George</div></div>
       <div class="actions">
-        <div class="none">Nothing open.</div>
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Jordan + Sean: Steve Smith: debrief session 3 (the George, 11 Nov)</span><span class="due red">Wed 11 Nov</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Send Steve his session 3 follow-up, with slots for session 4 (about 10 days in)</span><span class="due amber">Thu 12 Nov</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-heading">
+      <h2>Other Project Tasks</h2><span class="count">19</span><button class="sec-toggle" type="button" onclick="var b=this.closest('.section-block');b.classList.toggle('collapsed');this.textContent=b.classList.contains('collapsed')?'Show':'Hide';">Hide</button><span class="rule"></span>
+    </div>
+
+    <div class="card delivery">
+      <div class="rail"><h3>Not on a card yet</h3></div>
+      <div class="actions">
+        <div class="action"><span class="who sean">Sean</span><span class="txt">Build the winnable game canvas with Jordan</span><span class="due red">Wed 11 Nov</span></div>
+        <div class="brk"></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Decision Making brochure</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who">Leo</span><span class="txt">Testimonial case study on Organic Herd for Nat</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who">Sam</span><span class="txt">draft content on 'your business grows as fast as your nervous system can cope'</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Capture the stage presence coaching in the studio</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Chase Lisa Wright at Finsbury Foods (draft ready)</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Do a LinkedIn sweep for Tom's strategy candidate</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Follow up with Tara at EirGen</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">MorePeople leads and associates: work the master list with Leo</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Pick up Burgess Farms with CJ (James Barker note, and the recruitment note for Andrew)</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Plan vs skill set vs mindset vs identity in transition coaching: new thread with Jordan</span><span class="due amber">Thu 12 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Circle back to Nicole</span><span class="due">Fri 13 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Jordan + Sean: industrialise 'the nervous system is the ceiling' into the coaching toolkit</span><span class="due">Fri 13 Nov</span></div>
+        <div class="action future"><span class="who">CJ</span><span class="txt">Nudge Adam re Roythornes December touch-base if no invite by mid-Nov</span><span class="due">Sun 15 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Coaching Toolkit interviews with Jordan (a few short sessions)</span><span class="due">Mon 16 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Send Laura Lynch the IT sessions check-in</span><span class="due">Mon 16 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">warm-touch Mike Smith (East Cleveland) - autumn nudge</span><span class="due">Mon 16 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Forward the Paris Navigo receipts to the bookkeeper</span><span class="due">Tue 17 Nov</span></div>
+        <div class="action future"><span class="who sean">Sean</span><span class="txt">Decide what CJ does with Lynsey_Maxximise.md (re-engage, extend deferral, or park)</span><span class="due">Wed 18 Nov</span></div>
       </div>
     </div>
   </div>
 
   <div class="foot">
-    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 39 open across 14 accounts.
+    Actions pulled from Todoist, BUSINESS NOW, BUSINESS NEXT and Inbox. 28 open across 14 accounts.
     Red is overdue or due today, amber is due tomorrow. Pipeline and prospect chases sit outside this view by design.
     Built by build_delivery_dashboard.py on 2026-11-11.
   </div>
