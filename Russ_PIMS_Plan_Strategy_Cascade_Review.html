@@ -5,22 +5,22 @@
 <style>
 :root{--navy:#00093B;--violet:#5837F6;--mint:#B9F9CF;--bg:#F7F8FC;--card:#fff;--muted:#4A4A6A;--line:#E2E4F0;
 --red:#E53935;--redbg:#FFF0F0;--amb:#F9A825;--ambbg:#FFF8E1;--grn:#43A047;--grnbg:#E8F5E9}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Jost,Arial,sans-serif;color:var(--navy);font-size:18px;line-height:1.65}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Jost,Arial,sans-serif;color:var(--navy);font-size:18px;line-height:1.8}
 b,strong{font-weight:700}
 .hero p{font-size:19px}
 h1,h2,h3,.lab{font-family:Poppins,Arial,sans-serif}
 .wrap{max-width:1080px;margin:0 auto;padding:32px 24px 60px}
 .tag{background:var(--navy);color:#fff;font-family:Poppins;font-size:12px;letter-spacing:.06em;padding:8px 14px;border-radius:8px;display:inline-block}
 h1{font-size:32px;margin:14px 0 4px}.sub{color:var(--muted);margin:0 0 26px;font-size:15px}
-.hero{display:grid;grid-template-columns:260px 1fr;gap:20px;margin-bottom:24px}.ophero .card{padding:16px 20px}.ophero p{font-size:17px!important}.lens{font-family:Poppins;font-weight:700;font-size:11px;letter-spacing:.08em;color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.hero{display:grid;grid-template-columns:260px 1fr;gap:28px;margin-bottom:56px}.ophero .card{padding:16px 20px}.ophero p{font-size:17px!important}.lens{font-family:Poppins;font-weight:700;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}
 .ring{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .verdict{font-family:Poppins;font-weight:600;font-size:20px;margin:8px 0 2px}.small{font-size:15px;color:var(--muted)}
 .keyline{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:8px}
 .dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
-.sec{margin:72px 0 18px}.sec h2{font-size:22px;margin:0}.sec p{margin:4px 0 0;color:var(--muted)}
-.tier{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-left:8px solid var(--c);border-radius:12px;padding:14px 18px;margin:10px auto;cursor:pointer;transition:.15s}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:80px}
+.sec{margin:120px 0 28px}.sec h2{font-size:22px;margin:0}.sec p{margin:4px 0 0;color:var(--muted)}
+.tier{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-left:8px solid var(--c);border-radius:12px;padding:18px 22px;margin:18px auto;cursor:pointer;transition:.15s}
 .tier:hover{box-shadow:0 4px 16px rgba(0,9,59,.08)}.tier.open{background:var(--cbg)}
 .tier .nm{font-family:Poppins;font-weight:600;font-size:17px;flex:0 0 200px}.tier .q{flex:1;color:var(--muted);font-size:16px}
 .bar{flex:0 0 180px;height:10px;background:#EEF0F7;border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--c)}
@@ -30,7 +30,7 @@ h1{font-size:32px;margin:14px 0 4px}.sub{color:var(--muted);margin:0 0 26px;font
 .dgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .box{border-radius:10px;padding:12px 14px;font-size:16px;border-left:5px solid var(--bc);background:var(--bb)}
 .box .lab{font-size:12px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;font-weight:600}
-.box ol{margin:0;padding-left:20px}.box li{margin-bottom:6px}
+.box ol{margin:0;padding-left:20px}.box li{margin-bottom:12px}
 .ask{margin-top:12px;background:var(--navy);color:#fff;border-radius:10px;padding:12px 16px;font-size:15px}.ask b{color:var(--mint);font-family:Poppins;font-weight:600}
 .lvc{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.zeros{display:grid;grid-template-columns:1fr 1fr;gap:14px}.big .n{font-size:64px!important;color:#E53935}.big{display:flex;flex-direction:column;justify-content:center}.big .t{font-size:16px!important;color:var(--navy)!important;font-weight:600}
 .cnt{text-align:left;padding:10px 12px}.cnt .n{font-family:Poppins;font-weight:700;font-size:22px}.cnt .t{font-size:13px;color:var(--muted);line-height:1.3}.big{text-align:center}
@@ -48,7 +48,7 @@ table.map th{font-family:Poppins;font-weight:600;font-size:12px;background:#F2F3
 .pill{display:inline-block;font-family:Poppins;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;margin-left:8px;vertical-align:2px}
 .flag{border-left:5px solid var(--amb);background:var(--ambbg);border-radius:8px;padding:10px 14px;font-size:14px;margin-top:12px}
 .conf{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.brow{display:grid;grid-template-columns:200px 1fr 70px 110px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer}
+.brow{display:grid;grid-template-columns:200px 1fr 70px 110px;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer}
 .brow .track{height:14px;background:#EEF0F7;border-radius:7px;overflow:hidden}.brow .track i{display:block;height:100%}
 .brow .why{grid-column:1/-1;display:none;color:var(--muted);font-size:14px;padding:4px 0 2px}.brow.open .why{display:block}
 .cpill{font-family:Poppins;font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;text-align:center}
@@ -57,7 +57,7 @@ table.map th{font-family:Poppins;font-weight:600;font-size:12px;background:#F2F3
 .yc .n{font-family:Poppins;font-weight:700;font-size:24px}.yc .p{font-family:Poppins;font-weight:600;font-size:13px;margin-top:4px}
 .brochure{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .bp{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px}.bp .n{font-family:Poppins;font-weight:700;color:var(--violet);font-size:13px}
-.next{background:var(--navy);color:#fff;padding:30px 0 70px;margin-top:80px}
+.next{background:var(--navy);color:#fff;padding:60px 0 90px;margin-top:130px}
 .next .sec h2{color:#fff}.next .sec p{color:#C9CCE8}.next .small{color:#C9CCE8}
 .band{display:inline-block;background:var(--mint);color:var(--navy);font-family:Poppins;font-weight:700;font-size:13px;letter-spacing:.08em;padding:8px 14px;border-radius:8px;margin-top:20px}
 .next .card,.next .step,.next .bp{color:var(--navy)}
@@ -73,12 +73,12 @@ table.map th{font-family:Poppins;font-weight:600;font-size:12px;background:#F2F3
 <div class="hero ophero">
   <div class="card ring"><div class="lens">AS AN OPERATIONAL PLAN</div>
     <svg width="130" height="130" viewBox="0 0 180 180" id="ring2"></svg>
-    <div class="verdict" style="font-size:17px">A solid operational plan</div>
+    <div class="verdict" style="font-size:17px">A solid, operational-style growth plan</div>
   </div>
   <div class="card">
     <h2 style="font-size:19px;margin:0 0 8px">3 headlines</h2>
-    <p style="margin:0 0 8px"><b>Clear, classic pillars.</b> Protect, Grow, Cross-sell, Productise and Profit give the plan a familiar, credible spine.</p>
-    <p style="margin:0 0 8px"><b>Numbers that hang together.</b> An honest baseline, a Year 1 income bridge that adds up, and margins that build year on year.</p>
+    <p style="margin:0 0 16px"><b>Clear, classic pillars.</b> Protect, Grow, Cross-sell, Productise and Profit give the plan a familiar, credible spine.</p>
+    <p style="margin:0 0 16px"><b>Numbers that hang together.</b> An honest baseline, a Year 1 income bridge that adds up, and margins that build year on year.</p>
     <p style="margin:0"><b>Strong control mechanisms.</b> Guardrails on recruitment, pricing and debt show a board that growth won't run ahead of income.</p>
   </div>
 </div>
@@ -90,8 +90,8 @@ table.map th{font-family:Poppins;font-weight:600;font-size:12px;background:#F2F3
   </div>
   <div class="card">
     <h2 style="font-size:19px;margin:0 0 8px">3 headlines</h2>
-    <p style="margin:0 0 10px"><b>Strong on control and delivery.</b> The financial guardrails and operating detail are credible and close to board-ready. This plays to Russ's strengths as an Implementer.</p>
-    <p style="margin:0 0 10px"><b>Thin where strategy is hardest.</b> The plan never says why a client picks PIMS over the alternatives, and it never says what PIMS won't do. 40 listed items, no stated choices not to play.</p>
+    <p style="margin:0 0 16px"><b>Strong on control and delivery.</b> The financial guardrails and operating detail are credible and close to board-ready. This plays to Russ's strengths as an Implementer.</p>
+    <p style="margin:0 0 16px"><b>Thin where strategy is hardest.</b> The plan never says why a client picks PIMS over the alternatives, and it never says what PIMS won't do. 40 listed items, no stated choices not to play.</p>
     <p style="margin:0"><b>The fix is choosing, not more writing.</b> The five cascade boxes on one page at the front, in Russ's own words, then one consistent shape all the way through the Word document.</p>
     <div class="keyline"><span><i class="dot" style="background:var(--grn)"></i>7 to 10: strong</span><span><i class="dot" style="background:var(--amb)"></i>5 to 6: there, needs sharpening</span><span><i class="dot" style="background:var(--red)"></i>below 5: missing or weak</span></div>
   </div>
